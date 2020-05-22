@@ -90,8 +90,7 @@
 	"uniqueId": "0q5jywda9ru",
 	"objectTypes": {
 		"items": [
-			"DebugNode",
-			"Tilemap"
+			"DebugNode"
 		],
 		"subfolders": [
 			{
@@ -176,7 +175,8 @@
 			},
 			{
 				"items": [
-					"Collisions"
+					"Collisions",
+					"Tilemap"
 				],
 				"subfolders": [],
 				"name": "Mapping"
