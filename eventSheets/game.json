@@ -1,0 +1,493 @@
+{
+	"name": "Game",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Global"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Player"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Enemies"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Debug",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Restart"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 696147852986058,
+							"parameters": {
+								"key": 82
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 445614231042696
+						}
+					],
+					"sid": 194677168754001
+				},
+				{
+					"eventType": "comment",
+					"text": "Hide debug"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 856292474329607,
+							"parameters": {
+								"key": 68
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "TXTcursorangle",
+							"sid": 665221706787495,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "TXTcursordistance",
+							"sid": 570468338260665,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "TXTerrors",
+							"sid": 766929293465790,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "TXTstatictext",
+							"sid": 735899134178250,
+							"disabled": true,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "TXTmovetiledata",
+							"sid": 480079646717633,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "TXTturn",
+							"sid": 406608868717409,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "TXTenemydata",
+							"sid": 978828511245653,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "TXTtouchmode",
+							"sid": 109988530301925,
+							"parameters": {
+								"visibility": "toggle"
+							}
+						}
+					],
+					"sid": 100321147823152
+				},
+				{
+					"eventType": "comment",
+					"text": "Set debug texts"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 594760575698975
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TXTcursorangle",
+							"sid": 462313237313709,
+							"parameters": {
+								"text": "\"Touch \" & Functions.GetTouchAngle & \"°\""
+							}
+						},
+						{
+							"callFunction": "DisplayEnemyData",
+							"sid": 196788944705919
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TXTtouchmode",
+							"sid": 794147050563371,
+							"parameters": {
+								"text": "\"Touch: \" & TouchMode"
+							}
+						}
+					],
+					"sid": 127651907757618,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "Cursor",
+									"sid": 643639656142271
+								}
+							],
+							"actions": [
+								{
+									"id": "set-angle",
+									"objectClass": "LOS",
+									"sid": 536419113096030,
+									"parameters": {
+										"angle": "Functions.CursorDistance"
+									}
+								}
+							],
+							"sid": 108584810051491
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Display Enemy Pathfinding"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-path-found",
+							"objectClass": "EnemyBases",
+							"sid": 431508938415016,
+							"behaviorType": "Pathfinding"
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 254143657225738,
+							"parameters": {
+								"object-to-create": "DebugNode",
+								"layer": "\"Layer 0\"",
+								"x": "EnemyBases.ImagePointX(\"center\")",
+								"y": "EnemyBases.ImagePointY(\"center\")"
+							}
+						},
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "DebugNode",
+							"sid": 105684538407763,
+							"parameters": {
+								"x": "EnemyBases.Pathfinding.NodeXAt(0)",
+								"y": "EnemyBases.Pathfinding.NodeYAt(0)"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 515944003683182,
+							"parameters": {
+								"object-to-create": "TempDmgPing",
+								"layer": "\"Layer 0\"",
+								"x": "EnemyBases.Pathfinding.NodeXAt(EnemyBases.Pathfinding.NodeCount-1)",
+								"y": "EnemyBases.Pathfinding.NodeYAt(EnemyBases.Pathfinding.NodeCount-1)"
+							}
+						}
+					],
+					"sid": 603081347208681,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Copied from pathfinding example"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 922370094675685,
+									"parameters": {
+										"count": "EnemyBases.Pathfinding.NodeCount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 646076410883568,
+									"parameters": {
+										"object-to-create": "DebugNode",
+										"layer": "\"Layer 0\"",
+										"x": "EnemyBases.Pathfinding.NodeXAt(loopindex)",
+										"y": "EnemyBases.Pathfinding.NodeYAt(loopindex)"
+									}
+								}
+							],
+							"sid": 205377240789429,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "comment",
+									"text": "If it's the last node, change the animation frame to show it's the end."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 849015324665642,
+											"parameters": {
+												"first-value": "LoopIndex",
+												"comparison": 0,
+												"second-value": "EnemyBases.Pathfinding.NodeCount - 1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "DebugNode",
+											"sid": 213463935447815,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 894223255665176,
+									"disabled": true
+								},
+								{
+									"eventType": "comment",
+									"text": "Otherwise point it to the next node."
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 517606471002114
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle-toward-position",
+											"objectClass": "DebugNode",
+											"sid": 372296019979368,
+											"parameters": {
+												"x": "EnemyBases.Pathfinding.NodeXAt(loopindex + 1)",
+												"y": "EnemyBases.Pathfinding.NodeYAt(loopindex + 1)"
+											}
+										}
+									],
+									"sid": 119198425461970,
+									"disabled": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-failed-to-find-path",
+							"objectClass": "EnemyBases",
+							"sid": 314116571894195,
+							"behaviorType": "Pathfinding"
+						}
+					],
+					"actions": [
+						{
+							"id": "flash",
+							"objectClass": "EnemyMasks",
+							"sid": 166035770879381,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "0.5"
+							}
+						}
+					],
+					"sid": 453439982652054,
+					"disabled": true
+				}
+			],
+			"sid": 623352340288189
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Z sorting",
+			"description": "Display sprites on top of each other in the correct order",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Set each Mask to the top of the layer in order from top to bottom"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 216835531268038,
+							"parameters": {
+								"object": "Z_Sorting",
+								"expression": "Z_Sorting.Y",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-top",
+							"objectClass": "Z_Sorting",
+							"sid": 407848615444634
+						}
+					],
+					"sid": 123625758998573
+				},
+				{
+					"eventType": "comment",
+					"text": "Set effects on top in order or importance"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 973498288226950
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-top",
+							"objectClass": "Skill_Shield",
+							"sid": 401177825107926
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "e_GhostProjectile",
+							"sid": 578817183409150
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "Skill_Fireball",
+							"sid": 214096257154864
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "TempDmgPing",
+							"sid": 840861202251850
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "indicator",
+							"sid": 587773550877244
+						}
+					],
+					"sid": 472842404615061
+				}
+			],
+			"sid": 312518732381835
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Effects",
+			"description": "General events relating to events, namely destroying once finished",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-animation-finished",
+							"objectClass": "indicator",
+							"sid": 702056503877151
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "indicator",
+							"sid": 323704215530761
+						}
+					],
+					"sid": 288981179617459
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-animation-finished",
+							"objectClass": "TempDmgPing",
+							"sid": 382142800736256
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "TempDmgPing",
+							"sid": 560854244863781
+						}
+					],
+					"sid": 463118528120549
+				}
+			],
+			"sid": 662979051192152
+		}
+	],
+	"sid": 301707553409410
+}

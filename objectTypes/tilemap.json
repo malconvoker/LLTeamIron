@@ -1,0 +1,21 @@
+{
+	"name": "Tilemap",
+	"plugin-id": "Tilemap",
+	"sid": 165937028632959,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 160,
+		"height": 180,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "C:\\Users\\mctur\\Downloads\\dungeon_tileset_all(1).png",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 5921736,
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}

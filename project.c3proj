@@ -1,0 +1,389 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 19702,
+	"name": "LLTeamIron",
+	"runtime": "c3",
+	"useWorker": true,
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Tilemap",
+			"name": "Tilemap",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Bullet",
+			"name": "Bullet",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Flash",
+			"name": "Flash",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "LOS",
+			"name": "Line of sight",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pathfinding",
+			"name": "Pathfinding",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		}
+	],
+	"uniqueId": "0q5jywda9ru",
+	"objectTypes": {
+		"items": [
+			"DebugNode",
+			"Tilemap"
+		],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"E_GhostBase",
+							"E_GhostMask",
+							"E_GhostMoveTile",
+							"e_GhostProjectile"
+						],
+						"subfolders": [],
+						"name": "E_Ghost"
+					},
+					{
+						"items": [
+							"E_SkeletonBase",
+							"E_SkeletonMask",
+							"E_SkeletonMoveTile"
+						],
+						"subfolders": [],
+						"name": "E_Skeleton"
+					},
+					{
+						"items": [
+							"E_SlimeBase",
+							"E_SlimeMask",
+							"E_SlimeMoveTile"
+						],
+						"subfolders": [],
+						"name": "E_Slime"
+					}
+				],
+				"name": "Enemies"
+			},
+			{
+				"items": [
+					"PlayerBase",
+					"PlayerMask",
+					"PlayerMoveTile",
+					"Cursor"
+				],
+				"subfolders": [],
+				"name": "Player"
+			},
+			{
+				"items": [
+					"TXTcursorangle",
+					"TXTcursordistance",
+					"TXTenemydata",
+					"TXTstatictext",
+					"TXTmovetiledata",
+					"TXTturn",
+					"TXThp",
+					"TXTerrors",
+					"TXTtouchmode",
+					"TXTtiledistance"
+				],
+				"subfolders": [],
+				"name": "DebugText"
+			},
+			{
+				"items": [
+					"Audio",
+					"Keyboard",
+					"LOS",
+					"Touch"
+				],
+				"subfolders": [],
+				"name": "System"
+			},
+			{
+				"items": [
+					"UI_SkillButton1",
+					"UI_SkillButton2",
+					"UI_SkillButton3",
+					"UI_BG"
+				],
+				"subfolders": [],
+				"name": "UI"
+			},
+			{
+				"items": [
+					"Collisions"
+				],
+				"subfolders": [],
+				"name": "Mapping"
+			},
+			{
+				"items": [
+					"indicator",
+					"TempDmgPing"
+				],
+				"subfolders": [],
+				"name": "Generic Effects"
+			},
+			{
+				"items": [
+					"Skill_Fireball",
+					"Skill_Shield"
+				],
+				"subfolders": [],
+				"name": "Skill effects"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [
+		{
+			"members": [
+				"E_SlimeBase",
+				"E_SlimeMask",
+				"E_SlimeMoveTile"
+			],
+			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"E_SkeletonBase",
+				"E_SkeletonMask",
+				"E_SkeletonMoveTile"
+			],
+			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"E_GhostBase",
+				"E_GhostMask",
+				"E_GhostMoveTile"
+			],
+			"selectMode": "normal"
+		}
+	],
+	"families": {
+		"items": [
+			"EnemyBases",
+			"EnemyMasks",
+			"Z_Sorting",
+			"SkillButtons"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Test Level"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"Game",
+			"Global",
+			"Functions",
+			"Enemies",
+			"Player",
+			"Skills"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [
+				{
+					"name": "hit_test.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 860606271946250
+				},
+				{
+					"name": "walk_sound_test.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 401384647778760
+				}
+			],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 309292325117508
+				},
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 857897906330117
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 500630452999212
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 651066136298032
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 383689370562176
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 143564154937980
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 824616920136969
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "Luotsaamo Team Iron Game",
+		"version": "0.1.0",
+		"author": "Team Iron",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "com.luotsaamo.iron",
+		"pixelRounding": true,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-integer-scale",
+		"fullscreenQuality": "low",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "nearest",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true
+	},
+	"viewportWidth": 427,
+	"viewportHeight": 240,
+	"firstLayout": "Test Level"
+}

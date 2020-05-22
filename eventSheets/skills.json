@@ -1,0 +1,376 @@
+{
+	"name": "Skills",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 853338872350101
+				}
+			],
+			"actions": [
+				{
+					"id": "map-function-default",
+					"objectClass": "Functions",
+					"sid": 154604082820351,
+					"parameters": {
+						"name": "\"skill\"",
+						"function": "SkillMissing"
+					}
+				},
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 381657107750886,
+					"parameters": {
+						"name": "\"skill\"",
+						"string": "\"fireball\"",
+						"function": "FireballSelect"
+					}
+				},
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 383797510325347,
+					"parameters": {
+						"name": "\"skill\"",
+						"string": "\"shield\"",
+						"function": "Shield"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "SkillButtons",
+					"sid": 808439149831664,
+					"parameters": {
+						"animation": "Self.CurrentSkill",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 813242609112864
+		},
+		{
+			"eventType": "comment",
+			"text": "Fireball Skill: shoots a fireball at target enemy in LOS, dealing damage to it"
+		},
+		{
+			"functionName": "FireballSelect",
+			"functionDescription": "Ranged attack, changes cursor mode to target",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "Targeting itself is dealt with in Player event sheet, under End Touch"
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 794861518515238,
+					"parameters": {
+						"variable": "TouchMode",
+						"value": "\"skilltarget\""
+					}
+				}
+			],
+			"sid": 192838260417430
+		},
+		{
+			"functionName": "FireballUse",
+			"functionDescription": "Ranged attack, shoots the fireball",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 128950555311399,
+					"parameters": {
+						"variable": "TouchMode",
+						"value": "\"default\""
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "SkillButtons",
+					"sid": 949360237647581,
+					"parameters": {
+						"instance-variable": "Active",
+						"value": "false"
+					}
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "PlayerBase",
+					"sid": 629078363672481,
+					"parameters": {
+						"instance-variable": "mp",
+						"value": "1"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "PlayerBase",
+					"sid": 143092883825311,
+					"parameters": {
+						"object": "Skill_Fireball",
+						"layer": "0",
+						"image-point": "\"center\""
+					}
+				},
+				{
+					"id": "set-angle",
+					"objectClass": "Skill_Fireball",
+					"sid": 102690576756896,
+					"parameters": {
+						"angle": "angle(PlayerBase.X, PlayerBase.Y, Cursor.X, Cursor.Y)"
+					}
+				}
+			],
+			"sid": 755623138228108,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "EnemyBases",
+							"sid": 369789867299948,
+							"parameters": {
+								"object": "Cursor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Skill_Fireball",
+							"sid": 474104055859761,
+							"parameters": {
+								"instance-variable": "TargetUID",
+								"value": "EnemyBases.UID"
+							}
+						}
+					],
+					"sid": 416162344379008
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "EnemyBases",
+					"sid": 630966458325260,
+					"parameters": {
+						"object": "Skill_Fireball"
+					}
+				},
+				{
+					"id": "pick-by-unique-id",
+					"objectClass": "EnemyBases",
+					"sid": 912123137457978,
+					"parameters": {
+						"unique-id": "Skill_Fireball.TargetUID"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Skill_Fireball",
+					"sid": 794284841132528
+				},
+				{
+					"callFunction": "DamageEnemy",
+					"sid": 714821122680185,
+					"parameters": [
+						"Skill_Fireball.rangedDmg",
+						"EnemyBases.UID"
+					]
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 207462488952456,
+					"parameters": {
+						"audio-file": "hit_test",
+						"loop": "not-looping",
+						"volume": "-5",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"callFunction": "NextTurn",
+					"sid": 320338300851888
+				}
+			],
+			"sid": 866902425697938
+		},
+		{
+			"eventType": "comment",
+			"text": "Shield Skill: provides temp hp that decay 1/turn if not damaged"
+		},
+		{
+			"functionName": "Shield",
+			"functionDescription": "Activates Shield, provides temp hp that decay 1/turn if not damaged",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "SkillButtons",
+					"sid": 630456268969848,
+					"parameters": {
+						"instance-variable": "Active",
+						"value": "false"
+					}
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "PlayerBase",
+					"sid": 969988793850946,
+					"parameters": {
+						"instance-variable": "mp",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "PlayerBase",
+					"sid": 433991538639786,
+					"parameters": {
+						"instance-variable": "temphp",
+						"value": "5"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "PlayerBase",
+					"sid": 804885155321606,
+					"parameters": {
+						"object": "Skill_Shield",
+						"layer": "0",
+						"image-point": "\"center\""
+					}
+				},
+				{
+					"callFunction": "NextTurn",
+					"sid": 925588273857170
+				}
+			],
+			"sid": 427378830381419
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "PlayerBase",
+					"sid": 846240375958982,
+					"parameters": {
+						"instance-variable": "temphp",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Skill_Shield",
+					"sid": 541584824817151
+				}
+			],
+			"sid": 666006350273304
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 415094765301258
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Skill_Shield",
+					"sid": 181217970853899,
+					"parameters": {
+						"x": "PlayerMask.X",
+						"y": "PlayerMask.Y"
+					}
+				}
+			],
+			"sid": 928371338058299
+		},
+		{
+			"functionName": "SkillMissing",
+			"functionDescription": "Default mapped skill, for error checking",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 701572271772531
+		},
+		{
+			"functionName": "ChangeSkill",
+			"functionDescription": "Changes current skill",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Slot",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "Slot to put skill into, 0-2",
+					"sid": 182936803168275
+				},
+				{
+					"name": "newSkill",
+					"type": "string",
+					"initialValue": "",
+					"comment": "Code name for new skill to swap to",
+					"sid": 829445380719001
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "SkillButtons",
+					"sid": 828298362969263,
+					"parameters": {
+						"animation": "Self.CurrentSkill",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 930694672473764
+		}
+	],
+	"sid": 981738453536028
+}
