@@ -423,7 +423,7 @@
 						},
 						{
 							"id": "move-to-top",
-							"objectClass": "Skill_Fireball",
+							"objectClass": "Skill_ManaBlast",
 							"sid": 214096257154864
 						},
 						{
@@ -487,6 +487,28 @@
 				}
 			],
 			"sid": 662979051192152
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 591863427417910
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 478369811552712,
+					"parameters": {
+						"variable": "Turn",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 737970651318844
 		}
 	],
 	"sid": 301707553409410

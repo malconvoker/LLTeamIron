@@ -130,6 +130,15 @@
 												"instance-variable": "temphp",
 												"value": "1"
 											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Skill_Shield",
+											"sid": 396142211126176,
+											"parameters": {
+												"animation": "\"flash\"",
+												"from": "beginning"
+											}
 										}
 									],
 									"sid": 581445899409586
@@ -746,7 +755,7 @@
 														},
 														{
 															"eventType": "comment",
-															"text": "Using a skill that requires targeting, e.g. Fireball or Move"
+															"text": "Using a skill that requires targeting, e.g. EnergyBall or Move"
 														},
 														{
 															"eventType": "block",
@@ -796,11 +805,11 @@
 																				{
 																					"id": "compare-instance-variable",
 																					"objectClass": "SkillButtons",
-																					"sid": 548773933855747,
+																					"sid": 871273868663213,
 																					"parameters": {
 																						"instance-variable": "CurrentSkill",
 																						"comparison": 0,
-																						"value": "\"fireball\""
+																						"value": "\"manablast\""
 																					}
 																				}
 																			],
@@ -833,7 +842,7 @@
 																							"text": "Valid target"
 																						},
 																						{
-																							"callFunction": "FireballUse",
+																							"callFunction": "ManaBlastUse",
 																							"sid": 204942527060330
 																						}
 																					],
@@ -869,6 +878,80 @@
 																						}
 																					],
 																					"sid": 708793897542414
+																				}
+																			]
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-instance-variable",
+																					"objectClass": "SkillButtons",
+																					"sid": 467957055284858,
+																					"parameters": {
+																						"instance-variable": "CurrentSkill",
+																						"comparison": 0,
+																						"value": "\"knightleap\""
+																					}
+																				}
+																			],
+																			"actions": [],
+																			"sid": 668181384329086,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "is-overlapping-another-object",
+																							"objectClass": "Cursor",
+																							"sid": 141577313951717,
+																							"parameters": {
+																								"object": "Skill_KnightLeap"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"type": "comment",
+																							"text": "Valid target"
+																						},
+																						{
+																							"callFunction": "KnightLeapUse",
+																							"sid": 533528282157182
+																						}
+																					],
+																					"sid": 318400203240451
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "else",
+																							"objectClass": "System",
+																							"sid": 495994515283065
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "set-eventvar-value",
+																							"objectClass": "System",
+																							"sid": 678177443270304,
+																							"parameters": {
+																								"variable": "TouchMode",
+																								"value": "\"default\""
+																							}
+																						},
+																						{
+																							"id": "set-boolean-instvar",
+																							"objectClass": "SkillButtons",
+																							"sid": 733979810486422,
+																							"parameters": {
+																								"instance-variable": "Active",
+																								"value": "false"
+																							}
+																						}
+																					],
+																					"sid": 623119949672240
 																				}
 																			]
 																		}
@@ -940,8 +1023,8 @@
 															"conditions": [
 																{
 																	"id": "is-boolean-instance-variable-set",
-																	"objectClass": "UI_SkillButton1",
-																	"sid": 884854096256623,
+																	"objectClass": "UI_SkillButton",
+																	"sid": 458971415054846,
 																	"parameters": {
 																		"instance-variable": "Touched"
 																	}
@@ -950,14 +1033,14 @@
 															"actions": [
 																{
 																	"id": "toggle-boolean-instvar",
-																	"objectClass": "UI_SkillButton1",
-																	"sid": 121264679286432,
+																	"objectClass": "UI_SkillButton",
+																	"sid": 674937560079596,
 																	"parameters": {
 																		"instance-variable": "Active"
 																	}
 																}
 															],
-															"sid": 476232982175332,
+															"sid": 729680172398549,
 															"children": [
 																{
 																	"eventType": "block",
@@ -965,11 +1048,11 @@
 																		{
 																			"id": "compare-instance-variable",
 																			"objectClass": "SkillButtons",
-																			"sid": 979016523102105,
+																			"sid": 939465706976842,
 																			"parameters": {
 																				"instance-variable": "SkillSlot",
 																				"comparison": 1,
-																				"value": "1"
+																				"value": "UI_SkillButton.SkillSlot"
 																			}
 																		}
 																	],
@@ -977,22 +1060,22 @@
 																		{
 																			"id": "set-boolean-instvar",
 																			"objectClass": "SkillButtons",
-																			"sid": 707559343904837,
+																			"sid": 825752060572202,
 																			"parameters": {
 																				"instance-variable": "Active",
 																				"value": "false"
 																			}
 																		}
 																	],
-																	"sid": 128120110402215
+																	"sid": 994886118260075
 																},
 																{
 																	"eventType": "block",
 																	"conditions": [
 																		{
 																			"id": "is-boolean-instance-variable-set",
-																			"objectClass": "UI_SkillButton1",
-																			"sid": 313363070096043,
+																			"objectClass": "UI_SkillButton",
+																			"sid": 393898092041232,
 																			"parameters": {
 																				"instance-variable": "Active"
 																			}
@@ -1002,173 +1085,15 @@
 																		{
 																			"id": "call-mapped-function",
 																			"objectClass": "Functions",
-																			"sid": 221075067845195,
+																			"sid": 653364977055739,
 																			"parameters": {
 																				"name": "\"skill\"",
-																				"string": "UI_SkillButton1.CurrentSkill",
+																				"string": "UI_SkillButton.CurrentSkill",
 																				"forward-params": "0"
 																			}
 																		}
 																	],
-																	"sid": 450152776612668
-																}
-															]
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-boolean-instance-variable-set",
-																	"objectClass": "UI_SkillButton2",
-																	"sid": 892366631761075,
-																	"parameters": {
-																		"instance-variable": "Touched"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "toggle-boolean-instvar",
-																	"objectClass": "UI_SkillButton2",
-																	"sid": 961594034710777,
-																	"parameters": {
-																		"instance-variable": "Active"
-																	}
-																}
-															],
-															"sid": 901605413391083,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-instance-variable",
-																			"objectClass": "SkillButtons",
-																			"sid": 588062978821559,
-																			"parameters": {
-																				"instance-variable": "SkillSlot",
-																				"comparison": 1,
-																				"value": "2"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-boolean-instvar",
-																			"objectClass": "SkillButtons",
-																			"sid": 751811709961782,
-																			"parameters": {
-																				"instance-variable": "Active",
-																				"value": "false"
-																			}
-																		}
-																	],
-																	"sid": 368585379936132
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "is-boolean-instance-variable-set",
-																			"objectClass": "UI_SkillButton2",
-																			"sid": 652131526722837,
-																			"parameters": {
-																				"instance-variable": "Active"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "call-mapped-function",
-																			"objectClass": "Functions",
-																			"sid": 726006670047919,
-																			"parameters": {
-																				"name": "\"skill\"",
-																				"string": "UI_SkillButton2.CurrentSkill",
-																				"forward-params": "0"
-																			}
-																		}
-																	],
-																	"sid": 537384810853212
-																}
-															]
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-boolean-instance-variable-set",
-																	"objectClass": "UI_SkillButton3",
-																	"sid": 520610850114000,
-																	"parameters": {
-																		"instance-variable": "Touched"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"id": "toggle-boolean-instvar",
-																	"objectClass": "UI_SkillButton3",
-																	"sid": 553770911725256,
-																	"parameters": {
-																		"instance-variable": "Active"
-																	}
-																}
-															],
-															"sid": 541902643188883,
-															"children": [
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "compare-instance-variable",
-																			"objectClass": "SkillButtons",
-																			"sid": 621621828732820,
-																			"parameters": {
-																				"instance-variable": "SkillSlot",
-																				"comparison": 1,
-																				"value": "3"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "set-boolean-instvar",
-																			"objectClass": "SkillButtons",
-																			"sid": 295626360067243,
-																			"parameters": {
-																				"instance-variable": "Active",
-																				"value": "false"
-																			}
-																		}
-																	],
-																	"sid": 318634984577116
-																},
-																{
-																	"eventType": "block",
-																	"conditions": [
-																		{
-																			"id": "is-boolean-instance-variable-set",
-																			"objectClass": "UI_SkillButton3",
-																			"sid": 706210295170465,
-																			"parameters": {
-																				"instance-variable": "Active"
-																			}
-																		}
-																	],
-																	"actions": [
-																		{
-																			"id": "call-mapped-function",
-																			"objectClass": "Functions",
-																			"sid": 825452405951772,
-																			"parameters": {
-																				"name": "\"skill\"",
-																				"string": "UI_SkillButton3.CurrentSkill",
-																				"forward-params": "0"
-																			}
-																		}
-																	],
-																	"sid": 659515363254051
+																	"sid": 261929938184007
 																}
 															]
 														}

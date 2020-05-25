@@ -433,11 +433,21 @@
 							"id": "flash",
 							"objectClass": "Skill_Shield",
 							"sid": 911058160777078,
+							"disabled": true,
 							"behaviorType": "Flash",
 							"parameters": {
 								"on-time": "0.1",
 								"off-time": "0.1",
 								"duration": "0.5"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Skill_Shield",
+							"sid": 797578625005878,
+							"parameters": {
+								"animation": "\"flash\"",
+								"from": "beginning"
 							}
 						}
 					],

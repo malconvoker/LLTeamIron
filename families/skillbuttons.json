@@ -31,8 +31,6 @@
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"members": [
-		"UI_SkillButton1",
-		"UI_SkillButton2",
-		"UI_SkillButton3"
+		"UI_SkillButton"
 	]
 }

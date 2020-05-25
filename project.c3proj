@@ -167,9 +167,7 @@
 			},
 			{
 				"items": [
-					"UI_SkillButton1",
-					"UI_SkillButton2",
-					"UI_SkillButton3",
+					"UI_SkillButton",
 					"UI_BG"
 				],
 				"subfolders": [],
@@ -178,7 +176,8 @@
 			{
 				"items": [
 					"Collisions",
-					"Tiles_Dungeon"
+					"Tiles_Dungeon",
+					"SmallTiles_Dungeon"
 				],
 				"subfolders": [
 					{
@@ -202,8 +201,10 @@
 			},
 			{
 				"items": [
-					"Skill_Fireball",
-					"Skill_Shield"
+					"Skill_ManaBlast",
+					"Skill_Shield",
+					"Skill_ManaBlastParticle",
+					"Skill_KnightLeap"
 				],
 				"subfolders": [],
 				"name": "Skill effects"
@@ -261,7 +262,8 @@
 	"layouts": {
 		"items": [
 			"Test Level",
-			"Camp"
+			"Camp",
+			"Promo level"
 		],
 		"subfolders": []
 	},

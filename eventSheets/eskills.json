@@ -23,11 +23,11 @@
 				{
 					"id": "map-function",
 					"objectClass": "Functions",
-					"sid": 381657107750886,
+					"sid": 205598435141255,
 					"parameters": {
 						"name": "\"skill\"",
-						"string": "\"fireball\"",
-						"function": "FireballSelect"
+						"string": "\"manablast\"",
+						"function": "ManaBlastSelect"
 					}
 				},
 				{
@@ -41,269 +41,27 @@
 					}
 				},
 				{
-					"id": "set-animation",
-					"objectClass": "SkillButtons",
-					"sid": 808439149831664,
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 293642514342025,
 					"parameters": {
-						"animation": "Self.CurrentSkill",
-						"from": "beginning"
+						"name": "\"skill\"",
+						"string": "\"knightleap\"",
+						"function": "KnightLeapSelect"
 					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Skill_ManaBlast",
+					"sid": 711510501452087
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Skill_KnightLeap",
+					"sid": 458949974398410
 				}
 			],
 			"sid": 813242609112864
-		},
-		{
-			"eventType": "comment",
-			"text": "Fireball Skill: shoots a fireball at target enemy in LOS, dealing damage to it"
-		},
-		{
-			"functionName": "FireballSelect",
-			"functionDescription": "Ranged attack, changes cursor mode to target",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"type": "comment",
-					"text": "Targeting itself is dealt with in Player event sheet, under End Touch"
-				},
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 794861518515238,
-					"parameters": {
-						"variable": "TouchMode",
-						"value": "\"skilltarget\""
-					}
-				}
-			],
-			"sid": 192838260417430
-		},
-		{
-			"functionName": "FireballUse",
-			"functionDescription": "Ranged attack, shoots the fireball",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 128950555311399,
-					"parameters": {
-						"variable": "TouchMode",
-						"value": "\"default\""
-					}
-				},
-				{
-					"id": "set-boolean-instvar",
-					"objectClass": "SkillButtons",
-					"sid": 949360237647581,
-					"parameters": {
-						"instance-variable": "Active",
-						"value": "false"
-					}
-				},
-				{
-					"id": "subtract-from-instvar",
-					"objectClass": "PlayerBase",
-					"sid": 629078363672481,
-					"parameters": {
-						"instance-variable": "mp",
-						"value": "1"
-					}
-				},
-				{
-					"id": "spawn-another-object",
-					"objectClass": "PlayerBase",
-					"sid": 788089448680651,
-					"parameters": {
-						"object": "Skill_Fireball",
-						"layer": "\"Effects\"",
-						"image-point": "\"center\""
-					}
-				},
-				{
-					"id": "set-angle",
-					"objectClass": "Skill_Fireball",
-					"sid": 102690576756896,
-					"parameters": {
-						"angle": "angle(PlayerBase.X, PlayerBase.Y, Cursor.X, Cursor.Y)"
-					}
-				}
-			],
-			"sid": 755623138228108,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "EnemyBases",
-							"sid": 369789867299948,
-							"parameters": {
-								"object": "Cursor"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Skill_Fireball",
-							"sid": 474104055859761,
-							"parameters": {
-								"instance-variable": "TargetUID",
-								"value": "EnemyBases.UID"
-							}
-						}
-					],
-					"sid": 416162344379008
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "EnemyBases",
-					"sid": 630966458325260,
-					"parameters": {
-						"object": "Skill_Fireball"
-					}
-				},
-				{
-					"id": "pick-by-unique-id",
-					"objectClass": "EnemyBases",
-					"sid": 912123137457978,
-					"parameters": {
-						"unique-id": "Skill_Fireball.TargetUID"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "destroy",
-					"objectClass": "Skill_Fireball",
-					"sid": 794284841132528
-				},
-				{
-					"callFunction": "DamageEnemy",
-					"sid": 714821122680185,
-					"parameters": [
-						"Skill_Fireball.rangedDmg",
-						"EnemyBases.UID"
-					]
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 207462488952456,
-					"parameters": {
-						"audio-file": "hit_test",
-						"loop": "not-looping",
-						"volume": "-5",
-						"tag-optional": "\"\""
-					}
-				},
-				{
-					"callFunction": "NextTurn",
-					"sid": 320338300851888
-				}
-			],
-			"sid": 866902425697938
-		},
-		{
-			"eventType": "comment",
-			"text": "Shield Skill: provides temp hp that decay 1/turn if not damaged"
-		},
-		{
-			"functionName": "Shield",
-			"functionDescription": "Activates Shield, provides temp hp that decay 1/turn if not damaged",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-boolean-instvar",
-					"objectClass": "SkillButtons",
-					"sid": 630456268969848,
-					"parameters": {
-						"instance-variable": "Active",
-						"value": "false"
-					}
-				},
-				{
-					"id": "subtract-from-instvar",
-					"objectClass": "PlayerBase",
-					"sid": 969988793850946,
-					"parameters": {
-						"instance-variable": "mp",
-						"value": "1"
-					}
-				},
-				{
-					"id": "set-instvar-value",
-					"objectClass": "PlayerBase",
-					"sid": 433991538639786,
-					"parameters": {
-						"instance-variable": "temphp",
-						"value": "5"
-					}
-				},
-				{
-					"id": "destroy",
-					"objectClass": "Skill_Shield",
-					"sid": 239962976503687
-				},
-				{
-					"id": "spawn-another-object",
-					"objectClass": "PlayerBase",
-					"sid": 584044036689007,
-					"parameters": {
-						"object": "Skill_Shield",
-						"layer": "\"Effects\"",
-						"image-point": "\"center\""
-					}
-				},
-				{
-					"callFunction": "NextTurn",
-					"sid": 925588273857170
-				}
-			],
-			"sid": 427378830381419
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "compare-instance-variable",
-					"objectClass": "PlayerBase",
-					"sid": 846240375958982,
-					"parameters": {
-						"instance-variable": "temphp",
-						"comparison": 3,
-						"value": "0"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "destroy",
-					"objectClass": "Skill_Shield",
-					"sid": 541584824817151
-				}
-			],
-			"sid": 666006350273304
 		},
 		{
 			"eventType": "block",
@@ -311,21 +69,762 @@
 				{
 					"id": "every-tick",
 					"objectClass": "System",
-					"sid": 415094765301258
+					"sid": 427578830614028
 				}
 			],
 			"actions": [
 				{
-					"id": "set-position",
-					"objectClass": "Skill_Shield",
-					"sid": 181217970853899,
+					"id": "set-animation",
+					"objectClass": "SkillButtons",
+					"sid": 940964417469079,
 					"parameters": {
-						"x": "PlayerMask.X",
-						"y": "PlayerMask.Y"
+						"animation": "Self.CurrentSkill",
+						"from": "beginning"
 					}
 				}
 			],
-			"sid": 928371338058299
+			"sid": 864634958328888
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ManaBlast",
+			"description": "Shoots a projectile at target enemy in LOS, dealing damage to it",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Fireball Skill: shoots a fireball at target enemy in LOS, dealing damage to it"
+				},
+				{
+					"functionName": "ManaBlastSelect",
+					"functionDescription": "Ranged attack, changes cursor mode to target",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Targeting itself is dealt with in Player event sheet, under End Touch"
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 899466059657829,
+							"parameters": {
+								"variable": "TouchMode",
+								"value": "\"skilltarget\""
+							}
+						}
+					],
+					"sid": 230432006643872
+				},
+				{
+					"functionName": "ManaBlastUse",
+					"functionDescription": "Ranged attack, shoots the fireball",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 679532706443336,
+							"parameters": {
+								"variable": "TouchMode",
+								"value": "\"default\""
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "SkillButtons",
+							"sid": 552669318644112,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "false"
+							}
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "PlayerBase",
+							"sid": 870575506618099,
+							"parameters": {
+								"instance-variable": "mp",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "PlayerMask",
+							"sid": 784385804400819,
+							"parameters": {
+								"animation": "\"manablast\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "PlayerMask",
+							"sid": 799721219883599,
+							"parameters": {
+								"object": "Skill_ManaBlast",
+								"layer": "\"Effects\"",
+								"image-point": "\"point\""
+							}
+						}
+					],
+					"sid": 807582584101305,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "EnemyBases",
+									"sid": 186304875191753,
+									"parameters": {
+										"object": "Cursor"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Skill_ManaBlast",
+									"sid": 489442587490212,
+									"parameters": {
+										"instance-variable": "TargetUID",
+										"value": "EnemyBases.UID"
+									}
+								}
+							],
+							"sid": 957164930151969
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "Chargeup finished"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "PlayerMask",
+							"sid": 852822815449352,
+							"parameters": {
+								"animation": "\"manablast\""
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "EnemyBases",
+							"sid": 519895376528890,
+							"parameters": {
+								"unique-id": "Skill_ManaBlast.TargetUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "PlayerMask",
+							"sid": 851452180040813,
+							"parameters": {
+								"animation": "\"manablastfinish\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Skill_ManaBlast",
+							"sid": 887531761814652,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Skill_ManaBlast",
+							"sid": 524168812359701,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "Skill_ManaBlast",
+							"sid": 211680697719646,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"angle": "angle(Self.X, Self.Y,\nEnemyBases.ImagePointX(\"center\"),\nEnemyBases.ImagePointY(\"center\"))"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "PlayerMask",
+							"sid": 703287313371145,
+							"parameters": {
+								"object": "Skill_ManaBlastParticle",
+								"layer": "\"Effects\"",
+								"image-point": "\"point\""
+							}
+						}
+					],
+					"sid": 587560588555115
+				},
+				{
+					"eventType": "comment",
+					"text": "Projectile hits target"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "EnemyBases",
+							"sid": 396946737062361,
+							"parameters": {
+								"object": "Skill_ManaBlast"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "EnemyBases",
+							"sid": 951870654404905,
+							"parameters": {
+								"unique-id": "Skill_ManaBlast.TargetUID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Skill_ManaBlast",
+							"sid": 230799047566240
+						},
+						{
+							"callFunction": "DamageEnemy",
+							"sid": 427365490966459,
+							"parameters": [
+								"Skill_ManaBlast.rangedDmg",
+								"EnemyBases.UID"
+							]
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 368408408616026,
+							"parameters": {
+								"audio-file": "hit_test",
+								"loop": "not-looping",
+								"volume": "-5",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "PlayerMask",
+							"sid": 405487223567549,
+							"parameters": {
+								"animation": "\"idle\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"callFunction": "NextTurn",
+							"sid": 368845662661567
+						}
+					],
+					"sid": 559265134947352
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-animation-finished",
+							"objectClass": "Skill_ManaBlastParticle",
+							"sid": 515741252274117
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Skill_ManaBlastParticle",
+							"sid": 797712771908035
+						}
+					],
+					"sid": 719983813804375
+				}
+			],
+			"sid": 723175516349234
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Shield",
+			"description": "Provides temporary hp on top of normal hp\nShield loses 1hp each turn it doesn't take damage",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Functional code is in DamagePlayer function and at the start of Player turn in ePlayer"
+				},
+				{
+					"functionName": "Shield",
+					"functionDescription": "Activates Shield, provides temp hp that decay 1/turn if not damaged",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "SkillButtons",
+							"sid": 336068050086495,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "false"
+							}
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "PlayerBase",
+							"sid": 536318469505655,
+							"parameters": {
+								"instance-variable": "mp",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "PlayerBase",
+							"sid": 231026886611686,
+							"parameters": {
+								"instance-variable": "temphp",
+								"value": "6"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Skill_Shield",
+							"sid": 146537733155598
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "PlayerBase",
+							"sid": 883497052595598,
+							"parameters": {
+								"object": "Skill_Shield",
+								"layer": "\"Effects\"",
+								"image-point": "\"center\""
+							}
+						},
+						{
+							"callFunction": "NextTurn",
+							"sid": 288000766077825
+						}
+					],
+					"sid": 781985184476647
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Skill_Shield",
+							"sid": 635204071669441,
+							"parameters": {
+								"animation": "\"flash\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Skill_Shield",
+							"sid": 893898519087067,
+							"parameters": {
+								"animation": "\"idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 527889510268714
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PlayerBase",
+							"sid": 890855368318530,
+							"parameters": {
+								"instance-variable": "temphp",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Skill_Shield",
+							"sid": 358264469210031
+						}
+					],
+					"sid": 714298022515070
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 584748969184914
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Skill_Shield",
+							"sid": 655901029439832,
+							"parameters": {
+								"x": "PlayerMask.X",
+								"y": "PlayerMask.Y"
+							}
+						}
+					],
+					"sid": 938077105217020
+				}
+			],
+			"sid": 342181691939202
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "KnightLeap",
+			"description": "Move like a chess Knight, even through enemies and obstacles",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "KnightLeapSelect",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Targeting itself is dealt with in Player event sheet, under End Touch"
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 155640234476982,
+							"parameters": {
+								"variable": "TouchMode",
+								"value": "\"skilltarget\""
+							}
+						}
+					],
+					"sid": 946092386691306,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 499141548363580,
+									"parameters": {
+										"name": "\"LeapTiles\"",
+										"start-index": "0",
+										"end-index": "7"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "PlayerBase",
+									"sid": 659902444031731,
+									"parameters": {
+										"object": "Skill_KnightLeap",
+										"layer": "\"Effects\"",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Skill_KnightLeap",
+									"sid": 935857035394068,
+									"parameters": {
+										"frame-number": "loopindex"
+									}
+								}
+							],
+							"sid": 426347952995446,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_KnightLeap",
+											"sid": 108523254035340,
+											"parameters": {
+												"object": "Collisions"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_KnightLeap",
+											"sid": 931798701246880,
+											"parameters": {
+												"object": "EnemyBases"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Skill_KnightLeap",
+											"sid": 984639596419826
+										}
+									],
+									"sid": 648963261678981,
+									"isOrBlock": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "KnightLeapUse",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "PlayerMask",
+							"sid": 833719130338603,
+							"parameters": {
+								"animation": "\"knightleap\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Skill_KnightLeap",
+							"sid": 951298716527197,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 694981163820638,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Skill_KnightLeap",
+									"sid": 979511754514991,
+									"parameters": {
+										"object": "Cursor"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Skill_KnightLeap",
+									"sid": 983152185266769
+								}
+							],
+							"sid": 227877456422937
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 988095539173506,
+							"parameters": {
+								"variable": "TouchMode",
+								"comparison": 0,
+								"value": "\"default\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Skill_KnightLeap",
+							"sid": 411665320871017
+						}
+					],
+					"sid": 350121831123624
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "PlayerMask",
+							"sid": 264487949446420,
+							"parameters": {
+								"animation": "\"knightleap\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "PlayerMask",
+							"sid": 149165665621421,
+							"parameters": {
+								"opacity": "50+25*(abs(3-Self.AnimationFrame))"
+							}
+						}
+					],
+					"sid": 875560588479639,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "PlayerMask",
+									"sid": 322415182194711,
+									"parameters": {
+										"comparison": 0,
+										"number": "3"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 539475116704207
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "PlayerBase",
+									"sid": 522613734412643,
+									"parameters": {
+										"x": "Skill_KnightLeap.ImagePointX(\"position\")",
+										"y": "Skill_KnightLeap.ImagePointY(\"position\")"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "PlayerBase",
+									"sid": 127149148939905,
+									"parameters": {
+										"instance-variable": "mp",
+										"value": "1"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 375684340926898,
+									"parameters": {
+										"audio-file": "walk_sound_test",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 558921720013144
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "PlayerMask",
+							"sid": 822005657025685,
+							"parameters": {
+								"animation": "\"knightleap\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "PlayerMask",
+							"sid": 879130947542657,
+							"parameters": {
+								"animation": "\"idle\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "SkillButtons",
+							"sid": 136841196272694,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 752666489140172,
+							"parameters": {
+								"variable": "TouchMode",
+								"value": "\"default\""
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Cursor",
+							"sid": 153147797124177,
+							"parameters": {
+								"x": "-100",
+								"y": "-100"
+							}
+						},
+						{
+							"callFunction": "NextTurn",
+							"sid": 144442783559312
+						}
+					],
+					"sid": 258357901009846
+				}
+			],
+			"sid": 430727564660008
 		},
 		{
 			"functionName": "SkillMissing",
@@ -336,7 +835,16 @@
 			"functionParameters": [],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [],
+			"actions": [
+				{
+					"id": "append-text",
+					"objectClass": "TXTerrors",
+					"sid": 115498143345347,
+					"parameters": {
+						"text": "\" sk\""
+					}
+				}
+			],
 			"sid": 701572271772531
 		},
 		{
