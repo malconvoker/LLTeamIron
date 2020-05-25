@@ -1,0 +1,57 @@
+{
+	"name": "Camp_Tent",
+	"plugin-id": "Sprite",
+	"sid": 712736732663314,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 60,
+						"height": 60,
+						"originX": 0,
+						"originY": 0.3333333333333333,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\tent.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5685867,
+						"collisionPoly": {
+							"points": [
+								0.25,
+								0.25,
+								0.5,
+								0,
+								0.7333333333333333,
+								0.25,
+								0.9833333333333333,
+								0.5,
+								0.95,
+								0.95,
+								0.5,
+								0.9166666666666666,
+								0.03333333333333333,
+								0.95,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 990623732865629,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,5 +1,5 @@
 {
-	"name": "Functions",
+	"name": "eFunctions",
 	"events": [
 		{
 			"eventType": "comment",
@@ -394,10 +394,10 @@
 				{
 					"id": "spawn-another-object",
 					"objectClass": "PlayerBase",
-					"sid": 170697061297608,
+					"sid": 996832110405611,
 					"parameters": {
 						"object": "TempDmgPing",
-						"layer": "0",
+						"layer": "\"Effects\"",
 						"image-point": "\"center\""
 					}
 				}
@@ -1045,10 +1045,10 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "EnemyBases",
-											"sid": 605204295235934,
+											"sid": 502827870443846,
 											"parameters": {
 												"object": "TXTenemydata",
-												"layer": "0",
+												"layer": "\"UI\"",
 												"image-point": "0"
 											}
 										},

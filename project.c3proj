@@ -90,7 +90,8 @@
 	"uniqueId": "0q5jywda9ru",
 	"objectTypes": {
 		"items": [
-			"DebugNode"
+			"MerchantMask",
+			"MerchantBase"
 		],
 		"subfolders": [
 			{
@@ -158,7 +159,8 @@
 					"Audio",
 					"Keyboard",
 					"LOS",
-					"Touch"
+					"Touch",
+					"DebugNode"
 				],
 				"subfolders": [],
 				"name": "System"
@@ -176,9 +178,18 @@
 			{
 				"items": [
 					"Collisions",
-					"Tilemap"
+					"Tiles_Dungeon"
 				],
-				"subfolders": [],
+				"subfolders": [
+					{
+						"items": [
+							"Camp_Tent",
+							"Tiles_Camp"
+						],
+						"subfolders": [],
+						"name": "Camp"
+					}
+				],
 				"name": "Mapping"
 			},
 			{
@@ -196,6 +207,11 @@
 				],
 				"subfolders": [],
 				"name": "Skill effects"
+			},
+			{
+				"items": [],
+				"subfolders": [],
+				"name": "NPCs"
 			}
 		]
 	},
@@ -224,6 +240,13 @@
 				"E_GhostMoveTile"
 			],
 			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"MerchantBase",
+				"MerchantMask"
+			],
+			"selectMode": "normal"
 		}
 	],
 	"families": {
@@ -237,18 +260,20 @@
 	},
 	"layouts": {
 		"items": [
-			"Test Level"
+			"Test Level",
+			"Camp"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Game",
-			"Global",
-			"Functions",
-			"Enemies",
-			"Player",
-			"Skills"
+			"eGame",
+			"eGlobal",
+			"eFunctions",
+			"eEnemies",
+			"ePlayer",
+			"eSkills",
+			"eCamp"
 		],
 		"subfolders": []
 	},
@@ -347,8 +372,8 @@
 		"appId": "com.luotsaamo.iron",
 		"pixelRounding": true,
 		"useLoaderLayout": false,
-		"fullscreenMode": "letterbox-integer-scale",
-		"fullscreenQuality": "low",
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
 			0,

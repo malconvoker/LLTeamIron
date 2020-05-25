@@ -1,17 +1,17 @@
 {
-	"name": "Game",
+	"name": "eGame",
 	"events": [
 		{
 			"eventType": "include",
-			"includeSheet": "Global"
+			"includeSheet": "eGlobal"
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "Player"
+			"includeSheet": "ePlayer"
 		},
 		{
 			"eventType": "include",
-			"includeSheet": "Enemies"
+			"includeSheet": "eEnemies"
 		},
 		{
 			"eventType": "group",

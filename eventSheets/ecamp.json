@@ -1,0 +1,32 @@
+{
+	"name": "eCamp",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "eGame"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 625783945177645
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "MerchantMask",
+					"sid": 641529506714328,
+					"parameters": {
+						"x": "MerchantBase.ImagePointX(\"center\")",
+						"y": "MerchantBase.ImagePointY(\"center\")"
+					}
+				}
+			],
+			"sid": 531620910058521
+		}
+	],
+	"sid": 645663600278692
+}

@@ -1,5 +1,5 @@
 {
-	"name": "Skills",
+	"name": "eSkills",
 	"events": [
 		{
 			"eventType": "block",
@@ -122,10 +122,10 @@
 				{
 					"id": "spawn-another-object",
 					"objectClass": "PlayerBase",
-					"sid": 143092883825311,
+					"sid": 788089448680651,
 					"parameters": {
 						"object": "Skill_Fireball",
-						"layer": "0",
+						"layer": "\"Effects\"",
 						"image-point": "\"center\""
 					}
 				},
@@ -261,12 +261,17 @@
 					}
 				},
 				{
+					"id": "destroy",
+					"objectClass": "Skill_Shield",
+					"sid": 239962976503687
+				},
+				{
 					"id": "spawn-another-object",
 					"objectClass": "PlayerBase",
-					"sid": 804885155321606,
+					"sid": 584044036689007,
 					"parameters": {
 						"object": "Skill_Shield",
-						"layer": "0",
+						"layer": "\"Effects\"",
 						"image-point": "\"center\""
 					}
 				},

@@ -1,9 +1,9 @@
 {
-	"name": "Enemies",
+	"name": "eEnemies",
 	"events": [
 		{
 			"eventType": "include",
-			"includeSheet": "Global"
+			"includeSheet": "eGlobal"
 		},
 		{
 			"eventType": "comment",
@@ -974,10 +974,10 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "E_SkeletonMask",
-													"sid": 536998696134898,
+													"sid": 948964560057068,
 													"parameters": {
 														"object": "indicator",
-														"layer": "0",
+														"layer": "\"Effects\"",
 														"image-point": "\"indicator\""
 													}
 												}
@@ -1223,10 +1223,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "E_SkeletonMask",
-															"sid": 987308125996894,
+															"sid": 189168468216385,
 															"parameters": {
 																"object": "indicator",
-																"layer": "0",
+																"layer": "\"Effects\"",
 																"image-point": "\"indicator\""
 															}
 														}
@@ -1313,10 +1313,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "E_SkeletonMask",
-															"sid": 382843210688883,
+															"sid": 959374587309530,
 															"parameters": {
 																"object": "indicator",
-																"layer": "0",
+																"layer": "\"Effects\"",
 																"image-point": "\"indicator\""
 															}
 														},
@@ -1387,10 +1387,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "E_SkeletonMask",
-															"sid": 816489216795474,
+															"sid": 575734724820263,
 															"parameters": {
 																"object": "indicator",
-																"layer": "0",
+																"layer": "\"Effects\"",
 																"image-point": "\"indicator\""
 															}
 														},
@@ -1797,10 +1797,10 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "E_SkeletonMask",
-													"sid": 822460151655632,
+													"sid": 762591906988925,
 													"parameters": {
 														"object": "indicator",
-														"layer": "0",
+														"layer": "\"Effects\"",
 														"image-point": "\"indicator\""
 													}
 												}
@@ -1846,10 +1846,10 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "E_SkeletonMask",
-													"sid": 980239211613489,
+													"sid": 225893802697997,
 													"parameters": {
 														"object": "indicator",
-														"layer": "0",
+														"layer": "\"Effects\"",
 														"image-point": "\"indicator\""
 													}
 												},
@@ -2022,10 +2022,10 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "E_GhostMask",
-													"sid": 885645778813416,
+													"sid": 988858691576328,
 													"parameters": {
 														"object": "indicator",
-														"layer": "0",
+														"layer": "\"Effects\"",
 														"image-point": "\"indicator\""
 													}
 												},
@@ -2107,10 +2107,10 @@
 												{
 													"id": "spawn-another-object",
 													"objectClass": "E_GhostMask",
-													"sid": 342862724182997,
+													"sid": 602995754137786,
 													"parameters": {
 														"object": "indicator",
-														"layer": "0",
+														"layer": "\"Effects\"",
 														"image-point": "\"indicator\""
 													}
 												},
@@ -2348,10 +2348,10 @@
 														{
 															"id": "spawn-another-object",
 															"objectClass": "E_GhostBase",
-															"sid": 329217242066656,
+															"sid": 641540763337282,
 															"parameters": {
 																"object": "e_GhostProjectile",
-																"layer": "0",
+																"layer": "\"Effects\"",
 																"image-point": "\"center\""
 															}
 														},

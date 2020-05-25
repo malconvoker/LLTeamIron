@@ -1,9 +1,9 @@
 {
-	"name": "Player",
+	"name": "ePlayer",
 	"events": [
 		{
 			"eventType": "include",
-			"includeSheet": "Skills"
+			"includeSheet": "eSkills"
 		},
 		{
 			"eventType": "block",
@@ -1273,16 +1273,6 @@
 							"id": "is-overlapping-another-object",
 							"objectClass": "Cursor",
 							"sid": 794323140329402,
-							"parameters": {
-								"object": "PlayerBase"
-							},
-							"isInverted": true
-						},
-						{
-							"id": "is-touching-object",
-							"objectClass": "Touch",
-							"sid": 262548416161256,
-							"disabled": true,
 							"parameters": {
 								"object": "PlayerBase"
 							},

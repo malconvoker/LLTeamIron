@@ -9,6 +9,7 @@
 		"E_SlimeMask",
 		"PlayerMask",
 		"E_SkeletonMask",
-		"E_GhostMask"
+		"E_GhostMask",
+		"Camp_Tent"
 	]
 }
