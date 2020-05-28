@@ -1148,6 +1148,14 @@
 							"parameters": {
 								"animation": "\"attack\""
 							}
+						},
+						{
+							"id": "on-animation-finished",
+							"objectClass": "PlayerMask",
+							"sid": 667629603062867,
+							"parameters": {
+								"animation": "\"damaged\""
+							}
 						}
 					],
 					"actions": [

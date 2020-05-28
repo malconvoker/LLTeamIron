@@ -96,16 +96,16 @@
 		},
 		{
 			"type": "behavior",
-			"id": "Flash",
-			"name": "Flash",
+			"id": "LOS",
+			"name": "Line of sight",
 			"author": "Scirra",
 			"version": "r197.2",
 			"bundled": false
 		},
 		{
 			"type": "behavior",
-			"id": "LOS",
-			"name": "Line of sight",
+			"id": "Flash",
+			"name": "Flash",
 			"author": "Scirra",
 			"version": "r197.2",
 			"bundled": false
@@ -241,7 +241,6 @@
 			{
 				"items": [
 					"indicator",
-					"TempDmgPing",
 					"hpbar"
 				],
 				"subfolders": [],
@@ -433,7 +432,7 @@
 	},
 	"properties": {
 		"description": "Luotsaamo Team Iron Game",
-		"version": "0.4.1",
+		"version": "0.4.2",
 		"author": "Team Iron",
 		"authorEmail": "",
 		"authorWebsite": "",

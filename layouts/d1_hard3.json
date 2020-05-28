@@ -411,11 +411,7 @@
 					},
 					"uid": 21,
 					"instanceVariables": {},
-					"behaviors": {
-						"Flash": {
-							"properties": {}
-						}
-					},
+					"behaviors": {},
 					"world": {
 						"x": 140,
 						"y": -40,

@@ -237,17 +237,6 @@
 								"x": "EnemyBases.Pathfinding.NodeXAt(0)",
 								"y": "EnemyBases.Pathfinding.NodeYAt(0)"
 							}
-						},
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 515944003683182,
-							"parameters": {
-								"object-to-create": "TempDmgPing",
-								"layer": "\"Layer 0\"",
-								"x": "EnemyBases.Pathfinding.NodeXAt(EnemyBases.Pathfinding.NodeCount-1)",
-								"y": "EnemyBases.Pathfinding.NodeYAt(EnemyBases.Pathfinding.NodeCount-1)"
-							}
 						}
 					],
 					"sid": 603081347208681,
@@ -441,11 +430,6 @@
 						},
 						{
 							"id": "move-to-top",
-							"objectClass": "TempDmgPing",
-							"sid": 840861202251850
-						},
-						{
-							"id": "move-to-top",
 							"objectClass": "indicator",
 							"sid": 587773550877244
 						}
@@ -479,24 +463,6 @@
 						}
 					],
 					"sid": 288981179617459
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-any-animation-finished",
-							"objectClass": "TempDmgPing",
-							"sid": 382142800736256
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "TempDmgPing",
-							"sid": 560854244863781
-						}
-					],
-					"sid": 463118528120549
 				}
 			],
 			"sid": 662979051192152

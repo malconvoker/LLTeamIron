@@ -390,16 +390,6 @@
 						"instance-variable": "DamageTaken",
 						"value": "Damage"
 					}
-				},
-				{
-					"id": "spawn-another-object",
-					"objectClass": "PlayerBase",
-					"sid": 996832110405611,
-					"parameters": {
-						"object": "TempDmgPing",
-						"layer": "\"Effects\"",
-						"image-point": "\"center\""
-					}
 				}
 			],
 			"sid": 838345261368669,
@@ -531,14 +521,12 @@
 							}
 						},
 						{
-							"id": "flash",
+							"id": "set-animation",
 							"objectClass": "PlayerMask",
-							"sid": 203351861041425,
-							"behaviorType": "Flash",
+							"sid": 727828157084100,
 							"parameters": {
-								"on-time": "0.1",
-								"off-time": "0.1",
-								"duration": "0.5"
+								"animation": "\"damaged\"",
+								"from": "beginning"
 							}
 						}
 					],
