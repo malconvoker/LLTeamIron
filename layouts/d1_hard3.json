@@ -1,5 +1,5 @@
 {
-	"name": "Promo level",
+	"name": "D1_Hard3",
 	"layers": [
 		{
 			"name": "Terrain",
@@ -25,10 +25,10 @@
 					"ownData": {
 						"tilemapData": {
 							"width": 17,
-							"height": 13,
+							"height": 14,
 							"max-width": 21,
-							"max-height": 16,
-							"data": "34,10x42,50,4x0,35,10,8x18,26,51,4x0,35,11,8x19,27,51,4x0,35,11,22,20,30,2x19,22,20,30,27,51,4x0,16,11,27,21h,11,2x19,27,21h,11,27,51,4x0,35,11,23,18,22,2x20,23,18,31,27,52,4x0,35,11,19,22,28,62,54,12,30,19,27,2x42,3x0,10,31,19,27,38,67,36,54,11,19,23,18,26,3x0,11,2x19,27,39,43,47,16,11,3x19,27,3x0,12,30,19,27,40,68,34,56,11,19,22,20,28,3x0,35,11,19,23,26,64,56,10,31,19,27,38,44,3x0,35,11,22,20,23,2x18,22,20,30,27,51,4x0,16,11,27,21h,11,2x19,27,21h,11,27,51,4x0,35,11,23,18,31,2x19,23,18,31,27,51,4x0,35,11,8x19,27,51,4x0,35,12,8x20,28,51,4x0,36,10x44,52,68x0"
+							"max-height": 17,
+							"data": "0,34,10x42,50,5x0,35,10,8x18,26,51,5x0,35,11,8x19,27,51,5x0,35,11,22,20,30,2x19,22,20,30,27,51,5x0,16,11,27,21h,11,2x19,27,21h,11,27,51,5x0,35,11,23,18,22,2x20,23,18,31,27,39,5x0,56,11,19,22,28,62,54,12,30,19,27,40,42,3x0,10,14,31,19,27,38,67,36,54,11,19,23,18,26,3x0,11,6,2x19,27,39,43,47,16,11,3x19,27,3x0,12,14h,30,19,27,40,68,34,56,11,19,22,20,28,4x0,54,11,19,23,26,64,56,10,31,19,27,38,44,4x0,35,11,22,20,23,2x18,22,20,30,27,51,5x0,16,11,27,21h,11,2x19,27,21h,11,27,51,5x0,35,11,23,18,31,2x19,23,18,31,27,51,5x0,35,11,8x19,27,51,5x0,35,12,8x20,28,51,5x0,36,10x44,52,72x0"
 						},
 						"tile-width": 20,
 						"tile-height": 20,
@@ -39,9 +39,9 @@
 					},
 					"world": {
 						"x": 0,
-						"y": 0,
+						"y": -20,
 						"width": 340,
-						"height": 260,
+						"height": 280,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -153,7 +153,7 @@
 							"height": 14,
 							"max-width": 55,
 							"max-height": 29,
-							"data": "0,12x1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,1,2x0,1,4x0,1,2x0,1,17x0,1,10x0,1,17x0,1,4x0,2x1,4x0,1,16x0,1,4x0,4x1,4x0,1,15x0,1,4x0,4x1,4x0,1,15x0,1,4x0,4x1,4x0,1,16x0,1,4x0,2x1,4x0,1,17x0,1,10x0,1,17x0,1,2x0,1,4x0,1,2x0,1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,12x1,134x0,1,983x0"
+							"data": "0,12x1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,1,2x0,1,4x0,1,2x0,1,17x0,1,10x0,1,17x0,1,4x0,2x1,4x0,1,16x0,2x1,3x0,4x1,4x0,1,15x0,2x1,3x0,4x1,4x0,1,15x0,2x1,3x0,4x1,4x0,1,16x0,1,4x0,2x1,4x0,1,17x0,1,10x0,1,17x0,1,2x0,1,4x0,1,2x0,1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,12x1,134x0,1,983x0"
 						},
 						"tile-width": 20,
 						"tile-height": 20,
@@ -175,64 +175,6 @@
 							1,
 							1
 						],
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "E_SlimeBase",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 113,
-					"instanceVariables": {
-						"TurnOrder": 1,
-						"LastInTurn": false,
-						"ActTime": -1,
-						"ActThMove": 1,
-						"ActThAttack": 1,
-						"TurnDone": false,
-						"TurnInProgress": false,
-						"maxhp": 2,
-						"hp": 2,
-						"meleeDmg": 3,
-						"SkipPause": false,
-						"SeesPlayer": false,
-						"Active": false
-					},
-					"behaviors": {
-						"Pathfinding": {
-							"properties": {
-								"cell-size": 20,
-								"cell-border": -1,
-								"obstacles": "custom",
-								"max-speed": 200,
-								"acceleration": 1000,
-								"deceleration": 2000,
-								"rotate-speed": 135,
-								"rotate-object": false,
-								"diagonals": true,
-								"enabled": true
-							}
-						}
-					},
-					"world": {
-						"x": 100,
-						"y": 80,
-						"width": 20,
-						"height": 20,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
 						"zElevation": 0
 					}
 				}
@@ -265,44 +207,6 @@
 			"name": "Objects",
 			"overriden": 0,
 			"instances": [
-				{
-					"type": "PlayerBase",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "default",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 11,
-					"instanceVariables": {
-						"meleeDmg": 1,
-						"maxhp": 15,
-						"hp": 15,
-						"temphp": 0,
-						"maxmp": 3,
-						"mp": 3,
-						"TurnInProgress": true,
-						"DamageTaken": 0
-					},
-					"behaviors": {},
-					"world": {
-						"x": 160,
-						"y": 200,
-						"width": 20,
-						"height": 20,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
 				{
 					"type": "DebugNode",
 					"properties": {
@@ -394,7 +298,7 @@
 						"TurnInProgress": false,
 						"maxhp": 2,
 						"hp": 2,
-						"meleeDmg": 3,
+						"meleeDmg": 2,
 						"SkipPause": false,
 						"SeesPlayer": false,
 						"Active": false
@@ -413,6 +317,9 @@
 								"diagonals": true,
 								"enabled": true
 							}
+						},
+						"Persist": {
+							"properties": {}
 						}
 					},
 					"world": {
@@ -452,7 +359,7 @@
 						"TurnInProgress": false,
 						"maxhp": 2,
 						"hp": 2,
-						"meleeDmg": 3,
+						"meleeDmg": 2,
 						"SkipPause": false,
 						"SeesPlayer": false,
 						"Active": false
@@ -471,6 +378,9 @@
 								"diagonals": true,
 								"enabled": true
 							}
+						},
+						"Persist": {
+							"properties": {}
 						}
 					},
 					"world": {
@@ -480,68 +390,6 @@
 						"height": 20,
 						"originX": 0,
 						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "E_SlimeMoveTile",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 19,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 200,
-						"y": -40,
-						"width": 20,
-						"height": 20,
-						"originX": -1,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "E_SlimeMask",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 20,
-					"instanceVariables": {},
-					"behaviors": {
-						"Flash": {
-							"properties": {}
-						}
-					},
-					"world": {
-						"x": 200,
-						"y": -20,
-						"width": 20,
-						"height": 20,
-						"originX": 0.5,
-						"originY": 0.75,
 						"color": [
 							1,
 							1,
@@ -569,74 +417,12 @@
 						}
 					},
 					"world": {
-						"x": 160,
-						"y": -20,
+						"x": 140,
+						"y": -40,
 						"width": 16,
 						"height": 22,
 						"originX": 0.5,
 						"originY": 0.7272727272727273,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "E_SkeletonMask",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "idle",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 23,
-					"instanceVariables": {},
-					"behaviors": {
-						"Flash": {
-							"properties": {}
-						}
-					},
-					"world": {
-						"x": 200,
-						"y": -60,
-						"width": 16,
-						"height": 23,
-						"originX": 0.5,
-						"originY": 0.7391304347826086,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "E_SkeletonMoveTile",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 24,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 200,
-						"y": -80,
-						"width": 20,
-						"height": 20,
-						"originX": -1,
-						"originY": 0,
 						"color": [
 							1,
 							1,
@@ -688,6 +474,9 @@
 								"diagonals": true,
 								"enabled": true
 							}
+						},
+						"Persist": {
+							"properties": {}
 						}
 					},
 					"world": {
@@ -748,6 +537,9 @@
 								"diagonals": true,
 								"enabled": true
 							}
+						},
+						"Persist": {
+							"properties": {}
 						}
 					},
 					"world": {
@@ -845,6 +637,9 @@
 								"diagonals": true,
 								"enabled": true
 							}
+						},
+						"Persist": {
+							"properties": {}
 						}
 					},
 					"world": {
@@ -865,28 +660,28 @@
 					}
 				},
 				{
-					"type": "E_GhostMask",
+					"type": "Cursor",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "idle",
+						"initial-animation": "default",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 30,
-					"instanceVariables": {},
-					"behaviors": {
-						"Flash": {
-							"properties": {}
-						}
+					"uid": 14,
+					"instanceVariables": {
+						"OldPos": 0,
+						"HasLOS": false,
+						"OnEnemy": false
 					},
+					"behaviors": {},
 					"world": {
-						"x": 200,
-						"y": -100,
-						"width": 16,
-						"height": 22,
-						"originX": 0.5,
-						"originY": 0.7272727272727273,
+						"x": 100,
+						"y": -40,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,
@@ -898,7 +693,36 @@
 					}
 				},
 				{
-					"type": "E_GhostMoveTile",
+					"type": "PlayerMoveTile",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "direction",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 13,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 80,
+						"y": -80,
+						"width": 20,
+						"height": 20,
+						"originX": -1,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "E_SlimeBase",
 					"properties": {
 						"initially-visible": false,
 						"initial-animation": "Animation 1",
@@ -906,15 +730,47 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 51,
-					"instanceVariables": {},
-					"behaviors": {},
+					"uid": 113,
+					"instanceVariables": {
+						"TurnOrder": 1,
+						"LastInTurn": false,
+						"ActTime": -1,
+						"ActThMove": 1,
+						"ActThAttack": 1,
+						"TurnDone": false,
+						"TurnInProgress": false,
+						"maxhp": 2,
+						"hp": 2,
+						"meleeDmg": 2,
+						"SkipPause": false,
+						"SeesPlayer": false,
+						"Active": false
+					},
+					"behaviors": {
+						"Pathfinding": {
+							"properties": {
+								"cell-size": 20,
+								"cell-border": -1,
+								"obstacles": "custom",
+								"max-speed": 200,
+								"acceleration": 1000,
+								"deceleration": 2000,
+								"rotate-speed": 135,
+								"rotate-object": false,
+								"diagonals": true,
+								"enabled": true
+							}
+						},
+						"Persist": {
+							"properties": {}
+						}
+					},
 					"world": {
-						"x": 200,
-						"y": -120,
+						"x": 100,
+						"y": 80,
 						"width": 20,
 						"height": 20,
-						"originX": -1,
+						"originX": 0,
 						"originY": 0,
 						"color": [
 							1,
@@ -954,278 +810,7 @@
 		{
 			"name": "Effects",
 			"overriden": 0,
-			"instances": [
-				{
-					"type": "Skill_KnightLeap",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 18,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 60,
-						"y": -100,
-						"width": 20,
-						"height": 20,
-						"originX": -2,
-						"originY": -1,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "PlayerMoveTile",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 13,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 80,
-						"y": -40,
-						"width": 20,
-						"height": 20,
-						"originX": -1,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Cursor",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 14,
-					"instanceVariables": {
-						"OldPos": 0,
-						"HasLOS": false,
-						"OnEnemy": false
-					},
-					"behaviors": {},
-					"world": {
-						"x": 260,
-						"y": -40,
-						"width": 20,
-						"height": 20,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "TempDmgPing",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": false,
-						"live-preview": false
-					},
-					"uid": 22,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 180,
-						"y": -40,
-						"width": 16,
-						"height": 16,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Skill_ManaBlast",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 59,
-					"instanceVariables": {
-						"rangedDmg": 1,
-						"TargetUID": 0
-					},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 200,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": false,
-								"step": true,
-								"enabled": false
-							}
-						}
-					},
-					"world": {
-						"x": 160,
-						"y": -60,
-						"width": 6,
-						"height": 6,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Skill_Shield",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "idle",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 60,
-					"instanceVariables": {},
-					"behaviors": {
-						"Flash": {
-							"properties": {}
-						}
-					},
-					"world": {
-						"x": 140,
-						"y": -60,
-						"width": 18,
-						"height": 24,
-						"originX": 0.5,
-						"originY": 0.7083333333333334,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Skill_ManaBlastParticle",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 111,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 160,
-						"y": -80,
-						"width": 20,
-						"height": 20,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "e_GhostProjectile",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 57,
-					"instanceVariables": {
-						"rangedDmg": 1,
-						"BaseUID": 0
-					},
-					"behaviors": {
-						"Bullet": {
-							"properties": {
-								"speed": 300,
-								"acceleration": 0,
-								"gravity": 0,
-								"bounce-off-solids": false,
-								"set-angle": true,
-								"step": true,
-								"enabled": true
-							}
-						}
-					},
-					"world": {
-						"x": 200,
-						"y": -140,
-						"width": 20,
-						"height": 20,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				}
-			],
+			"instances": [],
 			"sid": 586382979162626,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
@@ -1255,161 +840,6 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "UI_BG",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 2",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 62,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 340,
-						"y": 0,
-						"width": 87,
-						"height": 240,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "TXTcursorangle",
-					"properties": {
-						"text": "Touch #°, Move #°",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 8,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": false,
-						"origin": "top-left"
-					},
-					"uid": 63,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 340,
-						"y": 100,
-						"width": 120,
-						"height": 40,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "TXTcursordistance",
-					"properties": {
-						"text": "CursorDist #, #: #",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 8,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": false,
-						"origin": "top-left"
-					},
-					"uid": 64,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 340,
-						"y": 128.06135968807203,
-						"width": 120,
-						"height": 40,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "TXTmovetiledata",
-					"properties": {
-						"text": "MoveTile #",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 8,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": false,
-						"origin": "top-left"
-					},
-					"uid": 65,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 340,
-						"y": 80,
-						"width": 120,
-						"height": 20,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "TXTturn",
 					"properties": {
 						"text": "Turn #",
@@ -1435,8 +865,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 340,
-						"y": 40,
+						"x": 20,
+						"y": 20,
 						"width": 120,
 						"height": 40,
 						"originX": 0,
@@ -1480,7 +910,7 @@
 						"x": 343.50493899481387,
 						"y": 2.4534572963697485,
 						"width": 120,
-						"height": 20,
+						"height": 40,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1561,8 +991,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 340,
-						"y": 20,
+						"x": 360,
+						"y": 80,
 						"width": 120,
 						"height": 20,
 						"originX": 0,
@@ -1649,142 +1079,6 @@
 						"y": 180,
 						"width": 120,
 						"height": 20,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UI_SkillButton",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "shield",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 75,
-					"instanceVariables": {
-						"Touched": false,
-						"Active": false,
-						"CurrentSkill": "shield",
-						"SkillSlot": 2
-					},
-					"behaviors": {},
-					"world": {
-						"x": 387.7475521992009,
-						"y": 200.93535028044428,
-						"width": 32,
-						"height": 32,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UI_SkillButton",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "empty",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 80,
-					"instanceVariables": {
-						"Touched": false,
-						"Active": false,
-						"CurrentSkill": "empty",
-						"SkillSlot": 4
-					},
-					"behaviors": {},
-					"world": {
-						"x": 387.7475521992009,
-						"y": 160.93535028044428,
-						"width": 32,
-						"height": 32,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UI_SkillButton",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "knightleap",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 102,
-					"instanceVariables": {
-						"Touched": false,
-						"Active": false,
-						"CurrentSkill": "knightleap",
-						"SkillSlot": 3
-					},
-					"behaviors": {},
-					"world": {
-						"x": 347.7475521992009,
-						"y": 160.93535028044428,
-						"width": 32,
-						"height": 32,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "UI_SkillButton",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "manablast",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 108,
-					"instanceVariables": {
-						"Touched": false,
-						"Active": false,
-						"CurrentSkill": "manablast",
-						"SkillSlot": 1
-					},
-					"behaviors": {},
-					"world": {
-						"x": 347.7475521992009,
-						"y": 200.93535028044428,
-						"width": 32,
-						"height": 32,
 						"originX": 0,
 						"originY": 0,
 						"color": [

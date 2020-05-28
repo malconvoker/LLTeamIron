@@ -51,6 +51,16 @@
 					}
 				},
 				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 528075896696082,
+					"parameters": {
+						"name": "\"skill\"",
+						"string": "\"manacharge\"",
+						"function": "ManaChargeTap"
+					}
+				},
+				{
 					"id": "destroy",
 					"objectClass": "Skill_ManaBlast",
 					"sid": 711510501452087
@@ -61,7 +71,100 @@
 					"sid": 458949974398410
 				}
 			],
-			"sid": 813242609112864
+			"sid": 813242609112864,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-empty",
+							"objectClass": "Skills",
+							"sid": 853459464469691
+						}
+					],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 574137224199879,
+							"parameters": {
+								"tag": "\"skills\"",
+								"file": "Skills.json"
+							}
+						},
+						{
+							"id": "append-text",
+							"objectClass": "TXTerrors",
+							"sid": 709558069289332,
+							"parameters": {
+								"text": "\" noskills\""
+							}
+						}
+					],
+					"sid": 333952704263759
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 267479678132033
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "SetSkills",
+							"sid": 924470224072310
+						},
+						{
+							"id": "append-text",
+							"objectClass": "TXTerrors",
+							"sid": 291571689484397,
+							"parameters": {
+								"text": "\"found\""
+							}
+						}
+					],
+					"sid": 970919236804903
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 251961099281765,
+					"parameters": {
+						"tag": "\"skills\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "parse",
+					"objectClass": "JSON",
+					"sid": 984776794598679,
+					"parameters": {
+						"data": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "load",
+					"objectClass": "Skills",
+					"sid": 842749000177947,
+					"parameters": {
+						"json": "JSON.ToCompactString"
+					}
+				},
+				{
+					"callFunction": "SetSkills",
+					"sid": 650666398839332
+				}
+			],
+			"sid": 644293461286460
 		},
 		{
 			"eventType": "block",
@@ -827,6 +930,187 @@
 			"sid": 430727564660008
 		},
 		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ManaCharge",
+			"description": "Killing an enemy gives 1 charge, at 3 charges automatically restores 1 mp",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "ManaChargeTap",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "SkillButtons",
+							"sid": 452057366468409,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 250700965442495
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UI_SkillButton",
+							"sid": 800582197814999,
+							"parameters": {
+								"instance-variable": "CurrentSkill",
+								"comparison": 0,
+								"value": "\"manacharge\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 476781313399730,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "MCKilled",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 120514077906214
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "UI_SkillButton",
+									"sid": 987754074244847,
+									"parameters": {
+										"comparison": 0,
+										"number": "3"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 820088253377091,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "PlayerBase",
+											"sid": 394863320878455,
+											"parameters": {
+												"instance-variable": "mp",
+												"comparison": 2,
+												"value": "PlayerBase.maxmp"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "UI_SkillButton",
+											"sid": 737451057150652,
+											"parameters": {
+												"instance-variable": "Value",
+												"value": "0"
+											}
+										},
+										{
+											"id": "add-to-instvar",
+											"objectClass": "PlayerBase",
+											"sid": 541610254462740,
+											"parameters": {
+												"instance-variable": "mp",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 462533167985952
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 473645918406823
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 185284927121372,
+									"parameters": {
+										"variable": "EnemiesKilled",
+										"comparison": 4,
+										"value": "MCKilled"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_SkillButton",
+									"sid": 940212968105216,
+									"parameters": {
+										"instance-variable": "Value",
+										"value": "Self.Value+1"
+									}
+								}
+							],
+							"sid": 743656120071461
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "UI_SkillButton",
+									"sid": 122207460194079,
+									"parameters": {
+										"frame-number": "Self.Value"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 309554583984018,
+									"parameters": {
+										"variable": "MCKilled",
+										"value": "EnemiesKilled"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "Skills",
+									"sid": 129257376521511,
+									"parameters": {
+										"x": "2",
+										"y": "UI_SkillButton.SkillSlot",
+										"value": "UI_SkillButton.Value"
+									}
+								}
+							],
+							"sid": 660684928685806
+						}
+					]
+				}
+			],
+			"sid": 269141221900130
+		},
+		{
 			"functionName": "SkillMissing",
 			"functionDescription": "Default mapped skill, for error checking",
 			"functionCategory": "",
@@ -842,6 +1126,15 @@
 					"sid": 115498143345347,
 					"parameters": {
 						"text": "\" sk\""
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "SkillButtons",
+					"sid": 564886017617131,
+					"parameters": {
+						"instance-variable": "Active",
+						"value": "false"
 					}
 				}
 			],
@@ -883,6 +1176,121 @@
 				}
 			],
 			"sid": 930694672473764
+		},
+		{
+			"functionName": "SetSkills",
+			"functionDescription": "Loads skills from array",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "Loads skills from array"
+				},
+				{
+					"id": "append-text",
+					"objectClass": "TXTerrors",
+					"sid": 472893555515576,
+					"parameters": {
+						"text": "\" ss\""
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "TXTmpcost",
+					"sid": 273661268774038
+				}
+			],
+			"sid": 154925955969278,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 244924782986430,
+							"parameters": {
+								"object": "UI_SkillButton",
+								"expression": "UI_SkillButton.SkillSlot",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "UI_SkillButton",
+							"sid": 496324622141329,
+							"parameters": {
+								"instance-variable": "CurrentSkill",
+								"value": "Skills.At(0,Self.SkillSlot)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "UI_SkillButton",
+							"sid": 103007118833742,
+							"parameters": {
+								"instance-variable": "MPCost",
+								"value": "Skills.At(1,Self.SkillSlot)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "UI_SkillButton",
+							"sid": 113457104694974,
+							"parameters": {
+								"instance-variable": "Value",
+								"value": "Skills.At(2,Self.SkillSlot)"
+							}
+						}
+					],
+					"sid": 659621387482973,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UI_SkillButton",
+									"sid": 877306624180939,
+									"parameters": {
+										"instance-variable": "MPCost",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "UI_SkillButton",
+									"sid": 155635875668106,
+									"parameters": {
+										"object": "TXTmpcost",
+										"layer": "\"UI\"",
+										"image-point": "\"mpcost\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "TXTmpcost",
+									"sid": 296419063292130,
+									"parameters": {
+										"text": "UI_SkillButton.MPCost"
+									}
+								}
+							],
+							"sid": 702420791471796
+						}
+					]
+				}
+			]
 		}
 	],
 	"sid": 981738453536028

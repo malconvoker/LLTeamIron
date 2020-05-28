@@ -26,6 +26,18 @@
 			"type": "number",
 			"desc": "Skill slot the button corresponds to",
 			"sid": 439502798111250
+		},
+		{
+			"name": "MPCost",
+			"type": "number",
+			"desc": "MP cost to activate skill (used for UI)",
+			"sid": 347960213361218
+		},
+		{
+			"name": "Value",
+			"type": "number",
+			"desc": "Value for some skills, namely passive skills",
+			"sid": 323424885026678
 		}
 	],
 	"behaviorTypes": [],

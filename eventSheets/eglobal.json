@@ -72,6 +72,16 @@
 			"sid": 126844405262762
 		},
 		{
+			"eventType": "variable",
+			"name": "EnemiesKilled",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Number of enemies killed",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 569872072065434
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{

@@ -1,0 +1,18 @@
+{
+	"name": "DebugTexts",
+	"plugin-id": "Text",
+	"sid": 501595288552036,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"TXTcursorangle",
+		"TXTcursordistance",
+		"TXTenemydata",
+		"TXTerrors",
+		"TXTmovetiledata",
+		"TXTtiledistance",
+		"TXTtouchmode",
+		"TXTturn"
+	]
+}

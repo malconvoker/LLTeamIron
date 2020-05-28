@@ -596,7 +596,141 @@
 							}
 						}
 					],
-					"sid": 301872649599628
+					"sid": 301872649599628,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "E_SkeletonBase",
+									"sid": 669244029651131,
+									"parameters": {
+										"unique-id": "UID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 512668959861196,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "E_SkeletonBase",
+											"sid": 539566097471397,
+											"parameters": {
+												"instance-variable": "hp",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "E_SkeletonMask",
+											"sid": 106642549540839,
+											"parameters": {
+												"animation": "\"death\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 329863878414792
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 243307803792228
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "E_SkeletonMask",
+											"sid": 541403552009375,
+											"parameters": {
+												"animation": "\"damaged\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 767327601030778
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "E_GhostBase",
+									"sid": 230112860084978,
+									"parameters": {
+										"unique-id": "UID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 606401352105706,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "E_GhostBase",
+											"sid": 856841866315024,
+											"parameters": {
+												"instance-variable": "hp",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "E_GhostMask",
+											"sid": 556415453402945,
+											"parameters": {
+												"animation": "\"death\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 924409314647714
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 278744321551581
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "E_GhostMask",
+											"sid": 611654522953887,
+											"parameters": {
+												"animation": "\"damaged\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 225988069265148
+								}
+							]
+						}
+					]
 				}
 			]
 		},
@@ -1107,6 +1241,197 @@
 				}
 			],
 			"sid": 107274233799421
+		},
+		{
+			"eventType": "comment",
+			"text": "Room transition"
+		},
+		{
+			"functionName": "NextRoom",
+			"functionDescription": "Returns next room's name based on current room and direction",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Direction",
+					"type": "string",
+					"initialValue": "up",
+					"comment": "Direction to travel to (up,down,left,right)",
+					"sid": 464630123543779
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 325676999705179,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "DirX",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "+/- X in array",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 266689822042174
+				},
+				{
+					"eventType": "variable",
+					"name": "DirY",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "+/- Y in array",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 756904617094008
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 138108863154762,
+							"parameters": {
+								"variable": "Direction",
+								"comparison": 0,
+								"value": "\"up\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 699428724703488,
+							"parameters": {
+								"variable": "DirY",
+								"value": "-1"
+							}
+						}
+					],
+					"sid": 800030951035414
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 349208885379200,
+							"parameters": {
+								"variable": "Direction",
+								"comparison": 0,
+								"value": "\"down\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 665247744330806,
+							"parameters": {
+								"variable": "DirY",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 677572256077071
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 803914339816549,
+							"parameters": {
+								"variable": "Direction",
+								"comparison": 0,
+								"value": "\"left\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 564099973926507,
+							"parameters": {
+								"variable": "DirX",
+								"value": "-1"
+							}
+						}
+					],
+					"sid": 859678606524450
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 475675999602557,
+							"parameters": {
+								"variable": "Direction",
+								"comparison": 0,
+								"value": "\"right\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 960669750795571,
+							"parameters": {
+								"variable": "DirX",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 351603200668421
+				},
+				{
+					"eventType": "comment",
+					"text": "Find current room, return next room"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-element",
+							"objectClass": "DungeonMap",
+							"sid": 365763858840301,
+							"parameters": {
+								"axes": "xy"
+							}
+						},
+						{
+							"id": "compare-current-value",
+							"objectClass": "DungeonMap",
+							"sid": 527913567726378,
+							"parameters": {
+								"comparison": 0,
+								"value": "LayoutName"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 616519472135155,
+							"parameters": {
+								"value": "DungeonMap.At(DungeonMap.CurX+DirX, DungeonMap.CurY+DirY)"
+							}
+						}
+					],
+					"sid": 452521559653851
+				}
+			]
 		}
 	],
 	"sid": 159065806374315

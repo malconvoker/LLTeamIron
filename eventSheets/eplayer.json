@@ -32,7 +32,15 @@
 					}
 				}
 			],
-			"sid": 175238041369042
+			"sid": 175238041369042,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 824942798842583
+				}
+			]
 		},
 		{
 			"eventType": "group",
@@ -1214,7 +1222,56 @@
 							}
 						}
 					],
-					"sid": 667863332202079
+					"sid": 667863332202079,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "PlayerMoveTile",
+									"sid": 585691934787866,
+									"parameters": {
+										"object": "EnemyBases"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "PlayerMoveTile",
+									"sid": 584547319556836,
+									"parameters": {
+										"animation": "\"melee\"",
+										"from": "current-frame"
+									}
+								}
+							],
+							"sid": 313118292562301
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 526865342589986
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "PlayerMoveTile",
+									"sid": 755154794856376,
+									"parameters": {
+										"animation": "\"direction\"",
+										"from": "current-frame"
+									}
+								}
+							],
+							"sid": 293877882880783
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -1255,11 +1312,12 @@
 					],
 					"actions": [
 						{
-							"id": "set-default-color",
+							"id": "set-animation",
 							"objectClass": "Cursor",
-							"sid": 875919236696420,
+							"sid": 658656491866966,
 							"parameters": {
-								"color": "rgb(255, 255, 255)"
+								"animation": "\"default\"",
+								"from": "beginning"
 							}
 						}
 					],
@@ -1279,11 +1337,12 @@
 							],
 							"actions": [
 								{
-									"id": "set-default-color",
+									"id": "set-animation",
 									"objectClass": "Cursor",
-									"sid": 401524035558141,
+									"sid": 690748623989374,
 									"parameters": {
-										"color": "rgb(255, 150, 150)"
+										"animation": "\"target\"",
+										"from": "beginning"
 									}
 								}
 							],
@@ -1305,8 +1364,18 @@
 							"id": "set-default-color",
 							"objectClass": "Cursor",
 							"sid": 215832875475004,
+							"disabled": true,
 							"parameters": {
 								"color": "rgb(150, 150, 150)"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Cursor",
+							"sid": 561322898851519,
+							"parameters": {
+								"animation": "\"dark\"",
+								"from": "beginning"
 							}
 						}
 					],
@@ -1350,9 +1419,9 @@
 						{
 							"id": "set-default-color",
 							"objectClass": "SkillButtons",
-							"sid": 292289937400941,
+							"sid": 696132965076799,
 							"parameters": {
-								"color": "rgb(255, 150, 150)"
+								"color": "rgb(255, 255, 150)"
 							}
 						}
 					],
@@ -1415,9 +1484,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "TXThp",
-							"sid": 327583011709219,
+							"sid": 823456401046120,
 							"parameters": {
-								"text": "PlayerBase.hp & \"/\" & PlayerBase.maxhp & \"+\" & PlayerBase.temphp & \"hp, \" & PlayerBase.mp & \"/\" & PlayerBase.maxmp & \"mp\""
+								"text": "PlayerBase.hp & \"/\" & PlayerBase.maxhp & \"+\" & PlayerBase.temphp & \"hp\" & newline & PlayerBase.mp & \"/\" & PlayerBase.maxmp & \"mp\""
 							}
 						}
 					],
@@ -1436,13 +1505,123 @@
 						{
 							"id": "set-text",
 							"objectClass": "TXThp",
-							"sid": 568651514097435,
+							"sid": 660000804160008,
 							"parameters": {
-								"text": "PlayerBase.hp & \"/\" & PlayerBase.maxhp & \"hp, \" & PlayerBase.mp & \"/\" & PlayerBase.maxmp & \"mp\""
+								"text": "PlayerBase.hp & \"/\" & PlayerBase.maxhp & \"hp\" & newline & PlayerBase.mp & \"/\" & PlayerBase.maxmp & \"mp\""
 							}
 						}
 					],
 					"sid": 475597605270059
+				},
+				{
+					"eventType": "comment",
+					"text": "Spawn UI"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 449131738726997
+						}
+					],
+					"actions": [],
+					"sid": 962113673428843,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-screen",
+									"objectClass": "UI_BG",
+									"sid": 605896106427738
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Do nothing if UI exists"
+								}
+							],
+							"sid": 219634687288085
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 579225065017547
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 361338707927921,
+									"parameters": {
+										"object-to-create": "UI_BG",
+										"layer": "\"UI\"",
+										"x": "337",
+										"y": "0"
+									}
+								}
+							],
+							"sid": 395138480842604,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 450215917228316,
+											"parameters": {
+												"name": "\"skillslots\"",
+												"start-index": "1",
+												"end-index": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "UI_BG",
+											"sid": 804677000238966,
+											"parameters": {
+												"object": "UI_SkillButton",
+												"layer": "\"UI\"",
+												"image-point": "loopindex"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "UI_SkillButton",
+											"sid": 556903412437072,
+											"parameters": {
+												"instance-variable": "SkillSlot",
+												"value": "loopindex"
+											}
+										}
+									],
+									"sid": 716338339368840
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "move-to-top",
+									"objectClass": "TXThp",
+									"sid": 845166473981448
+								}
+							],
+							"sid": 383206999767598
+						}
+					]
 				}
 			],
 			"sid": 874797600707893

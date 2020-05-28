@@ -2,7 +2,7 @@
 	"name": "UI_BG",
 	"plugin-id": "Sprite",
 	"sid": 898950910110425,
-	"isGlobal": false,
+	"isGlobal": true,
 	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
@@ -11,44 +11,62 @@
 			{
 				"frames": [
 					{
-						"width": 87,
+						"width": 90,
 						"height": 240,
 						"originX": 0,
 						"originY": 0,
-						"originalSource": "C:\\Users\\mctur\\Downloads\\UI v3.png",
+						"originalSource": "C:\\Users\\mctur\\Downloads\\UI brown-2.png.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 2145530,
+						"imageSpriteId": 2702190,
+						"collisionPoly": {
+							"points": [
+								0.011111111111111112,
+								0.004166666666666667,
+								0.5,
+								0,
+								0.9888888888888889,
+								0,
+								0.9888888888888889,
+								0.5,
+								0.9888888888888889,
+								0.9958333333333333,
+								0.5,
+								0.9958333333333333,
+								0.03333333333333333,
+								0.9833333333333333,
+								0.03333333333333333,
+								0.5
+							]
+						},
 						"useCollisionPoly": true,
-						"duration": 1
-					},
-					{
-						"width": 87,
-						"height": 240,
-						"originX": 0,
-						"originY": 0,
-						"originalSource": "C:\\Users\\mctur\\Downloads\\UI brown.png",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 9156005,
-						"useCollisionPoly": true,
-						"duration": 1
-					},
-					{
-						"width": 87,
-						"height": 240,
-						"originX": 0,
-						"originY": 0,
-						"originalSource": "C:\\Users\\mctur\\Downloads\\UI v2.png",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 8034130,
-						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "skill1",
+								"x": 0.12222222222222222,
+								"y": 0.8333333333333334
+							},
+							{
+								"name": "skill2",
+								"x": 0.5555555555555556,
+								"y": 0.8333333333333334
+							},
+							{
+								"name": "skill3",
+								"x": 0.12222222222222222,
+								"y": 0.6708333333333333
+							},
+							{
+								"name": "skill4",
+								"x": 0.5555555555555556,
+								"y": 0.6708333333333333
+							}
+						],
 						"duration": 1
 					}
 				],
-				"sid": 247140378003481,
-				"name": "Animation 1",
+				"sid": 744733680845979,
+				"name": "brown",
 				"isLooping": true,
 				"isPingPong": false,
 				"repeatCount": 1,
@@ -58,20 +76,40 @@
 			{
 				"frames": [
 					{
-						"width": 87,
+						"width": 90,
 						"height": 240,
 						"originX": 0,
 						"originY": 0,
-						"originalSource": "C:\\Users\\mctur\\Downloads\\UI brown.png",
+						"originalSource": "C:\\Users\\mctur\\Downloads\\UI brown-not brown.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 6679485,
+						"imageSpriteId": 3356528,
+						"collisionPoly": {
+							"points": [
+								0.011111111111111112,
+								0.004166666666666667,
+								0.5,
+								0,
+								0.9888888888888889,
+								0,
+								0.9888888888888889,
+								0.5,
+								0.9888888888888889,
+								0.9958333333333333,
+								0.5,
+								0.9958333333333333,
+								0.03333333333333333,
+								0.9833333333333333,
+								0.03333333333333333,
+								0.5
+							]
+						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 744733680845979,
-				"name": "Animation 2",
+				"sid": 856551900581576,
+				"name": "beige",
 				"isLooping": true,
 				"isPingPong": false,
 				"repeatCount": 1,

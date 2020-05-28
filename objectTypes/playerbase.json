@@ -2,7 +2,7 @@
 	"name": "PlayerBase",
 	"plugin-id": "Sprite",
 	"sid": 645735548878440,
-	"isGlobal": false,
+	"isGlobal": true,
 	"instanceVariables": [
 		{
 			"name": "meleeDmg",

@@ -16,6 +16,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
@@ -48,8 +56,32 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Tilemap",
 			"name": "Tilemap",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TextBox",
+			"name": "Text input",
 			"author": "Scirra",
 			"version": "r197.2",
 			"bundled": false
@@ -85,13 +117,22 @@
 			"author": "Scirra",
 			"version": "r197.2",
 			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Persist",
+			"name": "Persist",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
 		}
 	],
 	"uniqueId": "0q5jywda9ru",
 	"objectTypes": {
 		"items": [
 			"MerchantMask",
-			"MerchantBase"
+			"MerchantBase",
+			"TextInput"
 		],
 		"subfolders": [
 			{
@@ -102,7 +143,8 @@
 							"E_GhostBase",
 							"E_GhostMask",
 							"E_GhostMoveTile",
-							"e_GhostProjectile"
+							"e_GhostProjectile",
+							"E_GhostParticle"
 						],
 						"subfolders": [],
 						"name": "E_Ghost"
@@ -133,7 +175,8 @@
 					"PlayerBase",
 					"PlayerMask",
 					"PlayerMoveTile",
-					"Cursor"
+					"Cursor",
+					"Skills"
 				],
 				"subfolders": [],
 				"name": "Player"
@@ -160,7 +203,10 @@
 					"Keyboard",
 					"LOS",
 					"Touch",
-					"DebugNode"
+					"DebugNode",
+					"JSON",
+					"AJAX",
+					"DungeonMap"
 				],
 				"subfolders": [],
 				"name": "System"
@@ -168,7 +214,8 @@
 			{
 				"items": [
 					"UI_SkillButton",
-					"UI_BG"
+					"UI_BG",
+					"TXTmpcost"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -194,7 +241,8 @@
 			{
 				"items": [
 					"indicator",
-					"TempDmgPing"
+					"TempDmgPing",
+					"hpbar"
 				],
 				"subfolders": [],
 				"name": "Generic Effects"
@@ -255,7 +303,8 @@
 			"EnemyBases",
 			"EnemyMasks",
 			"Z_Sorting",
-			"SkillButtons"
+			"SkillButtons",
+			"DebugTexts"
 		],
 		"subfolders": []
 	},
@@ -263,7 +312,13 @@
 		"items": [
 			"Test Level",
 			"Camp",
-			"Promo level"
+			"D1_Hard3",
+			"D1_Start",
+			"D1_Skele",
+			"Demo_Start",
+			"D1_Hard1",
+			"ObjectBank",
+			"D1_Ghost"
 		],
 		"subfolders": []
 	},
@@ -352,7 +407,18 @@
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "Dungeon1.json",
+					"type": "application/json",
+					"sid": 156706589131406
+				},
+				{
+					"name": "Skills.json",
+					"type": "application/json",
+					"sid": 568881595139084
+				}
+			],
 			"subfolders": []
 		}
 	},
@@ -367,14 +433,14 @@
 	},
 	"properties": {
 		"description": "Luotsaamo Team Iron Game",
-		"version": "0.1.0",
+		"version": "0.4.0",
 		"author": "Team Iron",
 		"authorEmail": "",
 		"authorWebsite": "",
 		"appId": "com.luotsaamo.iron",
 		"pixelRounding": true,
 		"useLoaderLayout": false,
-		"fullscreenMode": "letterbox-scale",
+		"fullscreenMode": "letterbox-integer-scale",
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
@@ -412,5 +478,5 @@
 	},
 	"viewportWidth": 427,
 	"viewportHeight": 240,
-	"firstLayout": "Test Level"
+	"firstLayout": "Demo_Start"
 }

@@ -34,10 +34,10 @@
 						"height": 20,
 						"originX": 0,
 						"originY": 0,
-						"originalSource": "",
+						"originalSource": "C:\\Users\\mctur\\Downloads\\cursor_move.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 6841539,
+						"imageSpriteId": 414779,
 						"collisionPoly": {
 							"points": [
 								0.95,
@@ -55,7 +55,120 @@
 					}
 				],
 				"sid": 379231111883776,
-				"name": "Animation 1",
+				"name": "default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\cursor_not_move.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3548325,
+						"collisionPoly": {
+							"points": [
+								0.95,
+								0.05,
+								0.95,
+								0.95,
+								0.05,
+								0.95,
+								0.05,
+								0.05
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 695112484068938,
+				"name": "dark",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9925204,
+						"collisionPoly": {
+							"points": [
+								0.95,
+								0.05,
+								0.95,
+								0.95,
+								0.05,
+								0.95,
+								0.05,
+								0.05
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 884484303890866,
+				"name": "old",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\cursor_onenemy.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3063435,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.5,
+								0,
+								0.95,
+								0,
+								0.95,
+								0.5,
+								0.95,
+								0.95,
+								0.5,
+								0.95,
+								0,
+								0.95,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 873183205900375,
+				"name": "target",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

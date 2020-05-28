@@ -20,6 +20,13 @@
 						"exportQuality": 0.8,
 						"imageSpriteId": 8638418,
 						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "hpbar",
+								"x": 0,
+								"y": 0.05
+							}
+						],
 						"duration": 1
 					},
 					{
@@ -32,6 +39,13 @@
 						"exportQuality": 0.8,
 						"imageSpriteId": 775251,
 						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "hpbar",
+								"x": 0,
+								"y": 0.05
+							}
+						],
 						"duration": 1
 					}
 				],

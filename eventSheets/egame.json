@@ -43,7 +43,64 @@
 							"sid": 445614231042696
 						}
 					],
-					"sid": 194677168754001
+					"sid": 194677168754001,
+					"disabled": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 212600708818270,
+							"parameters": {
+								"key": 84
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 949803124833316,
+							"parameters": {
+								"key": 17
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 806498652770048,
+							"parameters": {
+								"object-to-create": "TextInput",
+								"layer": "\"UI\"",
+								"x": "0",
+								"y": "0"
+							}
+						}
+					],
+					"sid": 562481361055381
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-double-clicked",
+							"objectClass": "TextInput",
+							"sid": 943243023965890
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 377701567017265,
+							"parameters": {
+								"layout": "TextInput.Text"
+							}
+						}
+					],
+					"sid": 224843586080573
 				},
 				{
 					"eventType": "comment",
@@ -59,73 +116,29 @@
 							"parameters": {
 								"key": 68
 							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 778720024156939,
+							"parameters": {
+								"key": 17
+							}
 						}
 					],
 					"actions": [
 						{
 							"id": "set-visible",
-							"objectClass": "TXTcursorangle",
-							"sid": 665221706787495,
+							"objectClass": "DebugTexts",
+							"sid": 845205356770461,
 							"parameters": {
 								"visibility": "toggle"
 							}
 						},
 						{
-							"id": "set-visible",
-							"objectClass": "TXTcursordistance",
-							"sid": 570468338260665,
-							"parameters": {
-								"visibility": "toggle"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "TXTerrors",
-							"sid": 766929293465790,
-							"parameters": {
-								"visibility": "toggle"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "TXTstatictext",
-							"sid": 735899134178250,
-							"disabled": true,
-							"parameters": {
-								"visibility": "toggle"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "TXTmovetiledata",
-							"sid": 480079646717633,
-							"parameters": {
-								"visibility": "toggle"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "TXTturn",
-							"sid": 406608868717409,
-							"parameters": {
-								"visibility": "toggle"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "TXTenemydata",
-							"sid": 978828511245653,
-							"parameters": {
-								"visibility": "toggle"
-							}
-						},
-						{
-							"id": "set-visible",
-							"objectClass": "TXTtouchmode",
-							"sid": 109988530301925,
-							"parameters": {
-								"visibility": "toggle"
-							}
+							"id": "move-to-top",
+							"objectClass": "DebugTexts",
+							"sid": 560649293647633
 						}
 					],
 					"sid": 100321147823152
@@ -509,6 +522,216 @@
 				}
 			],
 			"sid": 737970651318844
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Room Transitions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 974378140490771
+						}
+					],
+					"actions": [],
+					"sid": 865810463574620,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-empty",
+									"objectClass": "DungeonMap",
+									"sid": 152217099978943
+								}
+							],
+							"actions": [
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 170269315478571,
+									"parameters": {
+										"tag": "\"dungeonmap\"",
+										"file": "Dungeon1.json"
+									}
+								}
+							],
+							"sid": 331471734576460
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 564815350405488,
+							"parameters": {
+								"tag": "\"dungeonmap\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "parse",
+							"objectClass": "JSON",
+							"sid": 701737182618268,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "load",
+							"objectClass": "DungeonMap",
+							"sid": 973587901266067,
+							"parameters": {
+								"json": "JSON.ToCompactString"
+							}
+						}
+					],
+					"sid": 661522517631688
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "PlayerBase",
+							"sid": 645457862936900,
+							"parameters": {
+								"comparison": 0,
+								"y-co-ordinate": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 716899973932241,
+							"parameters": {
+								"layout": "Functions.NextRoom(\"up\")"
+							}
+						},
+						{
+							"id": "set-y",
+							"objectClass": "PlayerBase",
+							"sid": 420689162164830,
+							"parameters": {
+								"y": "LayoutHeight-Tile*2"
+							}
+						}
+					],
+					"sid": 903598170801576
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "PlayerBase",
+							"sid": 680863022185648,
+							"parameters": {
+								"comparison": 0,
+								"y-co-ordinate": "LayoutHeight-Tile"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 636652747290284,
+							"parameters": {
+								"layout": "Functions.NextRoom(\"down\")"
+							}
+						},
+						{
+							"id": "set-y",
+							"objectClass": "PlayerBase",
+							"sid": 454728780511330,
+							"parameters": {
+								"y": "Tile"
+							}
+						}
+					],
+					"sid": 452019926918321
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "PlayerBase",
+							"sid": 309784735330909,
+							"parameters": {
+								"comparison": 0,
+								"x-co-ordinate": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 972294771667143,
+							"parameters": {
+								"layout": "Functions.NextRoom(\"left\")"
+							}
+						},
+						{
+							"id": "set-x",
+							"objectClass": "PlayerBase",
+							"sid": 726109577405607,
+							"parameters": {
+								"x": "GameAreaWidth-Tile*2"
+							}
+						}
+					],
+					"sid": 658604353861006
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "PlayerBase",
+							"sid": 248586015678799,
+							"parameters": {
+								"comparison": 0,
+								"x-co-ordinate": "GameAreaWidth-Tile"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 522954115538738,
+							"parameters": {
+								"layout": "Functions.NextRoom(\"right\")"
+							}
+						},
+						{
+							"id": "set-x",
+							"objectClass": "PlayerBase",
+							"sid": 681747390711620,
+							"parameters": {
+								"x": "Tile"
+							}
+						}
+					],
+					"sid": 650733979792172
+				}
+			],
+			"sid": 601259909786066
 		}
 	],
 	"sid": 301707553409410
