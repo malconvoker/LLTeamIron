@@ -594,6 +594,10 @@
 								"instance-variable": "hp",
 								"value": "Damage"
 							}
+						},
+						{
+							"type": "comment",
+							"text": "Animations must be set per enemy type due to Family not interacting with Containers"
 						}
 					],
 					"sid": 301872649599628,
@@ -603,7 +607,7 @@
 							"conditions": [
 								{
 									"id": "pick-by-unique-id",
-									"objectClass": "E_SkeletonBase",
+									"objectClass": "E_SlimeBase",
 									"sid": 669244029651131,
 									"parameters": {
 										"unique-id": "UID"
@@ -618,7 +622,7 @@
 									"conditions": [
 										{
 											"id": "compare-instance-variable",
-											"objectClass": "E_SkeletonBase",
+											"objectClass": "E_SlimeBase",
 											"sid": 539566097471397,
 											"parameters": {
 												"instance-variable": "hp",
@@ -630,7 +634,7 @@
 									"actions": [
 										{
 											"id": "set-animation",
-											"objectClass": "E_SkeletonMask",
+											"objectClass": "E_SlimeMask",
 											"sid": 106642549540839,
 											"parameters": {
 												"animation": "\"death\"",
@@ -652,7 +656,7 @@
 									"actions": [
 										{
 											"id": "set-animation",
-											"objectClass": "E_SkeletonMask",
+											"objectClass": "E_SlimeMask",
 											"sid": 541403552009375,
 											"parameters": {
 												"animation": "\"damaged\"",
@@ -661,6 +665,72 @@
 										}
 									],
 									"sid": 767327601030778
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "E_SkeletonBase",
+									"sid": 268740021724119,
+									"parameters": {
+										"unique-id": "UID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 678932722176771,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "E_SkeletonBase",
+											"sid": 766353633217719,
+											"parameters": {
+												"instance-variable": "hp",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "E_SkeletonMask",
+											"sid": 505163518996349,
+											"parameters": {
+												"animation": "\"death\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 960802503787060
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 332102166213588
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "E_SkeletonMask",
+											"sid": 950941749348881,
+											"parameters": {
+												"animation": "\"damaged\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 680706940553292
 								}
 							]
 						},
