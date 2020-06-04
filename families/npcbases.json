@@ -1,0 +1,11 @@
+{
+	"name": "NPCBases",
+	"plugin-id": "Sprite",
+	"sid": 294817590645228,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"MerchantBase"
+	]
+}

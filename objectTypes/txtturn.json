@@ -2,7 +2,7 @@
 	"name": "TXTturn",
 	"plugin-id": "Text",
 	"sid": 118919653155635,
-	"isGlobal": false,
+	"isGlobal": true,
 	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": []

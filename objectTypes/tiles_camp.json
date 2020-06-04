@@ -11,10 +11,10 @@
 		"height": 160,
 		"originX": 0.5,
 		"originY": 0.5,
-		"originalSource": "C:\\Users\\mctur\\Downloads\\camp_tiles.png",
+		"originalSource": "C:\\Users\\mctur\\Downloads\\camp_tiles2.png",
 		"exportFormat": "png",
 		"exportQuality": 0.8,
-		"imageSpriteId": 3137128,
+		"imageSpriteId": 3759888,
 		"useCollisionPoly": true
 	},
 	"tile-collision-polys": {}

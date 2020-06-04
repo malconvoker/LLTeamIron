@@ -30,17 +30,60 @@
 					"parameters": {
 						"audio-file": "hit_test"
 					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 849938859415803,
+					"parameters": {
+						"object-to-create": "PlayerMoveTile",
+						"layer": "\"Objects\"",
+						"x": "-100",
+						"y": "-100"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 216213465297283,
+					"parameters": {
+						"object-to-create": "Cursor",
+						"layer": "\"Objects\"",
+						"x": "-100",
+						"y": "-100"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 583237461790130,
+					"parameters": {
+						"object-to-create": "PlayerMask",
+						"layer": "\"Objects\"",
+						"x": "-100",
+						"y": "-100"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "PlayerBase",
+					"sid": 998843610258445,
+					"parameters": {
+						"instance-variable": "TurnDone",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "PlayerBase",
+					"sid": 447132823822802,
+					"parameters": {
+						"instance-variable": "TurnInProgress",
+						"value": "false"
+					}
 				}
 			],
-			"sid": 175238041369042,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [],
-					"actions": [],
-					"sid": 824942798842583
-				}
-			]
+			"sid": 175238041369042
 		},
 		{
 			"eventType": "group",
@@ -71,6 +114,10 @@
 					"sid": 667678923110119,
 					"children": [
 						{
+							"eventType": "comment",
+							"text": "Set TurnInProgress to do actions that need to be done only once per turn"
+						},
+						{
 							"eventType": "block",
 							"conditions": [
 								{
@@ -91,6 +138,15 @@
 									"parameters": {
 										"instance-variable": "TurnInProgress",
 										"value": "true"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "PlayerBase",
+									"sid": 687490870655178,
+									"parameters": {
+										"instance-variable": "TurnDone",
+										"value": "false"
 									}
 								},
 								{
@@ -130,6 +186,10 @@
 										}
 									],
 									"actions": [
+										{
+											"type": "comment",
+											"text": "Shield skill \"decay\""
+										},
 										{
 											"id": "subtract-from-instvar",
 											"objectClass": "PlayerBase",
@@ -179,6 +239,15 @@
 									"parameters": {
 										"instance-variable": "TurnInProgress"
 									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "PlayerBase",
+									"sid": 685055611155778,
+									"parameters": {
+										"instance-variable": "TurnDone"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [],
@@ -664,11 +733,72 @@
 																					}
 																				},
 																				{
+																					"id": "set-boolean-instvar",
+																					"objectClass": "PlayerBase",
+																					"sid": 533339946488369,
+																					"parameters": {
+																						"instance-variable": "TurnDone",
+																						"value": "true"
+																					}
+																				},
+																				{
 																					"callFunction": "NextTurn",
 																					"sid": 330079674118797
 																				}
 																			],
 																			"sid": 262193217553033
+																		},
+																		{
+																			"eventType": "comment",
+																			"text": "Pick up skill"
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 844802145832511
+																				},
+																				{
+																					"id": "is-overlapping-another-object",
+																					"objectClass": "PlayerMoveTile",
+																					"sid": 565735319722151,
+																					"parameters": {
+																						"object": "SkillPickup"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "set-eventvar-value",
+																					"objectClass": "System",
+																					"sid": 131852836503723,
+																					"parameters": {
+																						"variable": "TouchMode",
+																						"value": "\"skillpickup\""
+																					}
+																				},
+																				{
+																					"id": "set-position",
+																					"objectClass": "Cursor",
+																					"sid": 520216045446048,
+																					"parameters": {
+																						"x": "-100",
+																						"y": "-100"
+																					}
+																				},
+																				{
+																					"id": "set-boolean-instvar",
+																					"objectClass": "SkillPickup",
+																					"sid": 810331222724400,
+																					"parameters": {
+																						"instance-variable": "Selected",
+																						"value": "true"
+																					}
+																				}
+																			],
+																			"sid": 387201922386026
 																		},
 																		{
 																			"eventType": "comment",
@@ -678,13 +808,9 @@
 																			"eventType": "block",
 																			"conditions": [
 																				{
-																					"id": "is-overlapping-another-object",
-																					"objectClass": "PlayerMoveTile",
-																					"sid": 490603723554838,
-																					"parameters": {
-																						"object": "EnemyBases"
-																					},
-																					"isInverted": true
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 507726490129076
 																				}
 																			],
 																			"actions": [
@@ -715,6 +841,15 @@
 																						"loop": "not-looping",
 																						"volume": "0",
 																						"tag-optional": "\"\""
+																					}
+																				},
+																				{
+																					"id": "set-boolean-instvar",
+																					"objectClass": "PlayerBase",
+																					"sid": 916500986489867,
+																					"parameters": {
+																						"instance-variable": "TurnDone",
+																						"value": "true"
 																					}
 																				},
 																				{
@@ -752,6 +887,15 @@
 																		}
 																	],
 																	"actions": [
+																		{
+																			"id": "set-boolean-instvar",
+																			"objectClass": "PlayerBase",
+																			"sid": 632783836124037,
+																			"parameters": {
+																				"instance-variable": "TurnDone",
+																				"value": "true"
+																			}
+																		},
 																		{
 																			"callFunction": "NextTurn",
 																			"sid": 786615092273758
@@ -850,6 +994,15 @@
 																							"text": "Valid target"
 																						},
 																						{
+																							"id": "set-boolean-instvar",
+																							"objectClass": "PlayerBase",
+																							"sid": 115046525749776,
+																							"parameters": {
+																								"instance-variable": "TurnDone",
+																								"value": "true"
+																							}
+																						},
+																						{
 																							"callFunction": "ManaBlastUse",
 																							"sid": 204942527060330
 																						}
@@ -924,6 +1077,15 @@
 																							"text": "Valid target"
 																						},
 																						{
+																							"id": "set-boolean-instvar",
+																							"objectClass": "PlayerBase",
+																							"sid": 179596906745029,
+																							"parameters": {
+																								"instance-variable": "TurnDone",
+																								"value": "true"
+																							}
+																						},
+																						{
 																							"callFunction": "KnightLeapUse",
 																							"sid": 533528282157182
 																						}
@@ -966,6 +1128,42 @@
 																	]
 																}
 															]
+														},
+														{
+															"eventType": "comment",
+															"text": "In the process of picking up a skill"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 634766819585340
+																},
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 270663113557278,
+																	"parameters": {
+																		"variable": "TouchMode",
+																		"comparison": 0,
+																		"value": "\"skillpickup\""
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 582806669767479,
+																	"parameters": {
+																		"variable": "TouchMode",
+																		"value": "\"default\""
+																	}
+																}
+															],
+															"sid": 864576986630756
 														},
 														{
 															"eventType": "block",
@@ -1013,95 +1211,169 @@
 															"sid": 794579456423980
 														}
 													],
-													"actions": [
-														{
-															"id": "set-eventvar-value",
-															"objectClass": "System",
-															"sid": 331503400756395,
-															"parameters": {
-																"variable": "TouchMode",
-																"value": "\"default\""
-															}
-														}
-													],
+													"actions": [],
 													"sid": 101846208537431,
 													"children": [
 														{
 															"eventType": "block",
 															"conditions": [
 																{
-																	"id": "is-boolean-instance-variable-set",
-																	"objectClass": "UI_SkillButton",
-																	"sid": 458971415054846,
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 821743822291526,
 																	"parameters": {
-																		"instance-variable": "Touched"
+																		"variable": "TouchMode",
+																		"comparison": 0,
+																		"value": "\"skillpickup\""
 																	}
 																}
 															],
-															"actions": [
-																{
-																	"id": "toggle-boolean-instvar",
-																	"objectClass": "UI_SkillButton",
-																	"sid": 674937560079596,
-																	"parameters": {
-																		"instance-variable": "Active"
-																	}
-																}
-															],
-															"sid": 729680172398549,
+															"actions": [],
+															"sid": 324144479446046,
 															"children": [
 																{
 																	"eventType": "block",
 																	"conditions": [
 																		{
-																			"id": "compare-instance-variable",
-																			"objectClass": "SkillButtons",
-																			"sid": 939465706976842,
+																			"id": "is-boolean-instance-variable-set",
+																			"objectClass": "SkillPickup",
+																			"sid": 665728266929785,
 																			"parameters": {
-																				"instance-variable": "SkillSlot",
-																				"comparison": 1,
-																				"value": "UI_SkillButton.SkillSlot"
+																				"instance-variable": "Selected"
 																			}
 																		}
 																	],
-																	"actions": [
+																	"actions": [],
+																	"sid": 466802321518529,
+																	"children": [
 																		{
-																			"id": "set-boolean-instvar",
-																			"objectClass": "SkillButtons",
-																			"sid": 825752060572202,
-																			"parameters": {
-																				"instance-variable": "Active",
-																				"value": "false"
-																			}
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "UI_SkillButton",
+																					"sid": 422968222560860,
+																					"parameters": {
+																						"instance-variable": "Touched"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"callFunction": "ChangeSkill",
+																					"sid": 943254672991929,
+																					"parameters": [
+																						"UI_SkillButton.SkillSlot",
+																						"SkillPickup.CurrentSkill"
+																					]
+																				}
+																			],
+																			"sid": 989255126748101
 																		}
-																	],
-																	"sid": 994886118260075
-																},
+																	]
+																}
+															]
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 643662079258446
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 245825170552199,
+																	"parameters": {
+																		"variable": "TouchMode",
+																		"value": "\"default\""
+																	}
+																}
+															],
+															"sid": 791611495073492,
+															"children": [
 																{
 																	"eventType": "block",
 																	"conditions": [
 																		{
 																			"id": "is-boolean-instance-variable-set",
 																			"objectClass": "UI_SkillButton",
-																			"sid": 393898092041232,
+																			"sid": 464971258900279,
 																			"parameters": {
-																				"instance-variable": "Active"
+																				"instance-variable": "Touched"
 																			}
 																		}
 																	],
 																	"actions": [
 																		{
-																			"id": "call-mapped-function",
-																			"objectClass": "Functions",
-																			"sid": 653364977055739,
+																			"id": "toggle-boolean-instvar",
+																			"objectClass": "UI_SkillButton",
+																			"sid": 178412737290525,
 																			"parameters": {
-																				"name": "\"skill\"",
-																				"string": "UI_SkillButton.CurrentSkill",
-																				"forward-params": "0"
+																				"instance-variable": "Active"
 																			}
 																		}
 																	],
-																	"sid": 261929938184007
+																	"sid": 282293503452886,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-instance-variable",
+																					"objectClass": "SkillButtons",
+																					"sid": 372931152404630,
+																					"parameters": {
+																						"instance-variable": "SkillSlot",
+																						"comparison": 1,
+																						"value": "UI_SkillButton.SkillSlot"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "set-boolean-instvar",
+																					"objectClass": "SkillButtons",
+																					"sid": 241189063787236,
+																					"parameters": {
+																						"instance-variable": "Active",
+																						"value": "false"
+																					}
+																				}
+																			],
+																			"sid": 986986746854450
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "UI_SkillButton",
+																					"sid": 832996299844619,
+																					"parameters": {
+																						"instance-variable": "Active"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "call-mapped-function",
+																					"objectClass": "Functions",
+																					"sid": 519688341108379,
+																					"parameters": {
+																						"name": "\"skill\"",
+																						"string": "UI_SkillButton.CurrentSkill",
+																						"forward-params": "0"
+																					}
+																				}
+																			],
+																			"sid": 719345697552400
+																		}
+																	]
 																}
 															]
 														}
@@ -1207,6 +1479,15 @@
 							"sid": 648198647108957,
 							"parameters": {
 								"object": "Collisions"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "PlayerMoveTile",
+							"sid": 907031904716074,
+							"parameters": {
+								"object": "NPCBases"
 							},
 							"isInverted": true
 						},
@@ -1471,6 +1752,32 @@
 					"sid": 532983004155508
 				},
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 251773679403657,
+							"parameters": {
+								"variable": "TouchMode",
+								"comparison": 0,
+								"value": "\"skillpickup\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "SkillButtons",
+							"sid": 824797050853768,
+							"parameters": {
+								"color": "rgbEx(200, 200, 150)"
+							}
+						}
+					],
+					"sid": 848333773684755
+				},
+				{
 					"eventType": "comment",
 					"text": "Show hp & mp"
 				},
@@ -1520,6 +1827,21 @@
 						}
 					],
 					"sid": 475597605270059
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "TXTcrystals",
+							"sid": 351304169011834,
+							"parameters": {
+								"text": "\"  $: \" & PlayerBase.money & newline & \"(does nothing atm)\""
+							}
+						}
+					],
+					"sid": 628501761042482
 				},
 				{
 					"eventType": "comment",
@@ -1625,6 +1947,11 @@
 									"id": "move-to-top",
 									"objectClass": "TXThp",
 									"sid": 845166473981448
+								},
+								{
+									"id": "move-to-top",
+									"objectClass": "TXTcrystals",
+									"sid": 875660858336357
 								}
 							],
 							"sid": 383206999767598
@@ -1633,6 +1960,65 @@
 				}
 			],
 			"sid": 874797600707893
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "SkillPickup",
+					"sid": 920320813461569,
+					"parameters": {
+						"object": "PlayerBase"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "ChangeSkill",
+					"sid": 327238161005174,
+					"parameters": [
+						"choose(1,2,3,4)",
+						"SkillPickup.CurrentSkill"
+					]
+				},
+				{
+					"id": "destroy",
+					"objectClass": "SkillPickup",
+					"sid": 175305521144329
+				}
+			],
+			"sid": 384727023851407
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Crystals",
+					"sid": 369109324653244,
+					"parameters": {
+						"object": "PlayerBase"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-instvar",
+					"objectClass": "PlayerBase",
+					"sid": 805942476190437,
+					"parameters": {
+						"instance-variable": "money",
+						"value": "Crystals.AnimationFrame"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Crystals",
+					"sid": 334407329598133
+				}
+			],
+			"sid": 661727986745783
 		}
 	],
 	"sid": 674070928567353

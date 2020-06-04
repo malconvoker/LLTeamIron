@@ -32,6 +32,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "TextBox",
+			"name": "Text input",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Audio",
 			"name": "Audio",
 			"author": "Scirra",
@@ -79,14 +87,6 @@
 			"bundled": false
 		},
 		{
-			"type": "plugin",
-			"id": "TextBox",
-			"name": "Text input",
-			"author": "Scirra",
-			"version": "r197.2",
-			"bundled": false
-		},
-		{
 			"type": "behavior",
 			"id": "Bullet",
 			"name": "Bullet",
@@ -112,16 +112,16 @@
 		},
 		{
 			"type": "behavior",
-			"id": "Pathfinding",
-			"name": "Pathfinding",
+			"id": "Persist",
+			"name": "Persist",
 			"author": "Scirra",
 			"version": "r197.2",
 			"bundled": false
 		},
 		{
 			"type": "behavior",
-			"id": "Persist",
-			"name": "Persist",
+			"id": "Pathfinding",
+			"name": "Pathfinding",
 			"author": "Scirra",
 			"version": "r197.2",
 			"bundled": false
@@ -129,11 +129,7 @@
 	],
 	"uniqueId": "0q5jywda9ru",
 	"objectTypes": {
-		"items": [
-			"MerchantMask",
-			"MerchantBase",
-			"TextInput"
-		],
+		"items": [],
 		"subfolders": [
 			{
 				"items": [],
@@ -192,7 +188,9 @@
 					"TXThp",
 					"TXTerrors",
 					"TXTtouchmode",
-					"TXTtiledistance"
+					"TXTtiledistance",
+					"TextInput",
+					"TXTcrystals"
 				],
 				"subfolders": [],
 				"name": "DebugText"
@@ -230,7 +228,9 @@
 					{
 						"items": [
 							"Camp_Tent",
-							"Tiles_Camp"
+							"Tiles_Camp",
+							"Camp_Arch",
+							"Camp_Tree"
 						],
 						"subfolders": [],
 						"name": "Camp"
@@ -257,9 +257,20 @@
 				"name": "Skill effects"
 			},
 			{
-				"items": [],
+				"items": [
+					"MerchantBase",
+					"MerchantMask"
+				],
 				"subfolders": [],
 				"name": "NPCs"
+			},
+			{
+				"items": [
+					"SkillPickup",
+					"Crystals"
+				],
+				"subfolders": [],
+				"name": "Interactables"
 			}
 		]
 	},
@@ -300,10 +311,10 @@
 	"families": {
 		"items": [
 			"EnemyBases",
-			"EnemyMasks",
 			"Z_Sorting",
 			"SkillButtons",
-			"DebugTexts"
+			"DebugTexts",
+			"NPCBases"
 		],
 		"subfolders": []
 	},
@@ -432,7 +443,7 @@
 	},
 	"properties": {
 		"description": "Luotsaamo Team Iron Game",
-		"version": "0.4.2",
+		"version": "0.5.0",
 		"author": "Team Iron",
 		"authorEmail": "",
 		"authorWebsite": "",
@@ -477,5 +488,5 @@
 	},
 	"viewportWidth": 427,
 	"viewportHeight": 240,
-	"firstLayout": "Demo_Start"
+	"firstLayout": "Camp"
 }

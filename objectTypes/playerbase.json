@@ -43,7 +43,7 @@
 		{
 			"name": "TurnInProgress",
 			"type": "boolean",
-			"desc": "Is the player turn in progress (used in addition to Turn == 1)",
+			"desc": "Is the player turn in progress (used in addition to Turn == 0)",
 			"sid": 287912942623586
 		},
 		{
@@ -51,6 +51,18 @@
 			"type": "number",
 			"desc": "Damage taken between turns",
 			"sid": 844345218234026
+		},
+		{
+			"name": "TurnDone",
+			"type": "boolean",
+			"desc": "Has the player finished turn actions (to prevent moving while animations are happening)",
+			"sid": 241226874005535
+		},
+		{
+			"name": "money",
+			"type": "number",
+			"desc": "Amount of \"money\"",
+			"sid": 749038504749321
 		}
 	],
 	"behaviorTypes": [],

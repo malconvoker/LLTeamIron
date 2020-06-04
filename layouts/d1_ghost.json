@@ -332,106 +332,6 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "DebugNode",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 23,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": -20,
-						"y": -40,
-						"width": 8,
-						"height": 7,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "TXTenemydata",
-					"properties": {
-						"text": "#/#  #*",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 8,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							1,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "bottom-left"
-					},
-					"uid": 24,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 0,
-						"y": -20,
-						"width": 60,
-						"height": 20,
-						"originX": 0,
-						"originY": 1,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "PlayerMask",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "idle",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 51,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 140,
-						"y": -40,
-						"width": 16,
-						"height": 22,
-						"originX": 0.5,
-						"originY": 0.7272727272727273,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "LOS",
 					"properties": {
 						"initially-visible": false,
@@ -458,68 +358,6 @@
 						"width": 20,
 						"height": 20,
 						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Cursor",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "default",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 60,
-					"instanceVariables": {
-						"OldPos": 0,
-						"HasLOS": false,
-						"OnEnemy": false
-					},
-					"behaviors": {},
-					"world": {
-						"x": 100,
-						"y": -40,
-						"width": 20,
-						"height": 20,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "PlayerMoveTile",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "direction",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 104,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 80,
-						"y": -80,
-						"width": 20,
-						"height": 20,
-						"originX": -1,
 						"originY": 0,
 						"color": [
 							1,
@@ -652,6 +490,42 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "SkillPickup",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "manablast",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 46,
+					"instanceVariables": {
+						"CurrentSkill": "knightleap",
+						"Selected": false
+					},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 280,
+						"y": 60,
+						"width": 18,
+						"height": 18,
+						"originX": -0.05555555555555555,
+						"originY": -0.05555555555555555,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 920197386499787,
@@ -711,90 +585,6 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "TXTturn",
-					"properties": {
-						"text": "Turn #",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 8,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": false,
-						"origin": "top-left"
-					},
-					"uid": 180,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 347.82745900193135,
-						"y": 41.62897853699677,
-						"width": 120,
-						"height": 40,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "TXThp",
-					"properties": {
-						"text": "#/#",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 8,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 181,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 343.50493899481387,
-						"y": 2.4534572963697485,
-						"width": 120,
-						"height": 40,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "TXTerrors",
 					"properties": {
 						"text": "Err:",
@@ -823,132 +613,6 @@
 						"x": 0,
 						"y": 0,
 						"width": 340,
-						"height": 20,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "TXTtouchmode",
-					"properties": {
-						"text": "Touch: ",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 8,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": false,
-						"origin": "top-left"
-					},
-					"uid": 183,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 360,
-						"y": 80,
-						"width": 120,
-						"height": 20,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "TXTstatictext",
-					"properties": {
-						"text": "R: Restart",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 8,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 196,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 480,
-						"y": 160,
-						"width": 120,
-						"height": 20,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "TXTstatictext",
-					"properties": {
-						"text": "D: Toggle Debug",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 8,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "top-left"
-					},
-					"uid": 197,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 480,
-						"y": 180,
-						"width": 120,
 						"height": 20,
 						"originX": 0,
 						"originY": 0,

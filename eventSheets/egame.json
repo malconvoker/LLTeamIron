@@ -346,19 +346,7 @@
 							"behaviorType": "Pathfinding"
 						}
 					],
-					"actions": [
-						{
-							"id": "flash",
-							"objectClass": "EnemyMasks",
-							"sid": 166035770879381,
-							"behaviorType": "Flash",
-							"parameters": {
-								"on-time": "0.1",
-								"off-time": "0.1",
-								"duration": "0.5"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 453439982652054,
 					"disabled": true
 				}
@@ -487,7 +475,49 @@
 					}
 				}
 			],
-			"sid": 737970651318844
+			"sid": 737970651318844,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Create LOS object if it does not exist (it should, this is just a safeguard)"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-outside-layout",
+							"objectClass": "LOS",
+							"sid": 679365940885869
+						}
+					],
+					"actions": [],
+					"sid": 688461227478790
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 413622695046690
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 656559038820281,
+							"parameters": {
+								"object-to-create": "LOS",
+								"layer": "0",
+								"x": "-100",
+								"y": "-100"
+							}
+						}
+					],
+					"sid": 481512240457049
+				}
+			]
 		},
 		{
 			"eventType": "group",

@@ -184,6 +184,15 @@
 						"animation": "Self.CurrentSkill",
 						"from": "beginning"
 					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "SkillPickup",
+					"sid": 777322788017070,
+					"parameters": {
+						"animation": "Self.CurrentSkill",
+						"from": "beginning"
+					}
 				}
 			],
 			"sid": 864634958328888
@@ -696,6 +705,14 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Skill_KnightLeap",
+											"sid": 474987734776875,
+											"parameters": {
+												"object": "NPCBases"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_KnightLeap",
 											"sid": 931798701246880,
 											"parameters": {
 												"object": "EnemyBases"
@@ -1150,8 +1167,8 @@
 				{
 					"name": "Slot",
 					"type": "number",
-					"initialValue": "0",
-					"comment": "Slot to put skill into, 0-2",
+					"initialValue": "1",
+					"comment": "Slot to put skill into, 1-4",
 					"sid": 182936803168275
 				},
 				{
@@ -1164,18 +1181,296 @@
 			],
 			"eventType": "function-block",
 			"conditions": [],
-			"actions": [
+			"actions": [],
+			"sid": 930694672473764,
+			"children": [
 				{
-					"id": "set-animation",
-					"objectClass": "SkillButtons",
-					"sid": 828298362969263,
-					"parameters": {
-						"animation": "Self.CurrentSkill",
-						"from": "beginning"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UI_SkillButton",
+							"sid": 747695114364830,
+							"parameters": {
+								"instance-variable": "SkillSlot",
+								"comparison": 0,
+								"value": "Slot"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 188051178254949,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UI_SkillButton",
+									"sid": 623694154353971,
+									"parameters": {
+										"instance-variable": "CurrentSkill",
+										"comparison": 1,
+										"value": "\"empty\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 620795408730265,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "SkillPickup",
+											"sid": 890793985378181,
+											"parameters": {
+												"instance-variable": "Selected"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "SkillPickup",
+											"sid": 290306632775498,
+											"parameters": {
+												"instance-variable": "Selected",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "SkillPickup",
+											"sid": 357733679501836,
+											"parameters": {
+												"instance-variable": "CurrentSkill",
+												"value": "UI_SkillButton.CurrentSkill"
+											}
+										}
+									],
+									"sid": 508122306370302
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_SkillButton",
+									"sid": 648003012472935,
+									"parameters": {
+										"instance-variable": "CurrentSkill",
+										"value": "newSkill"
+									}
+								}
+							],
+							"sid": 222292699648666
+						},
+						{
+							"eventType": "comment",
+							"text": "Find corresponding row of Skills array, set MPCost and Value"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-element",
+									"objectClass": "Skills",
+									"sid": 528430056869381,
+									"parameters": {
+										"axes": "xy"
+									}
+								},
+								{
+									"id": "compare-current-value",
+									"objectClass": "Skills",
+									"sid": 404666233258321,
+									"parameters": {
+										"comparison": 0,
+										"value": "newSkill"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_SkillButton",
+									"sid": 292290247860940,
+									"parameters": {
+										"instance-variable": "MPCost",
+										"value": "Skills.At(1,Skills.CurY)"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_SkillButton",
+									"sid": 627197098714423,
+									"parameters": {
+										"instance-variable": "Value",
+										"value": "Skills.At(2,Skills.CurY)"
+									}
+								}
+							],
+							"sid": 677294960446290
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "UI_SkillButton",
+									"sid": 598407093469573,
+									"parameters": {
+										"animation": "Self.CurrentSkill",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "Skills",
+									"sid": 617392935566912,
+									"parameters": {
+										"x": "0",
+										"y": "Slot",
+										"value": "UI_SkillButton.CurrentSkill"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "Skills",
+									"sid": 778996197949842,
+									"parameters": {
+										"x": "1",
+										"y": "Slot",
+										"value": "UI_SkillButton.MPCost"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "Skills",
+									"sid": 900601055212256,
+									"parameters": {
+										"x": "2",
+										"y": "Slot",
+										"value": "UI_SkillButton.Value"
+									}
+								}
+							],
+							"sid": 391920378739531
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "TXTmpcost",
+									"sid": 361543781273526,
+									"parameters": {
+										"instance-variable": "SkillSlot",
+										"comparison": 0,
+										"value": "Slot"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "TXTmpcost",
+									"sid": 838524528449196
+								}
+							],
+							"sid": 593293498507573
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UI_SkillButton",
+									"sid": 261639698872011,
+									"parameters": {
+										"instance-variable": "MPCost",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "UI_SkillButton",
+									"sid": 657735232065888,
+									"parameters": {
+										"object": "TXTmpcost",
+										"layer": "\"UI\"",
+										"image-point": "\"mpcost\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "TXTmpcost",
+									"sid": 555463887453584,
+									"parameters": {
+										"text": "UI_SkillButton.MPCost"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "TXTmpcost",
+									"sid": 643847283202551,
+									"parameters": {
+										"instance-variable": "SkillSlot",
+										"value": "UI_SkillButton.SkillSlot"
+									}
+								}
+							],
+							"sid": 417652840230494
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "SkillPickup",
+									"sid": 862881422412064,
+									"parameters": {
+										"instance-variable": "Selected"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "SkillPickup",
+									"sid": 649677851563603
+								}
+							],
+							"sid": 994070438043821
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 107107877045935,
+									"parameters": {
+										"variable": "TouchMode",
+										"value": "\"default\""
+									}
+								}
+							],
+							"sid": 347022078336635
+						}
+					]
 				}
-			],
-			"sid": 930694672473764
+			]
 		},
 		{
 			"functionName": "SetSkills",
@@ -1190,6 +1485,10 @@
 				{
 					"type": "comment",
 					"text": "Loads skills from array"
+				},
+				{
+					"type": "comment",
+					"text": "Skills array Y values 1-4 correspond to current skills"
 				},
 				{
 					"id": "append-text",
@@ -1283,6 +1582,15 @@
 									"sid": 296419063292130,
 									"parameters": {
 										"text": "UI_SkillButton.MPCost"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "TXTmpcost",
+									"sid": 445322386618897,
+									"parameters": {
+										"instance-variable": "SkillSlot",
+										"value": "UI_SkillButton.SkillSlot"
 									}
 								}
 							],

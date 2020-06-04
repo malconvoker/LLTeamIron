@@ -46,7 +46,7 @@
 			"name": "TouchMode",
 			"type": "string",
 			"initialValue": "default",
-			"comment": "Current mode of touch: default, skilltarget",
+			"comment": "Current mode of touch: default, skilltarget, skillpickup",
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 121488578550355

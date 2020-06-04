@@ -10,6 +10,9 @@
 		"PlayerMask",
 		"E_SkeletonMask",
 		"E_GhostMask",
-		"Camp_Tent"
+		"Camp_Tent",
+		"MerchantMask",
+		"Camp_Tree",
+		"Camp_Arch"
 	]
 }

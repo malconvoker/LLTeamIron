@@ -1,0 +1,37 @@
+{
+	"name": "Camp_Arch",
+	"plugin-id": "Sprite",
+	"sid": 506756282272002,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 60,
+						"height": 40,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\arch_1.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7774062,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 322209074393024,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

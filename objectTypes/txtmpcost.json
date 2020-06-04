@@ -3,7 +3,14 @@
 	"plugin-id": "Text",
 	"sid": 497886995559755,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "SkillSlot",
+			"type": "number",
+			"desc": "The Skill slot the mp cost corresponds to",
+			"sid": 894773024980583
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": []
 }

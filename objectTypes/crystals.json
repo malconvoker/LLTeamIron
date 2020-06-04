@@ -1,0 +1,121 @@
+{
+	"name": "Crystals",
+	"plugin-id": "Sprite",
+	"sid": 678860551667917,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 132398,
+						"collisionPoly": {
+							"points": [
+								0.25,
+								0.25,
+								0.75,
+								0.25,
+								0.75,
+								0.75,
+								0.25,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7267935,
+						"collisionPoly": {
+							"points": [
+								0.25,
+								0.25,
+								0.75,
+								0.25,
+								0.75,
+								0.75,
+								0.25,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4951076,
+						"collisionPoly": {
+							"points": [
+								0.25,
+								0.25,
+								0.75,
+								0.25,
+								0.75,
+								0.75,
+								0.25,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 602946,
+						"collisionPoly": {
+							"points": [
+								0.25,
+								0.25,
+								0.75,
+								0.25,
+								0.75,
+								0.75,
+								0.25,
+								0.75
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 933121104019551,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
