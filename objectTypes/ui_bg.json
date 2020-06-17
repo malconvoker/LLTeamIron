@@ -66,7 +66,7 @@
 					}
 				],
 				"sid": 744733680845979,
-				"name": "brown",
+				"name": "oldbrown",
 				"isLooping": true,
 				"isPingPong": false,
 				"repeatCount": 1,
@@ -80,10 +80,10 @@
 						"height": 240,
 						"originX": 0,
 						"originY": 0,
-						"originalSource": "C:\\Users\\mctur\\Downloads\\UI brown-not brown.png",
+						"originalSource": "C:\\Users\\mctur\\Downloads\\UI Brown again v1.1.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 3356528,
+						"imageSpriteId": 4750409,
 						"collisionPoly": {
 							"points": [
 								0.011111111111111112,
@@ -105,11 +105,33 @@
 							]
 						},
 						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "skill1",
+								"x": 0.1111111111111111,
+								"y": 0.8333333333333334
+							},
+							{
+								"name": "skill2",
+								"x": 0.5666666666666667,
+								"y": 0.8333333333333334
+							},
+							{
+								"name": "skill3",
+								"x": 0.1111111111111111,
+								"y": 0.6833333333333333
+							},
+							{
+								"name": "skill4",
+								"x": 0.5666666666666667,
+								"y": 0.6833333333333333
+							}
+						],
 						"duration": 1
 					}
 				],
-				"sid": 856551900581576,
-				"name": "beige",
+				"sid": 849665594275924,
+				"name": "brown",
 				"isLooping": true,
 				"isPingPong": false,
 				"repeatCount": 1,

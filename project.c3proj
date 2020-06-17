@@ -87,6 +87,22 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Spritefont2",
+			"name": "Sprite font",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Bullet",
 			"name": "Bullet",
@@ -125,11 +141,31 @@
 			"author": "Scirra",
 			"version": "r197.2",
 			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "overlay",
+			"name": "Overlay",
+			"author": "Scirra",
+			"version": "r197.2",
+			"bundled": false
 		}
 	],
 	"uniqueId": "0q5jywda9ru",
 	"objectTypes": {
-		"items": [],
+		"items": [
+			"NumberIcon",
+			"NumberFont",
+			"LevelWarp"
+		],
 		"subfolders": [
 			{
 				"items": [],
@@ -220,9 +256,7 @@
 			},
 			{
 				"items": [
-					"Collisions",
-					"Tiles_Dungeon",
-					"SmallTiles_Dungeon"
+					"Collisions"
 				],
 				"subfolders": [
 					{
@@ -230,10 +264,24 @@
 							"Camp_Tent",
 							"Tiles_Camp",
 							"Camp_Arch",
-							"Camp_Tree"
+							"Camp_Tree",
+							"Camp_Entrance",
+							"Camp_EntranceTop",
+							"Tiles_CampSmall",
+							"Camp_Fire",
+							"TiledBackground"
 						],
 						"subfolders": [],
 						"name": "Camp"
+					},
+					{
+						"items": [
+							"SmallTiles_Dungeon",
+							"Tiles_Dungeon",
+							"Dungeon_Torch"
+						],
+						"subfolders": [],
+						"name": "Dungeon"
 					}
 				],
 				"name": "Mapping"
@@ -321,16 +369,30 @@
 	"layouts": {
 		"items": [
 			"Test Level",
-			"Camp",
-			"D1_Hard3",
-			"D1_Start",
-			"D1_Skele",
-			"Demo_Start",
-			"D1_Hard1",
-			"ObjectBank",
-			"D1_Ghost"
+			"ObjectBank"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"D1_Hard3",
+					"D1_Start",
+					"D1_Skele",
+					"Demo_Start",
+					"D1_Hard1",
+					"D1_Ghost"
+				],
+				"subfolders": [],
+				"name": "Dungeon1"
+			},
+			{
+				"items": [
+					"Camp",
+					"Camp_Entry"
+				],
+				"subfolders": [],
+				"name": "Camp"
+			}
+		]
 	},
 	"eventSheets": {
 		"items": [
@@ -365,7 +427,18 @@
 			"subfolders": []
 		},
 		"music": {
-			"items": [],
+			"items": [
+				{
+					"name": "zapsplat_cave.mp3",
+					"type": "audio/mpeg",
+					"sid": 498997327118594
+				},
+				{
+					"name": "zapsplat_forest.mp3",
+					"type": "audio/mpeg",
+					"sid": 836726234174055
+				}
+			],
 			"subfolders": []
 		},
 		"video": {

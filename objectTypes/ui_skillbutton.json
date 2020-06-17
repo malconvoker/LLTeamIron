@@ -11,444 +11,6 @@
 			{
 				"frames": [
 					{
-						"width": 26,
-						"height": 26,
-						"originX": 0,
-						"originY": 0,
-						"originalSource": "",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 7758594,
-						"collisionPoly": {
-							"points": [
-								0.07692307692307693,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231
-							]
-						},
-						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "mpcost",
-								"x": 0.8076923076923077,
-								"y": 0.7692307692307693
-							}
-						],
-						"duration": 1
-					}
-				],
-				"sid": 217414132081027,
-				"name": "oldempty",
-				"isLooping": false,
-				"isPingPong": false,
-				"repeatCount": 1,
-				"repeatTo": 0,
-				"speed": 0
-			},
-			{
-				"frames": [
-					{
-						"width": 26,
-						"height": 26,
-						"originX": 0,
-						"originY": 0,
-						"originalSource": "",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 2833445,
-						"collisionPoly": {
-							"points": [
-								0.07692307692307693,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231
-							]
-						},
-						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "mpcost",
-								"x": 0.8076923076923077,
-								"y": 0.7692307692307693
-							}
-						],
-						"duration": 1
-					}
-				],
-				"sid": 329922724017779,
-				"name": "oldmanablast",
-				"isLooping": false,
-				"isPingPong": false,
-				"repeatCount": 1,
-				"repeatTo": 0,
-				"speed": 0
-			},
-			{
-				"frames": [
-					{
-						"width": 26,
-						"height": 26,
-						"originX": 0,
-						"originY": 0,
-						"originalSource": "",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 6661702,
-						"collisionPoly": {
-							"points": [
-								0.07692307692307693,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231
-							]
-						},
-						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "mpcost",
-								"x": 0.8076923076923077,
-								"y": 0.7692307692307693
-							}
-						],
-						"duration": 1
-					},
-					{
-						"width": 26,
-						"height": 26,
-						"originX": 0,
-						"originY": 0,
-						"originalSource": "",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 4854657,
-						"collisionPoly": {
-							"points": [
-								0.07692307692307693,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231
-							]
-						},
-						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "mpcost",
-								"x": 0.8076923076923077,
-								"y": 0.7692307692307693
-							}
-						],
-						"duration": 1
-					},
-					{
-						"width": 26,
-						"height": 26,
-						"originX": 0,
-						"originY": 0,
-						"originalSource": "",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 7300782,
-						"collisionPoly": {
-							"points": [
-								0.07692307692307693,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231
-							]
-						},
-						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "mpcost",
-								"x": 0.8076923076923077,
-								"y": 0.7692307692307693
-							}
-						],
-						"duration": 1
-					},
-					{
-						"width": 26,
-						"height": 26,
-						"originX": 0,
-						"originY": 0,
-						"originalSource": "",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 2589770,
-						"collisionPoly": {
-							"points": [
-								0.07692307692307693,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231
-							]
-						},
-						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "mpcost",
-								"x": 0.8076923076923077,
-								"y": 0.7692307692307693
-							}
-						],
-						"duration": 1
-					}
-				],
-				"sid": 237661004496622,
-				"name": "oldshield",
-				"isLooping": false,
-				"isPingPong": false,
-				"repeatCount": 1,
-				"repeatTo": 0,
-				"speed": 0
-			},
-			{
-				"frames": [
-					{
-						"width": 26,
-						"height": 26,
-						"originX": 0,
-						"originY": 0,
-						"originalSource": "",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 3765298,
-						"collisionPoly": {
-							"points": [
-								0.07692307692307693,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231
-							]
-						},
-						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "mpcost",
-								"x": 0.8076923076923077,
-								"y": 0.7692307692307693
-							}
-						],
-						"duration": 1
-					}
-				],
-				"sid": 768769863042123,
-				"name": "oldknightleap",
-				"isLooping": false,
-				"isPingPong": false,
-				"repeatCount": 1,
-				"repeatTo": 0,
-				"speed": 0
-			},
-			{
-				"frames": [
-					{
-						"width": 26,
-						"height": 26,
-						"originX": 0,
-						"originY": 0,
-						"originalSource": "",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 5127172,
-						"collisionPoly": {
-							"points": [
-								0.07692307692307693,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231
-							]
-						},
-						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "mpcost",
-								"x": 0.8076923076923077,
-								"y": 0.7692307692307693
-							}
-						],
-						"duration": 1
-					},
-					{
-						"width": 26,
-						"height": 26,
-						"originX": 0,
-						"originY": 0,
-						"originalSource": "",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 4062059,
-						"collisionPoly": {
-							"points": [
-								0.07692307692307693,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231
-							]
-						},
-						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "mpcost",
-								"x": 0.8076923076923077,
-								"y": 0.7692307692307693
-							}
-						],
-						"duration": 1
-					},
-					{
-						"width": 26,
-						"height": 26,
-						"originX": 0,
-						"originY": 0,
-						"originalSource": "",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 4619820,
-						"collisionPoly": {
-							"points": [
-								0.07692307692307693,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231
-							]
-						},
-						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "mpcost",
-								"x": 0.8076923076923077,
-								"y": 0.7692307692307693
-							}
-						],
-						"duration": 1
-					},
-					{
-						"width": 26,
-						"height": 26,
-						"originX": 0,
-						"originY": 0,
-						"originalSource": "",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 7152012,
-						"collisionPoly": {
-							"points": [
-								0.07692307692307693,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231
-							]
-						},
-						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "mpcost",
-								"x": 0.8076923076923077,
-								"y": 0.7692307692307693
-							}
-						],
-						"duration": 1
-					}
-				],
-				"sid": 745225981160414,
-				"name": "oldmanacharge",
-				"isLooping": false,
-				"isPingPong": false,
-				"repeatCount": 1,
-				"repeatTo": 0,
-				"speed": 0
-			},
-			{
-				"frames": [
-					{
-						"width": 26,
-						"height": 26,
-						"originX": 0,
-						"originY": 0,
-						"originalSource": "",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 8888563,
-						"collisionPoly": {
-							"points": [
-								0.07692307692307693,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231,
-								0.9230769230769231,
-								0.07692307692307693,
-								0.9230769230769231
-							]
-						},
-						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "mpcost",
-								"x": 0.8076923076923077,
-								"y": 0.7692307692307693
-							}
-						],
-						"duration": 1
-					}
-				],
-				"sid": 816793599657037,
-				"name": "oldbase",
-				"isLooping": false,
-				"isPingPong": false,
-				"repeatCount": 1,
-				"repeatTo": 0,
-				"speed": 0
-			},
-			{
-				"frames": [
-					{
 						"width": 32,
 						"height": 32,
 						"originX": 0,
@@ -498,7 +60,7 @@
 						"originalSource": "C:\\Users\\mctur\\Downloads\\iconborder v2.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 1916332,
+						"imageSpriteId": 4121973,
 						"collisionPoly": {
 							"points": [
 								0.09375,
@@ -540,7 +102,7 @@
 						"originalSource": "C:\\Users\\mctur\\Downloads\\ShootIcon v2.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 574807,
+						"imageSpriteId": 8563246,
 						"collisionPoly": {
 							"points": [
 								0.07692307692307693,
@@ -579,10 +141,10 @@
 						"height": 32,
 						"originX": 0,
 						"originY": 0,
-						"originalSource": "C:\\Users\\mctur\\Downloads\\iconborder v2.png",
+						"originalSource": "C:\\Users\\mctur\\Downloads\\drive-download-20200611T094601Z-001\\Active template.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 5247382,
+						"imageSpriteId": 7500809,
 						"collisionPoly": {
 							"points": [
 								0.09375,
@@ -606,8 +168,8 @@
 						"duration": 1
 					}
 				],
-				"sid": 328006890032522,
-				"name": "tempshield",
+				"sid": 331429344343911,
+				"name": "shield",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
@@ -621,10 +183,10 @@
 						"height": 32,
 						"originX": 0,
 						"originY": 0,
-						"originalSource": "C:\\Users\\mctur\\Downloads\\iconborder v2.png",
+						"originalSource": "C:\\Users\\mctur\\Downloads\\drive-download-20200611T094601Z-001\\Active template.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 7355348,
+						"imageSpriteId": 4160079,
 						"collisionPoly": {
 							"points": [
 								0.09375,
@@ -648,7 +210,7 @@
 						"duration": 1
 					}
 				],
-				"sid": 494920834542739,
+				"sid": 430721589993104,
 				"name": "knightleap",
 				"isLooping": false,
 				"isPingPong": false,
@@ -663,10 +225,10 @@
 						"height": 32,
 						"originX": 0,
 						"originY": 0,
-						"originalSource": "C:\\Users\\mctur\\Downloads\\iconborder v2.png",
+						"originalSource": "C:\\Users\\mctur\\Downloads\\drive-download-20200611T094601Z-001\\Passive template.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 4526123,
+						"imageSpriteId": 667764,
 						"collisionPoly": {
 							"points": [
 								0.09375,
@@ -694,10 +256,10 @@
 						"height": 32,
 						"originX": 0,
 						"originY": 0,
-						"originalSource": "C:\\Users\\mctur\\Downloads\\iconborder v2.png",
+						"originalSource": "C:\\Users\\mctur\\Downloads\\drive-download-20200611T094601Z-001\\Passive template.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 2424830,
+						"imageSpriteId": 7108232,
 						"collisionPoly": {
 							"points": [
 								0.09375,
@@ -725,10 +287,10 @@
 						"height": 32,
 						"originX": 0,
 						"originY": 0,
-						"originalSource": "C:\\Users\\mctur\\Downloads\\iconborder v2.png",
+						"originalSource": "C:\\Users\\mctur\\Downloads\\drive-download-20200611T094601Z-001\\Passive template.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 2294493,
+						"imageSpriteId": 3970292,
 						"collisionPoly": {
 							"points": [
 								0.09375,
@@ -756,10 +318,10 @@
 						"height": 32,
 						"originX": 0,
 						"originY": 0,
-						"originalSource": "C:\\Users\\mctur\\Downloads\\iconborder v2.png",
+						"originalSource": "C:\\Users\\mctur\\Downloads\\drive-download-20200611T094601Z-001\\Passive template.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 4581524,
+						"imageSpriteId": 4670692,
 						"collisionPoly": {
 							"points": [
 								0.09375,
@@ -783,13 +345,13 @@
 						"duration": 1
 					}
 				],
-				"sid": 834004926739345,
+				"sid": 560202087047153,
 				"name": "manacharge",
-				"isLooping": true,
+				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
 				"repeatTo": 0,
-				"speed": 2
+				"speed": 0
 			},
 			{
 				"frames": [
@@ -798,10 +360,10 @@
 						"height": 32,
 						"originX": 0,
 						"originY": 0,
-						"originalSource": "C:\\Users\\mctur\\Downloads\\iconborder v2.png",
+						"originalSource": "C:\\Users\\mctur\\Downloads\\drive-download-20200611T094601Z-001\\Active template.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 3225783,
+						"imageSpriteId": 1562452,
 						"collisionPoly": {
 							"points": [
 								0.09375,
@@ -825,8 +387,92 @@
 						"duration": 1
 					}
 				],
-				"sid": 759094296909784,
-				"name": "shield",
+				"sid": 443392432458642,
+				"name": "activebase",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\drive-download-20200611T094601Z-001\\Passive template.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9877742,
+						"collisionPoly": {
+							"points": [
+								0.09375,
+								0.09375,
+								0.90625,
+								0.09375,
+								0.90625,
+								0.90625,
+								0.09375,
+								0.90625
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "mpcost",
+								"x": 0.8076923076923077,
+								"y": 0.7692307692307693
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 985919419362606,
+				"name": "passivebase",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\drive-download-20200611T094601Z-001\\Passive template.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5981177,
+						"collisionPoly": {
+							"points": [
+								0.09375,
+								0.09375,
+								0.90625,
+								0.09375,
+								0.90625,
+								0.90625,
+								0.09375,
+								0.90625
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "mpcost",
+								"x": 0.8076923076923077,
+								"y": 0.7692307692307693
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 264840868015672,
+				"name": "passiveborder",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

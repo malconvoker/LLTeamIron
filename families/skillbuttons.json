@@ -40,7 +40,13 @@
 			"sid": 323424885026678
 		}
 	],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 613232762766356
+		}
+	],
 	"effectTypes": [],
 	"members": [
 		"UI_SkillButton"

@@ -365,6 +365,103 @@
 			"text": "Damage Functions"
 		},
 		{
+			"functionName": "HealPlayer",
+			"functionDescription": "Heal player character by inputted value",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Heal",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "Amount of healing to player",
+					"sid": 681764354621509
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "Cap healing at missing hp, then heal"
+				}
+			],
+			"sid": 768241307075190,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 952378707196266,
+							"parameters": {
+								"variable": "Heal",
+								"comparison": 5,
+								"value": "PlayerBase.maxhp-PlayerBase.hp"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 683058793969478,
+							"parameters": {
+								"variable": "Heal",
+								"value": "PlayerBase.maxhp-PlayerBase.hp"
+							}
+						}
+					],
+					"sid": 398754093617273
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "PlayerBase",
+							"sid": 694526235191309,
+							"parameters": {
+								"instance-variable": "hp",
+								"value": "Heal"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "PlayerMask",
+							"sid": 276980431092566,
+							"parameters": {
+								"object": "NumberIcon",
+								"layer": "\"Effects\"",
+								"image-point": "\"hpicon\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "NumberIcon",
+							"sid": 814771640230530,
+							"parameters": {
+								"animation": "\"green\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "NumberIcon",
+							"sid": 108493094377673,
+							"parameters": {
+								"frame-number": "Heal"
+							}
+						}
+					],
+					"sid": 116273777566568
+				}
+			]
+		},
+		{
 			"functionName": "DamagePlayer",
 			"functionDescription": "Damage player character by inputted value",
 			"functionCategory": "",
@@ -389,6 +486,24 @@
 					"parameters": {
 						"instance-variable": "DamageTaken",
 						"value": "Damage"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "PlayerMask",
+					"sid": 699716626726154,
+					"parameters": {
+						"object": "NumberIcon",
+						"layer": "\"Effects\"",
+						"image-point": "\"hpicon\""
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "NumberIcon",
+					"sid": 998021962276703,
+					"parameters": {
+						"frame-number": "Damage"
 					}
 				}
 			],
@@ -602,7 +717,26 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "E_SlimeMask",
+									"sid": 964716165703082,
+									"parameters": {
+										"object": "NumberIcon",
+										"layer": "\"Effects\"",
+										"image-point": "\"hpicon\""
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "NumberIcon",
+									"sid": 813426907849051,
+									"parameters": {
+										"frame-number": "Damage"
+									}
+								}
+							],
 							"sid": 512668959861196,
 							"children": [
 								{
@@ -668,7 +802,26 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "E_SkeletonMask",
+									"sid": 945045120950764,
+									"parameters": {
+										"object": "NumberIcon",
+										"layer": "\"Effects\"",
+										"image-point": "\"hpicon\""
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "NumberIcon",
+									"sid": 275526332475629,
+									"parameters": {
+										"frame-number": "Damage"
+									}
+								}
+							],
 							"sid": 678932722176771,
 							"children": [
 								{
@@ -734,7 +887,26 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "E_GhostMask",
+									"sid": 598756013760799,
+									"parameters": {
+										"object": "NumberIcon",
+										"layer": "\"Effects\"",
+										"image-point": "\"hpicon\""
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "NumberIcon",
+									"sid": 166584242857481,
+									"parameters": {
+										"frame-number": "Damage"
+									}
+								}
+							],
 							"sid": 606401352105706,
 							"children": [
 								{

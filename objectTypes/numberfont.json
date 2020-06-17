@@ -1,0 +1,32 @@
+{
+	"name": "NumberFont",
+	"plugin-id": "Spritefont2",
+	"sid": 333604817174070,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 66,
+		"height": 7,
+		"originX": 0.45454545454545453,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 9173627,
+		"collisionPoly": {
+			"points": [
+				0,
+				0,
+				0.9090909090909091,
+				0,
+				0.9090909090909091,
+				1,
+				0,
+				1
+			]
+		},
+		"useCollisionPoly": true
+	}
+}

@@ -100,6 +100,93 @@
 						],
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "Dungeon_Torch",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 103,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 80,
+						"y": 0,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Dungeon_Torch",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 104,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 240,
+						"y": 0,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Dungeon_Torch",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 105,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 200,
+						"y": 140,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 502110049029461,
@@ -153,7 +240,7 @@
 							"height": 14,
 							"max-width": 57,
 							"max-height": 29,
-							"data": "6x0,2x1,22x0,5x1,2x0,5x1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,1,3x0,4x1,3x0,1,16x0,1,4x0,4x1,3x0,2x1,15x0,1,4x0,4x1,4x0,1,15x0,1,4x0,4x1,3x0,2x1,16x0,1,3x0,4x1,3x0,1,17x0,1,3x0,4x1,3x0,1,17x0,1,3x0,4x1,3x0,1,17x0,1,3x0,4x1,3x0,1,17x0,1,3x0,4x1,3x0,1,17x0,1,3x0,4x1,3x0,1,17x0,12x1,22x0,2x1,81x0,1,1041x0"
+							"data": "6x0,2x1,22x0,5x1,2x0,5x1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,1,10x0,1,17x0,1,3x0,4x1,3x0,1,16x0,1,4x0,4x1,4x0,1,15x0,1,4x0,4x1,4x0,1,15x0,1,4x0,4x1,4x0,1,16x0,1,3x0,4x1,3x0,1,17x0,1,3x0,4x1,3x0,1,17x0,1,3x0,4x1,3x0,1,17x0,1,3x0,4x1,3x0,1,17x0,1,3x0,4x1,3x0,1,17x0,1,3x0,4x1,3x0,1,17x0,12x1,22x0,2x1,81x0,1,1041x0"
 						},
 						"tile-width": 20,
 						"tile-height": 20,

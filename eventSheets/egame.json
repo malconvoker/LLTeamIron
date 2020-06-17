@@ -451,6 +451,59 @@
 						}
 					],
 					"sid": 288981179617459
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 796851205189236
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "NumberIcon",
+							"sid": 108349157935771,
+							"parameters": {
+								"instance-variable": "time",
+								"value": "dt"
+							}
+						},
+						{
+							"id": "set-y",
+							"objectClass": "NumberIcon",
+							"sid": 905622949795009,
+							"parameters": {
+								"y": "Self.Y-Self.UpSpeed*dt"
+							}
+						}
+					],
+					"sid": 621726275972064
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "NumberIcon",
+							"sid": 213521938224032,
+							"parameters": {
+								"instance-variable": "time",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "NumberIcon",
+							"sid": 842636540173135
+						}
+					],
+					"sid": 201901699300404
 				}
 			],
 			"sid": 662979051192152
@@ -595,139 +648,366 @@
 					"sid": 661522517631688
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-y",
-							"objectClass": "PlayerBase",
-							"sid": 645457862936900,
-							"parameters": {
-								"comparison": 0,
-								"y-co-ordinate": "0"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "go-to-layout-by-name",
-							"objectClass": "System",
-							"sid": 716899973932241,
-							"parameters": {
-								"layout": "Functions.NextRoom(\"up\")"
-							}
-						},
-						{
-							"id": "set-y",
-							"objectClass": "PlayerBase",
-							"sid": 420689162164830,
-							"parameters": {
-								"y": "LayoutHeight-Tile*2"
-							}
-						}
-					],
-					"sid": 903598170801576
+					"eventType": "comment",
+					"text": "If there is a LevelWarp on screen, ignore screen edge transitions"
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-y",
-							"objectClass": "PlayerBase",
-							"sid": 680863022185648,
-							"parameters": {
-								"comparison": 0,
-								"y-co-ordinate": "LayoutHeight-Tile"
-							}
+							"id": "is-on-screen",
+							"objectClass": "LevelWarp",
+							"sid": 738983949311268
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 804170556343076,
+					"children": [
 						{
-							"id": "go-to-layout-by-name",
-							"objectClass": "System",
-							"sid": 636652747290284,
-							"parameters": {
-								"layout": "Functions.NextRoom(\"down\")"
-							}
-						},
-						{
-							"id": "set-y",
-							"objectClass": "PlayerBase",
-							"sid": 454728780511330,
-							"parameters": {
-								"y": "Tile"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "LevelWarp",
+									"sid": 215479149232938,
+									"parameters": {
+										"object": "PlayerBase"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 254699948776193,
+									"parameters": {
+										"layout": "LevelWarp.destination"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "PlayerBase",
+									"sid": 173975767388105,
+									"parameters": {
+										"x": "LevelWarp.destX",
+										"y": "LevelWarp.destY"
+									}
+								}
+							],
+							"sid": 365061183511941
 						}
-					],
-					"sid": 452019926918321
+					]
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-x",
-							"objectClass": "PlayerBase",
-							"sid": 309784735330909,
-							"parameters": {
-								"comparison": 0,
-								"x-co-ordinate": "0"
-							}
+							"id": "else",
+							"objectClass": "System",
+							"sid": 627464819275218
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 130478791888945,
+					"children": [
 						{
-							"id": "go-to-layout-by-name",
-							"objectClass": "System",
-							"sid": 972294771667143,
-							"parameters": {
-								"layout": "Functions.NextRoom(\"left\")"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "PlayerBase",
+									"sid": 107171939263609,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 575159736022202,
+									"parameters": {
+										"layout": "Functions.NextRoom(\"up\")"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "PlayerBase",
+									"sid": 508396070828160,
+									"parameters": {
+										"y": "LayoutHeight-Tile*2"
+									}
+								}
+							],
+							"sid": 507279198555815
 						},
 						{
-							"id": "set-x",
-							"objectClass": "PlayerBase",
-							"sid": 726109577405607,
-							"parameters": {
-								"x": "GameAreaWidth-Tile*2"
-							}
-						}
-					],
-					"sid": 658604353861006
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-x",
-							"objectClass": "PlayerBase",
-							"sid": 248586015678799,
-							"parameters": {
-								"comparison": 0,
-								"x-co-ordinate": "GameAreaWidth-Tile"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "go-to-layout-by-name",
-							"objectClass": "System",
-							"sid": 522954115538738,
-							"parameters": {
-								"layout": "Functions.NextRoom(\"right\")"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "PlayerBase",
+									"sid": 809690240958462,
+									"parameters": {
+										"comparison": 0,
+										"y-co-ordinate": "LayoutHeight-Tile"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 987349576773446,
+									"parameters": {
+										"layout": "Functions.NextRoom(\"down\")"
+									}
+								},
+								{
+									"id": "set-y",
+									"objectClass": "PlayerBase",
+									"sid": 455654577081294,
+									"parameters": {
+										"y": "Tile"
+									}
+								}
+							],
+							"sid": 188319798981657
 						},
 						{
-							"id": "set-x",
-							"objectClass": "PlayerBase",
-							"sid": 681747390711620,
-							"parameters": {
-								"x": "Tile"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "PlayerBase",
+									"sid": 498352146589683,
+									"parameters": {
+										"comparison": 0,
+										"x-co-ordinate": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 336613398600049,
+									"parameters": {
+										"layout": "Functions.NextRoom(\"left\")"
+									}
+								},
+								{
+									"id": "set-x",
+									"objectClass": "PlayerBase",
+									"sid": 518502134172061,
+									"parameters": {
+										"x": "GameAreaWidth-Tile*2"
+									}
+								}
+							],
+							"sid": 788332874415288
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "PlayerBase",
+									"sid": 715480709347181,
+									"parameters": {
+										"comparison": 0,
+										"x-co-ordinate": "GameAreaWidth-Tile"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 635038654554285,
+									"parameters": {
+										"layout": "Functions.NextRoom(\"right\")"
+									}
+								},
+								{
+									"id": "set-x",
+									"objectClass": "PlayerBase",
+									"sid": 237792608384286,
+									"parameters": {
+										"x": "Tile"
+									}
+								}
+							],
+							"sid": 267972625677337
 						}
-					],
-					"sid": 650733979792172
+					]
 				}
 			],
 			"sid": 601259909786066
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 520941684462883
+				}
+			],
+			"actions": [],
+			"sid": 937590667284700,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 806582644757146,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Camp\""
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 646223820489549,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Camp_Entry\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 343909030517904,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 555461424353120,
+									"parameters": {
+										"tag": "\"caveambient\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 190586232113175,
+									"parameters": {
+										"tag": "\"caveambient\""
+									}
+								}
+							],
+							"sid": 536333349660048
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 899249182948842,
+									"parameters": {
+										"tag": "\"campambient\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 172218224095252,
+									"parameters": {
+										"audio-file": "zapsplat_forest",
+										"loop": "looping",
+										"volume": "-15",
+										"tag-optional": "\"campambient\""
+									}
+								}
+							],
+							"sid": 249959001994195
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 427103342045577
+						}
+					],
+					"actions": [],
+					"sid": 491998097915379,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 945047436550534,
+									"parameters": {
+										"tag": "\"campambient\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 757163713239136,
+									"parameters": {
+										"tag": "\"campambient\""
+									}
+								}
+							],
+							"sid": 510564119629656
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 981637917191580,
+									"parameters": {
+										"tag": "\"caveambient\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 409423815235578,
+									"parameters": {
+										"audio-file": "zapsplat_cave",
+										"loop": "looping",
+										"volume": "-15",
+										"tag-optional": "\"caveambient\""
+									}
+								}
+							],
+							"sid": 837826439782141
+						}
+					]
+				}
+			]
 		}
 	],
 	"sid": 301707553409410

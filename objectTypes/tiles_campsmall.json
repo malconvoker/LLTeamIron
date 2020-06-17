@@ -1,0 +1,21 @@
+{
+	"name": "Tiles_CampSmall",
+	"plugin-id": "Tilemap",
+	"sid": 472718936957161,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 180,
+		"height": 160,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "C:\\Users\\mctur\\Downloads\\camp_tiles2.png",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 903338,
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}

@@ -1,0 +1,56 @@
+{
+	"name": "LevelWarp",
+	"plugin-id": "Sprite",
+	"sid": 814342320467769,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "destination",
+			"type": "string",
+			"desc": "name of level to warp to",
+			"sid": 865935779982608
+		},
+		{
+			"name": "destX",
+			"type": "number",
+			"desc": "X to warp to",
+			"sid": 304734567317354
+		},
+		{
+			"name": "destY",
+			"type": "number",
+			"desc": "Y to warp to",
+			"sid": 528030781605375
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2428994,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 980143634598899,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

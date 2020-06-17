@@ -1,0 +1,25 @@
+{
+	"name": "TiledBackground",
+	"plugin-id": "TiledBg",
+	"sid": 922527617519824,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "overlay",
+			"name": "Overlay"
+		}
+	],
+	"image": {
+		"width": 340,
+		"height": 120,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "C:\\Users\\mctur\\Downloads\\camp_overlay.png",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 3025853,
+		"useCollisionPoly": true
+	}
+}

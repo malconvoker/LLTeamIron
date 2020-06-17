@@ -950,7 +950,7 @@
 			"eventType": "group",
 			"disabled": false,
 			"title": "ManaCharge",
-			"description": "Killing an enemy gives 1 charge, at 3 charges automatically restores 1 mp",
+			"description": "Passive: Killing an enemy gives 1 charge, at 3 charges automatically restores 1 mp",
 			"isActiveOnStart": true,
 			"children": [
 				{

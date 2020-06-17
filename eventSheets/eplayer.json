@@ -1769,9 +1769,9 @@
 						{
 							"id": "set-default-color",
 							"objectClass": "SkillButtons",
-							"sid": 824797050853768,
+							"sid": 566421077661868,
 							"parameters": {
-								"color": "rgbEx(200, 200, 150)"
+								"color": "rgbEx(200+Self.Sine.Value, 200+Self.Sine.Value, 150+Self.Sine.Value)"
 							}
 						}
 					],
@@ -1835,9 +1835,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "TXTcrystals",
-							"sid": 351304169011834,
+							"sid": 397519066305196,
 							"parameters": {
-								"text": "\"  $: \" & PlayerBase.money & newline & \"(does nothing atm)\""
+								"text": "PlayerBase.money & newline & \"(does nothing atm)\""
 							}
 						}
 					],

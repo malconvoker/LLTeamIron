@@ -27,8 +27,8 @@
 							"width": 17,
 							"height": 12,
 							"max-width": 27,
-							"max-height": 16,
-							"data": "2x21,15,24,8x21,4x0,2x21,15,24,8x21,4x0,22,65,15,24,8x21,4x0,1,12,15,24,8x21,4x0,1,12,15,24,8x21,4x0,1,12,15,24,8x21,4x0,1,7,15,24,8x21,42,3x0,1,8,16,25,8x21,26,3x0,1,8,17,26,8x55,27,3x0,1,8,18,27,8x21,28,3x0,1,9,15,24,8x21,44,3x0,11,67,15,24,8x21,4x0,12,21,15,24,8x21,4x0,2x21,15,24,8x21,4x0,65,21,15,24,8x21,4x0,13,65,15,24,8x21,4x0,1,12,15,24,8x21,164x0"
+							"max-height": 33,
+							"data": "24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,25,11x21,21x0,26,57,10x55,21x0,27,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,351x0"
 						},
 						"tile-width": 20,
 						"tile-height": 20,
@@ -54,55 +54,7 @@
 					}
 				},
 				{
-					"type": "Tiles_Dungeon",
-					"properties": {
-						"initially-visible": true,
-						"tile-width": 20,
-						"tile-height": 20,
-						"tile-x-offset": 0,
-						"tile-y-offset": 0,
-						"tile-x-spacing": 0,
-						"tile-y-spacing": 0,
-						"tile-x-drawing-offset": 0,
-						"tile-y-drawing-offset": 0,
-						"drawing-mode": "top-to-right"
-					},
-					"uid": 21,
-					"instanceVariables": {},
-					"behaviors": {},
-					"ownData": {
-						"tilemapData": {
-							"width": 13,
-							"height": 4,
-							"max-width": 25,
-							"max-height": 18,
-							"data": "0,54,17x0,35,17x0,36,54,16x0,47,55,16x0,47,55,16x0,48,56,16x0,17,25,16x0,46,54,16x0,47,55,16x0,47,55,16x0,34,56,16x0,55,17x0,56,232x0"
-						},
-						"tile-width": 20,
-						"tile-height": 20,
-						"tile-x-offset": 0,
-						"tile-y-offset": 0,
-						"tile-x-spacing": 0,
-						"tile-y-spacing": 0
-					},
-					"world": {
-						"x": 40,
-						"y": -40,
-						"width": 260,
-						"height": 80,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "SmallTiles_Dungeon",
+					"type": "Tiles_CampSmall",
 					"properties": {
 						"initially-visible": true,
 						"tile-width": 10,
@@ -115,16 +67,16 @@
 						"tile-y-drawing-offset": 0,
 						"drawing-mode": "top-to-right"
 					},
-					"uid": 23,
+					"uid": 145,
 					"instanceVariables": {},
 					"behaviors": {},
 					"ownData": {
 						"tilemapData": {
-							"width": 18,
-							"height": 4,
-							"max-width": 36,
-							"max-height": 25,
-							"data": "28x0,188,374x0,191,496x0"
+							"width": 6,
+							"height": 6,
+							"max-width": 56,
+							"max-height": 49,
+							"data": "51x0,79,97,255,273,47x0,256,61,47x0,259,58,45x0,76,94,260,278,2542x0"
 						},
 						"tile-width": 10,
 						"tile-height": 10,
@@ -134,10 +86,10 @@
 						"tile-y-spacing": 0
 					},
 					"world": {
-						"x": 80,
-						"y": -40,
-						"width": 180,
-						"height": 40,
+						"x": 140,
+						"y": 0,
+						"width": 60,
+						"height": 60,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -146,35 +98,6 @@
 							1,
 							1
 						],
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Camp_Tree",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 102,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 40,
-						"y": 220,
-						"width": 40,
-						"height": 40,
-						"originX": 0,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
 						"zElevation": 0
 					}
 				}
@@ -230,7 +153,7 @@
 							"height": 13,
 							"max-width": 55,
 							"max-height": 28,
-							"data": "12x1,16x0,6x1,0,1,2x0,2x1,16x0,4x1,7x0,1,16x0,6x1,5x0,1,16x0,6x1,5x0,1,16x0,6x1,4x0,2x1,16x0,4x1,6x0,2x1,16x0,4x1,6x0,2x1,26x0,2x1,16x0,4x1,7x0,1,16x0,4x1,7x0,1,16x0,4x1,7x0,1,16x0,4x1,0,2x1,4x0,1,16x0,4x1,0,2x1,4x0,1,16x0,4x1,0,2x1,4x0,1,16x0,5x1,3x0,1,0,2x1,16x0,11x1,131x0,1,949x0"
+							"data": "12x1,16x0,6x1,0,1,2x0,2x1,16x0,4x1,7x0,1,16x0,1,0,1,8x0,1,16x0,1,2x0,2x1,6x0,1,16x0,1,2x0,2x1,5x0,2x1,16x0,1,2x0,2x1,5x0,2x1,16x0,1,9x0,2x1,26x0,2x1,16x0,1,10x0,1,16x0,1,2x0,1,7x0,1,16x0,1,2x0,1,0,2x1,4x0,1,16x0,1,4x0,2x1,0,1,2x0,1,16x0,1,2x0,1,0,2x1,4x0,1,16x0,2x1,0,1,7x0,1,16x0,3x1,0,1,3x0,1,0,2x1,16x0,11x1,131x0,1,949x0"
 						},
 						"tile-width": 20,
 						"tile-height": 20,
@@ -297,8 +220,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 80,
-						"y": 120,
+						"x": 100,
+						"y": 100,
 						"width": 20,
 						"height": 20,
 						"originX": 0,
@@ -433,8 +356,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 60,
-						"y": 80,
+						"x": 80,
+						"y": 60,
 						"width": 60,
 						"height": 60,
 						"originX": 0,
@@ -462,7 +385,7 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 240,
+						"x": 220,
 						"y": 100,
 						"width": 60,
 						"height": 60,
@@ -1233,35 +1156,6 @@
 					}
 				},
 				{
-					"type": "Camp_Arch",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 15,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 140,
-						"y": 40,
-						"width": 60,
-						"height": 40,
-						"originX": 0,
-						"originY": 1,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "SkillPickup",
 					"properties": {
 						"initially-visible": true,
@@ -1281,12 +1175,335 @@
 						}
 					},
 					"world": {
-						"x": 80,
-						"y": 140,
+						"x": 100,
+						"y": 120,
 						"width": 18,
 						"height": 18,
 						"originX": -0.05555555555555555,
 						"originY": -0.05555555555555555,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Camp_Tree",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 102,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 40,
+						"y": 220,
+						"width": 40,
+						"height": 40,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Camp_Tree",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 21,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 40,
+						"y": 40,
+						"width": 40,
+						"height": 40,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Camp_Tree",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 23,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 20,
+						"y": 60,
+						"width": 40,
+						"height": 40,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Camp_Tree",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 74,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 320,
+						"y": 60,
+						"width": 40,
+						"height": 40,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Camp_Tree",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 89,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 300,
+						"y": 40,
+						"width": 40,
+						"height": 40,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Camp_Tree",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 90,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 260,
+						"y": 60,
+						"width": 40,
+						"height": 40,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Camp_Tree",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 15,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 280,
+						"y": 20,
+						"width": 40,
+						"height": 40,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Camp_Tree",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 66,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 20,
+						"y": 20,
+						"width": 40,
+						"height": 40,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Camp_Tree",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 123,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 200,
+						"y": 60,
+						"width": 40,
+						"height": 40,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "LevelWarp",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 143,
+					"instanceVariables": {
+						"destination": "Camp_Entry",
+						"destX": 160,
+						"destY": 200
+					},
+					"behaviors": {},
+					"world": {
+						"x": 160,
+						"y": 0,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Camp_Fire",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 144,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 240,
+						"y": 160,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,
@@ -1331,7 +1548,7 @@
 					"properties": {
 						"text": "It's dangerous to go alone.\nTake this!",
 						"enable-bbcode": true,
-						"font": "Arial",
+						"font": "Bookman Old Style",
 						"size": 6,
 						"line-height": 0,
 						"bold": false,
@@ -1352,8 +1569,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 0,
-						"y": 80,
+						"x": 20,
+						"y": 60,
 						"width": 180,
 						"height": 40,
 						"originX": 0,
@@ -1363,6 +1580,42 @@
 							1,
 							1,
 							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TiledBackground",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
+					},
+					"uid": 135,
+					"instanceVariables": {},
+					"behaviors": {},
+					"effects": {
+						"Overlay": {
+							"parameters": {}
+						}
+					},
+					"world": {
+						"x": 0,
+						"y": 20,
+						"width": 340,
+						"height": 220,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.25
 						],
 						"angle": 0,
 						"zElevation": 0
@@ -1397,6 +1650,48 @@
 			"name": "UI",
 			"overriden": 0,
 			"instances": [
+				{
+					"type": "TXTerrors",
+					"properties": {
+						"text": "Err:",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 8,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": false,
+						"origin": "top-left"
+					},
+					"uid": 95,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 0,
+						"y": 0,
+						"width": 340,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
 				{
 					"type": "TXTturn",
 					"properties": {
@@ -1482,48 +1777,6 @@
 					}
 				},
 				{
-					"type": "TXTerrors",
-					"properties": {
-						"text": "Err:",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 8,
-						"line-height": 0,
-						"bold": false,
-						"italic": false,
-						"color": [
-							0,
-							0,
-							0,
-							1
-						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": false,
-						"origin": "top-left"
-					},
-					"uid": 95,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 0,
-						"y": 0,
-						"width": 340,
-						"height": 20,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "TXTtouchmode",
 					"properties": {
 						"text": "Touch: ",
@@ -1568,10 +1821,10 @@
 				{
 					"type": "TXTcrystals",
 					"properties": {
-						"text": " $: #",
+						"text": "#",
 						"enable-bbcode": true,
 						"font": "Arial",
-						"size": 8,
+						"size": 6,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -1591,8 +1844,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 339.5334926197903,
-						"y": 45.13158118230706,
+						"x": 360.89509244821386,
+						"y": 48.05583203392419,
 						"width": 100,
 						"height": 40,
 						"originX": 0,

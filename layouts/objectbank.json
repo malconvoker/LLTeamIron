@@ -16,7 +16,7 @@
 						"bold": true,
 						"italic": false,
 						"color": [
-							1,
+							0.5019607843137255,
 							1,
 							1,
 							1
@@ -539,7 +539,22 @@
 						"MPCost": 0,
 						"Value": 0
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Sine": {
+							"properties": {
+								"movement": "value-only",
+								"wave": "sine",
+								"period": 1,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 50,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
 					"world": {
 						"x": 387,
 						"y": 200,
@@ -575,7 +590,22 @@
 						"MPCost": 0,
 						"Value": 0
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Sine": {
+							"properties": {
+								"movement": "value-only",
+								"wave": "sine",
+								"period": 1,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 50,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
 					"world": {
 						"x": 387,
 						"y": 161,
@@ -611,7 +641,22 @@
 						"MPCost": 0,
 						"Value": 0
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Sine": {
+							"properties": {
+								"movement": "value-only",
+								"wave": "sine",
+								"period": 1,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 50,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
 					"world": {
 						"x": 348,
 						"y": 161,
@@ -647,7 +692,22 @@
 						"MPCost": 0,
 						"Value": 0
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Sine": {
+							"properties": {
+								"movement": "value-only",
+								"wave": "sine",
+								"period": 1,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 50,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
 					"world": {
 						"x": 348,
 						"y": 200,
@@ -839,13 +899,17 @@
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
-						"initial-frame": 0,
+						"initial-frame": 3,
 						"enable-collisions": true,
 						"live-preview": false
 					},
 					"uid": 73,
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
 					"world": {
 						"x": 112,
 						"y": 113,
@@ -857,6 +921,76 @@
 							1,
 							1,
 							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "NumberIcon",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "red",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 67,
+					"instanceVariables": {
+						"time": 0.75,
+						"UpSpeed": 16
+					},
+					"behaviors": {},
+					"world": {
+						"x": 140.2144061295039,
+						"y": 109.24104579864208,
+						"width": 5,
+						"height": 7,
+						"originX": 0.4,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "NumberFont",
+					"properties": {
+						"text": "0123456789+",
+						"enable-bbcode": true,
+						"character-width": 6,
+						"character-height": 7,
+						"character-set": "0123456789+",
+						"spacing-data": "",
+						"scale": 1,
+						"character-spacing": 0,
+						"line-height": 0,
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 71,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 153.01236665990274,
+						"y": 83.9192255072515,
+						"width": 111.09535601653008,
+						"height": 49.75658755188216,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0,
+							0,
+							0,
 							1
 						],
 						"angle": 0,
