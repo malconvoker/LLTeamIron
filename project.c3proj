@@ -221,7 +221,6 @@
 					"TXTstatictext",
 					"TXTmovetiledata",
 					"TXTturn",
-					"TXThp",
 					"TXTerrors",
 					"TXTtouchmode",
 					"TXTtiledistance",
@@ -254,7 +253,8 @@
 					"UI_HealthText",
 					"UI_ManaText",
 					"UI_ManaBar",
-					"UI_EmptyBar"
+					"UI_EmptyBar",
+					"UI_ShieldBar"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -367,7 +367,9 @@
 			"Z_Sorting",
 			"SkillButtons",
 			"DebugTexts",
-			"NPCBases"
+			"NPCBases",
+			"UI_Sprites",
+			"UI_Text"
 		],
 		"subfolders": []
 	},
@@ -549,7 +551,7 @@
 	},
 	"properties": {
 		"description": "Luotsaamo Team Iron Game",
-		"version": "0.5.0",
+		"version": "0.5.4",
 		"author": "Team Iron",
 		"authorEmail": "",
 		"authorWebsite": "",

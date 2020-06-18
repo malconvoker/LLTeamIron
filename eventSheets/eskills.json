@@ -545,6 +545,16 @@
 						{
 							"callFunction": "NextTurn",
 							"sid": 288000766077825
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "UI_HealthBar",
+							"sid": 392349159061717,
+							"parameters": {
+								"object": "UI_ShieldBar",
+								"layer": "\"UI\"",
+								"image-point": "0"
+							}
 						}
 					],
 					"sid": 781985184476647
@@ -593,6 +603,11 @@
 							"id": "destroy",
 							"objectClass": "Skill_Shield",
 							"sid": 358264469210031
+						},
+						{
+							"id": "destroy",
+							"objectClass": "UI_ShieldBar",
+							"sid": 430284046321903
 						}
 					],
 					"sid": 714298022515070

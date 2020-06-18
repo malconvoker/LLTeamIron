@@ -121,7 +121,7 @@
 			"children": [
 				{
 					"eventType": "comment",
-					"text": "Show hp & mp"
+					"text": "Show hp and temp hp"
 				},
 				{
 					"eventType": "block",
@@ -140,10 +140,10 @@
 					"actions": [
 						{
 							"id": "set-text",
-							"objectClass": "TXThp",
-							"sid": 655208480796343,
+							"objectClass": "UI_HealthText",
+							"sid": 335873325051042,
 							"parameters": {
-								"text": "PlayerBase.hp & \"/\" & PlayerBase.maxhp & \"+\" & PlayerBase.temphp & \"hp\" & newline & PlayerBase.mp & \"/\" & PlayerBase.maxmp & \"mp\""
+								"text": "PlayerBase.hp & \"/\" & PlayerBase.maxhp & \" +\" & PlayerBase.temphp"
 							}
 						}
 					],
@@ -161,19 +161,61 @@
 					"actions": [
 						{
 							"id": "set-text",
-							"objectClass": "TXThp",
-							"sid": 986048652549447,
+							"objectClass": "UI_HealthText",
+							"sid": 894012280365092,
 							"parameters": {
-								"text": "PlayerBase.hp & \"/\" & PlayerBase.maxhp & \"hp\" & newline & PlayerBase.mp & \"/\" & PlayerBase.maxmp & \"mp\""
+								"text": "PlayerBase.hp & \"/\" & PlayerBase.maxhp"
 							}
 						}
 					],
 					"sid": 234978668093656
 				},
 				{
+					"eventType": "comment",
+					"text": "Adjust bars and other text elements"
+				},
+				{
 					"eventType": "block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 751986379557029
+						}
+					],
 					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "UI_HealthBar",
+							"sid": 170200502142925,
+							"parameters": {
+								"width": "80*PlayerBase.hp/PlayerBase.maxhp"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "UI_ManaBar",
+							"sid": 957721400704266,
+							"parameters": {
+								"width": "80*PlayerBase.mp/PlayerBase.maxmp"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "UI_ShieldBar",
+							"sid": 447320697964803,
+							"parameters": {
+								"width": "80*PlayerBase.temphp/PlayerBase.maxhp"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "UI_ManaText",
+							"sid": 960728466470068,
+							"parameters": {
+								"text": "PlayerBase.mp & \"/\" & PlayerBase.maxmp "
+							}
+						},
 						{
 							"id": "set-text",
 							"objectClass": "TXTcrystals",
@@ -181,6 +223,11 @@
 							"parameters": {
 								"text": "PlayerBase.money & newline & \"(does nothing atm)\""
 							}
+						},
+						{
+							"id": "move-to-top",
+							"objectClass": "UI_Text",
+							"sid": 315320630736147
 						}
 					],
 					"sid": 716325713195564
@@ -239,6 +286,24 @@
 							],
 							"actions": [
 								{
+									"type": "comment",
+									"text": "Destroy old UI elements to prevent accidental overlap"
+								},
+								{
+									"id": "destroy",
+									"objectClass": "UI_Sprites",
+									"sid": 729121021285078
+								},
+								{
+									"id": "destroy",
+									"objectClass": "UI_Text",
+									"sid": 184421872560309
+								},
+								{
+									"type": "comment",
+									"text": "Spawn UI elements"
+								},
+								{
 									"id": "create-object",
 									"objectClass": "System",
 									"sid": 426956255088658,
@@ -247,6 +312,66 @@
 										"layer": "\"UI\"",
 										"x": "337",
 										"y": "0"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "UI_BG",
+									"sid": 793117005043590,
+									"parameters": {
+										"object": "UI_EmptyBar",
+										"layer": "\"UI\"",
+										"image-point": "\"hpbar\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "UI_BG",
+									"sid": 895066553036280,
+									"parameters": {
+										"object": "UI_EmptyBar",
+										"layer": "\"UI\"",
+										"image-point": "\"mpbar\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "UI_BG",
+									"sid": 107390728200210,
+									"parameters": {
+										"object": "UI_HealthBar",
+										"layer": "\"UI\"",
+										"image-point": "\"hpbar\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "UI_BG",
+									"sid": 921459584555270,
+									"parameters": {
+										"object": "UI_ManaBar",
+										"layer": "\"UI\"",
+										"image-point": "\"mpbar\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "UI_HealthBar",
+									"sid": 828668064120532,
+									"parameters": {
+										"object": "UI_HealthText",
+										"layer": "\"UI\"",
+										"image-point": "\"text\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "UI_ManaBar",
+									"sid": 244088773637638,
+									"parameters": {
+										"object": "UI_ManaText",
+										"layer": "\"UI\"",
+										"image-point": "\"text\""
 									}
 								}
 							],
@@ -295,11 +420,6 @@
 							"eventType": "block",
 							"conditions": [],
 							"actions": [
-								{
-									"id": "move-to-top",
-									"objectClass": "TXThp",
-									"sid": 585185903603914
-								},
 								{
 									"id": "move-to-top",
 									"objectClass": "TXTcrystals",

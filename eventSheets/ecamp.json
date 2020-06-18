@@ -26,6 +26,48 @@
 				}
 			],
 			"sid": 531620910058521
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-on-screen",
+					"objectClass": "SkillPickup",
+					"sid": 507800754028997
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TXTstatictext",
+					"sid": 137497797864073,
+					"parameters": {
+						"text": "\"It's dangerous to go alone.\" & newline & \"Take this!\""
+					}
+				}
+			],
+			"sid": 559563394894596
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 894632055602872
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "TXTstatictext",
+					"sid": 468484292778237,
+					"parameters": {
+						"text": "\"It's a passive skill!\" & newline & \"To use it, just kill!\""
+					}
+				}
+			],
+			"sid": 771217362510258
 		}
 	],
 	"sid": 645663600278692

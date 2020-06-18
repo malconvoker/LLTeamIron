@@ -1,7 +1,7 @@
 {
-	"name": "UI_ManaBar",
+	"name": "UI_ShieldBar",
 	"plugin-id": "Sprite",
-	"sid": 182353792865186,
+	"sid": 676967915861101,
 	"isGlobal": true,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -12,25 +12,30 @@
 				"frames": [
 					{
 						"width": 80,
-						"height": 8,
+						"height": 10,
 						"originX": 0,
-						"originY": 0,
+						"originY": 0.1,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 6833200,
+						"imageSpriteId": 2265772,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.1,
+								1,
+								0.1,
+								1,
+								0.9,
+								0,
+								0.9
+							]
+						},
 						"useCollisionPoly": true,
-						"imagePoints": [
-							{
-								"name": "text",
-								"x": 0.0375,
-								"y": -0.375
-							}
-						],
 						"duration": 1
 					}
 				],
-				"sid": 116818617104499,
+				"sid": 698898880311705,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

@@ -1,0 +1,16 @@
+{
+	"name": "UI_Sprites",
+	"plugin-id": "Sprite",
+	"sid": 872224480683997,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"UI_EmptyBar",
+		"UI_BG",
+		"UI_HealthBar",
+		"UI_ManaBar",
+		"UI_SkillButton",
+		"UI_ShieldBar"
+	]
+}

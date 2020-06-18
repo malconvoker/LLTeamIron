@@ -1,0 +1,12 @@
+{
+	"name": "UI_Text",
+	"plugin-id": "Text",
+	"sid": 476744492256565,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"UI_HealthText",
+		"UI_ManaText"
+	]
+}
