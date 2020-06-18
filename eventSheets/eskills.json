@@ -1488,7 +1488,7 @@
 				},
 				{
 					"type": "comment",
-					"text": "Skills array Y values 1-4 correspond to current skills"
+					"text": "Skills array Y values 1-4 correspond to current skills, file has default skills"
 				},
 				{
 					"id": "append-text",

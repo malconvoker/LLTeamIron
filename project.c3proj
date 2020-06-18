@@ -1,9 +1,9 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 19702,
+	"savedWithRelease": 20400,
 	"name": "LLTeamIron",
 	"runtime": "c3",
-	"useWorker": true,
+	"useWorker": "worker",
 	"bundleAddons": false,
 	"usedAddons": [
 		{
@@ -11,7 +11,7 @@
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -19,7 +19,7 @@
 			"id": "Arr",
 			"name": "Array",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -27,7 +27,7 @@
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -35,7 +35,7 @@
 			"id": "TextBox",
 			"name": "Text input",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -43,7 +43,7 @@
 			"id": "Audio",
 			"name": "Audio",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -51,7 +51,7 @@
 			"id": "Keyboard",
 			"name": "Keyboard",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -59,7 +59,7 @@
 			"id": "Touch",
 			"name": "Touch",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -67,7 +67,7 @@
 			"id": "Json",
 			"name": "JSON",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -75,7 +75,7 @@
 			"id": "AJAX",
 			"name": "AJAX",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -83,7 +83,7 @@
 			"id": "Tilemap",
 			"name": "Tilemap",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -91,7 +91,7 @@
 			"id": "TiledBg",
 			"name": "Tiled Background",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -99,7 +99,7 @@
 			"id": "Spritefont2",
 			"name": "Sprite font",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -107,7 +107,7 @@
 			"id": "Bullet",
 			"name": "Bullet",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -115,7 +115,7 @@
 			"id": "LOS",
 			"name": "Line of sight",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -123,7 +123,7 @@
 			"id": "Flash",
 			"name": "Flash",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -131,7 +131,7 @@
 			"id": "Persist",
 			"name": "Persist",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -139,7 +139,7 @@
 			"id": "Pathfinding",
 			"name": "Pathfinding",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -147,7 +147,7 @@
 			"id": "Sin",
 			"name": "Sine",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		},
 		{
@@ -155,7 +155,7 @@
 			"id": "overlay",
 			"name": "Overlay",
 			"author": "Scirra",
-			"version": "r197.2",
+			"version": "r204",
 			"bundled": false
 		}
 	],
@@ -249,7 +249,12 @@
 				"items": [
 					"UI_SkillButton",
 					"UI_BG",
-					"TXTmpcost"
+					"TXTmpcost",
+					"UI_HealthBar",
+					"UI_HealthText",
+					"UI_ManaText",
+					"UI_ManaBar",
+					"UI_EmptyBar"
 				],
 				"subfolders": [],
 				"name": "UI"
@@ -402,7 +407,8 @@
 			"eEnemies",
 			"ePlayer",
 			"eSkills",
-			"eCamp"
+			"eCamp",
+			"eUI"
 		],
 		"subfolders": []
 	},
@@ -446,7 +452,13 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [],
+			"items": [
+				{
+					"name": "Kenney Pixel.ttf",
+					"type": "application/font-sfnt",
+					"sid": 352395345079477
+				}
+			],
 			"subfolders": []
 		},
 		"icon": {
@@ -454,37 +466,58 @@
 				{
 					"name": "loading-logo.png",
 					"type": "image/png",
-					"sid": 309292325117508
+					"sid": 309292325117508,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
 				},
 				{
 					"name": "icon-16.png",
 					"type": "image/png",
-					"sid": 857897906330117
+					"sid": 857897906330117,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-32.png",
 					"type": "image/png",
-					"sid": 500630452999212
+					"sid": 500630452999212,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-64.png",
 					"type": "image/png",
-					"sid": 651066136298032
+					"sid": 651066136298032,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-128.png",
 					"type": "image/png",
-					"sid": 383689370562176
+					"sid": 383689370562176,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-256.png",
 					"type": "image/png",
-					"sid": 143564154937980
+					"sid": 143564154937980,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				},
 				{
 					"name": "icon-512.png",
 					"type": "image/png",
-					"sid": 824616920136969
+					"sid": 824616920136969,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
 				}
 			],
 			"subfolders": []

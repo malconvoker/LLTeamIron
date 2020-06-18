@@ -1,0 +1,44 @@
+{
+	"name": "UI_ManaBar",
+	"plugin-id": "Sprite",
+	"sid": 182353792865186,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 80,
+						"height": 8,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6833200,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "text",
+								"x": 0.0375,
+								"y": -0.375
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 116818617104499,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

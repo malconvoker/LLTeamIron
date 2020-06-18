@@ -14,6 +14,10 @@
 			"includeSheet": "eEnemies"
 		},
 		{
+			"eventType": "include",
+			"includeSheet": "eUI"
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Debug",
