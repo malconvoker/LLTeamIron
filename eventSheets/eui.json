@@ -4,8 +4,8 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "UI",
-			"description": "",
+			"title": "Skill Buttons",
+			"description": "Animations, skill button functionality happens during player turn so is in ePlayer, MP cost is drawn in SetSkills function",
 			"isActiveOnStart": true,
 			"children": [
 				{
@@ -18,7 +18,7 @@
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "SkillButtons",
-							"sid": 572174660890322,
+							"sid": 843605310340026,
 							"parameters": {
 								"instance-variable": "Touched"
 							}
@@ -26,7 +26,7 @@
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "SkillButtons",
-							"sid": 241891431839445,
+							"sid": 595412965885553,
 							"parameters": {
 								"instance-variable": "Active"
 							}
@@ -36,13 +36,13 @@
 						{
 							"id": "set-default-color",
 							"objectClass": "SkillButtons",
-							"sid": 696132965076799,
+							"sid": 397786667141363,
 							"parameters": {
 								"color": "rgb(255, 255, 150)"
 							}
 						}
 					],
-					"sid": 829510606497783,
+					"sid": 734885456429666,
 					"isOrBlock": true
 				},
 				{
@@ -51,7 +51,7 @@
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "SkillButtons",
-							"sid": 643731345798357,
+							"sid": 516997206034991,
 							"parameters": {
 								"instance-variable": "Touched"
 							},
@@ -60,7 +60,7 @@
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "SkillButtons",
-							"sid": 950702138957471,
+							"sid": 474202825997726,
 							"parameters": {
 								"instance-variable": "Active"
 							},
@@ -71,13 +71,17 @@
 						{
 							"id": "set-default-color",
 							"objectClass": "SkillButtons",
-							"sid": 177892294364067,
+							"sid": 731593414854551,
 							"parameters": {
 								"color": "rgb(255, 255, 255)"
 							}
 						}
 					],
-					"sid": 532983004155508
+					"sid": 961785643523358
+				},
+				{
+					"eventType": "comment",
+					"text": "Flash skill buttons when picking up skill"
 				},
 				{
 					"eventType": "block",
@@ -85,7 +89,7 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 251773679403657,
+							"sid": 586374355679019,
 							"parameters": {
 								"variable": "TouchMode",
 								"comparison": 0,
@@ -97,14 +101,24 @@
 						{
 							"id": "set-default-color",
 							"objectClass": "SkillButtons",
-							"sid": 566421077661868,
+							"sid": 976510201194033,
 							"parameters": {
 								"color": "rgbEx(200+Self.Sine.Value, 200+Self.Sine.Value, 150+Self.Sine.Value)"
 							}
 						}
 					],
-					"sid": 848333773684755
-				},
+					"sid": 616794195418039
+				}
+			],
+			"sid": 686809025011119
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "HP, MP, crystals",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
 					"eventType": "comment",
 					"text": "Show hp & mp"
@@ -115,7 +129,7 @@
 						{
 							"id": "compare-instance-variable",
 							"objectClass": "PlayerBase",
-							"sid": 965684122199495,
+							"sid": 919149420056344,
 							"parameters": {
 								"instance-variable": "temphp",
 								"comparison": 4,
@@ -127,13 +141,13 @@
 						{
 							"id": "set-text",
 							"objectClass": "TXThp",
-							"sid": 823456401046120,
+							"sid": 655208480796343,
 							"parameters": {
 								"text": "PlayerBase.hp & \"/\" & PlayerBase.maxhp & \"+\" & PlayerBase.temphp & \"hp\" & newline & PlayerBase.mp & \"/\" & PlayerBase.maxmp & \"mp\""
 							}
 						}
 					],
-					"sid": 627269763666090
+					"sid": 912369310557996
 				},
 				{
 					"eventType": "block",
@@ -141,20 +155,20 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 289161548532160
+							"sid": 180511118528333
 						}
 					],
 					"actions": [
 						{
 							"id": "set-text",
 							"objectClass": "TXThp",
-							"sid": 660000804160008,
+							"sid": 986048652549447,
 							"parameters": {
 								"text": "PlayerBase.hp & \"/\" & PlayerBase.maxhp & \"hp\" & newline & PlayerBase.mp & \"/\" & PlayerBase.maxmp & \"mp\""
 							}
 						}
 					],
-					"sid": 475597605270059
+					"sid": 234978668093656
 				},
 				{
 					"eventType": "block",
@@ -163,14 +177,24 @@
 						{
 							"id": "set-text",
 							"objectClass": "TXTcrystals",
-							"sid": 397519066305196,
+							"sid": 123902566871415,
 							"parameters": {
 								"text": "PlayerBase.money & newline & \"(does nothing atm)\""
 							}
 						}
 					],
-					"sid": 628501761042482
-				},
+					"sid": 716325713195564
+				}
+			],
+			"sid": 969212004777771
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Spawn UI",
+			"description": "At the start of each layout, check to see if UI exists and spawn it in if it doesn't",
+			"isActiveOnStart": true,
+			"children": [
 				{
 					"eventType": "comment",
 					"text": "Spawn UI"
@@ -181,11 +205,11 @@
 						{
 							"id": "on-start-of-layout",
 							"objectClass": "System",
-							"sid": 449131738726997
+							"sid": 384876268259491
 						}
 					],
 					"actions": [],
-					"sid": 962113673428843,
+					"sid": 214707439667291,
 					"children": [
 						{
 							"eventType": "block",
@@ -193,7 +217,7 @@
 								{
 									"id": "is-on-screen",
 									"objectClass": "UI_BG",
-									"sid": 605896106427738
+									"sid": 559730980772917
 								}
 							],
 							"actions": [
@@ -202,7 +226,7 @@
 									"text": "Do nothing if UI exists"
 								}
 							],
-							"sid": 219634687288085
+							"sid": 436875347729449
 						},
 						{
 							"eventType": "block",
@@ -210,14 +234,14 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 579225065017547
+									"sid": 926366036236456
 								}
 							],
 							"actions": [
 								{
 									"id": "create-object",
 									"objectClass": "System",
-									"sid": 361338707927921,
+									"sid": 426956255088658,
 									"parameters": {
 										"object-to-create": "UI_BG",
 										"layer": "\"UI\"",
@@ -226,7 +250,7 @@
 									}
 								}
 							],
-							"sid": 395138480842604,
+							"sid": 408653751870961,
 							"children": [
 								{
 									"eventType": "block",
@@ -234,7 +258,7 @@
 										{
 											"id": "for",
 											"objectClass": "System",
-											"sid": 450215917228316,
+											"sid": 708179275907797,
 											"parameters": {
 												"name": "\"skillslots\"",
 												"start-index": "1",
@@ -246,7 +270,7 @@
 										{
 											"id": "spawn-another-object",
 											"objectClass": "UI_BG",
-											"sid": 804677000238966,
+											"sid": 667936762506316,
 											"parameters": {
 												"object": "UI_SkillButton",
 												"layer": "\"UI\"",
@@ -256,14 +280,14 @@
 										{
 											"id": "set-instvar-value",
 											"objectClass": "UI_SkillButton",
-											"sid": 556903412437072,
+											"sid": 106595922742717,
 											"parameters": {
 												"instance-variable": "SkillSlot",
 												"value": "loopindex"
 											}
 										}
 									],
-									"sid": 716338339368840
+									"sid": 788375669773065
 								}
 							]
 						},
@@ -274,20 +298,20 @@
 								{
 									"id": "move-to-top",
 									"objectClass": "TXThp",
-									"sid": 845166473981448
+									"sid": 585185903603914
 								},
 								{
 									"id": "move-to-top",
 									"objectClass": "TXTcrystals",
-									"sid": 875660858336357
+									"sid": 255716595000946
 								}
 							],
-							"sid": 383206999767598
+							"sid": 825283170802776
 						}
 					]
 				}
 			],
-			"sid": 874797600707893
+			"sid": 197331606786708
 		}
 	],
 	"sid": 272527978810390
