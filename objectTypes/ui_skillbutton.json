@@ -360,6 +360,48 @@
 						"height": 32,
 						"originX": 0,
 						"originY": 0,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\drive-download-20200611T094601Z-001\\Passive template.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4877807,
+						"collisionPoly": {
+							"points": [
+								0.09375,
+								0.09375,
+								0.90625,
+								0.09375,
+								0.90625,
+								0.90625,
+								0.09375,
+								0.90625
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "mpcost",
+								"x": 0.8076923076923077,
+								"y": 0.7692307692307693
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 927308603426883,
+				"name": "soulsiphon",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0,
+						"originY": 0,
 						"originalSource": "C:\\Users\\mctur\\Downloads\\drive-download-20200611T094601Z-001\\Active template.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,

@@ -4003,9 +4003,9 @@
 				{
 					"id": "set-width",
 					"objectClass": "hpbar",
-					"sid": 415159087957245,
+					"sid": 874974831175599,
 					"parameters": {
-						"width": "E_SlimeBase.hp/E_SlimeBase.maxhp * 20"
+						"width": "max(0, E_SlimeBase.hp/E_SlimeBase.maxhp * 20)"
 					}
 				}
 			],
@@ -4047,9 +4047,9 @@
 				{
 					"id": "set-width",
 					"objectClass": "hpbar",
-					"sid": 802973237955355,
+					"sid": 215902125967487,
 					"parameters": {
-						"width": "E_SkeletonBase.hp/E_SkeletonBase.maxhp * 20"
+						"width": "max(0, E_SkeletonBase.hp/E_SkeletonBase.maxhp * 20)"
 					}
 				}
 			],
@@ -4091,9 +4091,9 @@
 				{
 					"id": "set-width",
 					"objectClass": "hpbar",
-					"sid": 459036166245261,
+					"sid": 412164702076141,
 					"parameters": {
-						"width": "E_GhostBase.hp/E_GhostBase.maxhp * 20"
+						"width": "max(0, E_GhostBase.hp/E_GhostBase.maxhp * 20)"
 					}
 				}
 			],

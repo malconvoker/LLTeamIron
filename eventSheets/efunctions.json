@@ -535,18 +535,6 @@
 					],
 					"actions": [
 						{
-							"id": "flash",
-							"objectClass": "Skill_Shield",
-							"sid": 911058160777078,
-							"disabled": true,
-							"behaviorType": "Flash",
-							"parameters": {
-								"on-time": "0.1",
-								"off-time": "0.1",
-								"duration": "0.5"
-							}
-						},
-						{
 							"id": "set-animation",
 							"objectClass": "Skill_Shield",
 							"sid": 797578625005878,
@@ -605,6 +593,15 @@
 										"instance-variable": "temphp",
 										"value": "1"
 									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "PlayerBase",
+									"sid": 183005141891950,
+									"parameters": {
+										"instance-variable": "temphpdecay",
+										"value": "false"
+									}
 								}
 							],
 							"sid": 318779420432823
@@ -646,6 +643,144 @@
 						}
 					],
 					"sid": 241140609817371
+				}
+			]
+		},
+		{
+			"functionName": "LoseMana",
+			"functionDescription": "Decreases player Mana by inputted value",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Mana",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "Amount of mana to decrease",
+					"sid": 518189219508130
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 902612877102357,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PlayerBase",
+							"sid": 531518847545311,
+							"parameters": {
+								"instance-variable": "tempmp",
+								"comparison": 4,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 903198437503573,
+							"parameters": {
+								"variable": "Mana",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 701938017388673,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "while",
+									"objectClass": "System",
+									"sid": 197851091014676
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "PlayerBase",
+									"sid": 294584244184537,
+									"parameters": {
+										"instance-variable": "tempmp",
+										"comparison": 4,
+										"value": "0"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 584065237846405,
+									"parameters": {
+										"variable": "Mana",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 438282021450545,
+									"parameters": {
+										"variable": "Mana",
+										"value": "1"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "PlayerBase",
+									"sid": 519620150377640,
+									"parameters": {
+										"instance-variable": "tempmp",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "PlayerBase",
+									"sid": 273012348624621,
+									"parameters": {
+										"instance-variable": "tempmpdecay",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 467160792787378
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 979751953932607,
+							"parameters": {
+								"variable": "Mana",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "PlayerBase",
+							"sid": 623555195043585,
+							"parameters": {
+								"instance-variable": "mp",
+								"value": "Mana"
+							}
+						}
+					],
+					"sid": 885648544207604
 				}
 			]
 		},

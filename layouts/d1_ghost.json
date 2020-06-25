@@ -119,13 +119,13 @@
 						"ActThAttack": 1,
 						"TurnDone": false,
 						"TurnInProgress": false,
-						"maxhp": 2,
-						"hp": 2,
-						"meleeDmg": 1,
+						"maxhp": 4,
+						"hp": 4,
+						"meleeDmg": 0,
 						"SkipPause": false,
 						"SeesPlayer": false,
 						"Active": false,
-						"rangedDmg": 2
+						"rangedDmg": 3
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -181,13 +181,13 @@
 						"ActThAttack": 1,
 						"TurnDone": false,
 						"TurnInProgress": false,
-						"maxhp": 2,
-						"hp": 2,
-						"meleeDmg": 1,
+						"maxhp": 4,
+						"hp": 4,
+						"meleeDmg": 0,
 						"SkipPause": false,
 						"SeesPlayer": false,
 						"Active": false,
-						"rangedDmg": 2
+						"rangedDmg": 3
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -445,8 +445,8 @@
 						"ActThAttack": 1,
 						"TurnDone": false,
 						"TurnInProgress": false,
-						"maxhp": 2,
-						"hp": 2,
+						"maxhp": 3,
+						"hp": 3,
 						"meleeDmg": 2,
 						"SkipPause": false,
 						"SeesPlayer": false,
@@ -506,8 +506,8 @@
 						"ActThAttack": 1,
 						"TurnDone": false,
 						"TurnInProgress": false,
-						"maxhp": 2,
-						"hp": 2,
+						"maxhp": 3,
+						"hp": 3,
 						"meleeDmg": 2,
 						"SkipPause": false,
 						"SeesPlayer": false,

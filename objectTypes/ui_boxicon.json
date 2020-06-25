@@ -1,27 +1,27 @@
 {
-	"name": "SkillPickup",
+	"name": "UI_BoxIcon",
 	"plugin-id": "Sprite",
-	"sid": 326312442317478,
-	"isGlobal": false,
+	"sid": 310564794964612,
+	"isGlobal": true,
 	"instanceVariables": [
 		{
 			"name": "CurrentSkill",
 			"type": "string",
 			"desc": "Name of skill contained in item",
-			"sid": 319493713912497
+			"sid": 102239738130574
 		},
 		{
 			"name": "Selected",
 			"type": "boolean",
 			"desc": "Is the skill pickup currently being picked up",
-			"sid": 885046105633005
+			"sid": 693782713485535
 		}
 	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "Persist",
 			"name": "Persist",
-			"sid": 774449297966744
+			"sid": 392050287183725
 		}
 	],
 	"effectTypes": [],
@@ -37,7 +37,7 @@
 						"originalSource": "C:\\Users\\mctur\\Downloads\\pickup_ranged.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 3434084,
+						"imageSpriteId": 4826257,
 						"collisionPoly": {
 							"points": [
 								0.05555555555555555,
@@ -62,8 +62,51 @@
 						"duration": 1
 					}
 				],
-				"sid": 770254112765325,
+				"sid": 125733153359436,
 				"name": "manablast",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
+						"width": 18,
+						"height": 18,
+						"originX": -0.05555555555555555,
+						"originY": -0.05555555555555555,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\pickup_template.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9202200,
+						"collisionPoly": {
+							"points": [
+								0.05555555555555555,
+								0.05555555555555555,
+								0.5,
+								0,
+								0.8888888888888888,
+								0.05555555555555555,
+								0.8333333333333334,
+								0.5,
+								0.8888888888888888,
+								0.8888888888888888,
+								0.5,
+								0.9444444444444444,
+								0.05555555555555555,
+								0.8888888888888888,
+								0.1111111111111111,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 403706347880396,
+				"name": "blank",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
@@ -80,7 +123,7 @@
 						"originalSource": "C:\\Users\\mctur\\Downloads\\pickup_move.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 8424799,
+						"imageSpriteId": 5321442,
 						"collisionPoly": {
 							"points": [
 								0.05555555555555555,
@@ -105,7 +148,7 @@
 						"duration": 1
 					}
 				],
-				"sid": 688462745715216,
+				"sid": 290805918997243,
 				"name": "knightleap",
 				"isLooping": false,
 				"isPingPong": false,
@@ -123,7 +166,7 @@
 						"originalSource": "C:\\Users\\mctur\\Downloads\\pickup_shield.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 3815177,
+						"imageSpriteId": 1439990,
 						"collisionPoly": {
 							"points": [
 								0.05555555555555555,
@@ -148,7 +191,7 @@
 						"duration": 1
 					}
 				],
-				"sid": 878370448707948,
+				"sid": 330535176729450,
 				"name": "shield",
 				"isLooping": false,
 				"isPingPong": false,
@@ -166,7 +209,7 @@
 						"originalSource": "C:\\Users\\mctur\\Downloads\\pickup_template.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 6115955,
+						"imageSpriteId": 7496799,
 						"collisionPoly": {
 							"points": [
 								0.05555555555555555,
@@ -191,50 +234,7 @@
 						"duration": 1
 					}
 				],
-				"sid": 115060831937136,
-				"name": "blank",
-				"isLooping": false,
-				"isPingPong": false,
-				"repeatCount": 1,
-				"repeatTo": 0,
-				"speed": 0
-			},
-			{
-				"frames": [
-					{
-						"width": 18,
-						"height": 18,
-						"originX": -0.05555555555555555,
-						"originY": -0.05555555555555555,
-						"originalSource": "C:\\Users\\mctur\\Downloads\\pickup_template.png",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 5265714,
-						"collisionPoly": {
-							"points": [
-								0.05555555555555555,
-								0.05555555555555555,
-								0.5,
-								0,
-								0.8888888888888888,
-								0.05555555555555555,
-								0.8333333333333334,
-								0.5,
-								0.8888888888888888,
-								0.8888888888888888,
-								0.5,
-								0.9444444444444444,
-								0.05555555555555555,
-								0.8888888888888888,
-								0.1111111111111111,
-								0.5
-							]
-						},
-						"useCollisionPoly": true,
-						"duration": 1
-					}
-				],
-				"sid": 663149693206403,
+				"sid": 474605807114051,
 				"name": "manacharge",
 				"isLooping": false,
 				"isPingPong": false,
@@ -252,7 +252,7 @@
 						"originalSource": "C:\\Users\\mctur\\Downloads\\pickup_template.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 4563768,
+						"imageSpriteId": 4468490,
 						"collisionPoly": {
 							"points": [
 								0.05555555555555555,
@@ -277,7 +277,7 @@
 						"duration": 1
 					}
 				],
-				"sid": 592665025455592,
+				"sid": 505566177389570,
 				"name": "soulsiphon",
 				"isLooping": false,
 				"isPingPong": false,

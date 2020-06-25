@@ -40,6 +40,24 @@
 							"parameters": {
 								"color": "rgb(255, 255, 150)"
 							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "UI_BG",
+							"sid": 815357591856336,
+							"parameters": {
+								"instance-variable": "textbox",
+								"value": "SkillButtons.CurrentSkill"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "UI_BG",
+							"sid": 835523108168320,
+							"parameters": {
+								"instance-variable": "boxtype",
+								"value": "\"skill\""
+							}
 						}
 					],
 					"sid": 734885456429666,
@@ -171,6 +189,53 @@
 					"sid": 234978668093656
 				},
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "PlayerBase",
+							"sid": 195055065954206,
+							"parameters": {
+								"instance-variable": "tempmp",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "UI_ManaText",
+							"sid": 523421878376142,
+							"parameters": {
+								"text": "PlayerBase.mp & \"/\" & PlayerBase.maxmp & \" +\" & PlayerBase.tempmp"
+							}
+						}
+					],
+					"sid": 137857186478655
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 997959705346953
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "UI_ManaText",
+							"sid": 960728466470068,
+							"parameters": {
+								"text": "PlayerBase.mp & \"/\" & PlayerBase.maxmp "
+							}
+						}
+					],
+					"sid": 360270909171333
+				},
+				{
 					"eventType": "comment",
 					"text": "Adjust bars and other text elements"
 				},
@@ -180,57 +245,57 @@
 						{
 							"id": "every-tick",
 							"objectClass": "System",
-							"sid": 751986379557029
+							"sid": 540353253985722
 						}
 					],
 					"actions": [
 						{
 							"id": "set-width",
 							"objectClass": "UI_HealthBar",
-							"sid": 170200502142925,
+							"sid": 702575465551468,
 							"parameters": {
-								"width": "80*PlayerBase.hp/PlayerBase.maxhp"
+								"width": "max(0, 80*PlayerBase.hp/PlayerBase.maxhp)"
 							}
 						},
 						{
 							"id": "set-width",
 							"objectClass": "UI_ManaBar",
-							"sid": 957721400704266,
+							"sid": 703074460498656,
 							"parameters": {
-								"width": "80*PlayerBase.mp/PlayerBase.maxmp"
+								"width": "max(0, 80*PlayerBase.mp/PlayerBase.maxmp)"
 							}
 						},
 						{
 							"id": "set-width",
 							"objectClass": "UI_ShieldBar",
-							"sid": 447320697964803,
+							"sid": 876315571280464,
 							"parameters": {
-								"width": "80*PlayerBase.temphp/PlayerBase.maxhp"
+								"width": "max(0, 80*PlayerBase.temphp/PlayerBase.maxhp)"
 							}
 						},
 						{
-							"id": "set-text",
-							"objectClass": "UI_ManaText",
-							"sid": 960728466470068,
+							"id": "set-width",
+							"objectClass": "UI_TempMPBar",
+							"sid": 190122163111935,
 							"parameters": {
-								"text": "PlayerBase.mp & \"/\" & PlayerBase.maxmp "
+								"width": "max(0, 80*PlayerBase.tempmp/PlayerBase.maxmp)"
 							}
 						},
 						{
 							"id": "set-text",
 							"objectClass": "TXTcrystals",
-							"sid": 123902566871415,
+							"sid": 889482899211171,
 							"parameters": {
-								"text": "PlayerBase.money & newline & \"(does nothing atm)\""
+								"text": "PlayerBase.money & \"  [size=6](money)[/size]\" & newline & \"[size=6](does nothing atm)[/size]\""
 							}
 						},
 						{
 							"id": "move-to-top",
 							"objectClass": "UI_Text",
-							"sid": 315320630736147
+							"sid": 933403991002040
 						}
 					],
-					"sid": 716325713195564
+					"sid": 331953264842983
 				}
 			],
 			"sid": 969212004777771
@@ -317,6 +382,26 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "UI_BG",
+									"sid": 347393800032852,
+									"parameters": {
+										"object": "UI_BoxIcon",
+										"layer": "\"UI\"",
+										"image-point": "\"boxicon\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "UI_BG",
+									"sid": 380103388137834,
+									"parameters": {
+										"object": "UI_TextBox",
+										"layer": "\"UI\"",
+										"image-point": "\"textbox\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "UI_BG",
 									"sid": 793117005043590,
 									"parameters": {
 										"object": "UI_EmptyBar",
@@ -372,6 +457,26 @@
 										"object": "UI_ManaText",
 										"layer": "\"UI\"",
 										"image-point": "\"text\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "UI_HealthBar",
+									"sid": 169983065364647,
+									"parameters": {
+										"object": "UI_ShieldBar",
+										"layer": "\"UI\"",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "UI_ManaBar",
+									"sid": 240511493540922,
+									"parameters": {
+										"object": "UI_TempMPBar",
+										"layer": "\"UI\"",
+										"image-point": "0"
 									}
 								}
 							],
@@ -432,6 +537,191 @@
 				}
 			],
 			"sid": 197331606786708
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Text Box",
+			"description": "Events relating to the context-sensitive main text box",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Skill text set in Skill Buttons group of eUI"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 290646741660681,
+							"parameters": {
+								"variable": "TouchMode",
+								"comparison": 0,
+								"value": "\"skillpickup\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 554295837163440,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "SkillPickup",
+									"sid": 681673496803315,
+									"parameters": {
+										"instance-variable": "Selected"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_BG",
+									"sid": 873152178101515,
+									"parameters": {
+										"instance-variable": "textbox",
+										"value": "SkillPickup.CurrentSkill"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_BG",
+									"sid": 353296899032827,
+									"parameters": {
+										"instance-variable": "boxtype",
+										"value": "\"skill\""
+									}
+								}
+							],
+							"sid": 863197518343685
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UI_BG",
+							"sid": 171078072874792,
+							"parameters": {
+								"instance-variable": "boxtype",
+								"comparison": 1,
+								"value": "\"blank\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "UI_TextBox",
+							"sid": 266279789635342,
+							"parameters": {
+								"text": "TextBoxContents.Get(UI_BG.textbox)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "UI_TextBox",
+							"sid": 875458517559703,
+							"parameters": {
+								"text": "replace(Self.Text,\"\\n\",newline)"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "UI_BoxIcon",
+							"sid": 501959821362827,
+							"parameters": {
+								"animation": "UI_BG.textbox",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 250234894826296
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 417883319357013
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "UI_TextBox",
+							"sid": 621636230201301,
+							"parameters": {
+								"text": "\"\""
+							}
+						}
+					],
+					"sid": 847413411526577
+				}
+			],
+			"sid": 114352892800954
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-empty",
+					"objectClass": "TextBoxContents",
+					"sid": 762511093104489
+				}
+			],
+			"actions": [
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 330577874821698,
+					"parameters": {
+						"tag": "\"textbox\"",
+						"file": "TextBoxContents.json"
+					}
+				}
+			],
+			"sid": 211040243105333
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 291319318553419,
+					"parameters": {
+						"tag": "\"textbox\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "parse",
+					"objectClass": "JSON",
+					"sid": 522121346726349,
+					"parameters": {
+						"data": "AJAX.LastData"
+					}
+				},
+				{
+					"id": "load",
+					"objectClass": "TextBoxContents",
+					"sid": 917410701479939,
+					"parameters": {
+						"json": "JSON.ToCompactString"
+					}
+				}
+			],
+			"sid": 276416401178173
 		}
 	],
 	"sid": 272527978810390

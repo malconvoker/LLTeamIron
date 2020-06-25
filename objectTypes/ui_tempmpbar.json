@@ -1,0 +1,49 @@
+{
+	"name": "UI_TempMPBar",
+	"plugin-id": "Sprite",
+	"sid": 608228361766014,
+	"isGlobal": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 80,
+						"height": 10,
+						"originX": 0,
+						"originY": 0.1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2505635,
+						"collisionPoly": {
+							"points": [
+								0,
+								0.1,
+								1,
+								0.1,
+								1,
+								0.9,
+								0,
+								0.9
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 942157720381235,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

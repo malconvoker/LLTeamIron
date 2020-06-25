@@ -178,6 +178,7 @@
 											"id": "compare-instance-variable",
 											"objectClass": "PlayerBase",
 											"sid": 576733146353037,
+											"disabled": true,
 											"parameters": {
 												"instance-variable": "DamageTaken",
 												"comparison": 0,
@@ -188,28 +189,68 @@
 									"actions": [
 										{
 											"type": "comment",
-											"text": "Shield skill \"decay\""
-										},
-										{
-											"id": "subtract-from-instvar",
-											"objectClass": "PlayerBase",
-											"sid": 127897482947966,
-											"parameters": {
-												"instance-variable": "temphp",
-												"value": "1"
-											}
-										},
-										{
-											"id": "set-animation",
-											"objectClass": "Skill_Shield",
-											"sid": 396142211126176,
-											"parameters": {
-												"animation": "\"flash\"",
-												"from": "beginning"
-											}
+											"text": "Temp hp decay"
 										}
 									],
-									"sid": 581445899409586
+									"sid": 581445899409586,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "PlayerBase",
+													"sid": 981360756175534,
+													"parameters": {
+														"instance-variable": "temphpdecay"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "PlayerBase",
+													"sid": 667077793689199,
+													"parameters": {
+														"instance-variable": "temphp",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "Skill_Shield",
+													"sid": 461680603292176,
+													"parameters": {
+														"animation": "\"flash\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 139606307066774
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 653006277502294
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "PlayerBase",
+													"sid": 474094958809199,
+													"parameters": {
+														"instance-variable": "temphpdecay",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 458991318233015
+										}
+									]
 								},
 								{
 									"eventType": "block",
@@ -226,6 +267,77 @@
 										}
 									],
 									"sid": 848910954051532
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "PlayerBase",
+											"sid": 842078442194840,
+											"parameters": {
+												"instance-variable": "tempmp",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Temp mp decay"
+										}
+									],
+									"sid": 991546898255847,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "PlayerBase",
+													"sid": 528104234221472,
+													"parameters": {
+														"instance-variable": "tempmpdecay"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "subtract-from-instvar",
+													"objectClass": "PlayerBase",
+													"sid": 906535132186307,
+													"parameters": {
+														"instance-variable": "tempmp",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 729497857173680
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 973214286933315
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "PlayerBase",
+													"sid": 967869690543523,
+													"parameters": {
+														"instance-variable": "tempmpdecay",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 161170167379061
+										}
+									]
 								}
 							]
 						},

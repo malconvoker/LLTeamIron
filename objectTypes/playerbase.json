@@ -29,6 +29,12 @@
 			"sid": 536297384902540
 		},
 		{
+			"name": "temphpdecay",
+			"type": "boolean",
+			"desc": "Is temp hp decaying (usually off for the turn of activation)",
+			"sid": 372478530243180
+		},
+		{
 			"name": "maxmp",
 			"type": "number",
 			"desc": "",
@@ -39,6 +45,18 @@
 			"type": "number",
 			"desc": "",
 			"sid": 186657457512671
+		},
+		{
+			"name": "tempmp",
+			"type": "number",
+			"desc": "Current amount of temporary mp, decays by 1 every turn",
+			"sid": 261310855396912
+		},
+		{
+			"name": "tempmpdecay",
+			"type": "boolean",
+			"desc": "Is temp hp decaying (usually off for the turn of activation)",
+			"sid": 284434760433971
 		},
 		{
 			"name": "TurnInProgress",

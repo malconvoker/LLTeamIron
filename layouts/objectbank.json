@@ -118,7 +118,7 @@
 					},
 					"uid": 238,
 					"instanceVariables": {
-						"rangedDmg": 1,
+						"rangedDmg": 3,
 						"TargetUID": 0
 					},
 					"behaviors": {
@@ -502,7 +502,10 @@
 						"live-preview": false
 					},
 					"uid": 3,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"textbox": "blank",
+						"boxtype": "blank"
+					},
 					"behaviors": {},
 					"world": {
 						"x": 337,
@@ -1158,6 +1161,84 @@
 						"height": 8,
 						"originX": 0,
 						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UI_TextBox",
+					"properties": {
+						"text": "Mana Blast\n4mp\n\nDeal 3 damage to target enemy in line of sight",
+						"enable-bbcode": true,
+						"font": "Kenney Pixel",
+						"size": 8,
+						"line-height": -5,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 190,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 350.48277396622785,
+						"y": 70.96554793245564,
+						"width": 66.90277261128227,
+						"height": 90.08968795241904,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "UI_BoxIcon",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "blank",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 195,
+					"instanceVariables": {
+						"CurrentSkill": "manablast",
+						"Selected": false
+					},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 398.5848564814596,
+						"y": 72.10140349058412,
+						"width": 18,
+						"height": 18,
+						"originX": -0.05555555555555555,
+						"originY": -0.05555555555555555,
 						"color": [
 							1,
 							1,

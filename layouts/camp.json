@@ -247,12 +247,15 @@
 					},
 					"uid": 84,
 					"instanceVariables": {
-						"meleeDmg": 1,
-						"maxhp": 15,
-						"hp": 15,
+						"meleeDmg": 2,
+						"maxhp": 20,
+						"hp": 20,
 						"temphp": 0,
-						"maxmp": 3,
-						"mp": 3,
+						"temphpdecay": true,
+						"maxmp": 15,
+						"mp": 15,
+						"tempmp": 0,
+						"tempmpdecay": true,
 						"TurnInProgress": true,
 						"DamageTaken": 0,
 						"TurnDone": false,
@@ -1166,7 +1169,7 @@
 					},
 					"uid": 43,
 					"instanceVariables": {
-						"CurrentSkill": "manacharge",
+						"CurrentSkill": "soulsiphon",
 						"Selected": false
 					},
 					"behaviors": {
@@ -1175,7 +1178,7 @@
 						}
 					},
 					"world": {
-						"x": 100,
+						"x": 80,
 						"y": 120,
 						"width": 18,
 						"height": 18,
@@ -1513,6 +1516,42 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "SkillPickup",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "manablast",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 196,
+					"instanceVariables": {
+						"CurrentSkill": "manacharge",
+						"Selected": false
+					},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 120,
+						"y": 120,
+						"width": 18,
+						"height": 18,
+						"originX": -0.05555555555555555,
+						"originY": -0.05555555555555555,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 272020823895343,
@@ -1780,10 +1819,10 @@
 					"type": "TXTcrystals",
 					"properties": {
 						"text": "#",
-						"enable-bbcode": false,
+						"enable-bbcode": true,
 						"font": "Kenney Pixel",
 						"size": 9,
-						"line-height": 0,
+						"line-height": -5,
 						"bold": false,
 						"italic": false,
 						"color": [
@@ -1803,7 +1842,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 360,
-						"y": 45,
+						"y": 43,
 						"width": 100,
 						"height": 40,
 						"originX": 0,

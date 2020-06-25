@@ -1,0 +1,16 @@
+{
+    "c2dictionary": true,
+    "data": {
+        "7": 7,
+        "8": 8,
+        "9": 9,
+        "10": 10,
+        "blank": "blank",
+        "empty": "[u]Skill Slot[/u]\\n\\n\\nEmpty skill slot. Acquire Skill Scrolls to get new skills.",
+        "manablast": "[u]Mana Blast[/u]\\n4mp\\n\\nFire a bolt of pure magic, dealing 3 damage to target enemy in line of sight",
+        "shield": "[u]Shield[/u]\\n3mp\\n\\nGain a magic shield that absorbs 6 hp of damage. Decays by 1 if not hit.",
+        "knightleap": "[u]Knight's Leap[/u]\\n2mp\\n\\nChannel the mystic power of the Knights of Chess to teleport a short distance.",
+        "manacharge": "[u]Mana Charge[/u]\\nPassive\\n\\nBuild up charge for each enemy killed, gaining 1 mp at 3 charges.",
+        "soulsiphon": "[u]Soul Siphon[/u]\\nPassive\\n\\nHarvest the magical energies of enemies killed, gaining temporary mana."
+    }
+}

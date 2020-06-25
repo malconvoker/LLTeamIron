@@ -61,6 +61,16 @@
 					}
 				},
 				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 305343724121159,
+					"parameters": {
+						"name": "\"skill\"",
+						"string": "\"soulsiphon\"",
+						"function": "SoulSiphonTap"
+					}
+				},
+				{
 					"id": "destroy",
 					"objectClass": "Skill_ManaBlast",
 					"sid": 711510501452087
@@ -263,13 +273,11 @@
 							}
 						},
 						{
-							"id": "subtract-from-instvar",
-							"objectClass": "PlayerBase",
-							"sid": 870575506618099,
-							"parameters": {
-								"instance-variable": "mp",
-								"value": "1"
-							}
+							"callFunction": "LoseMana",
+							"sid": 247832687807648,
+							"parameters": [
+								"Skills.At(1,5)"
+							]
 						},
 						{
 							"id": "set-animation",
@@ -483,7 +491,7 @@
 			"eventType": "group",
 			"disabled": false,
 			"title": "Shield",
-			"description": "Provides temporary hp on top of normal hp\nShield loses 1hp each turn it doesn't take damage",
+			"description": "Provides temporary hp on top of normal hp\nShield loses 1hp each turn it doesn't take damage\nDecay does not happen on turn of activation",
 			"isActiveOnStart": true,
 			"children": [
 				{
@@ -510,13 +518,11 @@
 							}
 						},
 						{
-							"id": "subtract-from-instvar",
-							"objectClass": "PlayerBase",
-							"sid": 536318469505655,
-							"parameters": {
-								"instance-variable": "mp",
-								"value": "1"
-							}
+							"callFunction": "LoseMana",
+							"sid": 255392126104385,
+							"parameters": [
+								"Skills.At(1,6)"
+							]
 						},
 						{
 							"id": "set-instvar-value",
@@ -525,6 +531,15 @@
 							"parameters": {
 								"instance-variable": "temphp",
 								"value": "6"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "PlayerBase",
+							"sid": 690406196998870,
+							"parameters": {
+								"instance-variable": "temphpdecay",
+								"value": "false"
 							}
 						},
 						{
@@ -545,16 +560,6 @@
 						{
 							"callFunction": "NextTurn",
 							"sid": 288000766077825
-						},
-						{
-							"id": "spawn-another-object",
-							"objectClass": "UI_HealthBar",
-							"sid": 392349159061717,
-							"parameters": {
-								"object": "UI_ShieldBar",
-								"layer": "\"UI\"",
-								"image-point": "0"
-							}
 						}
 					],
 					"sid": 781985184476647
@@ -603,11 +608,6 @@
 							"id": "destroy",
 							"objectClass": "Skill_Shield",
 							"sid": 358264469210031
-						},
-						{
-							"id": "destroy",
-							"objectClass": "UI_ShieldBar",
-							"sid": 430284046321903
 						}
 					],
 					"sid": 714298022515070
@@ -616,9 +616,9 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 584748969184914
+							"id": "is-on-screen",
+							"objectClass": "Skill_Shield",
+							"sid": 938735677854355
 						}
 					],
 					"actions": [
@@ -878,13 +878,11 @@
 									}
 								},
 								{
-									"id": "subtract-from-instvar",
-									"objectClass": "PlayerBase",
-									"sid": 127149148939905,
-									"parameters": {
-										"instance-variable": "mp",
-										"value": "1"
-									}
+									"callFunction": "LoseMana",
+									"sid": 577688849625861,
+									"parameters": [
+										"Skills.At(1,7)"
+									]
 								},
 								{
 									"id": "play",
@@ -1141,6 +1139,119 @@
 				}
 			],
 			"sid": 269141221900130
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SoulSiphon",
+			"description": "Passive: Killing an enemy gives 3 temp mp, that decay at 1 mp per turn\nDecay does not happen if temp hp is used or on turn of activation",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "SoulSiphonTap",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "SkillButtons",
+							"sid": 833512366723595,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 321759400036339
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "UI_SkillButton",
+							"sid": 394599511677822,
+							"parameters": {
+								"instance-variable": "CurrentSkill",
+								"comparison": 0,
+								"value": "\"soulsiphon\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 244246098144888,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "SSKilled",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": true,
+							"isConstant": false,
+							"sid": 428040762620067
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 768586236835019,
+									"parameters": {
+										"variable": "EnemiesKilled",
+										"comparison": 4,
+										"value": "SSKilled"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "PlayerBase",
+									"sid": 227118942767684,
+									"parameters": {
+										"instance-variable": "tempmp",
+										"value": "3"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "PlayerBase",
+									"sid": 805792474910640,
+									"parameters": {
+										"instance-variable": "tempmpdecay",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 972555802331103
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 198565925918525,
+									"parameters": {
+										"variable": "SSKilled",
+										"value": "EnemiesKilled"
+									}
+								}
+							],
+							"sid": 353283530928870
+						}
+					]
+				}
+			],
+			"sid": 321856090372821
 		},
 		{
 			"functionName": "SkillMissing",
