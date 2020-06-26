@@ -1,7 +1,6 @@
 {
     "c2dictionary": true,
     "data": {
-        "10": 10,
         "blank": "blank",
         "empty": "[u]Skill Slot[/u]\\n\\n\\nEmpty skill slot. Acquire Skill Scrolls to get new skills.",
         "manablast": "[u]Mana Blast[/u]\\n4mp\\n\\nFire a bolt of pure magic, dealing 3 damage to target enemy in line of sight",
@@ -9,6 +8,8 @@
         "knightleap": "[u]Knight's Leap[/u]\\n2mp\\n\\nChannel the mystic power of the Knights of Chess to teleport a short distance.",
         "manacharge": "[u]Mana Charge[/u]\\nPassive\\n\\nBuild up charge for each enemy killed, gaining 1 mp at 3 charges.",
         "soulsiphon": "[u]Soul Siphon[/u]\\nPassive\\n\\nHarvest the magical energies of enemies killed, gaining temporary mana.",
+        "knockback": "[u]Knockback[/u]\\n2mp\\n\\nPerform a melee attack, knocking back an adjacent enemy in addition to dealing damage.",
+        "earthpillar": "[u]Earthen Pillar[/u]\\n3mp\\n\\nCreate a temporary pillar of stone in a nearby space, blocking movement and line of sight.",
         "E_SlimeBase": "[u]Slime[/u]\\nHP #1  Dmg #2\\n\\nA blob of viscous ooze, seemingly sentient. Moves every other turn.",
         "E_SkeletonBase": "[u]Skeleton[/u]\\nHP #1  Dmg #2\\n\\nSkeletal remains animated by some malevolent force. Moves every turn.",
         "E_GhostBase": "[u]Ghost[/u]\\nHP #1  Dmg #2\\n\\nAn evil spirit of unknown origin, capable of firing dark magic. Moves every other turn."

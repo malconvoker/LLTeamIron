@@ -1,0 +1,57 @@
+{
+	"name": "Skill_EarthPillar",
+	"plugin-id": "Sprite",
+	"sid": 812822150260009,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "hp",
+			"type": "number",
+			"desc": "",
+			"sid": 992343886306661
+		},
+		{
+			"name": "maxhp",
+			"type": "number",
+			"desc": "",
+			"sid": 458316268034757
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3808035,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "hpbar",
+								"x": 0,
+								"y": -0.05
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 740610433204894,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

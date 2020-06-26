@@ -220,7 +220,7 @@
 				{
 					"type": "Collisions",
 					"properties": {
-						"initially-visible": false,
+						"initially-visible": true,
 						"tile-width": 20,
 						"tile-height": 20,
 						"tile-x-offset": 0,
@@ -737,6 +737,169 @@
 						"y": 0,
 						"width": 340,
 						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "PlayerBase",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 197,
+					"instanceVariables": {
+						"meleeDmg": 2,
+						"maxhp": 20,
+						"hp": 20,
+						"temphp": 0,
+						"temphpdecay": true,
+						"maxmp": 15,
+						"mp": 15,
+						"tempmp": 0,
+						"tempmpdecay": true,
+						"TurnInProgress": true,
+						"DamageTaken": 0,
+						"TurnDone": false,
+						"money": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 160,
+						"y": 200,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SkillPickup",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "manablast",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 198,
+					"instanceVariables": {
+						"CurrentSkill": "earthpillar",
+						"Selected": false
+					},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 180,
+						"y": 180,
+						"width": 18,
+						"height": 18,
+						"originX": -0.05555555555555555,
+						"originY": -0.05555555555555555,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TXTtouchmode",
+					"properties": {
+						"text": "Touch: ",
+						"enable-bbcode": true,
+						"font": "Arial",
+						"size": 8,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": false,
+						"origin": "top-left"
+					},
+					"uid": 200,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 140,
+						"y": 20,
+						"width": 120,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TXTcrystals",
+					"properties": {
+						"text": "#",
+						"enable-bbcode": true,
+						"font": "Kenney Pixel",
+						"size": 9,
+						"line-height": -5,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 201,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 360,
+						"y": 40,
+						"width": 100,
+						"height": 40,
 						"originX": 0,
 						"originY": 0,
 						"color": [

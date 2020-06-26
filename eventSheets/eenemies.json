@@ -4100,6 +4100,50 @@
 			"sid": 324984608444705
 		},
 		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Skill_EarthPillar",
+					"sid": 557667500269794,
+					"parameters": {
+						"instance-variable": "hp",
+						"comparison": 2,
+						"value": "Self.maxhp"
+					}
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 241672570031177,
+					"parameters": {
+						"object": "Skill_EarthPillar"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Skill_EarthPillar",
+					"sid": 239744149103737,
+					"parameters": {
+						"object": "hpbar",
+						"layer": "\"Effects\"",
+						"image-point": "\"hpbar\""
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "hpbar",
+					"sid": 961960227941108,
+					"parameters": {
+						"width": "max(0, Skill_EarthPillar.hp/Skill_EarthPillar.maxhp * 20)"
+					}
+				}
+			],
+			"sid": 266793331961177
+		},
+		{
 			"eventType": "comment",
 			"text": "End turn"
 		},

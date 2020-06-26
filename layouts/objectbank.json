@@ -1250,6 +1250,38 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "Skill_EarthPillar",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 204,
+					"instanceVariables": {
+						"hp": 6,
+						"maxhp": 6
+					},
+					"behaviors": {},
+					"world": {
+						"x": 83,
+						"y": 149,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 188524830482099,

@@ -338,6 +338,22 @@
 											"sid": 161170167379061
 										}
 									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "Skill_EarthPillar",
+											"sid": 416661196850508,
+											"parameters": {
+												"instance-variable": "hp",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 762414859561809
 								}
 							]
 						},
@@ -595,6 +611,137 @@
 																}
 															],
 															"sid": 264719475705780
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 537172355303448
+																},
+																{
+																	"id": "compare-eventvar",
+																	"objectClass": "System",
+																	"sid": 299044703086046,
+																	"parameters": {
+																		"variable": "TouchMode",
+																		"comparison": 0,
+																		"value": "\"skilltarget\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 477051550368799,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "is-boolean-instance-variable-set",
+																			"objectClass": "SkillButtons",
+																			"sid": 242728227491275,
+																			"parameters": {
+																				"instance-variable": "Active"
+																			}
+																		},
+																		{
+																			"id": "compare-instance-variable",
+																			"objectClass": "SkillButtons",
+																			"sid": 568324930971227,
+																			"parameters": {
+																				"instance-variable": "CurrentSkill",
+																				"comparison": 0,
+																				"value": "\"knockback\""
+																			}
+																		}
+																	],
+																	"actions": [
+																		{
+																			"type": "comment",
+																			"text": "If Knockback skill is active, set movetile"
+																		},
+																		{
+																			"callFunction": "SetMoveTile",
+																			"sid": 892294819443937
+																		}
+																	],
+																	"sid": 763656032877338,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-overlapping-another-object",
+																					"objectClass": "PlayerMoveTile",
+																					"sid": 990816874893155,
+																					"parameters": {
+																						"object": "EnemyBases"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"type": "comment",
+																					"text": "Only show movetile if about to attack"
+																				},
+																				{
+																					"id": "set-visible",
+																					"objectClass": "PlayerMoveTile",
+																					"sid": 897018686905471,
+																					"parameters": {
+																						"visibility": "visible"
+																					}
+																				}
+																			],
+																			"sid": 124203089703240
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 462450232740735
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "set-visible",
+																					"objectClass": "PlayerMoveTile",
+																					"sid": 884230052349826,
+																					"parameters": {
+																						"visibility": "invisible"
+																					}
+																				}
+																			],
+																			"sid": 248478566304282
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 482817380244539
+																		}
+																	],
+																	"actions": [
+																		{
+																			"id": "set-position",
+																			"objectClass": "PlayerMoveTile",
+																			"sid": 584666615609287,
+																			"parameters": {
+																				"x": "-100",
+																				"y": "-100"
+																			}
+																		}
+																	],
+																	"sid": 610126051988767
+																}
+															]
 														},
 														{
 															"eventType": "block",
@@ -1084,19 +1231,11 @@
 																					"eventType": "block",
 																					"conditions": [
 																						{
-																							"id": "is-boolean-instance-variable-set",
+																							"id": "is-overlapping-another-object",
 																							"objectClass": "Cursor",
-																							"sid": 864972258300858,
+																							"sid": 994702386503819,
 																							"parameters": {
-																								"instance-variable": "HasLOS"
-																							}
-																						},
-																						{
-																							"id": "is-boolean-instance-variable-set",
-																							"objectClass": "Cursor",
-																							"sid": 341179011504259,
-																							"parameters": {
-																								"instance-variable": "OnEnemy"
+																								"object": "Skill_Target"
 																							}
 																						}
 																					],
@@ -1234,6 +1373,172 @@
 																						}
 																					],
 																					"sid": 623119949672240
+																				}
+																			]
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-instance-variable",
+																					"objectClass": "SkillButtons",
+																					"sid": 200740329140556,
+																					"parameters": {
+																						"instance-variable": "CurrentSkill",
+																						"comparison": 0,
+																						"value": "\"knockback\""
+																					}
+																				}
+																			],
+																			"actions": [],
+																			"sid": 248047650611049,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "is-overlapping-another-object",
+																							"objectClass": "PlayerMoveTile",
+																							"sid": 352365646723283,
+																							"parameters": {
+																								"object": "Skill_Target"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"type": "comment",
+																							"text": "Valid target"
+																						},
+																						{
+																							"id": "set-boolean-instvar",
+																							"objectClass": "PlayerBase",
+																							"sid": 346513701860925,
+																							"parameters": {
+																								"instance-variable": "TurnDone",
+																								"value": "true"
+																							}
+																						},
+																						{
+																							"callFunction": "KnockbackUse",
+																							"sid": 418106431786297
+																						}
+																					],
+																					"sid": 118048292347205
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "else",
+																							"objectClass": "System",
+																							"sid": 163052619179059
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "set-eventvar-value",
+																							"objectClass": "System",
+																							"sid": 654256114292139,
+																							"parameters": {
+																								"variable": "TouchMode",
+																								"value": "\"default\""
+																							}
+																						},
+																						{
+																							"id": "set-boolean-instvar",
+																							"objectClass": "SkillButtons",
+																							"sid": 275080334581730,
+																							"parameters": {
+																								"instance-variable": "Active",
+																								"value": "false"
+																							}
+																						}
+																					],
+																					"sid": 103266345705888
+																				}
+																			]
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "compare-instance-variable",
+																					"objectClass": "SkillButtons",
+																					"sid": 891848296890027,
+																					"parameters": {
+																						"instance-variable": "CurrentSkill",
+																						"comparison": 0,
+																						"value": "\"earthpillar\""
+																					}
+																				}
+																			],
+																			"actions": [],
+																			"sid": 435192050354369,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "is-overlapping-another-object",
+																							"objectClass": "Cursor",
+																							"sid": 109706195006236,
+																							"parameters": {
+																								"object": "Skill_Target"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"type": "comment",
+																							"text": "Valid target"
+																						},
+																						{
+																							"id": "set-boolean-instvar",
+																							"objectClass": "PlayerBase",
+																							"sid": 689175728845698,
+																							"parameters": {
+																								"instance-variable": "TurnDone",
+																								"value": "true"
+																							}
+																						},
+																						{
+																							"callFunction": "EarthPillarUse",
+																							"sid": 864712299717446
+																						}
+																					],
+																					"sid": 459176250045223
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "else",
+																							"objectClass": "System",
+																							"sid": 675252892415038
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "set-eventvar-value",
+																							"objectClass": "System",
+																							"sid": 148519882008349,
+																							"parameters": {
+																								"variable": "TouchMode",
+																								"value": "\"default\""
+																							}
+																						},
+																						{
+																							"id": "set-boolean-instvar",
+																							"objectClass": "SkillButtons",
+																							"sid": 543127477349812,
+																							"parameters": {
+																								"instance-variable": "Active",
+																								"value": "false"
+																							}
+																						}
+																					],
+																					"sid": 850571083620341
 																				}
 																			]
 																		}
@@ -1580,50 +1885,24 @@
 				},
 				{
 					"eventType": "comment",
-					"text": "MoveTile graphics"
+					"text": "MoveTile graphics, only apply in default touchmode to allow melee skill behaviour to work independently"
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "PlayerMoveTile",
-							"sid": 648198647108957,
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 535722488190936,
 							"parameters": {
-								"object": "Collisions"
-							},
-							"isInverted": true
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "PlayerMoveTile",
-							"sid": 907031904716074,
-							"parameters": {
-								"object": "NPCBases"
-							},
-							"isInverted": true
-						},
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Cursor",
-							"sid": 794323140329402,
-							"parameters": {
-								"object": "PlayerBase"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "PlayerMoveTile",
-							"sid": 651972716299730,
-							"parameters": {
-								"visibility": "visible"
+								"variable": "TouchMode",
+								"comparison": 0,
+								"value": "\"default\""
 							}
 						}
 					],
-					"sid": 667863332202079,
+					"actions": [],
+					"sid": 796489036111937,
 					"children": [
 						{
 							"eventType": "block",
@@ -1631,24 +1910,91 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "PlayerMoveTile",
-									"sid": 585691934787866,
+									"sid": 558792809919201,
 									"parameters": {
-										"object": "EnemyBases"
-									}
+										"object": "Collisions"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "PlayerMoveTile",
+									"sid": 640481700947711,
+									"parameters": {
+										"object": "NPCBases"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Cursor",
+									"sid": 726213525845959,
+									"parameters": {
+										"object": "PlayerBase"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
 								{
-									"id": "set-animation",
+									"id": "set-visible",
 									"objectClass": "PlayerMoveTile",
-									"sid": 584547319556836,
+									"sid": 357104242332925,
 									"parameters": {
-										"animation": "\"melee\"",
-										"from": "current-frame"
+										"visibility": "visible"
 									}
 								}
 							],
-							"sid": 313118292562301
+							"sid": 912910883116905,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "PlayerMoveTile",
+											"sid": 281613452826100,
+											"parameters": {
+												"object": "EnemyBases"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "PlayerMoveTile",
+											"sid": 828463584213349,
+											"parameters": {
+												"animation": "\"melee\"",
+												"from": "current-frame"
+											}
+										}
+									],
+									"sid": 718986746894049
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 815296144051981
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "PlayerMoveTile",
+											"sid": 121825302250888,
+											"parameters": {
+												"animation": "\"direction\"",
+												"from": "current-frame"
+											}
+										}
+									],
+									"sid": 430243615548195
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -1656,44 +2002,22 @@
 								{
 									"id": "else",
 									"objectClass": "System",
-									"sid": 526865342589986
+									"sid": 817112501955034
 								}
 							],
 							"actions": [
 								{
-									"id": "set-animation",
+									"id": "set-visible",
 									"objectClass": "PlayerMoveTile",
-									"sid": 755154794856376,
+									"sid": 686256528722611,
 									"parameters": {
-										"animation": "\"direction\"",
-										"from": "current-frame"
+										"visibility": "invisible"
 									}
 								}
 							],
-							"sid": 293877882880783
+							"sid": 882264503199807
 						}
 					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 884699569578735
-						}
-					],
-					"actions": [
-						{
-							"id": "set-visible",
-							"objectClass": "PlayerMoveTile",
-							"sid": 992294018042094,
-							"parameters": {
-								"visibility": "invisible"
-							}
-						}
-					],
-					"sid": 648213318286797
 				},
 				{
 					"eventType": "comment",

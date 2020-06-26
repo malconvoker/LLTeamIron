@@ -71,6 +71,26 @@
 					}
 				},
 				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 389101308625724,
+					"parameters": {
+						"name": "\"skill\"",
+						"string": "\"knockback\"",
+						"function": "KnockbackSelect"
+					}
+				},
+				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 605066167820174,
+					"parameters": {
+						"name": "\"skill\"",
+						"string": "\"earthpillar\"",
+						"function": "EarthPillarSelect"
+					}
+				},
+				{
 					"id": "destroy",
 					"objectClass": "Skill_ManaBlast",
 					"sid": 711510501452087
@@ -1284,6 +1304,506 @@
 				}
 			],
 			"sid": 321856090372821
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Knockback",
+			"description": "Does a melee attack using normal stats and moves target back 1 tile",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "KnockbackSelect",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Targeting itself is dealt with in Player event sheet, under End Touch"
+						}
+					],
+					"sid": 546613759988839,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-ordered",
+									"objectClass": "System",
+									"sid": 742770435349674,
+									"parameters": {
+										"object": "EnemyBases",
+										"expression": "EnemyBases.IID",
+										"order": "ascending"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 965935170179981,
+									"parameters": {
+										"first-value": "Functions.PlayerDistance(EnemyBases.X, EnemyBases.Y)",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Creates target on each enemy in player's melee range"
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "EnemyBases",
+									"sid": 876398065783505,
+									"parameters": {
+										"object": "Skill_Target",
+										"layer": "\"Objects\"",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Skill_Target",
+									"sid": 450739053903445,
+									"parameters": {
+										"x": "Self.X+ Self.X-PlayerBase.X",
+										"y": "Self.Y+ Self.Y-PlayerBase.Y"
+									}
+								}
+							],
+							"sid": 359901920399888,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_Target",
+											"sid": 882621686772473,
+											"parameters": {
+												"object": "EnemyBases"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_Target",
+											"sid": 415795350736192,
+											"parameters": {
+												"object": "Collisions"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "If the tile behind adjacent enemy is not empty, destroy that target"
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Skill_Target",
+											"sid": 606625401944808
+										}
+									],
+									"sid": 769136274297213,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 932046277691633
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "EnemyBases",
+											"sid": 120038533414792,
+											"parameters": {
+												"object": "Skill_Target",
+												"layer": "\"Objects\"",
+												"image-point": "0"
+											}
+										}
+									],
+									"sid": 959905492097521
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-screen",
+											"objectClass": "Skill_Target",
+											"sid": 590156489329982
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 860562806370655,
+											"parameters": {
+												"variable": "TouchMode",
+												"value": "\"skilltarget\""
+											}
+										}
+									],
+									"sid": 827638258407677
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 499321692313557
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 452540456913071,
+											"parameters": {
+												"variable": "TouchMode",
+												"value": "\"default\""
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "SkillButtons",
+											"sid": 137711111667608,
+											"parameters": {
+												"instance-variable": "Active",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 308715448443428
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "KnockbackUse",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 124059046951514,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "PlayerMoveTile",
+									"sid": 989102032716825,
+									"parameters": {
+										"object": "EnemyBases"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "DamageEnemy",
+									"sid": 449277786167593,
+									"parameters": [
+										"PlayerBase.meleeDmg",
+										"EnemyBases.UID"
+									]
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "PlayerMask",
+									"sid": 263882947636075,
+									"parameters": {
+										"animation": "\"attack\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 176377552967240,
+									"parameters": {
+										"audio-file": "hit_test",
+										"loop": "not-looping",
+										"volume": "-5",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "EnemyBases",
+									"sid": 106063608195685,
+									"parameters": {
+										"x": "Self.X+ Self.X-PlayerBase.X",
+										"y": "Self.Y+ Self.Y-PlayerBase.Y"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "SkillButtons",
+									"sid": 197324304066259,
+									"parameters": {
+										"instance-variable": "Active",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 386995823522296,
+									"parameters": {
+										"variable": "TouchMode",
+										"value": "\"default\""
+									}
+								},
+								{
+									"callFunction": "LoseMana",
+									"sid": 579521003068835,
+									"parameters": [
+										"Skills.At(1,10)"
+									]
+								},
+								{
+									"callFunction": "NextTurn",
+									"sid": 192029375270191
+								}
+							],
+							"sid": 160611258590587
+						}
+					]
+				}
+			],
+			"sid": 468131947500740
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "EarthPillar",
+			"description": "Creates a temporary wall in an empty space within 3 tiles",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "EarthPillarSelect",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Targeting itself is dealt with in Player event sheet, under End Touch"
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 378094339414408,
+							"parameters": {
+								"variable": "TouchMode",
+								"value": "\"skilltarget\""
+							}
+						}
+					],
+					"sid": 340725055448261,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 585126119088086,
+									"parameters": {
+										"name": "\"PillarX\"",
+										"start-index": "-3",
+										"end-index": "3"
+									}
+								},
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 334148489360312,
+									"parameters": {
+										"name": "\"PillarY\"",
+										"start-index": "-3",
+										"end-index": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 501724374286221,
+									"parameters": {
+										"object-to-create": "Skill_Target",
+										"layer": "\"Objects\"",
+										"x": "PlayerBase.X + loopindex(\"PillarX\")*Tile",
+										"y": "PlayerBase.Y + loopindex(\"PillarY\")*Tile"
+									}
+								}
+							],
+							"sid": 890486889128075,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_Target",
+											"sid": 595540262317545,
+											"parameters": {
+												"object": "Collisions"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_Target",
+											"sid": 736893389088511,
+											"parameters": {
+												"object": "EnemyBases"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_Target",
+											"sid": 487680847911622,
+											"parameters": {
+												"object": "PlayerBase"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Skill_Target",
+											"sid": 758271577128529
+										}
+									],
+									"sid": 525203170697502,
+									"isOrBlock": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "EarthPillarUse",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Cursor",
+							"sid": 884866889840078,
+							"parameters": {
+								"object": "Skill_EarthPillar",
+								"layer": "\"Objects\"",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "set-tile",
+							"objectClass": "Collisions",
+							"sid": 981971711894481,
+							"parameters": {
+								"tile-x": "Self.PositionToTileX(Skill_EarthPillar.X)",
+								"tile-y": "Self.PositionToTileY(Skill_EarthPillar.Y)",
+								"tile": "0",
+								"state": "normal"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 101005052499191,
+							"parameters": {
+								"variable": "TouchMode",
+								"value": "\"default\""
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "SkillButtons",
+							"sid": 765638661027969,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "false"
+							}
+						},
+						{
+							"callFunction": "LoseMana",
+							"sid": 152427076464180,
+							"parameters": [
+								"Skills.At(1,11)"
+							]
+						},
+						{
+							"callFunction": "NextTurn",
+							"sid": 520334058609896
+						}
+					],
+					"sid": 269129381920861
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 236832593202029,
+							"parameters": {
+								"instance-variable": "hp",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "erase-tile",
+							"objectClass": "Collisions",
+							"sid": 222827703891337,
+							"parameters": {
+								"tile-x": "Self.PositionToTileX(Skill_EarthPillar.X)",
+								"tile-y": "Self.PositionToTileY(Skill_EarthPillar.Y)"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 174150710888931
+						}
+					],
+					"sid": 184508691901246
+				}
+			],
+			"sid": 296597529117802
 		},
 		{
 			"eventType": "comment",
