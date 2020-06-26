@@ -1,9 +1,6 @@
 {
     "c2dictionary": true,
     "data": {
-        "7": 7,
-        "8": 8,
-        "9": 9,
         "10": 10,
         "blank": "blank",
         "empty": "[u]Skill Slot[/u]\\n\\n\\nEmpty skill slot. Acquire Skill Scrolls to get new skills.",
@@ -11,6 +8,9 @@
         "shield": "[u]Shield[/u]\\n3mp\\n\\nGain a magic shield that absorbs 6 hp of damage. Decays by 1 if not hit.",
         "knightleap": "[u]Knight's Leap[/u]\\n2mp\\n\\nChannel the mystic power of the Knights of Chess to teleport a short distance.",
         "manacharge": "[u]Mana Charge[/u]\\nPassive\\n\\nBuild up charge for each enemy killed, gaining 1 mp at 3 charges.",
-        "soulsiphon": "[u]Soul Siphon[/u]\\nPassive\\n\\nHarvest the magical energies of enemies killed, gaining temporary mana."
+        "soulsiphon": "[u]Soul Siphon[/u]\\nPassive\\n\\nHarvest the magical energies of enemies killed, gaining temporary mana.",
+        "E_SlimeBase": "[u]Slime[/u]\\nHP #1  Dmg #2\\n\\nA blob of viscous ooze, seemingly sentient. Moves every other turn.",
+        "E_SkeletonBase": "[u]Skeleton[/u]\\nHP #1  Dmg #2\\n\\nSkeletal remains animated by some malevolent force. Moves every turn.",
+        "E_GhostBase": "[u]Ghost[/u]\\nHP #1  Dmg #2\\n\\nAn evil spirit of unknown origin, capable of firing dark magic. Moves every other turn."
     }
 }

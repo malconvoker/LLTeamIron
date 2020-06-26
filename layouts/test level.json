@@ -569,7 +569,7 @@
 						"TurnInProgress": false,
 						"maxhp": 4,
 						"hp": 4,
-						"meleeDmg": 0,
+						"meleeDmg": 3,
 						"SkipPause": false,
 						"SeesPlayer": false,
 						"Active": false,

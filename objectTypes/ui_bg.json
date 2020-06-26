@@ -3,20 +3,7 @@
 	"plugin-id": "Sprite",
 	"sid": 898950910110425,
 	"isGlobal": true,
-	"instanceVariables": [
-		{
-			"name": "textbox",
-			"type": "string",
-			"desc": "Identifier for textbox content, e.g. skill or enemy name",
-			"sid": 432745108341543
-		},
-		{
-			"name": "boxtype",
-			"type": "string",
-			"desc": "Type of content in text box (enemy, skill)",
-			"sid": 991411613749776
-		}
-	],
+	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {

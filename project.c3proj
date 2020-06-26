@@ -316,7 +316,8 @@
 					"Skill_ManaBlast",
 					"Skill_Shield",
 					"Skill_ManaBlastParticle",
-					"Skill_KnightLeap"
+					"Skill_KnightLeap",
+					"Skill_Target"
 				],
 				"subfolders": [],
 				"name": "Skill effects"
@@ -578,7 +579,7 @@
 	},
 	"properties": {
 		"description": "Luotsaamo Team Iron Game",
-		"version": "0.5.5",
+		"version": "0.6.0",
 		"author": "Team Iron",
 		"authorEmail": "",
 		"authorWebsite": "",

@@ -502,10 +502,7 @@
 						"live-preview": false
 					},
 					"uid": 3,
-					"instanceVariables": {
-						"textbox": "blank",
-						"boxtype": "blank"
-					},
+					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
 						"x": 337,
@@ -1194,7 +1191,12 @@
 						"origin": "top-left"
 					},
 					"uid": 190,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"boxtype": "blank",
+						"textbox": "",
+						"Var1": "",
+						"Var2": ""
+					},
 					"behaviors": {},
 					"world": {
 						"x": 350.48277396622785,
@@ -1217,7 +1219,7 @@
 					"type": "UI_BoxIcon",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "blank",
+						"initial-animation": "manablast",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false

@@ -3,7 +3,32 @@
 	"plugin-id": "Text",
 	"sid": 839879619612588,
 	"isGlobal": true,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "boxtype",
+			"type": "string",
+			"desc": "Type of content in text box (blank, skill, enemy)",
+			"sid": 136403051553941
+		},
+		{
+			"name": "textbox",
+			"type": "string",
+			"desc": "Identifier for textbox content, e.g. skill or enemy name",
+			"sid": 382121377242811
+		},
+		{
+			"name": "Var1",
+			"type": "string",
+			"desc": "Variable to dynamically change textbox contents",
+			"sid": 961197957883008
+		},
+		{
+			"name": "Var2",
+			"type": "string",
+			"desc": "Variable to dynamically change textbox contents",
+			"sid": 786998627319613
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": []
 }

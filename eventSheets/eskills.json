@@ -242,7 +242,62 @@
 							}
 						}
 					],
-					"sid": 230432006643872
+					"sid": 230432006643872,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-ordered",
+									"objectClass": "System",
+									"sid": 711096181546590,
+									"parameters": {
+										"object": "EnemyBases",
+										"expression": "EnemyBases.IID",
+										"order": "ascending"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "EnemyBases",
+									"sid": 297967612641458,
+									"parameters": {
+										"object": "Skill_Target",
+										"layer": "\"Objects\"",
+										"image-point": "0"
+									}
+								}
+							],
+							"sid": 489209380411413,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 783987766532072,
+											"parameters": {
+												"first-value": "Functions.LOScheck(PlayerBase.X, PlayerBase.Y, Skill_Target.X, Skill_Target.Y)",
+												"comparison": 0,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Skill_Target",
+											"sid": 319512268031893
+										}
+									],
+									"sid": 848149487477322
+								}
+							]
+						}
+					]
 				},
 				{
 					"functionName": "ManaBlastUse",
@@ -806,29 +861,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 988095539173506,
-							"parameters": {
-								"variable": "TouchMode",
-								"comparison": 0,
-								"value": "\"default\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Skill_KnightLeap",
-							"sid": 411665320871017
-						}
-					],
-					"sid": 350121831123624
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "is-animation-playing",
 							"objectClass": "PlayerMask",
 							"sid": 264487949446420,
@@ -1252,6 +1284,38 @@
 				}
 			],
 			"sid": 321856090372821
+		},
+		{
+			"eventType": "comment",
+			"text": "Delete skill targeting indicators if not targeting"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 245035439296992,
+					"parameters": {
+						"variable": "TouchMode",
+						"comparison": 1,
+						"value": "\"skilltarget\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Skill_KnightLeap",
+					"sid": 913069379915154
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Skill_Target",
+					"sid": 434696892320521
+				}
+			],
+			"sid": 431979280731488
 		},
 		{
 			"functionName": "SkillMissing",

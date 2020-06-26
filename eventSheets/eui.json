@@ -40,24 +40,6 @@
 							"parameters": {
 								"color": "rgb(255, 255, 150)"
 							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "UI_BG",
-							"sid": 815357591856336,
-							"parameters": {
-								"instance-variable": "textbox",
-								"value": "SkillButtons.CurrentSkill"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "UI_BG",
-							"sid": 835523108168320,
-							"parameters": {
-								"instance-variable": "boxtype",
-								"value": "\"skill\""
-							}
 						}
 					],
 					"sid": 734885456429666,
@@ -546,33 +528,72 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "comment",
-					"text": "Skill text set in Skill Buttons group of eUI"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "compare-eventvar",
-							"objectClass": "System",
-							"sid": 290646741660681,
-							"parameters": {
-								"variable": "TouchMode",
-								"comparison": 0,
-								"value": "\"skillpickup\""
-							}
-						}
-					],
-					"actions": [],
-					"sid": 554295837163440,
+					"eventType": "group",
+					"disabled": false,
+					"title": "Text Box content selection",
+					"description": "",
+					"isActiveOnStart": true,
 					"children": [
+						{
+							"eventType": "comment",
+							"text": "MoveTile on Skill Scroll / Enemy > Cursor on Skill Scroll / Enemy > Skill button touched / Skill being picked up > Skill active > Adjacent enemy?"
+						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
 									"id": "is-boolean-instance-variable-set",
+									"objectClass": "SkillButtons",
+									"sid": 835461926901598,
+									"parameters": {
+										"instance-variable": "Active"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Skill button active"
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 873527877697230,
+									"parameters": {
+										"instance-variable": "boxtype",
+										"value": "\"skill\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 480998571154262,
+									"parameters": {
+										"instance-variable": "textbox",
+										"value": "SkillButtons.CurrentSkill"
+									}
+								}
+							],
+							"sid": 677527826315373,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 910951877921879,
+									"parameters": {
+										"variable": "TouchMode",
+										"comparison": 0,
+										"value": "\"skillpickup\""
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
 									"objectClass": "SkillPickup",
-									"sid": 681673496803315,
+									"sid": 666505006076260,
 									"parameters": {
 										"instance-variable": "Selected"
 									}
@@ -580,35 +601,267 @@
 							],
 							"actions": [
 								{
-									"id": "set-instvar-value",
-									"objectClass": "UI_BG",
-									"sid": 873152178101515,
-									"parameters": {
-										"instance-variable": "textbox",
-										"value": "SkillPickup.CurrentSkill"
-									}
+									"type": "comment",
+									"text": "Skill being picked up"
 								},
 								{
 									"id": "set-instvar-value",
-									"objectClass": "UI_BG",
-									"sid": 353296899032827,
+									"objectClass": "UI_TextBox",
+									"sid": 487205815885701,
 									"parameters": {
 										"instance-variable": "boxtype",
 										"value": "\"skill\""
 									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 905087360916198,
+									"parameters": {
+										"instance-variable": "textbox",
+										"value": "SkillPickup.CurrentSkill"
+									}
 								}
 							],
-							"sid": 863197518343685
+							"sid": 953939056961911
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "SkillButtons",
+									"sid": 383147496857162,
+									"parameters": {
+										"instance-variable": "Touched"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Skill button being touched"
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 731045511664024,
+									"parameters": {
+										"instance-variable": "boxtype",
+										"value": "\"skill\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 812682679752272,
+									"parameters": {
+										"instance-variable": "textbox",
+										"value": "SkillButtons.CurrentSkill"
+									}
+								}
+							],
+							"sid": 667588693674645,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Cursor",
+									"sid": 447080016906639,
+									"parameters": {
+										"object": "SkillPickup"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Cursor on Skill Scroll"
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 466113287408689,
+									"parameters": {
+										"instance-variable": "boxtype",
+										"value": "\"skill\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 395243676038857,
+									"parameters": {
+										"instance-variable": "textbox",
+										"value": "SkillPickup.CurrentSkill"
+									}
+								}
+							],
+							"sid": 142819892476172
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Cursor",
+									"sid": 506446175644086,
+									"parameters": {
+										"object": "EnemyBases"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Cursor on Enemy"
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 658482779526753,
+									"parameters": {
+										"instance-variable": "boxtype",
+										"value": "\"enemy\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 671076540854272,
+									"parameters": {
+										"instance-variable": "textbox",
+										"value": "EnemyBases.ObjectTypeName"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 670677661007515,
+									"parameters": {
+										"instance-variable": "Var1",
+										"value": "EnemyBases.hp & \"/\" & EnemyBases.maxhp"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 525789889772907,
+									"parameters": {
+										"instance-variable": "Var2",
+										"value": "EnemyBases.meleeDmg"
+									}
+								}
+							],
+							"sid": 448068505280728
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "PlayerMoveTile",
+									"sid": 280007974180578,
+									"parameters": {
+										"object": "SkillPickup"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "MoveTile on Skill Scroll"
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 542648712893285,
+									"parameters": {
+										"instance-variable": "boxtype",
+										"value": "\"skill\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 147008167375527,
+									"parameters": {
+										"instance-variable": "textbox",
+										"value": "SkillPickup.CurrentSkill"
+									}
+								}
+							],
+							"sid": 857021517033944
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "PlayerMoveTile",
+									"sid": 689873045291043,
+									"parameters": {
+										"object": "EnemyBases"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "MoveTile on Enemy"
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 554223009944656,
+									"parameters": {
+										"instance-variable": "boxtype",
+										"value": "\"enemy\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 750804581850687,
+									"parameters": {
+										"instance-variable": "textbox",
+										"value": "EnemyBases.ObjectTypeName"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 751559736680575,
+									"parameters": {
+										"instance-variable": "Var1",
+										"value": "EnemyBases.hp & \"/\" & EnemyBases.maxhp"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 972165863235688,
+									"parameters": {
+										"instance-variable": "Var2",
+										"value": "EnemyBases.meleeDmg"
+									}
+								}
+							],
+							"sid": 380956525951561
 						}
-					]
+					],
+					"sid": 601870717513657
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "compare-instance-variable",
-							"objectClass": "UI_BG",
-							"sid": 171078072874792,
+							"objectClass": "UI_TextBox",
+							"sid": 589339591649068,
 							"parameters": {
 								"instance-variable": "boxtype",
 								"comparison": 1,
@@ -620,25 +873,41 @@
 						{
 							"id": "set-text",
 							"objectClass": "UI_TextBox",
-							"sid": 266279789635342,
+							"sid": 847046646250041,
 							"parameters": {
-								"text": "TextBoxContents.Get(UI_BG.textbox)"
+								"text": "TextBoxContents.Get(Self.textbox)"
 							}
 						},
 						{
 							"id": "set-text",
 							"objectClass": "UI_TextBox",
-							"sid": 875458517559703,
+							"sid": 976423671909099,
 							"parameters": {
-								"text": "replace(Self.Text,\"\\n\",newline)"
+								"text": "replace(Self.Text, \"\\n\", newline)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "UI_TextBox",
+							"sid": 931343113589449,
+							"parameters": {
+								"text": "replace(Self.Text, \"#1\", Self.Var1)"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "UI_TextBox",
+							"sid": 785221025575637,
+							"parameters": {
+								"text": "replace(Self.Text, \"#2\", Self.Var2)"
 							}
 						},
 						{
 							"id": "set-animation",
 							"objectClass": "UI_BoxIcon",
-							"sid": 501959821362827,
+							"sid": 773382044102672,
 							"parameters": {
-								"animation": "UI_BG.textbox",
+								"animation": "UI_TextBox.textbox",
 								"from": "beginning"
 							}
 						}
@@ -661,6 +930,15 @@
 							"sid": 621636230201301,
 							"parameters": {
 								"text": "\"\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "UI_BoxIcon",
+							"sid": 621760272570747,
+							"parameters": {
+								"animation": "\"blank\"",
+								"from": "beginning"
 							}
 						}
 					],
