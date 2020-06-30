@@ -256,9 +256,7 @@
 				"items": [
 					"UI_SkillButton",
 					"UI_BG",
-					"TXTmpcost",
-					"UI_BoxIcon",
-					"UI_TextBox"
+					"TXTmpcost"
 				],
 				"subfolders": [
 					{
@@ -273,6 +271,15 @@
 						],
 						"subfolders": [],
 						"name": "Bars"
+					},
+					{
+						"items": [
+							"UI_BoxIcon",
+							"UI_EnemyDmg",
+							"UI_TextBox"
+						],
+						"subfolders": [],
+						"name": "TextBox"
 					}
 				],
 				"name": "UI"

@@ -1282,6 +1282,35 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "UI_EnemyDmg",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 196,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 396.66250726884505,
+						"y": 88.02506946750545,
+						"width": 5,
+						"height": 10,
+						"originX": 0.8,
+						"originY": 0.44999999999999996,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 188524830482099,

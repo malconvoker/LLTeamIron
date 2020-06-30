@@ -1162,7 +1162,7 @@
 					"type": "SkillPickup",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "manablast",
+						"initial-animation": "soulsiphon",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1178,7 +1178,7 @@
 						}
 					},
 					"world": {
-						"x": 120,
+						"x": 100,
 						"y": 120,
 						"width": 18,
 						"height": 18,
@@ -1507,42 +1507,6 @@
 						"height": 20,
 						"originX": 0,
 						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "SkillPickup",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "manablast",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 196,
-					"instanceVariables": {
-						"CurrentSkill": "manacharge",
-						"Selected": false
-					},
-					"behaviors": {
-						"Persist": {
-							"properties": {}
-						}
-					},
-					"world": {
-						"x": 80,
-						"y": 120,
-						"width": 18,
-						"height": 18,
-						"originX": -0.05555555555555555,
-						"originY": -0.05555555555555555,
 						"color": [
 							1,
 							1,

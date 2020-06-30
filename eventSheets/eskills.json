@@ -235,10 +235,6 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "comment",
-					"text": "Fireball Skill: shoots a fireball at target enemy in LOS, dealing damage to it"
-				},
-				{
 					"functionName": "ManaBlastSelect",
 					"functionDescription": "Ranged attack, changes cursor mode to target",
 					"functionCategory": "",
@@ -362,6 +358,10 @@
 								"animation": "\"manablast\"",
 								"from": "beginning"
 							}
+						},
+						{
+							"type": "comment",
+							"text": "Spawn projectile, but invisible"
 						},
 						{
 							"id": "spawn-another-object",
@@ -498,6 +498,11 @@
 							"parameters": {
 								"unique-id": "Skill_ManaBlast.TargetUID"
 							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Skill_ManaBlastParticle",
+							"sid": 111581711950334
 						}
 					],
 					"actions": [
@@ -761,6 +766,10 @@
 							],
 							"actions": [
 								{
+									"type": "comment",
+									"text": "Spawn target tiles on preset locations around player"
+								},
+								{
 									"id": "spawn-another-object",
 									"objectClass": "PlayerBase",
 									"sid": 659902444031731,
@@ -868,6 +877,10 @@
 							],
 							"actions": [
 								{
+									"type": "comment",
+									"text": "Destroy all but the selected target"
+								},
+								{
 									"id": "destroy",
 									"objectClass": "Skill_KnightLeap",
 									"sid": 983152185266769
@@ -891,11 +904,15 @@
 					],
 					"actions": [
 						{
+							"type": "comment",
+							"text": "Animation ping pongs, fade to 25% opacity and back"
+						},
+						{
 							"id": "set-opacity",
 							"objectClass": "PlayerMask",
-							"sid": 149165665621421,
+							"sid": 972384221922929,
 							"parameters": {
-								"opacity": "50+25*(abs(3-Self.AnimationFrame))"
+								"opacity": "25+25*(abs(3-Self.AnimationFrame))"
 							}
 						}
 					],
@@ -920,6 +937,10 @@
 								}
 							],
 							"actions": [
+								{
+									"type": "comment",
+									"text": "Final animation frame, after which ping pongs"
+								},
 								{
 									"id": "set-position",
 									"objectClass": "PlayerBase",
@@ -1002,6 +1023,11 @@
 							}
 						},
 						{
+							"id": "destroy",
+							"objectClass": "Skill_KnightLeap",
+							"sid": 789668993327402
+						},
+						{
 							"callFunction": "NextTurn",
 							"sid": 144442783559312
 						}
@@ -1071,6 +1097,32 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 401699288217759
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Set local variable when equipping skill"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 350005901621958,
+									"parameters": {
+										"variable": "MCKilled",
+										"value": "EnemiesKilled"
+									}
+								}
+							],
+							"sid": 555233251327424
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "compare-animation-frame",
 									"objectClass": "UI_SkillButton",
 									"sid": 987754074244847,
@@ -1078,48 +1130,43 @@
 										"comparison": 0,
 										"number": "3"
 									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "PlayerBase",
+									"sid": 437407636470253,
+									"parameters": {
+										"instance-variable": "mp",
+										"comparison": 2,
+										"value": "PlayerBase.maxmp"
+									}
 								}
 							],
-							"actions": [],
-							"sid": 820088253377091,
-							"children": [
+							"actions": [
 								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-instance-variable",
-											"objectClass": "PlayerBase",
-											"sid": 394863320878455,
-											"parameters": {
-												"instance-variable": "mp",
-												"comparison": 2,
-												"value": "PlayerBase.maxmp"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-instvar-value",
-											"objectClass": "UI_SkillButton",
-											"sid": 737451057150652,
-											"parameters": {
-												"instance-variable": "Value",
-												"value": "0"
-											}
-										},
-										{
-											"id": "add-to-instvar",
-											"objectClass": "PlayerBase",
-											"sid": 541610254462740,
-											"parameters": {
-												"instance-variable": "mp",
-												"value": "1"
-											}
-										}
-									],
-									"sid": 462533167985952
+									"type": "comment",
+									"text": "If Value is 3 and mp is not full"
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_SkillButton",
+									"sid": 796855628360307,
+									"parameters": {
+										"instance-variable": "Value",
+										"value": "0"
+									}
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "PlayerBase",
+									"sid": 599858508879073,
+									"parameters": {
+										"instance-variable": "mp",
+										"value": "1"
+									}
 								}
-							]
+							],
+							"sid": 820088253377091
 						},
 						{
 							"eventType": "block",
@@ -1141,6 +1188,10 @@
 								}
 							],
 							"actions": [
+								{
+									"type": "comment",
+									"text": "Increment skill value by 1 after kill"
+								},
 								{
 									"id": "set-instvar-value",
 									"objectClass": "UI_SkillButton",
@@ -1212,14 +1263,14 @@
 						{
 							"id": "set-boolean-instvar",
 							"objectClass": "SkillButtons",
-							"sid": 833512366723595,
+							"sid": 148675447715679,
 							"parameters": {
 								"instance-variable": "Active",
 								"value": "false"
 							}
 						}
 					],
-					"sid": 321759400036339
+					"sid": 489710042808720
 				},
 				{
 					"eventType": "block",
@@ -1246,7 +1297,33 @@
 							"comment": "",
 							"isStatic": true,
 							"isConstant": false,
-							"sid": 428040762620067
+							"sid": 954577584723888
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 729933252846776
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Set local variable when equipping skill"
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 829627604310300,
+									"parameters": {
+										"variable": "SSKilled",
+										"value": "EnemiesKilled"
+									}
+								}
+							],
+							"sid": 649225783657141
 						},
 						{
 							"eventType": "block",
@@ -1263,6 +1340,10 @@
 								}
 							],
 							"actions": [
+								{
+									"type": "comment",
+									"text": "Activate after kill"
+								},
 								{
 									"id": "add-to-instvar",
 									"objectClass": "PlayerBase",
@@ -1369,6 +1450,10 @@
 									}
 								},
 								{
+									"type": "comment",
+									"text": "Move target behind enemy to the tile the enemy will be knocked back to"
+								},
+								{
 									"id": "set-position",
 									"objectClass": "Skill_Target",
 									"sid": 450739053903445,
@@ -1425,6 +1510,10 @@
 									],
 									"actions": [
 										{
+											"type": "comment",
+											"text": "Spawn target on enemy as well"
+										},
+										{
 											"id": "spawn-another-object",
 											"objectClass": "EnemyBases",
 											"sid": 120038533414792,
@@ -1436,28 +1525,46 @@
 										}
 									],
 									"sid": 959905492097521
-								},
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 190040877589970
+								}
+							],
+							"sid": 320503313537045,
+							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
 											"id": "is-on-screen",
 											"objectClass": "Skill_Target",
-											"sid": 590156489329982
+											"sid": 245480408150260
 										}
 									],
 									"actions": [
 										{
+											"type": "comment",
+											"text": "If there are valid targets"
+										},
+										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 860562806370655,
+											"sid": 484237999551992,
 											"parameters": {
 												"variable": "TouchMode",
 												"value": "\"skilltarget\""
 											}
 										}
 									],
-									"sid": 827638258407677
+									"sid": 360794440742368
 								},
 								{
 									"eventType": "block",
@@ -1465,14 +1572,14 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 499321692313557
+											"sid": 772304385457484
 										}
 									],
 									"actions": [
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 452540456913071,
+											"sid": 897667352485252,
 											"parameters": {
 												"variable": "TouchMode",
 												"value": "\"default\""
@@ -1481,14 +1588,20 @@
 										{
 											"id": "set-boolean-instvar",
 											"objectClass": "SkillButtons",
-											"sid": 137711111667608,
+											"sid": 654112763342675,
 											"parameters": {
 												"instance-variable": "Active",
 												"value": "false"
 											}
 										}
 									],
-									"sid": 308715448443428
+									"sid": 716138815484418
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 624052802019491
 								}
 							]
 						}
@@ -1546,6 +1659,10 @@
 										"volume": "-5",
 										"tag-optional": "\"\""
 									}
+								},
+								{
+									"type": "comment",
+									"text": "Move enemy one tile away"
 								},
 								{
 									"id": "set-position",
@@ -1651,6 +1768,10 @@
 								}
 							],
 							"actions": [
+								{
+									"type": "comment",
+									"text": "Create targets on all free tiles within 3 tiles of Player"
+								},
 								{
 									"id": "create-object",
 									"objectClass": "System",

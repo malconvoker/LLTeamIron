@@ -803,7 +803,7 @@
 					},
 					"uid": 198,
 					"instanceVariables": {
-						"CurrentSkill": "earthpillar",
+						"CurrentSkill": "manablast",
 						"Selected": false
 					},
 					"behaviors": {
