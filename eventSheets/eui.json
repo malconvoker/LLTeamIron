@@ -374,6 +374,16 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "UI_BG",
+									"sid": 497628042078048,
+									"parameters": {
+										"object": "UI_EnemyDead",
+										"layer": "\"UI\"",
+										"image-point": "\"boxicon\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "UI_BG",
 									"sid": 380103388137834,
 									"parameters": {
 										"object": "UI_TextBox",
@@ -537,6 +547,10 @@
 						{
 							"eventType": "comment",
 							"text": "MoveTile on Skill Scroll / Enemy > Cursor on Skill Scroll / Enemy > Skill button touched / Skill being picked up > Skill active > Adjacent enemy?"
+						},
+						{
+							"eventType": "comment",
+							"text": "Enemy textbox also set in function DamageEnemy"
 						},
 						{
 							"eventType": "block",
@@ -756,7 +770,56 @@
 									}
 								}
 							],
-							"sid": 448068505280728
+							"sid": 448068505280728,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBases",
+											"sid": 677145988913670,
+											"parameters": {
+												"instance-variable": "hp",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "UI_EnemyDead",
+											"sid": 435044025494147,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 379473008877627
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 405185050450955
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "UI_EnemyDead",
+											"sid": 693212886767906,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 905033730972355
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -850,7 +913,56 @@
 									}
 								}
 							],
-							"sid": 380956525951561
+							"sid": 380956525951561,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBases",
+											"sid": 634009996563428,
+											"parameters": {
+												"instance-variable": "hp",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "UI_EnemyDead",
+											"sid": 490633584915355,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 364880543094324
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 683267363943985
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "UI_EnemyDead",
+											"sid": 273683818344145,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 320806915615735
+								}
+							]
 						}
 					],
 					"sid": 601870717513657

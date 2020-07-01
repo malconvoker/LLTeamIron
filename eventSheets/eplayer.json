@@ -965,10 +965,11 @@
 																			"actions": [
 																				{
 																					"callFunction": "DamageEnemy",
-																					"sid": 115499766909846,
+																					"sid": 448470790374018,
 																					"parameters": [
 																						"PlayerBase.meleeDmg",
-																						"EnemyBases.UID"
+																						"EnemyBases.UID",
+																						true
 																					]
 																				},
 																				{

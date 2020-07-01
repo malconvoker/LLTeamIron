@@ -804,6 +804,13 @@
 					"initialValue": "0",
 					"comment": "UID of enemy to deal damage to",
 					"sid": 512046850619116
+				},
+				{
+					"name": "TrackTextbox",
+					"type": "boolean",
+					"initialValue": "false",
+					"comment": "Does the enemy getting damaged update on the textbox",
+					"sid": 753916503441602
 				}
 			],
 			"eventType": "function-block",
@@ -1092,6 +1099,107 @@
 										}
 									],
 									"sid": 225988069265148
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 264405900593829,
+									"parameters": {
+										"variable": "TrackTextbox"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 546725840734530,
+									"parameters": {
+										"instance-variable": "boxtype",
+										"value": "\"enemy\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 215036494081988,
+									"parameters": {
+										"instance-variable": "textbox",
+										"value": "EnemyBases.ObjectTypeName"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 499815913947306,
+									"parameters": {
+										"instance-variable": "Var1",
+										"value": "EnemyBases.hp & \"/\" & EnemyBases.maxhp"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 965943960468429,
+									"parameters": {
+										"instance-variable": "Var2",
+										"value": "EnemyBases.meleeDmg"
+									}
+								}
+							],
+							"sid": 353252485343941,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "EnemyBases",
+											"sid": 168592589860405,
+											"parameters": {
+												"instance-variable": "hp",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "UI_EnemyDead",
+											"sid": 309428739949286,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 319249011950287
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 463399706330118
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "UI_EnemyDead",
+											"sid": 904285402392799,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 991304321879232
 								}
 							]
 						}

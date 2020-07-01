@@ -1311,6 +1311,35 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "UI_EnemyDead",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 208,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 427.8883274044601,
+						"y": 72.09352858198763,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 188524830482099,

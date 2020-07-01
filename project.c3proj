@@ -276,7 +276,8 @@
 						"items": [
 							"UI_BoxIcon",
 							"UI_EnemyDmg",
-							"UI_TextBox"
+							"UI_TextBox",
+							"UI_EnemyDead"
 						],
 						"subfolders": [],
 						"name": "TextBox"
@@ -594,7 +595,7 @@
 	},
 	"properties": {
 		"description": "Luotsaamo Team Iron Game",
-		"version": "0.6.1",
+		"version": "0.6.3",
 		"author": "Team Iron",
 		"authorEmail": "",
 		"authorWebsite": "",

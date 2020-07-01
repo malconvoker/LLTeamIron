@@ -455,6 +455,10 @@
 							}
 						},
 						{
+							"type": "comment",
+							"text": "Set bullet direction towards targeted enemy"
+						},
+						{
 							"id": "set-angle-of-motion",
 							"objectClass": "Skill_ManaBlast",
 							"sid": 211680697719646,
@@ -513,10 +517,11 @@
 						},
 						{
 							"callFunction": "DamageEnemy",
-							"sid": 427365490966459,
+							"sid": 294384795048900,
 							"parameters": [
 								"Skill_ManaBlast.rangedDmg",
-								"EnemyBases.UID"
+								"EnemyBases.UID",
+								true
 							]
 						},
 						{
@@ -1634,10 +1639,11 @@
 							"actions": [
 								{
 									"callFunction": "DamageEnemy",
-									"sid": 449277786167593,
+									"sid": 652389152889977,
 									"parameters": [
 										"PlayerBase.meleeDmg",
-										"EnemyBases.UID"
+										"EnemyBases.UID",
+										true
 									]
 								},
 								{
