@@ -3,7 +3,14 @@
 	"plugin-id": "Sprite",
 	"sid": 534294032541412,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "Waiting",
+			"type": "boolean",
+			"desc": "Is in wait",
+			"sid": 228977464318561
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {

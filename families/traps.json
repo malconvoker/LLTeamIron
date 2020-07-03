@@ -1,0 +1,44 @@
+{
+	"name": "Traps",
+	"plugin-id": "Sprite",
+	"sid": 776686701824878,
+	"instanceVariables": [
+		{
+			"name": "ActTime",
+			"type": "number",
+			"desc": "Number of turns spent preparing for action, -1 randomizes",
+			"sid": 247114379471104
+		},
+		{
+			"name": "Ready",
+			"type": "boolean",
+			"desc": "Is the trap done with the turn's actions",
+			"sid": 328894875417225
+		},
+		{
+			"name": "ActMax",
+			"type": "number",
+			"desc": "Used as ActTime randomization cap, between 0 and this",
+			"sid": 125959929933386
+		},
+		{
+			"name": "Damage",
+			"type": "number",
+			"desc": "Damage that the trap deals",
+			"sid": 843749633519215
+		},
+		{
+			"name": "trapID",
+			"type": "number",
+			"desc": "Used to identify specific traps, mainly for projectile pairing",
+			"sid": 919303377638168
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"T_Spikes",
+		"T_gooWall",
+		"T_gooProjectile"
+	]
+}

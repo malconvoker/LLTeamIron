@@ -220,7 +220,7 @@
 				{
 					"type": "Collisions",
 					"properties": {
-						"initially-visible": true,
+						"initially-visible": false,
 						"tile-width": 20,
 						"tile-height": 20,
 						"tile-x-offset": 0,
@@ -317,7 +317,8 @@
 						"meleeDmg": 2,
 						"SkipPause": false,
 						"SeesPlayer": false,
-						"Active": false
+						"Active": false,
+						"Flying": false
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -378,7 +379,8 @@
 						"meleeDmg": 2,
 						"SkipPause": false,
 						"SeesPlayer": false,
-						"Active": false
+						"Active": false,
+						"Flying": false
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -440,6 +442,7 @@
 						"SkipPause": false,
 						"SeesPlayer": false,
 						"Active": false,
+						"Flying": false,
 						"PlayerSeenX": 0,
 						"PlayerSeenY": 0
 					},
@@ -540,7 +543,8 @@
 						"meleeDmg": 2,
 						"SkipPause": false,
 						"SeesPlayer": false,
-						"Active": false
+						"Active": false,
+						"Flying": false
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -565,6 +569,111 @@
 						"x": 100,
 						"y": 80,
 						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "T_Spikes",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "down",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 186,
+					"instanceVariables": {
+						"ActTime": 0,
+						"Ready": false,
+						"ActMax": 0,
+						"Damage": 3,
+						"trapID": -1
+					},
+					"behaviors": {},
+					"world": {
+						"x": 220,
+						"y": 160,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "T_gooWall",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "down",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 209,
+					"instanceVariables": {
+						"ActTime": 0,
+						"Ready": false,
+						"ActMax": 1,
+						"Damage": 2,
+						"trapID": -1
+					},
+					"behaviors": {},
+					"world": {
+						"x": 280,
+						"y": 0,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "T_gooWall",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "right",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 212,
+					"instanceVariables": {
+						"ActTime": 0,
+						"Ready": false,
+						"ActMax": 1,
+						"Damage": 2,
+						"trapID": -1
+					},
+					"behaviors": {},
+					"world": {
+						"x": 0,
+						"y": 140,
+						"width": 22,
 						"height": 20,
 						"originX": 0,
 						"originY": 0,
@@ -636,35 +745,6 @@
 						"x": 140,
 						"y": -4,
 						"width": 60,
-						"height": 20,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "T_Spikes",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "down",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 186,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 220,
-						"y": 160,
-						"width": 20,
 						"height": 20,
 						"originX": 0,
 						"originY": 0,

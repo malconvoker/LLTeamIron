@@ -317,7 +317,8 @@
 						"meleeDmg": 2,
 						"SkipPause": false,
 						"SeesPlayer": false,
-						"Active": false
+						"Active": false,
+						"Flying": false
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -378,7 +379,8 @@
 						"meleeDmg": 2,
 						"SkipPause": false,
 						"SeesPlayer": false,
-						"Active": false
+						"Active": false,
+						"Flying": false
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -477,7 +479,8 @@
 						"meleeDmg": 2,
 						"SkipPause": false,
 						"SeesPlayer": false,
-						"Active": false
+						"Active": false,
+						"Flying": false
 					},
 					"behaviors": {
 						"Pathfinding": {

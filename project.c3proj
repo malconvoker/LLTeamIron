@@ -407,7 +407,8 @@
 			"DebugTexts",
 			"NPCBases",
 			"UI_Sprites",
-			"UI_Text"
+			"UI_Text",
+			"Traps"
 		],
 		"subfolders": []
 	},
@@ -449,7 +450,8 @@
 			"ePlayer",
 			"eSkills",
 			"eCamp",
-			"eUI"
+			"eUI",
+			"eTraps"
 		],
 		"subfolders": []
 	},

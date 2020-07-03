@@ -80,6 +80,12 @@
 			"type": "boolean",
 			"desc": "Is the enemy active, not used for all enemies",
 			"sid": 260966603048478
+		},
+		{
+			"name": "Flying",
+			"type": "boolean",
+			"desc": "Is the enemy unaffected by stuff on the floor",
+			"sid": 391507587907074
 		}
 	],
 	"behaviorTypes": [

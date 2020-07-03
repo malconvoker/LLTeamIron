@@ -15,6 +15,10 @@
 		},
 		{
 			"eventType": "include",
+			"includeSheet": "eTraps"
+		},
+		{
+			"eventType": "include",
 			"includeSheet": "eUI"
 		},
 		{

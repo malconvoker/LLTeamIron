@@ -1,0 +1,1157 @@
+{
+	"name": "eTraps",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 904020561621331,
+					"parameters": {
+						"variable": "Turn",
+						"comparison": 0,
+						"value": "-1"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 203438608782484,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 814182628979599
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Traps",
+							"sid": 718092624640080,
+							"parameters": {
+								"instance-variable": "Ready",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 359825341514693
+				},
+				{
+					"eventType": "comment",
+					"text": "If there are traps that have not activated on layout, activate"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 879410456731276,
+							"parameters": {
+								"first-value": "Traps.Count",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 571865896237105,
+							"parameters": {
+								"variable": "Turn",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 829079012055266
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 105590698101953
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Traps",
+							"sid": 757104848225386,
+							"parameters": {
+								"instance-variable": "Ready"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 113854101481615,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Trap ActTimes denote what the next turn's action is, since it is set at the end of turn"
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "T_Spikes",
+							"description": "0=down, 1=loaded, 2=activating",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "T_Spikes",
+											"sid": 238975359452725,
+											"parameters": {
+												"instance-variable": "Ready"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 229293690132762,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "T_Spikes",
+													"sid": 661156283734059,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "Stays down"
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "T_Spikes",
+													"sid": 737648374523639,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "T_Spikes",
+													"sid": 147445755094212,
+													"parameters": {
+														"instance-variable": "Ready",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 593816595398960
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 407015052952848
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "T_Spikes",
+													"sid": 605079042235675,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "Gets ready to activate"
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "T_Spikes",
+													"sid": 645125695850678,
+													"parameters": {
+														"animation": "\"loaded\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "T_Spikes",
+													"sid": 906962327804216,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"value": "2"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "T_Spikes",
+													"sid": 290396861379809,
+													"parameters": {
+														"instance-variable": "Ready",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 745639170340739
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 738826623752661
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "T_Spikes",
+													"sid": 799903544539506,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"comparison": 0,
+														"value": "2"
+													}
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "Activates"
+												}
+											],
+											"sid": 990663191685877,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "trigger-once-while-true",
+															"objectClass": "System",
+															"sid": 100916243014198
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "T_Spikes",
+															"sid": 305965291853441,
+															"parameters": {
+																"animation": "\"goingup\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 338872562300751
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-animation-finished",
+															"objectClass": "T_Spikes",
+															"sid": 678938056904779,
+															"parameters": {
+																"animation": "\"goingup\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "T_Spikes",
+															"sid": 436305083388613,
+															"parameters": {
+																"animation": "\"goingdown\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "append-text",
+															"objectClass": "TXTerrors",
+															"sid": 833510110110643,
+															"parameters": {
+																"text": "\" gu\""
+															}
+														}
+													],
+													"sid": 210935421641607,
+													"children": [
+														{
+															"eventType": "comment",
+															"text": "Deal damage to player or grounded enemy on top of activating spike"
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "T_Spikes",
+																	"sid": 885559644030346,
+																	"parameters": {
+																		"object": "PlayerBase"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "DamagePlayer",
+																	"sid": 692144699341913,
+																	"parameters": [
+																		"T_Spikes.Damage"
+																	]
+																}
+															],
+															"sid": 673574791204787
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "is-overlapping-another-object",
+																	"objectClass": "T_Spikes",
+																	"sid": 160433312138402,
+																	"parameters": {
+																		"object": "EnemyBases"
+																	}
+																},
+																{
+																	"id": "is-boolean-instance-variable-set",
+																	"objectClass": "EnemyBases",
+																	"sid": 755738923274590,
+																	"parameters": {
+																		"instance-variable": "Flying"
+																	},
+																	"isInverted": true
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "DamageEnemy",
+																	"sid": 725788180188097,
+																	"parameters": [
+																		"T_Spikes.Damage",
+																		"EnemyBases.UID",
+																		false
+																	]
+																}
+															],
+															"sid": 891815620495760
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "on-animation-finished",
+															"objectClass": "T_Spikes",
+															"sid": 538175293252951,
+															"parameters": {
+																"animation": "\"goingdown\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-animation",
+															"objectClass": "T_Spikes",
+															"sid": 857901678748098,
+															"parameters": {
+																"animation": "\"down\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "append-text",
+															"objectClass": "TXTerrors",
+															"sid": 511573540606300,
+															"parameters": {
+																"text": "\" gd\""
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "T_Spikes",
+															"sid": 368709369756621,
+															"parameters": {
+																"instance-variable": "ActTime",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "T_Spikes",
+															"sid": 590286121921990,
+															"parameters": {
+																"instance-variable": "Ready",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 313223093144359
+												}
+											]
+										}
+									]
+								}
+							],
+							"sid": 192588491281872
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "T_gooWall",
+							"description": "0=idle, 1=shooting",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "T_gooWall",
+											"sid": 987680248919806,
+											"parameters": {
+												"instance-variable": "Ready"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 410866058889706,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "T_gooWall",
+													"sid": 282420810233809,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "Gets ready to shoot if no active projectile"
+												}
+											],
+											"sid": 296738111193522,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for-each-ordered",
+															"objectClass": "System",
+															"sid": 645146254898848,
+															"parameters": {
+																"object": "T_gooWall",
+																"expression": "T_gooWall.trapID",
+																"order": "ascending"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 967234553164051,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "T_gooProjectile",
+																	"sid": 647088813651500,
+																	"parameters": {
+																		"instance-variable": "trapID",
+																		"comparison": 0,
+																		"value": "T_gooWall.trapID"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "T_gooWall",
+																	"sid": 411430089312878,
+																	"parameters": {
+																		"instance-variable": "Ready",
+																		"value": "true"
+																	}
+																}
+															],
+															"sid": 597951875705205
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "else",
+																	"objectClass": "System",
+																	"sid": 385881234321928
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "T_gooWall",
+																	"sid": 649484280443120,
+																	"parameters": {
+																		"instance-variable": "ActTime",
+																		"value": "1"
+																	}
+																},
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "T_gooWall",
+																	"sid": 498741474938912,
+																	"parameters": {
+																		"instance-variable": "Ready",
+																		"value": "true"
+																	}
+																}
+															],
+															"sid": 521645667775361
+														}
+													]
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 261612499822296
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "T_gooWall",
+													"sid": 247139886959738,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "Shoot projectile"
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "T_gooWall",
+													"sid": 703180996620290,
+													"parameters": {
+														"object": "T_gooProjectile",
+														"layer": "\"Effects\"",
+														"image-point": "\"shoot\""
+													}
+												},
+												{
+													"type": "comment",
+													"text": "Set projectile direction"
+												},
+												{
+													"id": "set-animation",
+													"objectClass": "T_gooProjectile",
+													"sid": 535488172795990,
+													"parameters": {
+														"animation": "T_gooWall.AnimationName",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "T_gooProjectile",
+													"sid": 951186991948521,
+													"parameters": {
+														"instance-variable": "trapID",
+														"value": "T_gooWall.trapID"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "T_gooProjectile",
+													"sid": 251739244955691,
+													"parameters": {
+														"instance-variable": "Damage",
+														"value": "T_gooWall.Damage"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "T_gooWall",
+													"sid": 816390609654151,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "T_gooWall",
+													"sid": 889191168007638,
+													"parameters": {
+														"instance-variable": "Ready",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 979121652392100
+										}
+									]
+								}
+							],
+							"sid": 772903413233948
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "T_gooProjectile",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "T_gooProjectile",
+											"sid": 536754645019374,
+											"parameters": {
+												"instance-variable": "Ready"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 240274492346629,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "T_gooProjectile",
+													"sid": 957678000835521,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"comparison": 2,
+														"value": "Self.ActMax"
+													}
+												},
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "T_gooProjectile",
+													"sid": 860985104004771,
+													"parameters": {
+														"instance-variable": "Waiting"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "Moves forward"
+												}
+											],
+											"sid": 396745836508865,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "T_gooProjectile",
+															"sid": 128914288157716,
+															"parameters": {
+																"animation": "\"down\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-y",
+															"objectClass": "T_gooProjectile",
+															"sid": 882225393385185,
+															"parameters": {
+																"y": "Self.Y+Tile"
+															}
+														}
+													],
+													"sid": 191716174744874,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 607138054268030,
+																	"parameters": {
+																		"first-value": "T_gooProjectile.Y%Tile",
+																		"comparison": 1,
+																		"second-value": "Tile/2"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-y",
+																	"objectClass": "T_gooProjectile",
+																	"sid": 802032007550655,
+																	"parameters": {
+																		"y": "floor(Self.Y/20)*20+Tile/2"
+																	}
+																}
+															],
+															"sid": 438181204132093
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "T_gooProjectile",
+															"sid": 661873607756822,
+															"parameters": {
+																"animation": "\"left\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-x",
+															"objectClass": "T_gooProjectile",
+															"sid": 663920332133249,
+															"parameters": {
+																"x": "Self.X-Tile"
+															}
+														}
+													],
+													"sid": 112813351219645,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 614464103960115,
+																	"parameters": {
+																		"first-value": "T_gooProjectile.X%Tile",
+																		"comparison": 1,
+																		"second-value": "Tile/2"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-x",
+																	"objectClass": "T_gooProjectile",
+																	"sid": 179099701610414,
+																	"parameters": {
+																		"x": "floor(Self.X/20)*20+Tile/2"
+																	}
+																}
+															],
+															"sid": 539095091689910
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "T_gooProjectile",
+															"sid": 476358547664833,
+															"parameters": {
+																"animation": "\"right\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-x",
+															"objectClass": "T_gooProjectile",
+															"sid": 102917784332584,
+															"parameters": {
+																"x": "Self.X+Tile"
+															}
+														}
+													],
+													"sid": 430951464196893,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-two-values",
+																	"objectClass": "System",
+																	"sid": 961333673724450,
+																	"parameters": {
+																		"first-value": "T_gooProjectile.X%Tile",
+																		"comparison": 1,
+																		"second-value": "Tile/2"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-x",
+																	"objectClass": "T_gooProjectile",
+																	"sid": 201875647201301,
+																	"parameters": {
+																		"x": "floor(Self.X/20)*20-Tile/2"
+																	}
+																}
+															],
+															"sid": 939556634284639
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "add-to-instvar",
+															"objectClass": "T_gooProjectile",
+															"sid": 974132801502532,
+															"parameters": {
+																"instance-variable": "ActTime",
+																"value": "1"
+															}
+														}
+													],
+													"sid": 841877065437004
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 640390609865435
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "Has moved forward the full allotment"
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "T_gooProjectile",
+													"sid": 215184353818861,
+													"parameters": {
+														"instance-variable": "ActTime",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "T_gooProjectile",
+													"sid": 632003821725051,
+													"parameters": {
+														"instance-variable": "Ready",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 624524505942752
+										}
+									]
+								}
+							],
+							"sid": 261042176279454
+						}
+					]
+				},
+				{
+					"eventType": "comment",
+					"text": "If there are no traps or all traps have activated, go to Player turn"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 463969511708675
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "NextTurn",
+							"sid": 267778668455360
+						}
+					],
+					"sid": 351362817386072
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 837767873491353
+				}
+			],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "Set ActTimes and animations"
+				}
+			],
+			"sid": 906956095970115,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 609940249425079,
+							"parameters": {
+								"object": "Traps",
+								"expression": "Traps.UID",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Traps",
+							"sid": 509729206197643,
+							"parameters": {
+								"instance-variable": "trapID",
+								"value": "loopindex"
+							}
+						}
+					],
+					"sid": 760948400661237
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Traps",
+							"sid": 509829669045817,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"comparison": 0,
+								"value": "-1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Traps",
+							"sid": 376112303946383,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"value": "floor(random(Self.ActMax+1))"
+							}
+						}
+					],
+					"sid": 141951165488053
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "T_Spikes",
+							"sid": 519210013562152,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "T_Spikes",
+							"sid": 916425258588002,
+							"parameters": {
+								"animation": "\"down\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 246884238381616
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "T_Spikes",
+							"sid": 140890514007993,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "T_Spikes",
+							"sid": 124617759591584,
+							"parameters": {
+								"animation": "\"loaded\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 269621755856740
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "T_gooProjectile",
+					"sid": 495773462647360,
+					"parameters": {
+						"object": "Collisions"
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "T_gooProjectile",
+					"sid": 849784077621011,
+					"parameters": {
+						"object": "T_gooWall"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "T_gooProjectile",
+					"sid": 194465295620113
+				}
+			],
+			"sid": 763386357081062
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "T_gooProjectile",
+					"sid": 590226735548286,
+					"parameters": {
+						"object": "PlayerBase"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "DamagePlayer",
+					"sid": 297348797852121,
+					"parameters": [
+						"T_gooProjectile.Damage"
+					]
+				},
+				{
+					"id": "destroy",
+					"objectClass": "T_gooProjectile",
+					"sid": 313864378404936
+				}
+			],
+			"sid": 703688469784329
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "T_gooProjectile",
+					"sid": 248389239610433,
+					"parameters": {
+						"object": "EnemyBases"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "DamageEnemy",
+					"sid": 512138039388747,
+					"parameters": [
+						"T_gooProjectile.Damage",
+						"EnemyBases.UID",
+						false
+					]
+				},
+				{
+					"type": "comment",
+					"text": "Stun 1 turn"
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "EnemyBases",
+					"sid": 636654246958763,
+					"parameters": {
+						"instance-variable": "ActTime",
+						"value": "1"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "T_gooProjectile",
+					"sid": 982649537286391
+				}
+			],
+			"sid": 229902590781317
+		}
+	],
+	"sid": 613406038882966
+}

@@ -466,10 +466,10 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 124792801770287,
+					"sid": 886874075317580,
 					"parameters": {
 						"variable": "Turn",
-						"value": "0"
+						"value": "-1"
 					}
 				}
 			],
@@ -4196,10 +4196,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 894433293365648,
+							"sid": 706654453712284,
 							"parameters": {
 								"variable": "Turn",
-								"value": "0"
+								"value": "-1"
 							}
 						}
 					],
@@ -4321,10 +4321,10 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 575078174713100,
+											"sid": 950582732818713,
 											"parameters": {
 												"variable": "Turn",
-												"comparison": 1,
+												"comparison": 4,
 												"value": "0"
 											}
 										}
@@ -4370,10 +4370,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 708383016888572,
+									"sid": 446541744923884,
 									"parameters": {
 										"variable": "Turn",
-										"value": "0"
+										"value": "-1"
 									}
 								},
 								{
@@ -4422,10 +4422,10 @@
 								{
 									"id": "set-eventvar-value",
 									"objectClass": "System",
-									"sid": 708734846850247,
+									"sid": 283889979680237,
 									"parameters": {
 										"variable": "Turn",
-										"value": "0"
+										"value": "-1"
 									}
 								},
 								{

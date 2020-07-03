@@ -225,7 +225,8 @@
 						"meleeDmg": 2,
 						"SkipPause": false,
 						"SeesPlayer": false,
-						"Active": false
+						"Active": false,
+						"Flying": false
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -286,7 +287,8 @@
 						"meleeDmg": 2,
 						"SkipPause": false,
 						"SeesPlayer": false,
-						"Active": false
+						"Active": false,
+						"Flying": false
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -347,7 +349,8 @@
 						"meleeDmg": 2,
 						"SkipPause": false,
 						"SeesPlayer": false,
-						"Active": false
+						"Active": false,
+						"Flying": false
 					},
 					"behaviors": {
 						"Pathfinding": {
@@ -409,6 +412,7 @@
 						"SkipPause": false,
 						"SeesPlayer": false,
 						"Active": false,
+						"Flying": false,
 						"PlayerSeenX": 0,
 						"PlayerSeenY": 0
 					},
@@ -472,6 +476,7 @@
 						"SkipPause": false,
 						"SeesPlayer": false,
 						"Active": false,
+						"Flying": false,
 						"PlayerSeenX": 0,
 						"PlayerSeenY": 0
 					},
@@ -573,6 +578,7 @@
 						"SkipPause": false,
 						"SeesPlayer": false,
 						"Active": false,
+						"Flying": true,
 						"rangedDmg": 3
 					},
 					"behaviors": {
