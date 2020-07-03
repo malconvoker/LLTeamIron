@@ -1547,7 +1547,7 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "TiledBackground",
+					"type": "Camp_Overlay",
 					"properties": {
 						"initially-visible": true,
 						"origin": "top-left",

@@ -931,6 +931,132 @@
 															"children": [
 																{
 																	"eventType": "block",
+																	"conditions": [],
+																	"actions": [
+																		{
+																			"type": "comment",
+																			"text": "MoveTile checks, duplicated from PlayerAnimations"
+																		}
+																	],
+																	"sid": 218569670170660,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-overlapping-another-object",
+																					"objectClass": "PlayerMoveTile",
+																					"sid": 601328705418213,
+																					"parameters": {
+																						"object": "Collisions"
+																					},
+																					"isInverted": true
+																				},
+																				{
+																					"id": "is-overlapping-another-object",
+																					"objectClass": "PlayerMoveTile",
+																					"sid": 460036789221177,
+																					"parameters": {
+																						"object": "NPCBases"
+																					},
+																					"isInverted": true
+																				},
+																				{
+																					"id": "is-overlapping-another-object",
+																					"objectClass": "Cursor",
+																					"sid": 743287160005847,
+																					"parameters": {
+																						"object": "PlayerBase"
+																					},
+																					"isInverted": true
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "set-visible",
+																					"objectClass": "PlayerMoveTile",
+																					"sid": 130703807583048,
+																					"parameters": {
+																						"visibility": "visible"
+																					}
+																				}
+																			],
+																			"sid": 700425048165956,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "is-overlapping-another-object",
+																							"objectClass": "PlayerMoveTile",
+																							"sid": 224941438760837,
+																							"parameters": {
+																								"object": "EnemyBases"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "set-animation",
+																							"objectClass": "PlayerMoveTile",
+																							"sid": 687268359071409,
+																							"parameters": {
+																								"animation": "\"melee\"",
+																								"from": "current-frame"
+																							}
+																						}
+																					],
+																					"sid": 456856258473535
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "else",
+																							"objectClass": "System",
+																							"sid": 918168748388190
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "set-animation",
+																							"objectClass": "PlayerMoveTile",
+																							"sid": 572589491071193,
+																							"parameters": {
+																								"animation": "\"direction\"",
+																								"from": "current-frame"
+																							}
+																						}
+																					],
+																					"sid": 310473611192733
+																				}
+																			]
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 666539152608270
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "set-visible",
+																					"objectClass": "PlayerMoveTile",
+																					"sid": 648003167567180,
+																					"parameters": {
+																						"visibility": "invisible"
+																					}
+																				}
+																			],
+																			"sid": 590408737951643
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
 																	"conditions": [
 																		{
 																			"id": "is-visible",
@@ -1578,6 +1704,15 @@
 																	"parameters": {
 																		"variable": "TouchMode",
 																		"value": "\"default\""
+																	}
+																},
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "SkillPickup",
+																	"sid": 565213923496134,
+																	"parameters": {
+																		"instance-variable": "Selected",
+																		"value": "false"
 																	}
 																}
 															],

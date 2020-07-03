@@ -6,10 +6,6 @@
 			"includeSheet": "eGlobal"
 		},
 		{
-			"eventType": "comment",
-			"text": "Not really necessary currently, but can later be used to refer to the value since it's always correct"
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -19,6 +15,10 @@
 				}
 			],
 			"actions": [
+				{
+					"type": "comment",
+					"text": "Not really necessary currently, but can later be used to refer to the value since it's always correct"
+				},
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",

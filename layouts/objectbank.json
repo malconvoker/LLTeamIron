@@ -9,9 +9,9 @@
 					"type": "TXTmpcost",
 					"properties": {
 						"text": "1",
-						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 6,
+						"enable-bbcode": false,
+						"font": "Kenney Pixel",
+						"size": 10,
 						"line-height": 0,
 						"bold": true,
 						"italic": false,
@@ -21,8 +21,8 @@
 							1,
 							1
 						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "center",
+						"horizontal-alignment": "right",
+						"vertical-alignment": "top",
 						"wrapping": "word",
 						"initially-visible": true,
 						"origin": "center"
@@ -33,10 +33,10 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 328.53478635049765,
-						"y": 215.62473601662612,
-						"width": 7.373187475102554,
-						"height": 9.482106435317931,
+						"x": 327.1937475554204,
+						"y": 221.49178074508916,
+						"width": 4.691109884947991,
+						"height": 21.21619589224393,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -1255,7 +1255,7 @@
 					"type": "Skill_EarthPillar",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "up",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1270,9 +1270,9 @@
 						"x": 83,
 						"y": 149,
 						"width": 20,
-						"height": 20,
+						"height": 26,
 						"originX": 0,
-						"originY": 0,
+						"originY": 0.23076923076923078,
 						"color": [
 							1,
 							1,

@@ -16,14 +16,6 @@
 		},
 		{
 			"type": "plugin",
-			"id": "Arr",
-			"name": "Array",
-			"author": "Scirra",
-			"version": "r204.2",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
@@ -74,6 +66,14 @@
 			"type": "plugin",
 			"id": "AJAX",
 			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r204.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
 			"author": "Scirra",
 			"version": "r204.2",
 			"bundled": false
@@ -214,8 +214,7 @@
 					"PlayerBase",
 					"PlayerMask",
 					"PlayerMoveTile",
-					"Cursor",
-					"Skills"
+					"Cursor"
 				],
 				"subfolders": [],
 				"name": "Player"
@@ -247,7 +246,8 @@
 					"JSON",
 					"AJAX",
 					"DungeonMap",
-					"TextBoxContents"
+					"TextBoxContents",
+					"Skills"
 				],
 				"subfolders": [],
 				"name": "System"
@@ -301,7 +301,7 @@
 							"Camp_EntranceTop",
 							"Tiles_CampSmall",
 							"Camp_Fire",
-							"TiledBackground"
+							"Camp_Overlay"
 						],
 						"subfolders": [],
 						"name": "Camp"
@@ -595,7 +595,7 @@
 	},
 	"properties": {
 		"description": "Luotsaamo Team Iron Game",
-		"version": "0.6.3",
+		"version": "0.6.4",
 		"author": "Team Iron",
 		"authorEmail": "",
 		"authorWebsite": "",

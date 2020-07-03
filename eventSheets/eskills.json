@@ -1855,6 +1855,24 @@
 							}
 						},
 						{
+							"id": "set-instvar-value",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 574986943046891,
+							"parameters": {
+								"instance-variable": "maxhp",
+								"value": "6"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 662297731257048,
+							"parameters": {
+								"instance-variable": "hp",
+								"value": "Self.maxhp+1"
+							}
+						},
+						{
 							"id": "set-tile",
 							"objectClass": "Collisions",
 							"sid": 981971711894481,
@@ -1915,19 +1933,44 @@
 						{
 							"id": "erase-tile",
 							"objectClass": "Collisions",
-							"sid": 222827703891337,
+							"sid": 297757730172768,
 							"parameters": {
 								"tile-x": "Self.PositionToTileX(Skill_EarthPillar.X)",
 								"tile-y": "Self.PositionToTileY(Skill_EarthPillar.Y)"
 							}
 						},
 						{
-							"id": "destroy",
+							"id": "set-animation",
 							"objectClass": "Skill_EarthPillar",
-							"sid": 174150710888931
+							"sid": 487214743452865,
+							"parameters": {
+								"animation": "\"down\"",
+								"from": "beginning"
+							}
 						}
 					],
 					"sid": 184508691901246
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 203806488889688,
+							"parameters": {
+								"animation": "\"down\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 990962481484506
+						}
+					],
+					"sid": 960654418828173
 				}
 			],
 			"sid": 296597529117802

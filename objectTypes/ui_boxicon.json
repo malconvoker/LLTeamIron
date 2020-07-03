@@ -374,6 +374,49 @@
 			{
 				"frames": [
 					{
+						"width": 18,
+						"height": 18,
+						"originX": -0.05555555555555555,
+						"originY": -0.05555555555555555,
+						"originalSource": "C:\\Users\\mctur\\Downloads\\pickup_template.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3947980,
+						"collisionPoly": {
+							"points": [
+								0.006172839506172843,
+								0.006172839506172843,
+								0.5,
+								0,
+								0.9320987654320988,
+								0.006172839506172843,
+								0.8703703703703705,
+								0.5,
+								0.9320987654320988,
+								0.9320987654320988,
+								0.5,
+								0.9938271604938271,
+								0.006172839506172843,
+								0.9320987654320988,
+								0.06790123456790124,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 388135428558123,
+				"name": "earthpillar",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			},
+			{
+				"frames": [
+					{
 						"width": 20,
 						"height": 20,
 						"originX": 0,
@@ -494,49 +537,6 @@
 				],
 				"sid": 993004015152188,
 				"name": "E_GhostBase",
-				"isLooping": false,
-				"isPingPong": false,
-				"repeatCount": 1,
-				"repeatTo": 0,
-				"speed": 0
-			},
-			{
-				"frames": [
-					{
-						"width": 18,
-						"height": 18,
-						"originX": -0.05555555555555555,
-						"originY": -0.05555555555555555,
-						"originalSource": "C:\\Users\\mctur\\Downloads\\pickup_template.png",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 5872513,
-						"collisionPoly": {
-							"points": [
-								0.006172839506172843,
-								0.006172839506172843,
-								0.5,
-								0,
-								0.9320987654320988,
-								0.006172839506172843,
-								0.8703703703703705,
-								0.5,
-								0.9320987654320988,
-								0.9320987654320988,
-								0.5,
-								0.9938271604938271,
-								0.006172839506172843,
-								0.9320987654320988,
-								0.06790123456790124,
-								0.5
-							]
-						},
-						"useCollisionPoly": true,
-						"duration": 1
-					}
-				],
-				"sid": 388135428558123,
-				"name": "earthpillar",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
