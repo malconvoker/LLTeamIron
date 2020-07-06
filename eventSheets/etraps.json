@@ -99,8 +99,8 @@
 						{
 							"eventType": "group",
 							"disabled": false,
-							"title": "T_Spikes",
-							"description": "0=down, 1=loaded, 2=activating",
+							"title": "T_SpikesTurn",
+							"description": "0=down, 1=loaded, 2=up",
 							"isActiveOnStart": true,
 							"children": [
 								{
@@ -136,7 +136,7 @@
 											"actions": [
 												{
 													"type": "comment",
-													"text": "Stays down"
+													"text": "Goes down"
 												},
 												{
 													"id": "set-instvar-value",
@@ -157,7 +157,39 @@
 													}
 												}
 											],
-											"sid": 593816595398960
+											"sid": 593816595398960,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-animation-playing",
+															"objectClass": "T_Spikes",
+															"sid": 665637889871798,
+															"parameters": {
+																"animation": "\"down\""
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"type": "comment",
+															"text": "If not already down (start of layout)"
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "T_Spikes",
+															"sid": 395600735611796,
+															"parameters": {
+																"animation": "\"goingdown\"",
+																"from": "beginning"
+															}
+														}
+													],
+													"sid": 606718651592691
+												}
+											]
 										},
 										{
 											"eventType": "block",
@@ -276,122 +308,9 @@
 													],
 													"actions": [
 														{
-															"id": "set-animation",
-															"objectClass": "T_Spikes",
-															"sid": 436305083388613,
-															"parameters": {
-																"animation": "\"goingdown\"",
-																"from": "beginning"
-															}
-														},
-														{
-															"id": "append-text",
-															"objectClass": "TXTerrors",
-															"sid": 833510110110643,
-															"parameters": {
-																"text": "\" gu\""
-															}
-														}
-													],
-													"sid": 210935421641607,
-													"children": [
-														{
-															"eventType": "comment",
-															"text": "Deal damage to player or grounded enemy on top of activating spike"
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-overlapping-another-object",
-																	"objectClass": "T_Spikes",
-																	"sid": 885559644030346,
-																	"parameters": {
-																		"object": "PlayerBase"
-																	}
-																}
-															],
-															"actions": [
-																{
-																	"callFunction": "DamagePlayer",
-																	"sid": 692144699341913,
-																	"parameters": [
-																		"T_Spikes.Damage"
-																	]
-																}
-															],
-															"sid": 673574791204787
-														},
-														{
-															"eventType": "block",
-															"conditions": [
-																{
-																	"id": "is-overlapping-another-object",
-																	"objectClass": "T_Spikes",
-																	"sid": 160433312138402,
-																	"parameters": {
-																		"object": "EnemyBases"
-																	}
-																},
-																{
-																	"id": "is-boolean-instance-variable-set",
-																	"objectClass": "EnemyBases",
-																	"sid": 755738923274590,
-																	"parameters": {
-																		"instance-variable": "Flying"
-																	},
-																	"isInverted": true
-																}
-															],
-															"actions": [
-																{
-																	"callFunction": "DamageEnemy",
-																	"sid": 725788180188097,
-																	"parameters": [
-																		"T_Spikes.Damage",
-																		"EnemyBases.UID",
-																		false
-																	]
-																}
-															],
-															"sid": 891815620495760
-														}
-													]
-												},
-												{
-													"eventType": "block",
-													"conditions": [
-														{
-															"id": "on-animation-finished",
-															"objectClass": "T_Spikes",
-															"sid": 538175293252951,
-															"parameters": {
-																"animation": "\"goingdown\""
-															}
-														}
-													],
-													"actions": [
-														{
-															"id": "set-animation",
-															"objectClass": "T_Spikes",
-															"sid": 857901678748098,
-															"parameters": {
-																"animation": "\"down\"",
-																"from": "beginning"
-															}
-														},
-														{
-															"id": "append-text",
-															"objectClass": "TXTerrors",
-															"sid": 511573540606300,
-															"parameters": {
-																"text": "\" gd\""
-															}
-														},
-														{
 															"id": "set-instvar-value",
 															"objectClass": "T_Spikes",
-															"sid": 368709369756621,
+															"sid": 618766727949090,
 															"parameters": {
 																"instance-variable": "ActTime",
 																"value": "0"
@@ -400,14 +319,14 @@
 														{
 															"id": "set-boolean-instvar",
 															"objectClass": "T_Spikes",
-															"sid": 590286121921990,
+															"sid": 792943395645265,
 															"parameters": {
 																"instance-variable": "Ready",
 																"value": "true"
 															}
 														}
 													],
-													"sid": 313223093144359
+													"sid": 210935421641607
 												}
 											]
 										}
@@ -419,7 +338,7 @@
 						{
 							"eventType": "group",
 							"disabled": false,
-							"title": "T_gooWall",
+							"title": "T_gooWallTurn",
 							"description": "0=idle, 1=shooting",
 							"isActiveOnStart": true,
 							"children": [
@@ -634,7 +553,7 @@
 						{
 							"eventType": "group",
 							"disabled": false,
-							"title": "T_gooProjectile",
+							"title": "T_gooProjectileTurn",
 							"description": "",
 							"isActiveOnStart": true,
 							"children": [
@@ -917,7 +836,17 @@
 					"actions": [
 						{
 							"callFunction": "NextTurn",
-							"sid": 267778668455360
+							"sid": 267778668455360,
+							"disabled": true
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 322960650269497,
+							"parameters": {
+								"variable": "Turn",
+								"value": "0"
+							}
 						}
 					],
 					"sid": 351362817386072
@@ -1052,105 +981,225 @@
 			]
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "T_gooProjectileInteract",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "T_gooProjectile",
-					"sid": 495773462647360,
-					"parameters": {
-						"object": "Collisions"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "T_gooProjectile",
+							"sid": 852462463028360,
+							"parameters": {
+								"object": "Collisions"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "T_gooProjectile",
+							"sid": 558457272083115,
+							"parameters": {
+								"object": "T_gooWall"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "T_gooProjectile",
+							"sid": 967914965258725
+						}
+					],
+					"sid": 703130451409860
 				},
 				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "T_gooProjectile",
-					"sid": 849784077621011,
-					"parameters": {
-						"object": "T_gooWall"
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "T_gooProjectile",
+							"sid": 422307857789791,
+							"parameters": {
+								"object": "PlayerBase"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "DamagePlayer",
+							"sid": 621496296424003,
+							"parameters": [
+								"T_gooProjectile.Damage"
+							]
+						},
+						{
+							"id": "destroy",
+							"objectClass": "T_gooProjectile",
+							"sid": 214907128439712
+						}
+					],
+					"sid": 451144398998294
+				},
 				{
-					"id": "destroy",
-					"objectClass": "T_gooProjectile",
-					"sid": 194465295620113
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "T_gooProjectile",
+							"sid": 504380830118757,
+							"parameters": {
+								"object": "EnemyBases"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "DamageEnemy",
+							"sid": 183765759173022,
+							"parameters": [
+								"T_gooProjectile.Damage",
+								"EnemyBases.UID",
+								false
+							]
+						},
+						{
+							"type": "comment",
+							"text": "Stun 1 turn"
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "EnemyBases",
+							"sid": 631434048349614,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"value": "1"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "T_gooProjectile",
+							"sid": 476545730944908
+						}
+					],
+					"sid": 645178899782927
 				}
 			],
-			"sid": 763386357081062
+			"sid": 365892705235041
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "T_SpikesInteract",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "T_gooProjectile",
-					"sid": 590226735548286,
-					"parameters": {
-						"object": "PlayerBase"
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "DamagePlayer",
-					"sid": 297348797852121,
-					"parameters": [
-						"T_gooProjectile.Damage"
-					]
+					"eventType": "comment",
+					"text": "Deal damage to player or grounded enemy on top of activated spike"
 				},
 				{
-					"id": "destroy",
-					"objectClass": "T_gooProjectile",
-					"sid": 313864378404936
-				}
-			],
-			"sid": 703688469784329
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "T_gooProjectile",
-					"sid": 248389239610433,
-					"parameters": {
-						"object": "EnemyBases"
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "DamageEnemy",
-					"sid": 512138039388747,
-					"parameters": [
-						"T_gooProjectile.Damage",
-						"EnemyBases.UID",
-						false
-					]
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "T_Spikes",
+							"sid": 287241036138611,
+							"parameters": {
+								"object": "PlayerBase"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "T_Spikes",
+							"sid": 320768172998215,
+							"parameters": {
+								"animation": "\"goingup\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 800755952606949
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "DamagePlayer",
+							"sid": 346813249655408,
+							"parameters": [
+								"T_Spikes.Damage"
+							]
+						}
+					],
+					"sid": 751957567185468
 				},
 				{
-					"type": "comment",
-					"text": "Stun 1 turn"
-				},
-				{
-					"id": "subtract-from-instvar",
-					"objectClass": "EnemyBases",
-					"sid": 636654246958763,
-					"parameters": {
-						"instance-variable": "ActTime",
-						"value": "1"
-					}
-				},
-				{
-					"id": "destroy",
-					"objectClass": "T_gooProjectile",
-					"sid": 982649537286391
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "T_Spikes",
+							"sid": 202233462391455,
+							"parameters": {
+								"object": "EnemyBases"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "T_Spikes",
+							"sid": 949531704800713,
+							"parameters": {
+								"animation": "\"goingup\""
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "EnemyBases",
+							"sid": 279447702117013,
+							"parameters": {
+								"instance-variable": "Flying"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 400667065398321
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "DamageEnemy",
+							"sid": 828984096898826,
+							"parameters": [
+								"T_Spikes.Damage",
+								"EnemyBases.UID",
+								false
+							]
+						},
+						{
+							"type": "comment",
+							"text": "Stun 1 turn"
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "EnemyBases",
+							"sid": 575265991614041,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 817101196271222
 				}
 			],
-			"sid": 229902590781317
+			"sid": 758679819429456
 		}
 	],
 	"sid": 613406038882966

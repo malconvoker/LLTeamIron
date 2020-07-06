@@ -91,6 +91,16 @@
 					}
 				},
 				{
+					"id": "map-function",
+					"objectClass": "Functions",
+					"sid": 641118265612301,
+					"parameters": {
+						"name": "\"skill\"",
+						"string": "\"manaboost\"",
+						"function": "ManaBoost"
+					}
+				},
+				{
 					"id": "destroy",
 					"objectClass": "Skill_ManaBlast",
 					"sid": 711510501452087
@@ -1974,6 +1984,105 @@
 				}
 			],
 			"sid": 296597529117802
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ManaBoost",
+			"description": "2 charges: gives 3 mp and 6 temp mp",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "ManaBoost",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 890645064529706,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UI_SkillButton",
+									"sid": 179504614984428,
+									"parameters": {
+										"instance-variable": "CurrentSkill",
+										"comparison": 0,
+										"value": "\"manaboost\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "SkillButtons",
+									"sid": 832633097671825,
+									"parameters": {
+										"instance-variable": "Active",
+										"value": "false"
+									}
+								},
+								{
+									"callFunction": "GainMana",
+									"sid": 557291575208955,
+									"parameters": [
+										"3"
+									]
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "PlayerBase",
+									"sid": 670570438473910,
+									"parameters": {
+										"instance-variable": "tempmp",
+										"value": "6"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "PlayerBase",
+									"sid": 408758287808676,
+									"parameters": {
+										"instance-variable": "tempmpdecay",
+										"value": "false"
+									}
+								},
+								{
+									"callFunction": "NextTurn",
+									"sid": 719606975173129
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "UI_SkillButton",
+									"sid": 138071836980787,
+									"parameters": {
+										"instance-variable": "Value",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-at-xy",
+									"objectClass": "Skills",
+									"sid": 870854674143812,
+									"parameters": {
+										"x": "2",
+										"y": "UI_SkillButton.SkillSlot",
+										"value": "UI_SkillButton.Value"
+									}
+								}
+							],
+							"sid": 416862604858018
+						}
+					]
+				}
+			],
+			"sid": 401445406233846
 		},
 		{
 			"eventType": "comment",

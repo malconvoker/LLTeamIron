@@ -647,6 +647,103 @@
 			]
 		},
 		{
+			"functionName": "GainMana",
+			"functionDescription": "Raise player mana by inputted value",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Mana",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "Amount of mana gained",
+					"sid": 949900885793214
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "comment",
+					"text": "Cap mana gain at missing mp, then add"
+				}
+			],
+			"sid": 515548239164576,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 767956254575017,
+							"parameters": {
+								"variable": "Mana",
+								"comparison": 5,
+								"value": "PlayerBase.maxmp-PlayerBase.mp"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 374240490835519,
+							"parameters": {
+								"variable": "Mana",
+								"value": "PlayerBase.maxmp-PlayerBase.mp"
+							}
+						}
+					],
+					"sid": 386551044190971
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "PlayerBase",
+							"sid": 793532115322920,
+							"parameters": {
+								"instance-variable": "mp",
+								"value": "Mana"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "PlayerMask",
+							"sid": 686736369563567,
+							"parameters": {
+								"object": "NumberIcon",
+								"layer": "\"Effects\"",
+								"image-point": "\"hpicon\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "NumberIcon",
+							"sid": 645818634296267,
+							"parameters": {
+								"animation": "\"blue\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "NumberIcon",
+							"sid": 804013976215314,
+							"parameters": {
+								"frame-number": "Mana"
+							}
+						}
+					],
+					"sid": 504701474446607
+				}
+			]
+		},
+		{
 			"functionName": "LoseMana",
 			"functionDescription": "Decreases player Mana by inputted value",
 			"functionCategory": "",
