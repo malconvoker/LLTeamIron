@@ -378,10 +378,10 @@
 						"height": 18,
 						"originX": -0.05555555555555555,
 						"originY": -0.05555555555555555,
-						"originalSource": "C:\\Users\\mctur\\Downloads\\pickup_template.png",
+						"originalSource": "C:\\Users\\mctur\\Downloads\\pickup_pillar.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 3947980,
+						"imageSpriteId": 7896560,
 						"collisionPoly": {
 							"points": [
 								0.006172839506172843,

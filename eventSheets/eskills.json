@@ -1816,14 +1816,6 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Skill_Target",
-											"sid": 736893389088511,
-											"parameters": {
-												"object": "EnemyBases"
-											}
-										},
-										{
-											"id": "is-overlapping-another-object",
-											"objectClass": "Skill_Target",
 											"sid": 487680847911622,
 											"parameters": {
 												"object": "PlayerBase"
@@ -1853,77 +1845,184 @@
 					"functionParameters": [],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [
+					"actions": [],
+					"sid": 269129381920861,
+					"children": [
 						{
-							"id": "spawn-another-object",
-							"objectClass": "Cursor",
-							"sid": 884866889840078,
-							"parameters": {
-								"object": "Skill_EarthPillar",
-								"layer": "\"Objects\"",
-								"image-point": "0"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Skill_EarthPillar",
-							"sid": 574986943046891,
-							"parameters": {
-								"instance-variable": "maxhp",
-								"value": "6"
-							}
-						},
-						{
-							"id": "set-instvar-value",
-							"objectClass": "Skill_EarthPillar",
-							"sid": 662297731257048,
-							"parameters": {
-								"instance-variable": "hp",
-								"value": "Self.maxhp+1"
-							}
-						},
-						{
-							"id": "set-tile",
-							"objectClass": "Collisions",
-							"sid": 981971711894481,
-							"parameters": {
-								"tile-x": "Self.PositionToTileX(Skill_EarthPillar.X)",
-								"tile-y": "Self.PositionToTileY(Skill_EarthPillar.Y)",
-								"tile": "0",
-								"state": "normal"
-							}
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 101005052499191,
-							"parameters": {
-								"variable": "TouchMode",
-								"value": "\"default\""
-							}
-						},
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "SkillButtons",
-							"sid": 765638661027969,
-							"parameters": {
-								"instance-variable": "Active",
-								"value": "false"
-							}
-						},
-						{
-							"callFunction": "LoseMana",
-							"sid": 152427076464180,
-							"parameters": [
-								"Skills.At(1,11)"
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Cursor",
+									"sid": 861737829147587,
+									"parameters": {
+										"object": "Skill_Target"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 713109302705003,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Cursor",
+											"sid": 330301834756620,
+											"parameters": {
+												"object": "EnemyBases"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Damage enemy if enemy targeted"
+										},
+										{
+											"callFunction": "DamageEnemy",
+											"sid": 384625310119745,
+											"parameters": [
+												"2",
+												"EnemyBases.UID",
+												true
+											]
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Cursor",
+											"sid": 825604210097985,
+											"parameters": {
+												"object": "Skill_EarthPillar",
+												"layer": "\"Objects\"",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Skill_EarthPillar",
+											"sid": 850551285672854,
+											"parameters": {
+												"animation": "\"stab\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Skill_EarthPillar",
+											"sid": 201677007206803,
+											"disabled": true,
+											"parameters": {
+												"object": "Skill_EarthPillarDust",
+												"layer": "\"Effects\"",
+												"image-point": "0"
+											}
+										}
+									],
+									"sid": 821106219167128
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 794710164015093
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Cursor",
+											"sid": 217818210893180,
+											"parameters": {
+												"object": "Skill_EarthPillar",
+												"layer": "\"Objects\"",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Skill_EarthPillar",
+											"sid": 676944564548329,
+											"parameters": {
+												"object": "Skill_EarthPillarDust",
+												"layer": "\"Effects\"",
+												"image-point": "0"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Skill_EarthPillar",
+											"sid": 614614817034859,
+											"parameters": {
+												"instance-variable": "maxhp",
+												"value": "6"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Skill_EarthPillar",
+											"sid": 845775391430602,
+											"parameters": {
+												"instance-variable": "hp",
+												"value": "Self.maxhp+1"
+											}
+										},
+										{
+											"id": "set-tile",
+											"objectClass": "Collisions",
+											"sid": 176167237434520,
+											"parameters": {
+												"tile-x": "Self.PositionToTileX(Skill_EarthPillar.X)",
+												"tile-y": "Self.PositionToTileY(Skill_EarthPillar.Y)",
+												"tile": "0",
+												"state": "normal"
+											}
+										}
+									],
+									"sid": 898325194590727
+								}
 							]
 						},
 						{
-							"callFunction": "NextTurn",
-							"sid": 520334058609896
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 137755217206380,
+									"parameters": {
+										"variable": "TouchMode",
+										"value": "\"default\""
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "SkillButtons",
+									"sid": 506584826767472,
+									"parameters": {
+										"instance-variable": "Active",
+										"value": "false"
+									}
+								},
+								{
+									"callFunction": "LoseMana",
+									"sid": 414955808497924,
+									"parameters": [
+										"Skills.At(1,11)"
+									]
+								},
+								{
+									"callFunction": "NextTurn",
+									"sid": 566608462491121
+								}
+							],
+							"sid": 129436418949620
 						}
-					],
-					"sid": 269129381920861
+					]
 				},
 				{
 					"eventType": "block",
@@ -1965,6 +2064,37 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "is-animation-playing",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 985441866432009,
+							"parameters": {
+								"animation": "\"down\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 984200241230606
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 728872710074286,
+							"parameters": {
+								"object": "Skill_EarthPillarDust",
+								"layer": "\"Effects\"",
+								"image-point": "0"
+							}
+						}
+					],
+					"sid": 270542253648933
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "on-animation-finished",
 							"objectClass": "Skill_EarthPillar",
 							"sid": 203806488889688,
@@ -1981,6 +2111,45 @@
 						}
 					],
 					"sid": 960654418828173
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 107636839852550,
+							"parameters": {
+								"animation": "\"stab\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 222061693313488
+						}
+					],
+					"sid": 745584551479821
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-animation-finished",
+							"objectClass": "Skill_EarthPillarDust",
+							"sid": 916513461319224
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Skill_EarthPillarDust",
+							"sid": 623302392940991
+						}
+					],
+					"sid": 528971931013274
 				}
 			],
 			"sid": 296597529117802

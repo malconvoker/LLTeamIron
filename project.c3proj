@@ -333,7 +333,8 @@
 					"Skill_ManaBlastParticle",
 					"Skill_KnightLeap",
 					"Skill_Target",
-					"Skill_EarthPillar"
+					"Skill_EarthPillar",
+					"Skill_EarthPillarDust"
 				],
 				"subfolders": [],
 				"name": "Skill effects"
