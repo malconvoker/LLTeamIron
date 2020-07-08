@@ -24,11 +24,11 @@
 					"behaviors": {},
 					"ownData": {
 						"tilemapData": {
-							"width": 17,
-							"height": 12,
-							"max-width": 27,
-							"max-height": 33,
-							"data": "24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,25,11x21,21x0,26,57,10x55,21x0,27,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,21x0,24,11x21,351x0"
+							"width": 19,
+							"height": 14,
+							"max-width": 29,
+							"max-height": 35,
+							"data": "15,24,12x21,21x0,15,24,12x21,21x0,15,24,12x21,21x0,15,24,12x21,21x0,15,24,12x21,21x0,15,24,12x21,21x0,15,24,12x21,21x0,15,24,12x21,21x0,16,25,12x21,21x0,17,26,57,11x55,21x0,18,27,12x21,21x0,15,24,12x21,21x0,15,24,12x21,21x0,15,24,12x21,21x0,15,24,12x21,21x0,15,24,12x21,21x0,15,24,12x21,21x0,15,24,12x21,21x0,15,24,12x21,371x0"
 						},
 						"tile-width": 20,
 						"tile-height": 20,
@@ -38,10 +38,10 @@
 						"tile-y-spacing": 0
 					},
 					"world": {
-						"x": 0,
-						"y": 0,
-						"width": 340,
-						"height": 240,
+						"x": -20,
+						"y": -20,
+						"width": 380,
+						"height": 280,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -265,44 +265,6 @@
 					"world": {
 						"x": 160,
 						"y": 160,
-						"width": 20,
-						"height": 20,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "LOS",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 109,
-					"instanceVariables": {},
-					"behaviors": {
-						"LineOfSight": {
-							"properties": {
-								"obstacles": "custom",
-								"range": 2000,
-								"cone-of-view": 360,
-								"use-collision-cells": false
-							}
-						}
-					},
-					"world": {
-						"x": -20,
-						"y": -20,
 						"width": 20,
 						"height": 20,
 						"originX": 0,
@@ -1569,7 +1531,7 @@
 						"x": 0,
 						"y": 20,
 						"width": 340,
-						"height": 220,
+						"height": 240,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -1820,6 +1782,49 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "Camera",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": false,
+						"live-preview": false
+					},
+					"uid": 109,
+					"instanceVariables": {},
+					"behaviors": {
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "custom",
+								"range": 2000,
+								"cone-of-view": 360,
+								"use-collision-cells": false
+							}
+						},
+						"ScrollTo": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": -40,
+						"y": -40,
+						"width": 20,
+						"height": 20,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 368070880436948,
@@ -1852,6 +1857,6 @@
 	"effectTypes": [],
 	"width": 427,
 	"height": 240,
-	"unboundedScrolling": false,
+	"unboundedScrolling": true,
 	"eventSheet": "eCamp"
 }

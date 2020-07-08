@@ -120,7 +120,7 @@
 				},
 				{
 					"id": "add-obstacle",
-					"objectClass": "LOS",
+					"objectClass": "Camera",
 					"sid": 457914903232999,
 					"behaviorType": "LineOfSight",
 					"parameters": {

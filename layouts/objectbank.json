@@ -1408,6 +1408,6 @@
 	"effectTypes": [],
 	"width": 854,
 	"height": 480,
-	"unboundedScrolling": false,
+	"unboundedScrolling": true,
 	"eventSheet": null
 }

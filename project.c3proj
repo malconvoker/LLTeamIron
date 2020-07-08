@@ -128,6 +128,14 @@
 		},
 		{
 			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"version": "r204.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Persist",
 			"name": "Persist",
 			"author": "Scirra",
@@ -240,7 +248,7 @@
 				"items": [
 					"Audio",
 					"Keyboard",
-					"LOS",
+					"Camera",
 					"Touch",
 					"DebugNode",
 					"JSON",
@@ -415,6 +423,7 @@
 	},
 	"layouts": {
 		"items": [
+			"testtrap",
 			"Test Level",
 			"ObjectBank"
 		],
@@ -426,8 +435,7 @@
 					"D1_Skele",
 					"Demo_Start",
 					"D1_Hard1",
-					"D1_Ghost",
-					"testtrap"
+					"D1_Ghost"
 				],
 				"subfolders": [],
 				"name": "Dungeon1"
@@ -598,7 +606,7 @@
 	},
 	"properties": {
 		"description": "Luotsaamo Team Iron Game",
-		"version": "0.7.1",
+		"version": "0.7.3",
 		"author": "Team Iron",
 		"authorEmail": "",
 		"authorWebsite": "",

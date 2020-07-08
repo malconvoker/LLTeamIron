@@ -290,6 +290,60 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-empty",
+							"objectClass": "TextBoxContents",
+							"sid": 572119237042467
+						}
+					],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 331271290338398,
+							"parameters": {
+								"tag": "\"textbox\"",
+								"file": "TextBoxContents.json"
+							}
+						}
+					],
+					"sid": 314038744245523
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 265477428937764,
+							"parameters": {
+								"tag": "\"textbox\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "parse",
+							"objectClass": "JSON",
+							"sid": 670259416794623,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "load",
+							"objectClass": "TextBoxContents",
+							"sid": 103614926382827,
+							"parameters": {
+								"json": "JSON.ToCompactString"
+							}
+						}
+					],
+					"sid": 255515368958693
+				},
+				{
 					"eventType": "comment",
 					"text": "Spawn UI"
 				},
@@ -1058,60 +1112,6 @@
 				}
 			],
 			"sid": 114352892800954
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-empty",
-					"objectClass": "TextBoxContents",
-					"sid": 762511093104489
-				}
-			],
-			"actions": [
-				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 330577874821698,
-					"parameters": {
-						"tag": "\"textbox\"",
-						"file": "TextBoxContents.json"
-					}
-				}
-			],
-			"sid": 211040243105333
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-completed",
-					"objectClass": "AJAX",
-					"sid": 291319318553419,
-					"parameters": {
-						"tag": "\"textbox\""
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "parse",
-					"objectClass": "JSON",
-					"sid": 522121346726349,
-					"parameters": {
-						"data": "AJAX.LastData"
-					}
-				},
-				{
-					"id": "load",
-					"objectClass": "TextBoxContents",
-					"sid": 917410701479939,
-					"parameters": {
-						"json": "JSON.ToCompactString"
-					}
-				}
-			],
-			"sid": 276416401178173
 		}
 	],
 	"sid": 272527978810390

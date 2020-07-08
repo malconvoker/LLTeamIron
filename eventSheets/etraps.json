@@ -1087,6 +1087,36 @@
 						}
 					],
 					"sid": 645178899782927
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "T_gooProjectile",
+							"sid": 985197370890807,
+							"parameters": {
+								"object": "Skill_EarthPillar"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 101118470434707,
+							"parameters": {
+								"instance-variable": "hp",
+								"value": "T_gooProjectile.Damage"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "T_gooProjectile",
+							"sid": 979175864460647
+						}
+					],
+					"sid": 673731372831208
 				}
 			],
 			"sid": 365892705235041
@@ -1197,6 +1227,44 @@
 						}
 					],
 					"sid": 817101196271222
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "T_Spikes",
+							"sid": 839505989396390,
+							"parameters": {
+								"object": "Skill_EarthPillar"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "T_Spikes",
+							"sid": 801971563521739,
+							"parameters": {
+								"animation": "\"goingup\""
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 510256244587354
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 547008270040999,
+							"parameters": {
+								"instance-variable": "hp",
+								"value": "T_Spikes.Damage"
+							}
+						}
+					],
+					"sid": 879719419077408
 				}
 			],
 			"sid": 758679819429456

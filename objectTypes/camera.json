@@ -1,5 +1,5 @@
 {
-	"name": "LOS",
+	"name": "Camera",
 	"plugin-id": "Sprite",
 	"sid": 733721466357092,
 	"isGlobal": false,
@@ -9,6 +9,11 @@
 			"behaviorId": "LOS",
 			"name": "LineOfSight",
 			"sid": 737443119154755
+		},
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 702922490680152
 		}
 	],
 	"effectTypes": [],
@@ -19,8 +24,8 @@
 					{
 						"width": 20,
 						"height": 20,
-						"originX": 0,
-						"originY": 0,
+						"originX": 0.5,
+						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,

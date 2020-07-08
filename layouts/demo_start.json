@@ -28,7 +28,7 @@
 							"height": 14,
 							"max-width": 23,
 							"max-height": 17,
-							"data": "6x0,10,26,10x0,34,2x42,48,7x42,50,5x0,35,10,8x18,26,51,5x0,35,11,8x19,27,51,5x0,35,11,8x19,27,51,5x0,16,11,8x19,27,51,5x0,35,11,8x19,27,39,5x0,56,11,8x19,27,51,4x0,10,18,31,8x19,27,40,42,3x0,11,10x19,23,17,25,3x0,12,20,30,8x19,27,38,44,4x0,54,11,8x19,27,51,5x0,35,11,8x19,27,51,5x0,16,11,8x19,27,51,5x0,35,11,8x19,27,51,5x0,35,11,8x19,27,51,5x0,35,12,8x20,28,51,5x0,36,10x44,52,5x0,12x42,72x0"
+							"data": "14x43,3x0,76,34,2x42,48,7x42,50,43,3x0,47,35,10,8x18,26,51,43,3x0,47,35,11,8x19,27,51,43,3x0,47,35,11,8x19,27,51,43,3x0,47,16,11,8x19,27,51,43,3x0,47,35,11,8x19,27,39,43,3x0,48,56,11,8x19,27,51,43,3x0,10,18,31,8x19,27,40,42,3x0,11,10x19,23,17,25,3x0,12,20,30,8x19,27,38,44,3x0,46,54,11,8x19,27,51,43,3x0,47,35,11,8x19,27,51,43,3x0,47,16,11,8x19,27,51,43,3x0,47,35,11,8x19,27,51,43,3x0,47,35,11,8x19,27,51,43,3x0,47,35,12,8x20,28,51,43,3x0,75,36,10x44,52,43,3x0,14x43,71x0"
 						},
 						"tile-width": 20,
 						"tile-height": 20,
@@ -446,12 +446,12 @@
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "LOS",
+					"type": "Camera",
 					"properties": {
 						"initially-visible": false,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
-						"enable-collisions": true,
+						"enable-collisions": false,
 						"live-preview": false
 					},
 					"uid": 234,
@@ -464,15 +464,20 @@
 								"cone-of-view": 360,
 								"use-collision-cells": false
 							}
+						},
+						"ScrollTo": {
+							"properties": {
+								"enabled": true
+							}
 						}
 					},
 					"world": {
 						"x": -40,
-						"y": -20,
+						"y": -40,
 						"width": 20,
 						"height": 20,
-						"originX": 0,
-						"originY": 0,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -721,6 +726,6 @@
 	"effectTypes": [],
 	"width": 427,
 	"height": 240,
-	"unboundedScrolling": false,
+	"unboundedScrolling": true,
 	"eventSheet": "eGame"
 }

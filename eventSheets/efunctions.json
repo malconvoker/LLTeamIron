@@ -1588,7 +1588,7 @@
 					"conditions": [
 						{
 							"id": "has-los-between-positions",
-							"objectClass": "LOS",
+							"objectClass": "Camera",
 							"sid": 556939440510893,
 							"behaviorType": "LineOfSight",
 							"parameters": {
@@ -1601,7 +1601,7 @@
 						},
 						{
 							"id": "has-los-between-positions",
-							"objectClass": "LOS",
+							"objectClass": "Camera",
 							"sid": 116918537935373,
 							"behaviorType": "LineOfSight",
 							"parameters": {
@@ -1614,7 +1614,7 @@
 						},
 						{
 							"id": "has-los-between-positions",
-							"objectClass": "LOS",
+							"objectClass": "Camera",
 							"sid": 211538555733137,
 							"behaviorType": "LineOfSight",
 							"parameters": {
@@ -1627,7 +1627,7 @@
 						},
 						{
 							"id": "has-los-between-positions",
-							"objectClass": "LOS",
+							"objectClass": "Camera",
 							"sid": 563531069209940,
 							"behaviorType": "LineOfSight",
 							"parameters": {
@@ -1640,7 +1640,7 @@
 						},
 						{
 							"id": "has-los-between-positions",
-							"objectClass": "LOS",
+							"objectClass": "Camera",
 							"sid": 569521759409436,
 							"behaviorType": "LineOfSight",
 							"parameters": {

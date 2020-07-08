@@ -1845,7 +1845,19 @@
 					"functionParameters": [],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [],
+					"actions": [
+						{
+							"id": "shake",
+							"objectClass": "Camera",
+							"sid": 735241714250415,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "1",
+								"duration": "10",
+								"mode": "constant-magnitude"
+							}
+						}
+					],
 					"sid": 269129381920861,
 					"children": [
 						{
@@ -2014,15 +2026,56 @@
 									"parameters": [
 										"Skills.At(1,11)"
 									]
-								},
-								{
-									"callFunction": "NextTurn",
-									"sid": 566608462491121
 								}
 							],
 							"sid": 129436418949620
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 342916783476640,
+							"parameters": {
+								"animation": "\"stab\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 476031368802443
+						},
+						{
+							"callFunction": "NextTurn",
+							"sid": 708984101383436
+						}
+					],
+					"sid": 343305583927439
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 450067954672808,
+							"parameters": {
+								"animation": "\"up\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "NextTurn",
+							"sid": 954488027985404
+						}
+					],
+					"sid": 294405427302216
 				},
 				{
 					"eventType": "block",
@@ -2116,27 +2169,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-animation-finished",
-							"objectClass": "Skill_EarthPillar",
-							"sid": 107636839852550,
-							"parameters": {
-								"animation": "\"stab\""
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "destroy",
-							"objectClass": "Skill_EarthPillar",
-							"sid": 222061693313488
-						}
-					],
-					"sid": 745584551479821
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "on-any-animation-finished",
 							"objectClass": "Skill_EarthPillarDust",
 							"sid": 916513461319224
@@ -2150,6 +2182,30 @@
 						}
 					],
 					"sid": 528971931013274
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-animation-finished",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 727667296809155
+						}
+					],
+					"actions": [
+						{
+							"id": "shake",
+							"objectClass": "Camera",
+							"sid": 144747134861765,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "0",
+								"duration": "0",
+								"mode": "reducing-magnitude"
+							}
+						}
+					],
+					"sid": 860664403309032
 				}
 			],
 			"sid": 296597529117802

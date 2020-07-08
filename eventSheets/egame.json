@@ -200,7 +200,7 @@
 							"actions": [
 								{
 									"id": "set-angle",
-									"objectClass": "LOS",
+									"objectClass": "Camera",
 									"sid": 536419113096030,
 									"parameters": {
 										"angle": "Functions.CursorDistance"
@@ -517,70 +517,6 @@
 			"sid": 662979051192152
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 591863427417910
-				}
-			],
-			"actions": [
-				{
-					"id": "set-eventvar-value",
-					"objectClass": "System",
-					"sid": 478369811552712,
-					"parameters": {
-						"variable": "Turn",
-						"value": "0"
-					}
-				}
-			],
-			"sid": 737970651318844,
-			"children": [
-				{
-					"eventType": "comment",
-					"text": "Create LOS object if it does not exist (it should, this is just a safeguard)"
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-outside-layout",
-							"objectClass": "LOS",
-							"sid": 679365940885869
-						}
-					],
-					"actions": [],
-					"sid": 688461227478790
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "else",
-							"objectClass": "System",
-							"sid": 413622695046690
-						}
-					],
-					"actions": [
-						{
-							"id": "create-object",
-							"objectClass": "System",
-							"sid": 656559038820281,
-							"parameters": {
-								"object-to-create": "LOS",
-								"layer": "0",
-								"x": "-100",
-								"y": "-100"
-							}
-						}
-					],
-					"sid": 481512240457049
-				}
-			]
-		},
-		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Room Transitions",
@@ -856,98 +792,214 @@
 			"sid": 601259909786066
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-start-of-layout",
-					"objectClass": "System",
-					"sid": 520941684462883
-				}
-			],
-			"actions": [],
-			"sid": 937590667284700,
+			"eventType": "group",
+			"disabled": false,
+			"title": "Music",
+			"description": "",
+			"isActiveOnStart": true,
 			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "compare-two-values",
+							"id": "on-start-of-layout",
 							"objectClass": "System",
-							"sid": 806582644757146,
-							"parameters": {
-								"first-value": "LayoutName",
-								"comparison": 0,
-								"second-value": "\"Camp\""
-							}
-						},
-						{
-							"id": "compare-two-values",
-							"objectClass": "System",
-							"sid": 646223820489549,
-							"parameters": {
-								"first-value": "LayoutName",
-								"comparison": 0,
-								"second-value": "\"Camp_Entry\""
-							}
+							"sid": 123908448032724
 						}
 					],
 					"actions": [],
-					"sid": 343909030517904,
+					"sid": 430857661212103,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-tag-playing",
-									"objectClass": "Audio",
-									"sid": 555461424353120,
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 603667595254442,
 									"parameters": {
-										"tag": "\"caveambient\""
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Camp\""
 									}
-								}
-							],
-							"actions": [
+								},
 								{
-									"id": "stop",
-									"objectClass": "Audio",
-									"sid": 190586232113175,
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 971022186276411,
 									"parameters": {
-										"tag": "\"caveambient\""
+										"first-value": "LayoutName",
+										"comparison": 0,
+										"second-value": "\"Camp_Entry\""
 									}
 								}
 							],
-							"sid": 536333349660048
+							"actions": [],
+							"sid": 229323862611368,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-tag-playing",
+											"objectClass": "Audio",
+											"sid": 237370058808034,
+											"parameters": {
+												"tag": "\"caveambient\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop",
+											"objectClass": "Audio",
+											"sid": 211974038334311,
+											"parameters": {
+												"tag": "\"caveambient\""
+											}
+										}
+									],
+									"sid": 184705753154510
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-tag-playing",
+											"objectClass": "Audio",
+											"sid": 589619331146982,
+											"parameters": {
+												"tag": "\"campambient\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 291046428105648,
+											"parameters": {
+												"audio-file": "zapsplat_forest",
+												"loop": "looping",
+												"volume": "-15",
+												"tag-optional": "\"campambient\""
+											}
+										}
+									],
+									"sid": 351662052733724
+								}
+							],
+							"isOrBlock": true
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "is-tag-playing",
-									"objectClass": "Audio",
-									"sid": 899249182948842,
-									"parameters": {
-										"tag": "\"campambient\""
-									},
-									"isInverted": true
+									"id": "else",
+									"objectClass": "System",
+									"sid": 695806730383472
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 346465645247384,
+							"children": [
 								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 172218224095252,
-									"parameters": {
-										"audio-file": "zapsplat_forest",
-										"loop": "looping",
-										"volume": "-15",
-										"tag-optional": "\"campambient\""
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-tag-playing",
+											"objectClass": "Audio",
+											"sid": 442892418657511,
+											"parameters": {
+												"tag": "\"campambient\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop",
+											"objectClass": "Audio",
+											"sid": 743414713855604,
+											"parameters": {
+												"tag": "\"campambient\""
+											}
+										}
+									],
+									"sid": 639855880715981
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-tag-playing",
+											"objectClass": "Audio",
+											"sid": 928263128080356,
+											"parameters": {
+												"tag": "\"caveambient\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 839397560672176,
+											"parameters": {
+												"audio-file": "zapsplat_cave",
+												"loop": "looping",
+												"volume": "-15",
+												"tag-optional": "\"caveambient\""
+											}
+										}
+									],
+									"sid": 307118731419601
 								}
-							],
-							"sid": 249959001994195
+							]
+						}
+					]
+				}
+			],
+			"sid": 675311147011517
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 898065325088587
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 987401364332575,
+					"parameters": {
+						"variable": "Turn",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 419474051050496,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Create LOS object if it does not exist (it should, this is just a safeguard)"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-outside-layout",
+							"objectClass": "Camera",
+							"sid": 396478751389987
 						}
 					],
-					"isOrBlock": true
+					"actions": [],
+					"sid": 533726174910446
 				},
 				{
 					"eventType": "block",
@@ -955,65 +1007,43 @@
 						{
 							"id": "else",
 							"objectClass": "System",
-							"sid": 427103342045577
+							"sid": 163870605133996
 						}
 					],
-					"actions": [],
-					"sid": 491998097915379,
-					"children": [
+					"actions": [
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-tag-playing",
-									"objectClass": "Audio",
-									"sid": 945047436550534,
-									"parameters": {
-										"tag": "\"campambient\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "stop",
-									"objectClass": "Audio",
-									"sid": 757163713239136,
-									"parameters": {
-										"tag": "\"campambient\""
-									}
-								}
-							],
-							"sid": 510564119629656
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 914602310709735,
+							"parameters": {
+								"object-to-create": "Camera",
+								"layer": "0",
+								"x": "-100",
+								"y": "-100"
+							}
+						}
+					],
+					"sid": 518631669028601
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Set camera to center of screen"
 						},
 						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-tag-playing",
-									"objectClass": "Audio",
-									"sid": 981637917191580,
-									"parameters": {
-										"tag": "\"caveambient\""
-									},
-									"isInverted": true
-								}
-							],
-							"actions": [
-								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 409423815235578,
-									"parameters": {
-										"audio-file": "zapsplat_cave",
-										"loop": "looping",
-										"volume": "-15",
-										"tag-optional": "\"caveambient\""
-									}
-								}
-							],
-							"sid": 837826439782141
+							"id": "set-position",
+							"objectClass": "Camera",
+							"sid": 300656289718289,
+							"parameters": {
+								"x": "OriginalViewportWidth/2",
+								"y": "OriginalViewportHeight/2"
+							}
 						}
-					]
+					],
+					"sid": 374446279034618
 				}
 			]
 		}
