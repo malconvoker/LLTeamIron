@@ -604,7 +604,11 @@
 						"Damage": 3,
 						"trapID": -1
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
 					"world": {
 						"x": 220,
 						"y": 160,
@@ -639,7 +643,11 @@
 						"Damage": 2,
 						"trapID": -1
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
 					"world": {
 						"x": 280,
 						"y": 0,
@@ -674,7 +682,11 @@
 						"Damage": 2,
 						"trapID": -1
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
 					"world": {
 						"x": 0,
 						"y": 140,
@@ -709,7 +721,11 @@
 						"Damage": 3,
 						"trapID": -1
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
 					"world": {
 						"x": 200,
 						"y": 160,
@@ -744,7 +760,11 @@
 						"Damage": 3,
 						"trapID": -1
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
 					"world": {
 						"x": 180,
 						"y": 160,
@@ -779,7 +799,11 @@
 						"Damage": 3,
 						"trapID": -1
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
 					"world": {
 						"x": 160,
 						"y": 160,
@@ -814,7 +838,11 @@
 						"Damage": 3,
 						"trapID": -1
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
 					"world": {
 						"x": 140,
 						"y": 160,

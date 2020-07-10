@@ -40,9 +40,9 @@
 				{
 					"id": "set-text",
 					"objectClass": "TXTstatictext",
-					"sid": 137497797864073,
+					"sid": 654169943173051,
 					"parameters": {
-						"text": "\"It's dangerous to go alone.\" & newline & \"Take this!\""
+						"text": "\"Have a skill or two!\" & newline & \"I still don't know how crystals work...\""
 					}
 				}
 			],
@@ -61,9 +61,9 @@
 				{
 					"id": "set-text",
 					"objectClass": "TXTstatictext",
-					"sid": 468484292778237,
+					"sid": 895582034853420,
 					"parameters": {
-						"text": "\"It's a passive skill!\" & newline & \"To use it, just kill!\""
+						"text": "\"I have nothing left!\" & newline & \"I hope you're happy!\""
 					}
 				}
 			],

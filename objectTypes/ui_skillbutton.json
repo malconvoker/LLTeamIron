@@ -573,7 +573,7 @@
 						"originalSource": "C:\\Users\\mctur\\Downloads\\drive-download-20200611T094601Z-001\\Active template.png",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 9443811,
+						"imageSpriteId": 8809073,
 						"collisionPoly": {
 							"points": [
 								0.09375,
@@ -597,7 +597,7 @@
 						"duration": 1
 					}
 				],
-				"sid": 510103437360212,
+				"sid": 906256049357227,
 				"name": "earthpillar",
 				"isLooping": false,
 				"isPingPong": false,

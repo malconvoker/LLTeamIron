@@ -1,5 +1,5 @@
 {
-	"name": "D1_Hard3",
+	"name": "D1_Hard2",
 	"layers": [
 		{
 			"name": "Terrain",
@@ -341,7 +341,7 @@
 					},
 					"world": {
 						"x": 260,
-						"y": 100,
+						"y": 80,
 						"width": 20,
 						"height": 20,
 						"originX": 0,
@@ -403,7 +403,7 @@
 					},
 					"world": {
 						"x": 260,
-						"y": 140,
+						"y": 120,
 						"width": 20,
 						"height": 20,
 						"originX": 0,
@@ -713,6 +713,240 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "T_Spikes",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "down",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 243,
+					"instanceVariables": {
+						"ActTime": 0,
+						"Ready": false,
+						"ActMax": 0,
+						"Damage": 3,
+						"trapID": -1
+					},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 240,
+						"y": 200,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "T_Spikes",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "down",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 244,
+					"instanceVariables": {
+						"ActTime": 0,
+						"Ready": false,
+						"ActMax": 0,
+						"Damage": 3,
+						"trapID": -1
+					},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 80,
+						"y": 180,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "T_Spikes",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "down",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 245,
+					"instanceVariables": {
+						"ActTime": 0,
+						"Ready": false,
+						"ActMax": 0,
+						"Damage": 3,
+						"trapID": -1
+					},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 240,
+						"y": 180,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "T_Spikes",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "down",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 247,
+					"instanceVariables": {
+						"ActTime": 0,
+						"Ready": false,
+						"ActMax": 0,
+						"Damage": 3,
+						"trapID": -1
+					},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 80,
+						"y": 200,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "T_gooWall",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "right",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 248,
+					"instanceVariables": {
+						"ActTime": 0,
+						"Ready": false,
+						"ActMax": 1,
+						"Damage": 2,
+						"trapID": -1
+					},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 0,
+						"y": 200,
+						"width": 22,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "T_gooWall",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "left",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 249,
+					"instanceVariables": {
+						"ActTime": 0,
+						"Ready": false,
+						"ActMax": 1,
+						"Damage": 2,
+						"trapID": -1
+					},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 320,
+						"y": 180,
+						"width": 22,
+						"height": 20,
+						"originX": 0.09090909090909091,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 946606237848092,
@@ -746,11 +980,11 @@
 				{
 					"type": "TXTstatictext",
 					"properties": {
-						"text": "End of demo",
+						"text": "End of demo\n...for now",
 						"enable-bbcode": false,
 						"font": "Kenney Pixel",
 						"size": 10,
-						"line-height": 0,
+						"line-height": -5,
 						"bold": false,
 						"italic": false,
 						"color": [
@@ -772,7 +1006,7 @@
 						"x": 140,
 						"y": -4,
 						"width": 60,
-						"height": 20,
+						"height": 40,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -841,7 +1075,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 0,
-						"y": 0,
+						"y": -40,
 						"width": 340,
 						"height": 20,
 						"originX": 0,

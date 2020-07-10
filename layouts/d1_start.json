@@ -187,6 +187,42 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "SkillPickup",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "knockback",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 203,
+					"instanceVariables": {
+						"CurrentSkill": "knockback",
+						"Selected": false
+					},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 280,
+						"y": 40,
+						"width": 18,
+						"height": 18,
+						"originX": -0.05555555555555555,
+						"originY": -0.05555555555555555,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 502110049029461,
@@ -402,7 +438,7 @@
 						}
 					},
 					"world": {
-						"x": 220,
+						"x": 200,
 						"y": 40,
 						"width": 20,
 						"height": 20,
@@ -507,7 +543,7 @@
 						}
 					},
 					"world": {
-						"x": 260,
+						"x": 240,
 						"y": 40,
 						"width": 20,
 						"height": 20,

@@ -942,9 +942,9 @@
 						{
 							"id": "set-animation",
 							"objectClass": "T_Spikes",
-							"sid": 916425258588002,
+							"sid": 156330827567549,
 							"parameters": {
-								"animation": "\"down\"",
+								"animation": "\"up\"",
 								"from": "beginning"
 							}
 						}
@@ -969,14 +969,41 @@
 						{
 							"id": "set-animation",
 							"objectClass": "T_Spikes",
-							"sid": 124617759591584,
+							"sid": 808683681441889,
+							"parameters": {
+								"animation": "\"down\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 269621755856740
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "T_Spikes",
+							"sid": 276617405927037,
+							"parameters": {
+								"instance-variable": "ActTime",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "T_Spikes",
+							"sid": 764590387526166,
 							"parameters": {
 								"animation": "\"loaded\"",
 								"from": "beginning"
 							}
 						}
 					],
-					"sid": 269621755856740
+					"sid": 140943253870348
 				}
 			]
 		},

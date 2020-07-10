@@ -1895,6 +1895,7 @@
 										{
 											"callFunction": "DamageEnemy",
 											"sid": 384625310119745,
+											"disabled": true,
 											"parameters": [
 												"2",
 												"EnemyBases.UID",
@@ -2031,6 +2032,45 @@
 							"sid": 129436418949620
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 308455013175565,
+							"parameters": {
+								"animation": "\"stab\""
+							}
+						},
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "Skill_EarthPillar",
+							"sid": 952328768216539,
+							"parameters": {
+								"comparison": 0,
+								"number": "3"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 670432422214809
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "DamageEnemy",
+							"sid": 820297853633980,
+							"parameters": [
+								"2",
+								"EnemyBases.UID",
+								true
+							]
+						}
+					],
+					"sid": 740630733872248
 				},
 				{
 					"eventType": "block",
