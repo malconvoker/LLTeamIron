@@ -104,6 +104,7 @@
 	"members": [
 		"E_SlimeBase",
 		"E_SkeletonBase",
-		"E_GhostBase"
+		"E_GhostBase",
+		"E_Slime2ElecBase"
 	]
 }

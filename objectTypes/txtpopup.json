@@ -1,0 +1,16 @@
+{
+	"name": "TXTpopup",
+	"plugin-id": "Text",
+	"sid": 868692223417375,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "life",
+			"type": "number",
+			"desc": "Time spent existing in seconds",
+			"sid": 547314155184802
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

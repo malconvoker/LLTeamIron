@@ -1203,6 +1203,91 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "pick-by-unique-id",
+									"objectClass": "E_Slime2ElecBase",
+									"sid": 751665496966027,
+									"parameters": {
+										"unique-id": "UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "E_Slime2ElecMask",
+									"sid": 321569081625701,
+									"parameters": {
+										"object": "NumberIcon",
+										"layer": "\"Effects\"",
+										"image-point": "\"hpicon\""
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "NumberIcon",
+									"sid": 459445636941329,
+									"parameters": {
+										"frame-number": "Damage"
+									}
+								}
+							],
+							"sid": 125031867048680,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "E_Slime2ElecBase",
+											"sid": 649293456293158,
+											"parameters": {
+												"instance-variable": "hp",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "E_Slime2ElecMask",
+											"sid": 867289448169824,
+											"parameters": {
+												"animation": "\"death\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 274305556187159
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 981023645178143
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "E_Slime2ElecMask",
+											"sid": 940697658513415,
+											"parameters": {
+												"animation": "\"damaged\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 612934460693262
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
 									"sid": 264405900593829,

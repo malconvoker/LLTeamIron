@@ -109,6 +109,33 @@
 					}
 				},
 				{
+					"id": "add-obstacle",
+					"objectClass": "E_SlimeBase",
+					"sid": 515701144244468,
+					"behaviorType": "Pathfinding",
+					"parameters": {
+						"obstacle": "PitCollisions"
+					}
+				},
+				{
+					"id": "add-obstacle",
+					"objectClass": "E_SkeletonBase",
+					"sid": 492893581141153,
+					"behaviorType": "Pathfinding",
+					"parameters": {
+						"obstacle": "PitCollisions"
+					}
+				},
+				{
+					"id": "add-obstacle",
+					"objectClass": "E_Slime2ElecBase",
+					"sid": 150424784964153,
+					"behaviorType": "Pathfinding",
+					"parameters": {
+						"obstacle": "PitCollisions"
+					}
+				},
+				{
 					"id": "add-path-cost",
 					"objectClass": "EnemyBases",
 					"sid": 794363069425271,

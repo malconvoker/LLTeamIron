@@ -187,6 +187,54 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "Tiles_Pit",
+					"properties": {
+						"initially-visible": true,
+						"tile-width": 20,
+						"tile-height": 20,
+						"tile-x-offset": 0,
+						"tile-y-offset": 0,
+						"tile-x-spacing": 0,
+						"tile-y-spacing": 0,
+						"tile-x-drawing-offset": 0,
+						"tile-y-drawing-offset": 0,
+						"drawing-mode": "top-to-right"
+					},
+					"uid": 265,
+					"instanceVariables": {},
+					"behaviors": {},
+					"ownData": {
+						"tilemapData": {
+							"width": 21,
+							"height": 18,
+							"max-width": 26,
+							"max-height": 25,
+							"data": "154x0,5,9,10,13,23x0,3,22x0,6,10,15,22x0,7,2x11,9,13,20x0,8,12,16,393x0"
+						},
+						"tile-width": 20,
+						"tile-height": 20,
+						"tile-x-offset": 0,
+						"tile-y-offset": 0,
+						"tile-x-spacing": 0,
+						"tile-y-spacing": 0
+					},
+					"world": {
+						"x": -80,
+						"y": 280,
+						"width": 420,
+						"height": 360,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 466982223705134,
@@ -640,7 +688,7 @@
 						"ActTime": 0,
 						"Ready": false,
 						"ActMax": 1,
-						"Damage": 2,
+						"Damage": 3,
 						"trapID": -1
 					},
 					"behaviors": {
@@ -679,7 +727,7 @@
 						"ActTime": 0,
 						"Ready": false,
 						"ActMax": 1,
-						"Damage": 2,
+						"Damage": 3,
 						"trapID": -1
 					},
 					"behaviors": {
@@ -872,7 +920,8 @@
 					"uid": 198,
 					"instanceVariables": {
 						"CurrentSkill": "earthpillar",
-						"Selected": false
+						"Selected": false,
+						"cost": 0
 					},
 					"behaviors": {
 						"Persist": {
@@ -886,6 +935,68 @@
 						"height": 18,
 						"originX": -0.05555555555555555,
 						"originY": -0.05555555555555555,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "E_Slime2ElecBase",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 267,
+					"instanceVariables": {
+						"TurnOrder": 1,
+						"LastInTurn": false,
+						"ActTime": -1,
+						"ActThMove": 1,
+						"ActThAttack": 1,
+						"TurnDone": false,
+						"TurnInProgress": false,
+						"maxhp": 6,
+						"hp": 6,
+						"meleeDmg": 4,
+						"SkipPause": false,
+						"SeesPlayer": false,
+						"Active": false,
+						"Flying": false
+					},
+					"behaviors": {
+						"Pathfinding": {
+							"properties": {
+								"cell-size": 20,
+								"cell-border": -1,
+								"obstacles": "custom",
+								"max-speed": 200,
+								"acceleration": 1000,
+								"deceleration": 2000,
+								"rotate-speed": 135,
+								"rotate-object": false,
+								"diagonals": true,
+								"enabled": true
+							}
+						},
+						"Persist": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 200,
+						"y": 40,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,

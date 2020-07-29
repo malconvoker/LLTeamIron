@@ -475,7 +475,8 @@
 					"uid": 45,
 					"instanceVariables": {
 						"CurrentSkill": "shield",
-						"Selected": false
+						"Selected": false,
+						"cost": 0
 					},
 					"behaviors": {
 						"Persist": {
@@ -513,7 +514,7 @@
 						"ActTime": -1,
 						"Ready": false,
 						"ActMax": 1,
-						"Damage": 2,
+						"Damage": 3,
 						"trapID": -1
 					},
 					"behaviors": {
@@ -552,7 +553,7 @@
 						"ActTime": 1,
 						"Ready": false,
 						"ActMax": 1,
-						"Damage": 2,
+						"Damage": 3,
 						"trapID": -1
 					},
 					"behaviors": {

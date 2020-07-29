@@ -955,6 +955,15 @@
 																				{
 																					"id": "is-overlapping-another-object",
 																					"objectClass": "PlayerMoveTile",
+																					"sid": 753840694172605,
+																					"parameters": {
+																						"object": "PitCollisions"
+																					},
+																					"isInverted": true
+																				},
+																				{
+																					"id": "is-overlapping-another-object",
+																					"objectClass": "PlayerMoveTile",
 																					"sid": 460036789221177,
 																					"parameters": {
 																						"object": "NPCBases"
@@ -1155,36 +1164,79 @@
 																					}
 																				}
 																			],
-																			"actions": [
+																			"actions": [],
+																			"sid": 387201922386026,
+																			"children": [
 																				{
-																					"id": "set-eventvar-value",
-																					"objectClass": "System",
-																					"sid": 131852836503723,
-																					"parameters": {
-																						"variable": "TouchMode",
-																						"value": "\"skillpickup\""
-																					}
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "compare-instance-variable",
+																							"objectClass": "PlayerBase",
+																							"sid": 841889066582428,
+																							"parameters": {
+																								"instance-variable": "money",
+																								"comparison": 5,
+																								"value": "SkillPickup.cost"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "set-eventvar-value",
+																							"objectClass": "System",
+																							"sid": 709694861731541,
+																							"parameters": {
+																								"variable": "TouchMode",
+																								"value": "\"skillpickup\""
+																							}
+																						},
+																						{
+																							"id": "set-position",
+																							"objectClass": "Cursor",
+																							"sid": 372473400043453,
+																							"parameters": {
+																								"x": "-100",
+																								"y": "-100"
+																							}
+																						},
+																						{
+																							"id": "set-boolean-instvar",
+																							"objectClass": "SkillPickup",
+																							"sid": 512287940836379,
+																							"parameters": {
+																								"instance-variable": "Selected",
+																								"value": "true"
+																							}
+																						}
+																					],
+																					"sid": 990774494461857
 																				},
 																				{
-																					"id": "set-position",
-																					"objectClass": "Cursor",
-																					"sid": 520216045446048,
-																					"parameters": {
-																						"x": "-100",
-																						"y": "-100"
-																					}
-																				},
-																				{
-																					"id": "set-boolean-instvar",
-																					"objectClass": "SkillPickup",
-																					"sid": 810331222724400,
-																					"parameters": {
-																						"instance-variable": "Selected",
-																						"value": "true"
-																					}
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "else",
+																							"objectClass": "System",
+																							"sid": 586981938695455
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 561928841291363,
+																							"parameters": {
+																								"object-to-create": "TXTpopup",
+																								"layer": "\"Effects\"",
+																								"x": "SkillPickup.X+Tile/2",
+																								"y": "SkillPickup.Y"
+																							}
+																						}
+																					],
+																					"sid": 349240895926274
 																				}
-																			],
-																			"sid": 387201922386026
+																			]
 																		},
 																		{
 																			"eventType": "comment",
@@ -1927,6 +1979,200 @@
 																			"sid": 719345697552400
 																		}
 																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "else",
+																			"objectClass": "System",
+																			"sid": 694669965859917
+																		},
+																		{
+																			"id": "is-touching-object",
+																			"objectClass": "Touch",
+																			"sid": 365564655807495,
+																			"parameters": {
+																				"object": "UI_PortalButton"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 891015050093913,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-animation-playing",
+																					"objectClass": "UI_PortalButton",
+																					"sid": 568785872386047,
+																					"parameters": {
+																						"animation": "\"active\""
+																					}
+																				}
+																			],
+																			"actions": [],
+																			"sid": 466340979407708,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "compare-instance-variable",
+																							"objectClass": "PlayerBase",
+																							"sid": 784557897500390,
+																							"parameters": {
+																								"instance-variable": "money",
+																								"comparison": 5,
+																								"value": "UI_PortalButton.cost"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "subtract-from-instvar",
+																							"objectClass": "PlayerBase",
+																							"sid": 324348687505361,
+																							"parameters": {
+																								"instance-variable": "money",
+																								"value": "UI_PortalButton.cost"
+																							}
+																						},
+																						{
+																							"id": "add-to-instvar",
+																							"objectClass": "UI_PortalButton",
+																							"sid": 279904749076859,
+																							"parameters": {
+																								"instance-variable": "cost",
+																								"value": "2"
+																							}
+																						},
+																						{
+																							"id": "spawn-another-object",
+																							"objectClass": "PlayerBase",
+																							"sid": 429811262773316,
+																							"parameters": {
+																								"object": "TownPortal",
+																								"layer": "\"Objects\"",
+																								"image-point": "0"
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "TownPortal",
+																							"sid": 669440003443264,
+																							"parameters": {
+																								"instance-variable": "map",
+																								"value": "LayoutName"
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "TownPortal",
+																							"sid": 738034831925994,
+																							"parameters": {
+																								"instance-variable": "portalX",
+																								"value": "Self.X"
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "TownPortal",
+																							"sid": 113585087258880,
+																							"parameters": {
+																								"instance-variable": "portalY",
+																								"value": "Self.Y"
+																							}
+																						},
+																						{
+																							"id": "go-to-layout",
+																							"objectClass": "System",
+																							"sid": 289163307659770,
+																							"parameters": {
+																								"layout": "Camp"
+																							}
+																						},
+																						{
+																							"id": "set-position",
+																							"objectClass": "TownPortal",
+																							"sid": 885598717729263,
+																							"parameters": {
+																								"x": "160",
+																								"y": "60"
+																							}
+																						},
+																						{
+																							"id": "set-position",
+																							"objectClass": "PlayerBase",
+																							"sid": 427508861248066,
+																							"parameters": {
+																								"x": "160",
+																								"y": "80"
+																							}
+																						}
+																					],
+																					"sid": 930095863982119
+																				},
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "else",
+																							"objectClass": "System",
+																							"sid": 894443757517490
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 815503983889644,
+																							"parameters": {
+																								"object-to-create": "TXTpopup",
+																								"layer": "\"UI\"",
+																								"x": "UI_PortalButton.ImagePointX(\"popup\")",
+																								"y": "UI_PortalButton.ImagePointY(\"popup\")"
+																							}
+																						}
+																					],
+																					"sid": 448729394361963
+																				}
+																			]
+																		},
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "else",
+																					"objectClass": "System",
+																					"sid": 306988652565783
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 675453397665171,
+																					"parameters": {
+																						"object-to-create": "TXTpopup",
+																						"layer": "\"UI\"",
+																						"x": "UI_PortalButton.ImagePointX(\"popup\")",
+																						"y": "UI_PortalButton.ImagePointY(\"popup\")"
+																					}
+																				},
+																				{
+																					"id": "set-text",
+																					"objectClass": "TXTpopup",
+																					"sid": 577263061858633,
+																					"parameters": {
+																						"text": "\"Can't use here!\""
+																					}
+																				}
+																			],
+																			"sid": 136641259264690
+																		}
+																	]
 																}
 															]
 														}
@@ -1980,6 +2226,22 @@
 							"sid": 667629603062867,
 							"parameters": {
 								"animation": "\"damaged\""
+							}
+						},
+						{
+							"id": "on-animation-finished",
+							"objectClass": "PlayerMask",
+							"sid": 731306856703413,
+							"parameters": {
+								"animation": "\"castfade\""
+							}
+						},
+						{
+							"id": "on-animation-finished",
+							"objectClass": "PlayerMask",
+							"sid": 876894221536601,
+							"parameters": {
+								"animation": "\"knockbackattack\""
 							}
 						}
 					],
@@ -2049,6 +2311,15 @@
 									"sid": 558792809919201,
 									"parameters": {
 										"object": "Collisions"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "PlayerMoveTile",
+									"sid": 878205663707618,
+									"parameters": {
+										"object": "PitCollisions"
 									},
 									"isInverted": true
 								},
@@ -2244,35 +2515,6 @@
 				}
 			],
 			"sid": 915992584022235
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-overlapping-another-object",
-					"objectClass": "SkillPickup",
-					"sid": 920320813461569,
-					"parameters": {
-						"object": "PlayerBase"
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "ChangeSkill",
-					"sid": 327238161005174,
-					"parameters": [
-						"choose(1,2,3,4)",
-						"SkillPickup.CurrentSkill"
-					]
-				},
-				{
-					"id": "destroy",
-					"objectClass": "SkillPickup",
-					"sid": 175305521144329
-				}
-			],
-			"sid": 384727023851407
 		},
 		{
 			"eventType": "block",

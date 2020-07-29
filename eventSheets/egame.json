@@ -512,6 +512,64 @@
 						}
 					],
 					"sid": 201901699300404
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TXTpopup",
+							"sid": 479290765331004,
+							"parameters": {
+								"instance-variable": "life",
+								"comparison": 5,
+								"value": "1.5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "TXTpopup",
+							"sid": 592463758118390
+						}
+					],
+					"sid": 142672216568449
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "TXTpopup",
+							"sid": 755266388826949,
+							"parameters": {
+								"instance-variable": "life",
+								"comparison": 2,
+								"value": "1.5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-y",
+							"objectClass": "TXTpopup",
+							"sid": 609716923902209,
+							"parameters": {
+								"y": "Self.Y-dt*10"
+							}
+						},
+						{
+							"id": "add-to-instvar",
+							"objectClass": "TXTpopup",
+							"sid": 513034079390113,
+							"parameters": {
+								"instance-variable": "life",
+								"value": "dt"
+							}
+						}
+					],
+					"sid": 679558735386351
 				}
 			],
 			"sid": 662979051192152
@@ -787,6 +845,44 @@
 							"sid": 267972625677337
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "TownPortal",
+							"sid": 391819750056153,
+							"parameters": {
+								"object": "PlayerBase"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout-by-name",
+							"objectClass": "System",
+							"sid": 499096830674424,
+							"parameters": {
+								"layout": "TownPortal.map"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "PlayerBase",
+							"sid": 907144878006627,
+							"parameters": {
+								"x": "TownPortal.portalX",
+								"y": "TownPortal.portalY"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "TownPortal",
+							"sid": 416532415521925
+						}
+					],
+					"sid": 798007506441846
 				}
 			],
 			"sid": 601259909786066
@@ -1046,6 +1142,139 @@
 					"sid": 374446279034618
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "SkillPickup",
+					"sid": 966791803337406,
+					"parameters": {
+						"instance-variable": "cost",
+						"comparison": 4,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 896005091048043,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "SkillPickup",
+							"sid": 640810888515816,
+							"parameters": {
+								"object": "NumberIconStatic"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "SkillPickup",
+							"sid": 191566101587919,
+							"parameters": {
+								"object": "NumberIconStatic",
+								"layer": "\"Effects\"",
+								"image-point": "\"cost\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "NumberIconStatic",
+							"sid": 908903766067659,
+							"parameters": {
+								"animation": "\"blue\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "NumberIconStatic",
+							"sid": 751867222996091,
+							"parameters": {
+								"frame-number": "SkillPickup.cost"
+							}
+						}
+					],
+					"sid": 213596416562992
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "SkillPickup",
+					"sid": 596784869067462,
+					"parameters": {
+						"instance-variable": "cost",
+						"comparison": 3,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 907801942318406,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "SkillPickup",
+							"sid": 183701059153090,
+							"parameters": {
+								"object": "NumberIconStatic"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "NumberIconStatic",
+							"sid": 724707541895507
+						}
+					],
+					"sid": 407353371723430
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-animation-playing",
+					"objectClass": "NumberIconStatic",
+					"sid": 539962273352838,
+					"parameters": {
+						"animation": "\"blue\""
+					}
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "NumberIconStatic",
+					"sid": 744623725585730,
+					"parameters": {
+						"object": "SkillPickup"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "NumberIconStatic",
+					"sid": 522563681397927
+				}
+			],
+			"sid": 800128076885846
 		}
 	],
 	"sid": 301707553409410

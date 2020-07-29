@@ -179,7 +179,9 @@
 	"objectTypes": {
 		"items": [
 			"NumberIcon",
-			"NumberFont"
+			"NumberFont",
+			"NumberIconStatic",
+			"TownPortal"
 		],
 		"subfolders": [
 			{
@@ -213,6 +215,15 @@
 						],
 						"subfolders": [],
 						"name": "E_Slime"
+					},
+					{
+						"items": [
+							"E_Slime2ElecBase",
+							"E_Slime2ElecMask",
+							"E_Slime2ElecMoveTile"
+						],
+						"subfolders": [],
+						"name": "E_Slime2Elec"
 					}
 				],
 				"name": "Enemies"
@@ -238,8 +249,7 @@
 					"TXTerrors",
 					"TXTtouchmode",
 					"TXTtiledistance",
-					"TextInput",
-					"TXTcrystals"
+					"TextInput"
 				],
 				"subfolders": [],
 				"name": "DebugText"
@@ -264,7 +274,10 @@
 				"items": [
 					"UI_SkillButton",
 					"UI_BG",
-					"TXTmpcost"
+					"TXTmpcost",
+					"TXTcrystals",
+					"UI_PortalButton",
+					"TXTportalcost"
 				],
 				"subfolders": [
 					{
@@ -296,7 +309,8 @@
 			{
 				"items": [
 					"Collisions",
-					"LevelWarp"
+					"LevelWarp",
+					"PitCollisions"
 				],
 				"subfolders": [
 					{
@@ -318,7 +332,8 @@
 						"items": [
 							"SmallTiles_Dungeon",
 							"Tiles_Dungeon",
-							"Dungeon_Torch"
+							"Dungeon_Torch",
+							"Tiles_Pit"
 						],
 						"subfolders": [],
 						"name": "Dungeon"
@@ -329,7 +344,8 @@
 			{
 				"items": [
 					"indicator",
-					"hpbar"
+					"hpbar",
+					"TXTpopup"
 				],
 				"subfolders": [],
 				"name": "Generic Effects"
@@ -404,6 +420,14 @@
 			"members": [
 				"MerchantBase",
 				"MerchantMask"
+			],
+			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"E_Slime2ElecBase",
+				"E_Slime2ElecMask",
+				"E_Slime2ElecMoveTile"
 			],
 			"selectMode": "normal"
 		}
@@ -606,7 +630,7 @@
 	},
 	"properties": {
 		"description": "Luotsaamo Team Iron Game",
-		"version": "0.7.3",
+		"version": "0.7.5",
 		"author": "Team Iron",
 		"authorEmail": "",
 		"authorWebsite": "",

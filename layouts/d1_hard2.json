@@ -884,7 +884,7 @@
 						"ActTime": 0,
 						"Ready": false,
 						"ActMax": 1,
-						"Damage": 2,
+						"Damage": 3,
 						"trapID": -1
 					},
 					"behaviors": {
@@ -923,7 +923,7 @@
 						"ActTime": 0,
 						"Ready": false,
 						"ActMax": 1,
-						"Damage": 2,
+						"Damage": 3,
 						"trapID": -1
 					},
 					"behaviors": {

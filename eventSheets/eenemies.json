@@ -626,7 +626,7 @@
 														},
 														{
 															"id": "set-boolean-instvar",
-															"objectClass": "E_SkeletonBase",
+															"objectClass": "E_SlimeBase",
 															"sid": 783177129048404,
 															"parameters": {
 																"instance-variable": "SkipPause",
@@ -1196,6 +1196,728 @@
 				}
 			],
 			"sid": 376696151413526
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Enemy_Slime2Elec",
+			"description": "Enemy that moves towards player every other turn\nDamages player instead if adjacent\nStronger variant",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Slime2ElecTurn",
+					"description": "Things that happen when the Slime's turn starts",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "E_Slime2ElecBase",
+									"sid": 962891108296639,
+									"parameters": {
+										"instance-variable": "TurnOrder",
+										"comparison": 0,
+										"value": "Turn"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "E_Slime2ElecBase",
+									"sid": 758765324975970,
+									"parameters": {
+										"instance-variable": "TurnDone"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "E_Slime2ElecBase",
+									"sid": 154910657689777,
+									"parameters": {
+										"instance-variable": "TurnInProgress"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "E_Slime2ElecBase",
+									"sid": 963009515329142,
+									"parameters": {
+										"instance-variable": "TurnInProgress",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 925158922567712,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "E_Slime2ElecBase",
+											"sid": 169540939681201,
+											"parameters": {
+												"instance-variable": "hp",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 580307419677374,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 604941376321430,
+													"parameters": {
+														"first-value": "Functions.PlayerDistance(E_Slime2ElecBase.X, E_Slime2ElecBase.Y)",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"type": "comment",
+													"text": "Is in melee range to Player"
+												}
+											],
+											"sid": 885495274751831,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "E_Slime2ElecBase",
+															"sid": 773649747874648,
+															"parameters": {
+																"instance-variable": "ActTime",
+																"comparison": 5,
+																"value": "Self.ActThAttack"
+															}
+														}
+													],
+													"actions": [
+														{
+															"callFunction": "DamagePlayer",
+															"sid": 454807424115114,
+															"parameters": [
+																"E_Slime2ElecBase.meleeDmg"
+															]
+														},
+														{
+															"id": "set-animation",
+															"objectClass": "E_Slime2ElecMask",
+															"sid": 848753670627717,
+															"parameters": {
+																"animation": "\"attack\"",
+																"from": "beginning"
+															}
+														},
+														{
+															"id": "play",
+															"objectClass": "Audio",
+															"sid": 449233246462007,
+															"parameters": {
+																"audio-file": "hit_test",
+																"loop": "not-looping",
+																"volume": "-5",
+																"tag-optional": "\"\""
+															}
+														},
+														{
+															"id": "set-instvar-value",
+															"objectClass": "E_Slime2ElecBase",
+															"sid": 273239280938125,
+															"parameters": {
+																"instance-variable": "ActTime",
+																"value": "0"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "E_Slime2ElecBase",
+															"sid": 691674547161262,
+															"parameters": {
+																"instance-variable": "SkipPause",
+																"value": "false"
+															}
+														}
+													],
+													"sid": 610733503862141
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 584088352492225
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-instvar",
+															"objectClass": "E_Slime2ElecBase",
+															"sid": 146994813060058,
+															"parameters": {
+																"instance-variable": "ActTime",
+																"value": "1"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "E_Slime2ElecBase",
+															"sid": 434034832283724,
+															"parameters": {
+																"instance-variable": "SkipPause",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 292645404289436
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "E_Slime2ElecBase",
+															"sid": 602880949990094,
+															"parameters": {
+																"instance-variable": "TurnDone",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 603946162022014
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 888439410177321
+												}
+											],
+											"actions": [],
+											"sid": 883144702554641,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "E_Slime2ElecBase",
+															"sid": 507170683557788,
+															"parameters": {
+																"instance-variable": "ActTime",
+																"comparison": 5,
+																"value": "Self.ActThMove"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "find-path",
+															"objectClass": "E_Slime2ElecBase",
+															"sid": 173611682518201,
+															"behaviorType": "Pathfinding",
+															"parameters": {
+																"x": "PlayerBase.X",
+																"y": "PlayerBase.Y"
+															}
+														}
+													],
+													"sid": 928174901907972
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 679190924237243
+														}
+													],
+													"actions": [
+														{
+															"id": "add-to-instvar",
+															"objectClass": "E_Slime2ElecBase",
+															"sid": 372604385289786,
+															"parameters": {
+																"instance-variable": "ActTime",
+																"value": "1"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "E_Slime2ElecBase",
+															"sid": 643132762869043,
+															"parameters": {
+																"instance-variable": "SkipPause",
+																"value": "true"
+															}
+														},
+														{
+															"id": "set-boolean-instvar",
+															"objectClass": "E_Slime2ElecBase",
+															"sid": 774709883089495,
+															"parameters": {
+																"instance-variable": "TurnDone",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 759061087397200
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 638908941316964
+										}
+									],
+									"actions": [],
+									"sid": 592736616049369
+								}
+							]
+						}
+					],
+					"sid": 610327703207922
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Slime2ElecAnimations",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "comment",
+							"text": "Set animation"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "E_Slime2ElecMask",
+									"sid": 440668917761272,
+									"parameters": {
+										"animation": "\"idle\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "damaged and death set in EnemyDamaged function"
+								},
+								{
+									"type": "comment",
+									"text": "attack set in SlimeTurn"
+								}
+							],
+							"sid": 851356198192308,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "E_Slime2ElecBase",
+											"sid": 104275752564005,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-speed",
+											"objectClass": "E_Slime2ElecMask",
+											"sid": 443922026012284,
+											"parameters": {
+												"speed": "2"
+											}
+										}
+									],
+									"sid": 620462715798300
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "E_Slime2ElecBase",
+											"sid": 409927966412221,
+											"parameters": {
+												"instance-variable": "ActTime",
+												"comparison": 5,
+												"value": "Self.ActThMove"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-speed",
+											"objectClass": "E_Slime2ElecMask",
+											"sid": 173784000813447,
+											"parameters": {
+												"speed": "6"
+											}
+										}
+									],
+									"sid": 433270394049383,
+									"isOrBlock": true
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Action animations"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "E_Slime2ElecMask",
+									"sid": 345788782915214,
+									"parameters": {
+										"animation": "\"attack\""
+									}
+								},
+								{
+									"id": "on-animation-finished",
+									"objectClass": "E_Slime2ElecMask",
+									"sid": 196097719493937,
+									"parameters": {
+										"animation": "\"damaged\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "E_Slime2ElecMask",
+									"sid": 871213907630479,
+									"parameters": {
+										"animation": "\"idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 440049767857627,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "E_Slime2ElecMask",
+									"sid": 689818511222644,
+									"parameters": {
+										"animation": "\"death\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "E_Slime2ElecBase",
+									"sid": 644932337320961,
+									"parameters": {
+										"object": "Crystals",
+										"layer": "\"Objects\"",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "Crystals",
+									"sid": 614195663531085,
+									"parameters": {
+										"frame-number": "choose(0,0,1)"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "E_Slime2ElecBase",
+									"sid": 677727427573176
+								},
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 120052250134219,
+									"parameters": {
+										"variable": "EnemiesActive",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 450279751033919,
+									"parameters": {
+										"variable": "EnemiesKilled",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 295559259656754,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "E_Slime2ElecBase",
+											"sid": 635117285622080,
+											"parameters": {
+												"instance-variable": "TurnOrder",
+												"comparison": 0,
+												"value": "Turn"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "NextTurn",
+											"sid": 870666137456540
+										}
+									],
+									"sid": 527971044723652
+								}
+							]
+						},
+						{
+							"eventType": "comment",
+							"text": "Highlight when about to be attacked"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "E_Slime2ElecBase",
+									"sid": 174110658155212,
+									"parameters": {
+										"object": "PlayerMoveTile"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "E_Slime2ElecMask",
+									"sid": 987151604772313,
+									"parameters": {
+										"color": "rgb(255, 150, 50)"
+									}
+								}
+							],
+							"sid": 898496963297180,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 528389848182878
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "E_Slime2ElecMask",
+									"sid": 468117391165849,
+									"parameters": {
+										"color": "rgb(255, 255, 255)"
+									}
+								}
+							],
+							"sid": 979100405772198
+						}
+					],
+					"sid": 446920002053590
+				},
+				{
+					"eventType": "comment",
+					"text": "Pathfinding"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-path-found",
+							"objectClass": "E_Slime2ElecBase",
+							"sid": 781491631612036,
+							"behaviorType": "Pathfinding"
+						}
+					],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Set EnemyMoveTile angle towards next pathfinding node"
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "E_Slime2ElecMoveTile",
+							"sid": 702623789107044,
+							"parameters": {
+								"frame-number": "Functions.GetAngle45(\nE_Slime2ElecBase.ImagePointX(\"center\"),\nE_Slime2ElecBase.ImagePointY(\"center\"),\nE_Slime2ElecBase.Pathfinding.NodeXAt(0),\nE_Slime2ElecBase.Pathfinding.NodeYAt(0))/45"
+							}
+						}
+					],
+					"sid": 384670461478757,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "E_Slime2ElecMoveTile",
+									"sid": 110818101579170,
+									"parameters": {
+										"object": "EnemyBases"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "E_Slime2ElecBase",
+									"sid": 950245090651414,
+									"parameters": {
+										"x": "E_Slime2ElecMoveTile.ImagePointX(\"position\")",
+										"y": "E_Slime2ElecMoveTile.ImagePointY(\"position\")"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "E_Slime2ElecBase",
+									"sid": 469301359492030,
+									"parameters": {
+										"instance-variable": "ActTime",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "E_Slime2ElecBase",
+									"sid": 863158389262710,
+									"parameters": {
+										"instance-variable": "SkipPause",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 554463985127959
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 983784155891519
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "E_Slime2ElecBase",
+									"sid": 402435054135591,
+									"parameters": {
+										"instance-variable": "SkipPause",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 944156845586906
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "E_Slime2ElecBase",
+									"sid": 355964086655287,
+									"parameters": {
+										"instance-variable": "TurnDone",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 114070039992659
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-failed-to-find-path",
+							"objectClass": "E_Slime2ElecBase",
+							"sid": 821966017944649,
+							"behaviorType": "Pathfinding"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "E_Slime2ElecBase",
+							"sid": 107310913498788,
+							"parameters": {
+								"instance-variable": "SkipPause",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "E_Slime2ElecBase",
+							"sid": 686934156963209,
+							"parameters": {
+								"instance-variable": "TurnDone",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 938482466783322
+				}
+			],
+			"sid": 454962951246408
 		},
 		{
 			"eventType": "group",
@@ -3941,6 +4663,24 @@
 						"x": "E_GhostBase.X",
 						"y": "E_GhostBase.Y"
 					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "E_Slime2ElecMask",
+					"sid": 358267424093425,
+					"parameters": {
+						"x": "E_Slime2ElecBase.ImagePointX(\"center\")",
+						"y": "E_Slime2ElecBase.ImagePointY(\"center\")"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "E_Slime2ElecMoveTile",
+					"sid": 488501868629631,
+					"parameters": {
+						"x": "E_Slime2ElecBase.X",
+						"y": "E_Slime2ElecBase.Y"
+					}
 				}
 			],
 			"sid": 158649481078586
@@ -4098,6 +4838,50 @@
 				}
 			],
 			"sid": 324984608444705
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "E_Slime2ElecBase",
+					"sid": 306436196724269,
+					"parameters": {
+						"instance-variable": "hp",
+						"comparison": 2,
+						"value": "Self.maxhp"
+					}
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 891741230325070,
+					"parameters": {
+						"object": "E_Slime2ElecBase"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "E_Slime2ElecMask",
+					"sid": 258969166319471,
+					"parameters": {
+						"object": "hpbar",
+						"layer": "\"Effects\"",
+						"image-point": "\"hpbar\""
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "hpbar",
+					"sid": 566083220225152,
+					"parameters": {
+						"width": "max(0, E_Slime2ElecBase.hp/E_Slime2ElecBase.maxhp * 20)"
+					}
+				}
+			],
+			"sid": 236171410146130
 		},
 		{
 			"eventType": "block",

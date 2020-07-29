@@ -1,0 +1,68 @@
+{
+	"name": "TownPortal",
+	"plugin-id": "Sprite",
+	"sid": 111868442374431,
+	"isGlobal": true,
+	"instanceVariables": [
+		{
+			"name": "map",
+			"type": "string",
+			"desc": "Name of map the portal leads to",
+			"sid": 632363134626300
+		},
+		{
+			"name": "portalX",
+			"type": "number",
+			"desc": "X of map to lead to",
+			"sid": 197242104028607
+		},
+		{
+			"name": "portalY",
+			"type": "number",
+			"desc": "Y of map to lead to",
+			"sid": 617182034652971
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 26,
+						"height": 35,
+						"originX": 0.11538461538461539,
+						"originY": 0.3142857142857143,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4817033,
+						"collisionPoly": {
+							"points": [
+								0.15384615384615385,
+								0.34285714285714286,
+								0.8461538461538461,
+								0.34285714285714286,
+								0.8461538461538461,
+								0.8571428571428571,
+								0.15384615384615385,
+								0.8571428571428571
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 444586541457918,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

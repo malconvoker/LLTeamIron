@@ -336,36 +336,11 @@
 					"conditions": [],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 679532706443336,
-							"parameters": {
-								"variable": "TouchMode",
-								"value": "\"default\""
-							}
-						},
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "SkillButtons",
-							"sid": 552669318644112,
-							"parameters": {
-								"instance-variable": "Active",
-								"value": "false"
-							}
-						},
-						{
-							"callFunction": "LoseMana",
-							"sid": 247832687807648,
-							"parameters": [
-								"Skills.At(1,5)"
-							]
-						},
-						{
 							"id": "set-animation",
 							"objectClass": "PlayerMask",
-							"sid": 784385804400819,
+							"sid": 309172823623417,
 							"parameters": {
-								"animation": "\"manablast\"",
+								"animation": "\"castmanablast\"",
 								"from": "beginning"
 							}
 						},
@@ -376,7 +351,7 @@
 						{
 							"id": "spawn-another-object",
 							"objectClass": "PlayerMask",
-							"sid": 799721219883599,
+							"sid": 937666453949916,
 							"parameters": {
 								"object": "Skill_ManaBlast",
 								"layer": "\"Effects\"",
@@ -410,6 +385,38 @@
 								}
 							],
 							"sid": 957164930151969
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 438651939774034,
+									"parameters": {
+										"variable": "TouchMode",
+										"value": "\"default\""
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "SkillButtons",
+									"sid": 367558516159031,
+									"parameters": {
+										"instance-variable": "Active",
+										"value": "false"
+									}
+								},
+								{
+									"callFunction": "LoseMana",
+									"sid": 330918857742176,
+									"parameters": [
+										"Skills.At(1,5)"
+									]
+								}
+							],
+							"sid": 778248896189832
 						}
 					]
 				},
@@ -423,9 +430,9 @@
 						{
 							"id": "on-animation-finished",
 							"objectClass": "PlayerMask",
-							"sid": 852822815449352,
+							"sid": 890113528588080,
 							"parameters": {
-								"animation": "\"manablast\""
+								"animation": "\"castmanablast\""
 							}
 						},
 						{
@@ -515,7 +522,7 @@
 						},
 						{
 							"id": "is-visible",
-							"objectClass": "Skill_ManaBlastParticle",
+							"objectClass": "Skill_ManaBlast",
 							"sid": 111581711950334
 						}
 					],
@@ -814,6 +821,14 @@
 											"sid": 108523254035340,
 											"parameters": {
 												"object": "Collisions"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_KnightLeap",
+											"sid": 561002223844030,
+											"parameters": {
+												"object": "PitCollisions"
 											}
 										},
 										{
@@ -1488,7 +1503,23 @@
 											"objectClass": "Skill_Target",
 											"sid": 882621686772473,
 											"parameters": {
-												"object": "EnemyBases"
+												"object": "E_SlimeBase"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_Target",
+											"sid": 119836415111850,
+											"parameters": {
+												"object": "E_SkeletonBase"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_Target",
+											"sid": 333217098849336,
+											"parameters": {
+												"object": "E_GhostBase"
 											}
 										},
 										{
@@ -1497,6 +1528,14 @@
 											"sid": 415795350736192,
 											"parameters": {
 												"object": "Collisions"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_Target",
+											"sid": 595693565671535,
+											"parameters": {
+												"object": "PitCollisions"
 											}
 										}
 									],
@@ -1631,7 +1670,25 @@
 					"functionParameters": [],
 					"eventType": "function-block",
 					"conditions": [],
-					"actions": [],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "PlayerMask",
+							"sid": 985955564209232,
+							"parameters": {
+								"animation": "\"castknockback\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Skill_Target",
+							"sid": 679376814407029,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
 					"sid": 124059046951514,
 					"children": [
 						{
@@ -1639,89 +1696,119 @@
 							"conditions": [
 								{
 									"id": "is-overlapping-another-object",
-									"objectClass": "PlayerMoveTile",
-									"sid": 989102032716825,
+									"objectClass": "Skill_Target",
+									"sid": 596097955025121,
 									"parameters": {
-										"object": "EnemyBases"
-									}
+										"object": "PlayerMoveTile"
+									},
+									"isInverted": true
 								}
 							],
 							"actions": [
 								{
-									"callFunction": "DamageEnemy",
-									"sid": 652389152889977,
-									"parameters": [
-										"PlayerBase.meleeDmg",
-										"EnemyBases.UID",
-										true
-									]
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "PlayerMask",
-									"sid": 263882947636075,
-									"parameters": {
-										"animation": "\"attack\"",
-										"from": "beginning"
-									}
-								},
-								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 176377552967240,
-									"parameters": {
-										"audio-file": "hit_test",
-										"loop": "not-looping",
-										"volume": "-5",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"type": "comment",
-									"text": "Move enemy one tile away"
-								},
-								{
-									"id": "set-position",
-									"objectClass": "EnemyBases",
-									"sid": 106063608195685,
-									"parameters": {
-										"x": "Self.X+ Self.X-PlayerBase.X",
-										"y": "Self.Y+ Self.Y-PlayerBase.Y"
-									}
-								},
-								{
-									"id": "set-boolean-instvar",
-									"objectClass": "SkillButtons",
-									"sid": 197324304066259,
-									"parameters": {
-										"instance-variable": "Active",
-										"value": "false"
-									}
-								},
-								{
-									"id": "set-eventvar-value",
-									"objectClass": "System",
-									"sid": 386995823522296,
-									"parameters": {
-										"variable": "TouchMode",
-										"value": "\"default\""
-									}
-								},
-								{
-									"callFunction": "LoseMana",
-									"sid": 579521003068835,
-									"parameters": [
-										"Skills.At(1,10)"
-									]
-								},
-								{
-									"callFunction": "NextTurn",
-									"sid": 192029375270191
+									"id": "destroy",
+									"objectClass": "Skill_Target",
+									"sid": 303998860483022
 								}
 							],
 							"sid": 160611258590587
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "PlayerMask",
+							"sid": 302107286691790,
+							"parameters": {
+								"animation": "\"castknockback\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Skill_Target",
+							"sid": 273479579875401,
+							"parameters": {
+								"object": "EnemyBases"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "PlayerMask",
+							"sid": 982244561084883,
+							"parameters": {
+								"animation": "\"knockbackattack\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"callFunction": "DamageEnemy",
+							"sid": 979791195306116,
+							"parameters": [
+								"PlayerBase.meleeDmg",
+								"EnemyBases.UID",
+								true
+							]
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 640332020785587,
+							"parameters": {
+								"audio-file": "hit_test",
+								"loop": "not-looping",
+								"volume": "-5",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Move enemy one tile away"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "EnemyBases",
+							"sid": 510460429289410,
+							"parameters": {
+								"x": "Self.X+ Self.X-PlayerBase.X",
+								"y": "Self.Y+ Self.Y-PlayerBase.Y"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "SkillButtons",
+							"sid": 615927258866211,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 186446682828303,
+							"parameters": {
+								"variable": "TouchMode",
+								"value": "\"default\""
+							}
+						},
+						{
+							"callFunction": "LoseMana",
+							"sid": 281289093161806,
+							"parameters": [
+								"Skills.At(1,10)"
+							]
+						},
+						{
+							"callFunction": "NextTurn",
+							"sid": 387335147358981
+						}
+					],
+					"sid": 927699834269757
 				}
 			],
 			"sid": 468131947500740
@@ -1816,6 +1903,14 @@
 										{
 											"id": "is-overlapping-another-object",
 											"objectClass": "Skill_Target",
+											"sid": 229699837592361,
+											"parameters": {
+												"object": "PitCollisions"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_Target",
 											"sid": 487680847911622,
 											"parameters": {
 												"object": "PlayerBase"
@@ -1846,6 +1941,15 @@
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "PlayerMask",
+							"sid": 793317075571513,
+							"parameters": {
+								"animation": "\"castearthpillar\"",
+								"from": "beginning"
+							}
+						},
 						{
 							"id": "shake",
 							"objectClass": "Camera",
@@ -1891,16 +1995,6 @@
 										{
 											"type": "comment",
 											"text": "Damage enemy if enemy targeted"
-										},
-										{
-											"callFunction": "DamageEnemy",
-											"sid": 384625310119745,
-											"disabled": true,
-											"parameters": [
-												"2",
-												"EnemyBases.UID",
-												true
-											]
 										},
 										{
 											"id": "spawn-another-object",
@@ -2054,9 +2148,17 @@
 							}
 						},
 						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "EnemyBases",
+							"sid": 892714951038342,
+							"parameters": {
+								"object": "Skill_EarthPillar"
+							}
+						},
+						{
 							"id": "trigger-once-while-true",
 							"objectClass": "System",
-							"sid": 670432422214809
+							"sid": 119878345709966
 						}
 					],
 					"actions": [
@@ -2091,6 +2193,15 @@
 							"sid": 476031368802443
 						},
 						{
+							"id": "set-animation",
+							"objectClass": "PlayerMask",
+							"sid": 385280707869803,
+							"parameters": {
+								"animation": "\"castfade\"",
+								"from": "beginning"
+							}
+						},
+						{
 							"callFunction": "NextTurn",
 							"sid": 708984101383436
 						}
@@ -2110,6 +2221,15 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "PlayerMask",
+							"sid": 523189492961130,
+							"parameters": {
+								"animation": "\"castfade\"",
+								"from": "beginning"
+							}
+						},
 						{
 							"callFunction": "NextTurn",
 							"sid": 954488027985404
@@ -2249,6 +2369,406 @@
 				}
 			],
 			"sid": 296597529117802
+		},
+		{
+			"eventType": "group",
+			"disabled": true,
+			"title": "Dash",
+			"description": "Move up to 5 tiles, doing a melee attack on an enemy upon collision",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "DashSelect",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "comment",
+							"text": "Targeting itself is dealt with in Player event sheet, under End Touch"
+						}
+					],
+					"sid": 661248202480692,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-ordered",
+									"objectClass": "System",
+									"sid": 327493759487747,
+									"parameters": {
+										"object": "EnemyBases",
+										"expression": "EnemyBases.IID",
+										"order": "ascending"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 371707970416268,
+									"parameters": {
+										"first-value": "Functions.PlayerDistance(EnemyBases.X, EnemyBases.Y)",
+										"comparison": 0,
+										"second-value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Creates target on each enemy in player's melee range"
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "EnemyBases",
+									"sid": 489659631695953,
+									"parameters": {
+										"object": "Skill_Target",
+										"layer": "\"Objects\"",
+										"image-point": "0"
+									}
+								},
+								{
+									"type": "comment",
+									"text": "Move target behind enemy to the tile the enemy will be knocked back to"
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Skill_Target",
+									"sid": 709716388909162,
+									"parameters": {
+										"x": "Self.X+ Self.X-PlayerBase.X",
+										"y": "Self.Y+ Self.Y-PlayerBase.Y"
+									}
+								}
+							],
+							"sid": 957183304032097,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_Target",
+											"sid": 688180096602202,
+											"parameters": {
+												"object": "E_SlimeBase"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_Target",
+											"sid": 315843324664400,
+											"parameters": {
+												"object": "E_SkeletonBase"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_Target",
+											"sid": 140655902959594,
+											"parameters": {
+												"object": "E_GhostBase"
+											}
+										},
+										{
+											"id": "is-overlapping-another-object",
+											"objectClass": "Skill_Target",
+											"sid": 151504062941578,
+											"parameters": {
+												"object": "Collisions"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "If the tile behind adjacent enemy is not empty, destroy that target"
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Skill_Target",
+											"sid": 751277585794172
+										}
+									],
+									"sid": 228885964903081,
+									"disabled": true,
+									"isOrBlock": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 115612196580272
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "Spawn target on enemy as well"
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "EnemyBases",
+											"sid": 953436071582950,
+											"parameters": {
+												"object": "Skill_Target",
+												"layer": "\"Objects\"",
+												"image-point": "0"
+											}
+										}
+									],
+									"sid": 763814426939339,
+									"disabled": true
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 723714479294960
+								}
+							],
+							"sid": 690006417805915,
+							"disabled": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-on-screen",
+											"objectClass": "Skill_Target",
+											"sid": 112427598293227
+										}
+									],
+									"actions": [
+										{
+											"type": "comment",
+											"text": "If there are valid targets"
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 273661585152317,
+											"parameters": {
+												"variable": "TouchMode",
+												"value": "\"skilltarget\""
+											}
+										}
+									],
+									"sid": 818055091542107,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 886491799512166
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 315572380797238,
+											"parameters": {
+												"variable": "TouchMode",
+												"value": "\"default\""
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "SkillButtons",
+											"sid": 327649297706102,
+											"parameters": {
+												"instance-variable": "Active",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 821304155796296,
+									"disabled": true
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 163326007055068,
+									"disabled": true
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "DashUse",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "PlayerMask",
+							"sid": 884770529933379,
+							"parameters": {
+								"animation": "\"castdash\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Skill_Target",
+							"sid": 715491621245551,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 688615482300971,
+					"disabled": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Skill_Target",
+									"sid": 665309010314714,
+									"parameters": {
+										"object": "PlayerMoveTile"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Skill_Target",
+									"sid": 613032542082058
+								}
+							],
+							"sid": 834031108144554,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "PlayerMask",
+							"sid": 975098358482822,
+							"parameters": {
+								"animation": "\"castdash\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Skill_Target",
+							"sid": 992966613134744,
+							"parameters": {
+								"object": "EnemyBases"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "PlayerMask",
+							"sid": 512745925270583,
+							"parameters": {
+								"animation": "\"dashattack\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"callFunction": "DamageEnemy",
+							"sid": 138779622938507,
+							"parameters": [
+								"PlayerBase.meleeDmg",
+								"EnemyBases.UID",
+								true
+							]
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 440341362835713,
+							"parameters": {
+								"audio-file": "hit_test",
+								"loop": "not-looping",
+								"volume": "-5",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"type": "comment",
+							"text": "Move enemy one tile away"
+						},
+						{
+							"id": "set-position",
+							"objectClass": "EnemyBases",
+							"sid": 602283669559771,
+							"parameters": {
+								"x": "Self.X+ Self.X-PlayerBase.X",
+								"y": "Self.Y+ Self.Y-PlayerBase.Y"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "SkillButtons",
+							"sid": 175769477305674,
+							"parameters": {
+								"instance-variable": "Active",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 560043169093927,
+							"parameters": {
+								"variable": "TouchMode",
+								"value": "\"default\""
+							}
+						},
+						{
+							"callFunction": "LoseMana",
+							"sid": 172390610661833,
+							"parameters": [
+								"Skills.At(1,10)"
+							]
+						},
+						{
+							"callFunction": "NextTurn",
+							"sid": 128698090100440
+						}
+					],
+					"sid": 559675919492555,
+					"disabled": true
+				}
+			],
+			"sid": 207722962546902
 		},
 		{
 			"eventType": "group",
@@ -2469,7 +2989,12 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "If there is already a skill in selected slot"
+								}
+							],
 							"sid": 620795408730265,
 							"children": [
 								{
@@ -2501,6 +3026,24 @@
 											"parameters": {
 												"instance-variable": "CurrentSkill",
 												"value": "UI_SkillButton.CurrentSkill"
+											}
+										},
+										{
+											"id": "subtract-from-instvar",
+											"objectClass": "PlayerBase",
+											"sid": 477778774312094,
+											"parameters": {
+												"instance-variable": "money",
+												"value": "SkillPickup.cost"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "SkillPickup",
+											"sid": 369972348064466,
+											"parameters": {
+												"instance-variable": "cost",
+												"value": "0"
 											}
 										}
 									],
@@ -2698,6 +3241,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "PlayerBase",
+									"sid": 826724113135359,
+									"parameters": {
+										"instance-variable": "money",
+										"value": "SkillPickup.cost"
+									}
+								},
 								{
 									"id": "destroy",
 									"objectClass": "SkillPickup",

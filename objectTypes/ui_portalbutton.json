@@ -1,0 +1,91 @@
+{
+	"name": "UI_PortalButton",
+	"plugin-id": "Sprite",
+	"sid": 968170170426123,
+	"isGlobal": true,
+	"instanceVariables": [
+		{
+			"name": "cost",
+			"type": "number",
+			"desc": "cost to activate town portal",
+			"sid": 363746602829862
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 21,
+						"originX": 0.9375,
+						"originY": 0.47619047619047616,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1867534,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "cost",
+								"x": 0.5625,
+								"y": 0.6666666666666666
+							},
+							{
+								"name": "popup",
+								"x": -0.75,
+								"y": 0.5238095238095238
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 701691582466868,
+				"name": "active",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 21,
+						"originX": 0.9375,
+						"originY": 0.47619047619047616,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5803061,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "cost",
+								"x": 0.5625,
+								"y": 0.6666666666666666
+							},
+							{
+								"name": "popup",
+								"x": -0.75,
+								"y": 0.5238095238095238
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 740512240055617,
+				"name": "inactive",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

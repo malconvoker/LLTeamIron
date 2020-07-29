@@ -259,7 +259,7 @@
 						"TurnInProgress": true,
 						"DamageTaken": 0,
 						"TurnDone": false,
-						"money": 0
+						"money": 3
 					},
 					"behaviors": {},
 					"world": {
@@ -1132,7 +1132,8 @@
 					"uid": 43,
 					"instanceVariables": {
 						"CurrentSkill": "earthpillar",
-						"Selected": false
+						"Selected": false,
+						"cost": 3
 					},
 					"behaviors": {
 						"Persist": {
@@ -1140,7 +1141,7 @@
 						}
 					},
 					"world": {
-						"x": 120,
+						"x": 80,
 						"y": 120,
 						"width": 18,
 						"height": 18,
@@ -1483,15 +1484,16 @@
 					"type": "SkillPickup",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "soulsiphon",
+						"initial-animation": "knockback",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 218,
+					"uid": 203,
 					"instanceVariables": {
-						"CurrentSkill": "soulsiphon",
-						"Selected": false
+						"CurrentSkill": "knockback",
+						"Selected": false,
+						"cost": 2
 					},
 					"behaviors": {
 						"Persist": {
@@ -1499,8 +1501,82 @@
 						}
 					},
 					"world": {
-						"x": 80,
+						"x": 120,
 						"y": 120,
+						"width": 18,
+						"height": 18,
+						"originX": -0.05555555555555555,
+						"originY": -0.05555555555555555,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SkillPickup",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "manablast",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 46,
+					"instanceVariables": {
+						"CurrentSkill": "manablast",
+						"Selected": false,
+						"cost": 5
+					},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 60,
+						"y": 100,
+						"width": 18,
+						"height": 18,
+						"originX": -0.05555555555555555,
+						"originY": -0.05555555555555555,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "SkillPickup",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "soulsiphon",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 119,
+					"instanceVariables": {
+						"CurrentSkill": "soulsiphon",
+						"Selected": false,
+						"cost": 0
+					},
+					"behaviors": {
+						"Persist": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 140,
+						"y": 100,
 						"width": 18,
 						"height": 18,
 						"originX": -0.05555555555555555,

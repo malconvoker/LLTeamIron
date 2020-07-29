@@ -317,68 +317,6 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 119,
-					"instanceVariables": {
-						"TurnOrder": 1,
-						"LastInTurn": false,
-						"ActTime": -1,
-						"ActThMove": 1,
-						"ActThAttack": 1,
-						"TurnDone": false,
-						"TurnInProgress": false,
-						"maxhp": 3,
-						"hp": 3,
-						"meleeDmg": 2,
-						"SkipPause": false,
-						"SeesPlayer": false,
-						"Active": false,
-						"Flying": false
-					},
-					"behaviors": {
-						"Pathfinding": {
-							"properties": {
-								"cell-size": 20,
-								"cell-border": -1,
-								"obstacles": "custom",
-								"max-speed": 200,
-								"acceleration": 1000,
-								"deceleration": 2000,
-								"rotate-speed": 135,
-								"rotate-object": false,
-								"diagonals": true,
-								"enabled": true
-							}
-						},
-						"Persist": {
-							"properties": {}
-						}
-					},
-					"world": {
-						"x": 260,
-						"y": 120,
-						"width": 20,
-						"height": 20,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "E_SlimeBase",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
 					"uid": 120,
 					"instanceVariables": {
 						"TurnOrder": 1,
@@ -422,42 +360,6 @@
 						"height": 20,
 						"originX": 0,
 						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "SkillPickup",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "manablast",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 46,
-					"instanceVariables": {
-						"CurrentSkill": "manablast",
-						"Selected": false
-					},
-					"behaviors": {
-						"Persist": {
-							"properties": {}
-						}
-					},
-					"world": {
-						"x": 280,
-						"y": 60,
-						"width": 18,
-						"height": 18,
-						"originX": -0.05555555555555555,
-						"originY": -0.05555555555555555,
 						"color": [
 							1,
 							1,
@@ -697,6 +599,68 @@
 					"world": {
 						"x": 60,
 						"y": 40,
+						"width": 20,
+						"height": 20,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "E_Slime2ElecBase",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 268,
+					"instanceVariables": {
+						"TurnOrder": 1,
+						"LastInTurn": false,
+						"ActTime": -1,
+						"ActThMove": 1,
+						"ActThAttack": 1,
+						"TurnDone": false,
+						"TurnInProgress": false,
+						"maxhp": 6,
+						"hp": 6,
+						"meleeDmg": 4,
+						"SkipPause": false,
+						"SeesPlayer": false,
+						"Active": false,
+						"Flying": false
+					},
+					"behaviors": {
+						"Pathfinding": {
+							"properties": {
+								"cell-size": 20,
+								"cell-border": -1,
+								"obstacles": "custom",
+								"max-speed": 200,
+								"acceleration": 1000,
+								"deceleration": 2000,
+								"rotate-speed": 135,
+								"rotate-object": false,
+								"diagonals": true,
+								"enabled": true
+							}
+						},
+						"Persist": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 260,
+						"y": 120,
 						"width": 20,
 						"height": 20,
 						"originX": 0,

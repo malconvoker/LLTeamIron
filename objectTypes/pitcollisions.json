@@ -1,0 +1,21 @@
+{
+	"name": "PitCollisions",
+	"plugin-id": "Tilemap",
+	"sid": 394001136419665,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 20,
+		"height": 20,
+		"originX": 4.4,
+		"originY": 2.8,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 870066,
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}

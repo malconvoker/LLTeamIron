@@ -266,7 +266,16 @@
 						{
 							"id": "set-text",
 							"objectClass": "TXTcrystals",
-							"sid": 889482899211171,
+							"sid": 310325627956388,
+							"parameters": {
+								"text": "PlayerBase.money"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TXTcrystals",
+							"sid": 552754995911061,
+							"disabled": true,
 							"parameters": {
 								"text": "PlayerBase.money & \"  [size=6](money)[/size]\" & newline & \"[size=6](does nothing atm)[/size]\""
 							}
@@ -275,6 +284,14 @@
 							"id": "move-to-top",
 							"objectClass": "UI_Text",
 							"sid": 933403991002040
+						},
+						{
+							"id": "set-text",
+							"objectClass": "TXTportalcost",
+							"sid": 471146703756227,
+							"parameters": {
+								"text": "UI_PortalButton.cost"
+							}
 						}
 					],
 					"sid": 331953264842983
@@ -418,7 +435,7 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "UI_BG",
-									"sid": 347393800032852,
+									"sid": 373661931335645,
 									"parameters": {
 										"object": "UI_BoxIcon",
 										"layer": "\"UI\"",
@@ -524,6 +541,26 @@
 										"layer": "\"UI\"",
 										"image-point": "0"
 									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "UI_BG",
+									"sid": 551763729338153,
+									"parameters": {
+										"object": "UI_PortalButton",
+										"layer": "\"UI\"",
+										"image-point": "\"portalbutton\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "UI_PortalButton",
+									"sid": 329958945923424,
+									"parameters": {
+										"object": "TXTportalcost",
+										"layer": "\"UI\"",
+										"image-point": "\"cost\""
+									}
 								}
 							],
 							"sid": 408653751870961,
@@ -599,8 +636,18 @@
 					"isActiveOnStart": true,
 					"children": [
 						{
+							"eventType": "variable",
+							"name": "CostText",
+							"type": "string",
+							"initialValue": "[color=#40aabb][b]Cost: ",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": true,
+							"sid": 736129732418126
+						},
+						{
 							"eventType": "comment",
-							"text": "MoveTile on Skill Scroll / Enemy > Cursor on Skill Scroll / Enemy > Skill button touched / Skill being picked up > Skill active > Adjacent enemy?"
+							"text": "MoveTile on Skill Scroll / Enemy > Cursor on Skill Scroll / Enemy / Trap > Skill button touched / Skill being picked up > Skill active > Adjacent enemy?"
 						},
 						{
 							"eventType": "comment",
@@ -691,7 +738,58 @@
 									}
 								}
 							],
-							"sid": 953939056961911
+							"sid": 953939056961911,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "SkillPickup",
+											"sid": 629199067664718,
+											"parameters": {
+												"instance-variable": "cost",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "UI_TextBox",
+											"sid": 466059503728905,
+											"parameters": {
+												"instance-variable": "Var1",
+												"value": "CostText & SkillPickup.cost & \"[/b][/color]\""
+											}
+										}
+									],
+									"sid": 501075622847249
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 997987292033397
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "UI_TextBox",
+											"sid": 215811839384710,
+											"parameters": {
+												"instance-variable": "Var1",
+												"value": "\"\""
+											}
+										}
+									],
+									"sid": 251737797261251
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -768,7 +866,58 @@
 									}
 								}
 							],
-							"sid": 142819892476172
+							"sid": 142819892476172,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "SkillPickup",
+											"sid": 254650365319720,
+											"parameters": {
+												"instance-variable": "cost",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "UI_TextBox",
+											"sid": 452863104230208,
+											"parameters": {
+												"instance-variable": "Var1",
+												"value": "CostText & SkillPickup.cost & \"[/b][/color]\""
+											}
+										}
+									],
+									"sid": 666968579722081
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 473667584896995
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "UI_TextBox",
+											"sid": 653788425138384,
+											"parameters": {
+												"instance-variable": "Var1",
+												"value": "\"\""
+											}
+										}
+									],
+									"sid": 522819097799335
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -776,7 +925,54 @@
 								{
 									"id": "is-overlapping-another-object",
 									"objectClass": "Cursor",
-									"sid": 506446175644086,
+									"sid": 770124097955327,
+									"parameters": {
+										"object": "T_gooWall"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "comment",
+									"text": "Cursor on Goo wall trap"
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 748458509892831,
+									"parameters": {
+										"instance-variable": "boxtype",
+										"value": "\"trap\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 835412386649047,
+									"parameters": {
+										"instance-variable": "textbox",
+										"value": "\"T_gooWall\""
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "UI_TextBox",
+									"sid": 502678408715684,
+									"parameters": {
+										"instance-variable": "Var1",
+										"value": "T_gooWall.Damage"
+									}
+								}
+							],
+							"sid": 448068505280728
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Cursor",
+									"sid": 486921482248414,
 									"parameters": {
 										"object": "EnemyBases"
 									}
@@ -790,7 +986,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "UI_TextBox",
-									"sid": 658482779526753,
+									"sid": 570139857468745,
 									"parameters": {
 										"instance-variable": "boxtype",
 										"value": "\"enemy\""
@@ -799,7 +995,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "UI_TextBox",
-									"sid": 671076540854272,
+									"sid": 846334112157088,
 									"parameters": {
 										"instance-variable": "textbox",
 										"value": "EnemyBases.ObjectTypeName"
@@ -808,7 +1004,7 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "UI_TextBox",
-									"sid": 670677661007515,
+									"sid": 425405917002698,
 									"parameters": {
 										"instance-variable": "Var1",
 										"value": "EnemyBases.hp & \"/\" & EnemyBases.maxhp"
@@ -817,14 +1013,14 @@
 								{
 									"id": "set-instvar-value",
 									"objectClass": "UI_TextBox",
-									"sid": 525789889772907,
+									"sid": 206480861780299,
 									"parameters": {
 										"instance-variable": "Var2",
 										"value": "EnemyBases.meleeDmg"
 									}
 								}
 							],
-							"sid": 448068505280728,
+							"sid": 825432633609745,
 							"children": [
 								{
 									"eventType": "block",
@@ -832,7 +1028,7 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "EnemyBases",
-											"sid": 677145988913670,
+											"sid": 766808749187335,
 											"parameters": {
 												"instance-variable": "hp",
 												"comparison": 3,
@@ -844,13 +1040,13 @@
 										{
 											"id": "set-visible",
 											"objectClass": "UI_EnemyDead",
-											"sid": 435044025494147,
+											"sid": 329191874156401,
 											"parameters": {
 												"visibility": "visible"
 											}
 										}
 									],
-									"sid": 379473008877627
+									"sid": 604511261372255
 								},
 								{
 									"eventType": "block",
@@ -858,20 +1054,20 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 405185050450955
+											"sid": 632143724974633
 										}
 									],
 									"actions": [
 										{
 											"id": "set-visible",
 											"objectClass": "UI_EnemyDead",
-											"sid": 693212886767906,
+											"sid": 236925723621803,
 											"parameters": {
 												"visibility": "invisible"
 											}
 										}
 									],
-									"sid": 905033730972355
+									"sid": 557100943855514
 								}
 							]
 						},
@@ -911,7 +1107,58 @@
 									}
 								}
 							],
-							"sid": 857021517033944
+							"sid": 857021517033944,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "SkillPickup",
+											"sid": 235927565696385,
+											"parameters": {
+												"instance-variable": "cost",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "UI_TextBox",
+											"sid": 595483062285535,
+											"parameters": {
+												"instance-variable": "Var1",
+												"value": "CostText & SkillPickup.cost & \"[/b][/color]\""
+											}
+										}
+									],
+									"sid": 391288461498360
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 381627916671362
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "UI_TextBox",
+											"sid": 649663463434452,
+											"parameters": {
+												"instance-variable": "Var1",
+												"value": "\"\""
+											}
+										}
+									],
+									"sid": 295561253054546
+								}
+							]
 						},
 						{
 							"eventType": "block",
@@ -1039,7 +1286,7 @@
 						{
 							"id": "set-text",
 							"objectClass": "UI_TextBox",
-							"sid": 847046646250041,
+							"sid": 726041457917644,
 							"parameters": {
 								"text": "TextBoxContents.Get(Self.textbox)"
 							}
@@ -1047,38 +1294,84 @@
 						{
 							"id": "set-text",
 							"objectClass": "UI_TextBox",
-							"sid": 976423671909099,
+							"sid": 736614824470104,
 							"parameters": {
 								"text": "replace(Self.Text, \"\\n\", newline)"
 							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "UI_TextBox",
-							"sid": 931343113589449,
-							"parameters": {
-								"text": "replace(Self.Text, \"#1\", Self.Var1)"
-							}
-						},
-						{
-							"id": "set-text",
-							"objectClass": "UI_TextBox",
-							"sid": 785221025575637,
-							"parameters": {
-								"text": "replace(Self.Text, \"#2\", Self.Var2)"
-							}
-						},
-						{
-							"id": "set-animation",
-							"objectClass": "UI_BoxIcon",
-							"sid": 773382044102672,
-							"parameters": {
-								"animation": "UI_TextBox.textbox",
-								"from": "beginning"
-							}
 						}
 					],
-					"sid": 250234894826296
+					"sid": 250234894826296,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UI_TextBox",
+									"sid": 419568762111627,
+									"parameters": {
+										"instance-variable": "boxtype",
+										"comparison": 0,
+										"value": "\"skill\""
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "UI_TextBox",
+									"sid": 115962896468338,
+									"disabled": true,
+									"parameters": {
+										"instance-variable": "Var1",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UI_TextBox",
+									"sid": 169158487231693,
+									"parameters": {
+										"text": "replace(Self.Text, \"#1\", Self.Var1)"
+									}
+								}
+							],
+							"sid": 786279914210707
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "UI_TextBox",
+									"sid": 290375571509213,
+									"parameters": {
+										"text": "replace(Self.Text, \"#1\", Self.Var1)"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "UI_TextBox",
+									"sid": 320975482634416,
+									"parameters": {
+										"text": "replace(Self.Text, \"#2\", Self.Var2)"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "UI_BoxIcon",
+									"sid": 568271475925442,
+									"parameters": {
+										"animation": "UI_TextBox.textbox",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 492350167564014
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -1112,6 +1405,96 @@
 				}
 			],
 			"sid": 114352892800954
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 839465459096803
+				}
+			],
+			"actions": [],
+			"sid": 346883801857835,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 976676349376430,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Camp\""
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 199605374105001,
+							"parameters": {
+								"first-value": "LayoutName",
+								"comparison": 0,
+								"second-value": "\"Camp_Entry\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "UI_PortalButton",
+							"sid": 803065531319763,
+							"parameters": {
+								"animation": "\"inactive\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "TXTportalcost",
+							"sid": 144725541831919,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 184491022227519,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 581460054166891
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "UI_PortalButton",
+							"sid": 123341748605917,
+							"parameters": {
+								"animation": "\"active\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "TXTportalcost",
+							"sid": 386323326517661,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 614589707495428
+				}
+			]
 		}
 	],
 	"sid": 272527978810390

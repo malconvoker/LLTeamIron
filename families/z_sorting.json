@@ -14,6 +14,8 @@
 		"MerchantMask",
 		"Camp_Tree",
 		"Camp_Arch",
-		"Skill_EarthPillar"
+		"Skill_EarthPillar",
+		"E_Slime2ElecMask",
+		"TownPortal"
 	]
 }
